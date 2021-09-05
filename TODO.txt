@@ -2,4 +2,3 @@
 - warn if all keys have at least $min_fraction uses (so we need to fetch more with wget!)
 - print STDERR statistics (tags to keep, tags to remove)
 - also do for other keys, not just "shop=" (see ticket #3244 and source)
-- allow "#" and "//" comments after the key name in the same line

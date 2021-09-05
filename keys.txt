@@ -1,17 +1,19 @@
 ### KEYS TO REMOVE ###
+
 name
 name:*
 opening_hours
 opening_hours:*
 brand
 brand:*
-website
 operator
 operator:*
+// contacts
 contact:*
-email
+website
 url
 facebook
+email
 phone
 fax
 internet_access
@@ -48,7 +50,7 @@ ref
 
 ### KEYS TO KEEP ###
 source
-source:*
+source:*		// see https://github.com/streetcomplete/StreetComplete/issues/3244
 
 landuse
 historic

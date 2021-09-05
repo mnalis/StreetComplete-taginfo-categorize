@@ -21,15 +21,17 @@ open my $existing_fd, '<', 'keys.txt';
 while (<$existing_fd>) {
     next unless /^[[:alpha:]]/i;
     chomp;
+    s{\s*(#|//).*$}{};		# remove inline comments
     s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already)
     push @existing, $_;
+    say STDERR "existing key: $_";
 }
 
 # returns false if the specified key is already present in keys.txt
 sub is_new($)
 {
     my ($key) = @_;
-    #say "checking if $key is existing...";
+    #say STDERR "checking if $key is existing...";
     foreach my $old (@existing) {
         return 0 if $key =~ /^${old}$/;	# slow but simple and handle regexes
     }
