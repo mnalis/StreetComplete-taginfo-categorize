@@ -19,13 +19,43 @@ amenity
 description
 
 ### KEYS TO KEEP ###
-addr:*
 source
 source:*
+
+landuse
+historic
+historic:*
+heritage
+heritage:*
+
 building
 building:*
-note
+man_made
+roof:*
+architect
+
+addr:*
+is_in:*
+
 level
+level:ref
+indoor
+indoor:*
+room
+
+layer
+ele
+height
+area
+is_in
+
+FIXME
+fixme
+note
+
+ref:*
+
+
 
 ### KEYS TO PROBABLY KEEP ###
 
