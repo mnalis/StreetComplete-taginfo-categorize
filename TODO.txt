@@ -1,1 +1,2 @@
 - scripta za add samo "KEYS_TO_REMOVE" iz keys.txt u SC format
+- warn if all keys have at least $min_fraction uses (so we need to fetch more with wget!)
