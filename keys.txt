@@ -1,10 +1,32 @@
 ### KEYS TO REMOVE ###
 name
+name:*
+opening_hours
+brand
+brand:*
+phone
+website
+operator
+contact:*
+email
+payment:*
+branch
+
+#phone
+
+wheelchair
+amenity
+description
 
 ### KEYS TO KEEP ###
 addr:*
+source
+source:*
+building
+building:*
+note
+level
 
 ### KEYS TO PROBABLY KEEP ###
 
 ### TODO ###
-
