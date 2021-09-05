@@ -1,0 +1,10 @@
+### KEYS TO REMOVE ###
+name
+
+### KEYS TO KEEP ###
+addr:street
+
+### KEYS TO PROBABLY KEEP ###
+
+### TODO ###
+
