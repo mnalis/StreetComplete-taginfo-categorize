@@ -8,26 +8,31 @@
 use strict;
 use warnings;
 use autodie qw/:all/;
+use feature 'say';
 
 use JSON;
 
 my $min_fraction = 0.1;	# ignore keys which ocur less then often than this fraction (1=100%)
 
 # load existing keys
-my %existing = ();
+my @existing = ();
+
 open my $existing_fd, '<', 'keys.txt';
 while (<$existing_fd>) {
     next unless /^[[:alpha:]]/i;
     chomp;
-    $existing{$_} = 1;
+    s/\*/.*/;		# make "*" wildcard into regex internally
+    push @existing, $_;
 }
 
 # returns false if the specified key is already present in keys.txt
 sub is_new($)
 {
     my ($key) = @_;
-    #print "checking if $key is existing: $existing{$key}\n";
-    return 0 if defined $existing{$key};
+    #say "checking if $key is existing...";
+    foreach my $old (@existing) {
+        return 0 if $key =~ /^${old}$/;	# slow but simple and handle regexes
+    }
     return 1;
 }
 
@@ -39,5 +44,4 @@ my $json_all = (decode_json <$json_fd>)[0]->{'data'};
 my @json_filtered = grep { ($_->{'to_fraction'} > $min_fraction) and is_new($_->{'other_key'}) } @$json_all;
 my @tags_many = map { lc $_->{'other_key'} } @json_filtered;
 
-use Data::Dumper;
-print Dumper (\@tags_many);
+say join "\n", @tags_many;

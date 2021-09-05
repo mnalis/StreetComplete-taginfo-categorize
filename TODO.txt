@@ -1,2 +1,1 @@
-- handle wildcards kao addr:*
 - scripta za add samo "KEYS_TO_REMOVE" iz keys.txt u SC format

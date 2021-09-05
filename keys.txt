@@ -2,7 +2,7 @@
 name
 
 ### KEYS TO KEEP ###
-addr:street
+addr:*
 
 ### KEYS TO PROBABLY KEEP ###
 
