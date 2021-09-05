@@ -42,6 +42,6 @@ open my $json_fd, '<', 'shop.json';
 local $/;
 my $json_all = (decode_json <$json_fd>)[0]->{'data'};
 my @json_filtered = grep { ($_->{'to_fraction'} > $min_fraction) and is_new($_->{'other_key'}) } @$json_all;
-my @tags_many = map { lc $_->{'other_key'} } @json_filtered;
+my @tags_many = map { $_->{'other_key'} } @json_filtered;
 
 say join "\n", @tags_many;
