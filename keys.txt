@@ -1,5 +1,8 @@
 ### KEYS TO REMOVE ###
 
+shop
+craft
+
 name
 name:*
 opening_hours
@@ -30,8 +33,8 @@ short_name:*
 fuel:*
 compressed_air
 clothes
-service
-service:*
+service		// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.
+service:*	// service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
 trade
 smoking
 toilets
@@ -49,6 +52,7 @@ ref
 
 
 ### KEYS TO KEEP ###
+// let's start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
 source
 source:*		// see https://github.com/streetcomplete/StreetComplete/issues/3244
 
@@ -88,14 +92,15 @@ ref:*
 
 ### KEYS TO PROBABLY KEEP ###
 
+
 ### TODO ###
 
+// from shop
 air_conditioning
 atm
 beauty
 check_date
 check_date:opening_hours
-craft
 cuisine
 delivery:covid19
 entrance
@@ -113,3 +118,32 @@ vending
 vending_machine
 wikidata
 wikipedia
+
+// from craft
+product
+tourism
+electronics_repair
+microbrewery
+project:opencities_abidjan
+carpenter
+takeaway
+outdoor_seating
+barrier
+image
+at_bev:addr_date
+fid
+drink:wine
+access
+distillery
+repair
+delivery
+operational_status
+wheelchair_access
+loading_dock
+industrial
+brewery
+mobile
+phone:mobile
+place
+loc_ref
+mobile_phone:repair

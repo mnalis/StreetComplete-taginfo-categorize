@@ -2,3 +2,4 @@
 - warn if all keys have at least $min_fraction uses (so we need to fetch more with wget!)
 - print STDERR statistics (tags to keep, tags to remove)
 - also do for other keys, not just "shop=" (see ticket #3244 and source)
+- need to keep: 'barrier' and similar; are they added? see https://github.com/streetcomplete/StreetComplete/pull/3045#issuecomment-887663272

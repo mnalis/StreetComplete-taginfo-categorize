@@ -24,7 +24,7 @@ while (<$existing_fd>) {
     s{\s*(#|//).*$}{};		# remove inline comments
     s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already)
     push @existing, $_;
-    say STDERR "existing key: $_";
+    #say STDERR "existing key: $_";
 }
 
 # returns false if the specified key is already present in keys.txt
@@ -39,8 +39,9 @@ sub is_new($)
 }
 
 # parse new keys
-
-open my $json_fd, '<', 'shop.json';
+my $json_file = $ARGV[0];
+if (defined $json_file and $json_file =~ /^([a-z]*.json)$/) { $json_file = $1 } else { die "invalid filename" }
+open my $json_fd, '<', $json_file;
 local $/;
 my $json_all = (decode_json <$json_fd>)[0]->{'data'};
 my @json_filtered = grep { ($_->{'to_fraction'} > $min_fraction) and is_new($_->{'other_key'}) } @$json_all;
