@@ -11,12 +11,24 @@ use autodie qw/:all/;
 
 use JSON;
 
+my $min_fraction = 0.1;	# ignore keys which ocur less then often than this fraction (1=100%)
+
 # load existing keys
 my %existing = ();
 open my $existing_fd, '<', 'keys.txt';
 while (<$existing_fd>) {
     next unless /^[[:alpha:]]/i;
-    $existing{$_} = $1;
+    chomp;
+    $existing{$_} = 1;
+}
+
+# returns false if the specified key is already present in keys.txt
+sub is_new($)
+{
+    my ($key) = @_;
+    #print "checking if $key is existing: $existing{$key}\n";
+    return 0 if defined $existing{$key};
+    return 1;
 }
 
 # parse new keys
@@ -24,8 +36,8 @@ while (<$existing_fd>) {
 open my $json_fd, '<', 'shop.json';
 local $/;
 my $json_all = (decode_json <$json_fd>)[0]->{'data'};
-my @json_filtered = grep { $_->{'to_fraction'} > 0.1 } @$json_all;
-my @tags_many = map { $_->{'other_key'} } @json_filtered;
+my @json_filtered = grep { ($_->{'to_fraction'} > $min_fraction) and is_new($_->{'other_key'}) } @$json_all;
+my @tags_many = map { lc $_->{'other_key'} } @json_filtered;
 
 use Data::Dumper;
 print Dumper (\@tags_many);
