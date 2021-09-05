@@ -21,7 +21,7 @@ open my $existing_fd, '<', 'keys.txt';
 while (<$existing_fd>) {
     next unless /^[[:alpha:]]/i;
     chomp;
-    s/\*/.*/;		# make "*" wildcard into regex internally
+    s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already)
     push @existing, $_;
 }
 
