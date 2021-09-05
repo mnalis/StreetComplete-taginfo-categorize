@@ -2,21 +2,49 @@
 name
 name:*
 opening_hours
+opening_hours:*
 brand
 brand:*
-phone
 website
 operator
+operator:*
 contact:*
 email
+url
+facebook
+phone
+fax
+internet_access
 payment:*
 branch
-
-#phone
-
+alt_name
+old_name
+official_name
+short_name
+alt_name:*
+old_name:*
+official_name:*
+short_name:*
+fuel:*
+compressed_air
+clothes
+service
+service:*
+trade
+smoking
+toilets
+toilets:*
+unisex
+male
+female
 wheelchair
+wheelchair:description
 amenity
 description
+
+### KEYS TO PROBABLY REMOVE ###
+ref
+
 
 ### KEYS TO KEEP ###
 source
@@ -56,7 +84,30 @@ note
 ref:*
 
 
-
 ### KEYS TO PROBABLY KEEP ###
 
 ### TODO ###
+
+air_conditioning
+atm
+beauty
+check_date
+check_date:opening_hours
+craft
+cuisine
+delivery:covid19
+entrance
+fhrs:id
+fvst:navnelbnr
+ncat
+office
+organic
+second_hand
+self_service
+start_date
+survey:date
+type
+vending
+vending_machine
+wikidata
+wikipedia
