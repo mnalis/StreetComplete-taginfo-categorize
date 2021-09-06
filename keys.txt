@@ -49,6 +49,7 @@ delivery:covid19         // shop property; unlikely to stay correct if owners ch
 organic                  // shop property; unlikely to stay correct if owners change
 second_hand              // shop property; unlikely to stay correct if owners change
 self_service             // shop property; unlikely to stay correct if owners change
+fhrs:*			// tied to restaurant; see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
 
 
 
@@ -117,7 +118,6 @@ wheelchair:description
 ### TODO ###
 
 // from shop
-fhrs:id    // Don't know.  When a restaurant moves, does it keep its FHRS ID or is it attached to the building? https://wiki.openstreetmap.org/wiki/Key:fhrs:id
 fvst:navnelbnr  // Same thing as fhrs:id, apparently, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
 ncat            // Same thing, but for hospitality industry in South Korea (?)
 wikidata   // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
@@ -128,8 +128,6 @@ drive_through
 supermarket:FR
 network
 internet_access:fee
-fhrs:authority
-fhrs:local_authority_id
 currency:EUR
 int_name
 sport
