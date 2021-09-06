@@ -2,6 +2,13 @@
 
 shop
 craft
+amenity
+
+diet:halal
+diet:vegan
+diet:vegetarian
+
+disused:*
 
 name
 name:*
@@ -22,26 +29,37 @@ fax
 internet_access
 payment:*
 branch
+
+# FIXME: shorten to ".*_name" if such syntax is supported by SC?
 alt_name
 old_name
 official_name
 short_name
+int_name
+loc_name
+full_name
 alt_name:*
 old_name:*
 official_name:*
 short_name:*
+
 fuel:*
 compressed_air
 clothes
 service		// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.
 service:*	// service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
+motorcycle:*
+
 trade
 smoking
+
+// hairdresser
 unisex
 male
 female
-amenity
+
 description
+description:*
 beauty   // only applies to beauty shops, anyway
 check_date:opening_hours  // if opening hours go, so should their check_date
 cuisine                  // shop property; unlikely to stay correct if owners change
@@ -51,6 +69,7 @@ second_hand              // shop property; unlikely to stay correct if owners ch
 self_service             // shop property; unlikely to stay correct if owners change
 fhrs:*			// tied to restaurant; see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
 
+currency:*
 
 
 ### KEYS TO PROBABLY REMOVE ###
@@ -146,21 +165,9 @@ changing_table
 chicago:building_id
 comment
 created_by
-currency:EUR
-currency:MYR
-currency:others
-currency:USD
 date
-description:covid19
-description:en
 designation
-diet:halal
-diet:vegan
-diet:vegetarian
 dispensing
-disused:amenity
-disused:name
-disused:shop
 dog
 drink:beer
 drink:coffee
@@ -174,7 +181,6 @@ import
 inscription
 internet_access:fee
 internet_access:ssid
-int_name
 lacounty:ain
 lacounty:bld_id
 lastcheck
@@ -184,14 +190,9 @@ lbcs:activity:name
 lbcs:function:code
 lbcs:function:name
 leisure
-loc_name
 lottery
 mapillary
 massage
-motorcycle:clothes
-motorcycle:parts
-motorcycle:repair
-motorcycle:sales
 network
 noname
 nycdoitt:bin
@@ -258,7 +259,6 @@ electronics_repair
 fabrik:repair
 fid
 food
-full_name
 furniture:repair
 fvst:fixme
 fvst:name
