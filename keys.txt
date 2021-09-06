@@ -6,9 +6,13 @@ amenity
 
 shop_1
 craft_1
+supermarket
+supermarket:*
+old_shop
 
 diet:*
 disused:*
+was:*
 internet_access:*
 
 name
@@ -35,20 +39,25 @@ internet_access
 payment:*
 branch
 reservation
+license:*
+owner
+takeaway
+takeaway:*
+tobacco
 
 
 # FIXME: shorten to ".*_name" if such syntax is supported by SC?
 alt_name
+alt_name:*
 old_name
+old_name:*
 official_name
+official_name:*
 short_name
+short_name:*
 int_name
 loc_name
 full_name
-alt_name:*
-old_name:*
-official_name:*
-short_name:*
 
 fuel:*
 compressed_air
@@ -70,9 +79,11 @@ description:*
 beauty   // only applies to beauty shops, anyway
 check_date:opening_hours  // if opening hours go, so should their check_date
 microbrewery
+brewery
 real_ale
-pastry
+distillery
 drink:*
+cocktails
 wine:region
 wine_region
 cuisine                  // shop property; unlikely to stay correct if owners change
@@ -82,9 +93,21 @@ second_hand              // shop property; unlikely to stay correct if owners ch
 self_service             // shop property; unlikely to stay correct if owners change
 fhrs:*			// tied to restaurant; see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
 currency:*
+fair_trade
+food
+pastry
+product
+produce
+chocolate
+operational_status
+fee
+carpenter
+caterer
+furniture
+lottery
+wholesale
 
 // FIXME: is ".*:repair" possible?
-
 bicycle:repair
 computer:repair
 fabrik:repair
@@ -106,6 +129,10 @@ outdoor_seating
 source
 source_1
 source:*		// see https://github.com/streetcomplete/StreetComplete/issues/3244
+source_ref
+source_ref:url
+
+loc_ref
 
 landuse
 historic
@@ -121,6 +148,11 @@ architect
 
 addr:*
 is_in:*
+
+not:addr:postcode
+postal_code
+place
+
 
 level
 level:ref
@@ -193,12 +225,7 @@ date
 designation
 dispensing
 dog
-drink:beer
-drink:coffee
 drive_through
-fair_trade
-fee
-furniture
 healthcare
 hgv:lanes
 import
@@ -212,37 +239,23 @@ lbcs:activity:name
 lbcs:function:code
 lbcs:function:name
 leisure
-lottery
 mapillary
 massage
 network
 noname
 nycdoitt:bin
 nysgissam:nysaddresspointid
-old_shop
 origin
-owner
 parts
-postal_code
 post_office
-produce
 religion
 rental
 sale
-source_ref
-source_ref:url
 sport
 stroller
-supermarket
-supermarket:FR
 surveillance
-takeaway:covid19
 tickets:public_transport
-tobacco
 wall
-was:name
-was:shop
-wholesale
 winkelnummer
 
 
@@ -255,21 +268,12 @@ attraction
 bar
 barrier
 beds
-brewery
-carpenter
-caterer
 cellar_door
-chocolate
-cocktails
 damage
 delivery
-description:de
-description:it
-distillery
 drinking_water
 electronics_repair
 fid
-food
 fvst:fixme
 fvst:name
 generator:source
@@ -278,16 +282,10 @@ highway
 image
 industrial
 last_check
-license:unhcr
 loading_dock
-loc_ref
 musical_instrument
-not:addr:postcode
-operational_status
-place
 power
 produced_on_site
-product
 project:opencities_abidjan
 repair
 rooms
@@ -298,7 +296,6 @@ stars
 strapline
 surface
 tailor:alteration_service
-takeaway
 tourism
 waste:disposal
 water_tank:quantity
