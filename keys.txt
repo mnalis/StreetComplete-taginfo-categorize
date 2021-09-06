@@ -10,6 +10,7 @@ supermarket
 supermarket:*
 old_shop
 
+created_by
 diet:*
 disused:*
 was:*
@@ -119,6 +120,7 @@ books
 agrarian
 musical_instrument
 produced_on_site
+massage
 
 accommodation
 rooms
@@ -126,6 +128,7 @@ beds
 capacity
 capacity:persons
 tourism
+laundry_service
 
 
 // FIXME: is ".*:repair" possible?
@@ -142,6 +145,7 @@ office  // top-level tag; shouldn't be associated with shop or craft to begin wi
 vending
 vending_machine
 outdoor_seating
+surveillance	// likely to be changed
 
 
 
@@ -198,6 +202,7 @@ type # used in relations, e.g., type=multipolygon
 
 chicago:building_id
 address
+buildingpart
 
 
 ### KEYS TO PROBABLY KEEP ###
@@ -210,6 +215,7 @@ start_date
 survey:date
 toilets     // Toilet information probably stays correct as shop owners change (worth a separate SC quest?)
 toilets:*
+changing_table
 wheelchair  // Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
 wheelchair:description
 wheelchair_access
@@ -230,10 +236,7 @@ arivac:name
 arivac:type_id
 arivac:typetxt
 attribution
-buildingpart
-changing_table
 comment
-created_by
 date
 designation
 dog
@@ -244,14 +247,12 @@ inscription
 lacounty:ain
 lacounty:bld_id
 lastcheck
-laundry_service
 lbcs:activity:code
 lbcs:activity:name
 lbcs:function:code
 lbcs:function:name
 leisure
 mapillary
-massage
 network
 noname
 nycdoitt:bin
@@ -264,7 +265,6 @@ rental
 sale
 sport
 stroller
-surveillance
 tickets:public_transport
 wall
 winkelnummer
