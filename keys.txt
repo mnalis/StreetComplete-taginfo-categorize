@@ -4,13 +4,15 @@ shop
 craft
 amenity
 
-diet:halal
-diet:vegan
-diet:vegetarian
+shop_1
+craft_1
 
+diet:*
 disused:*
+internet_access:*
 
 name
+name_1
 name:*
 opening_hours
 opening_hours:*
@@ -25,10 +27,15 @@ url
 facebook
 email
 phone
+phone_1
+phone:mobile
+mobile
 fax
 internet_access
 payment:*
 branch
+reservation
+
 
 # FIXME: shorten to ".*_name" if such syntax is supported by SC?
 alt_name
@@ -62,14 +69,27 @@ description
 description:*
 beauty   // only applies to beauty shops, anyway
 check_date:opening_hours  // if opening hours go, so should their check_date
+microbrewery
+real_ale
+pastry
+drink:*
+wine:region
+wine_region
 cuisine                  // shop property; unlikely to stay correct if owners change
 delivery:covid19         // shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
 organic                  // shop property; unlikely to stay correct if owners change
 second_hand              // shop property; unlikely to stay correct if owners change
 self_service             // shop property; unlikely to stay correct if owners change
 fhrs:*			// tied to restaurant; see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
-
 currency:*
+
+// FIXME: is ".*:repair" possible?
+
+bicycle:repair
+computer:repair
+fabrik:repair
+furniture:repair
+mobile_phone:repair
 
 
 ### KEYS TO PROBABLY REMOVE ###
@@ -77,12 +97,14 @@ ref
 office  // top-level tag; shouldn't be associated with shop or craft to begin with.  Or is this a reason to leave it to human inspection?
 vending
 vending_machine
+outdoor_seating
 
 
 
 ### KEYS TO KEEP ###
 // let's start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
 source
+source_1
 source:*		// see https://github.com/streetcomplete/StreetComplete/issues/3244
 
 landuse
@@ -133,8 +155,10 @@ toilets     // Toilet information probably stays correct as shop owners change (
 toilets:*
 wheelchair  // Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
 wheelchair:description
+wheelchair_access
 wikidata   // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 wikipedia  // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
+name_disaster	// https://taginfo.openstreetmap.org/keys/?key=name_disaster#values
 
 ### TODO ###
 
@@ -179,8 +203,6 @@ healthcare
 hgv:lanes
 import
 inscription
-internet_access:fee
-internet_access:ssid
 lacounty:ain
 lacounty:bld_id
 lastcheck
@@ -201,15 +223,12 @@ old_shop
 origin
 owner
 parts
-phone_1
 postal_code
 post_office
 produce
 religion
 rental
 sale
-shop_1
-source_1
 source_ref
 source_ref:url
 sport
@@ -236,30 +255,21 @@ attraction
 bar
 barrier
 beds
-bicycle:repair
 brewery
 carpenter
 caterer
 cellar_door
 chocolate
 cocktails
-computer:repair
-craft_1
-currency:BsF
-currency:XLT
 damage
 delivery
 description:de
 description:it
 distillery
 drinking_water
-drink:liquor
-drink:wine
 electronics_repair
-fabrik:repair
 fid
 food
-furniture:repair
 fvst:fixme
 fvst:name
 generator:source
@@ -271,25 +281,15 @@ last_check
 license:unhcr
 loading_dock
 loc_ref
-microbrewery
-mobile
-mobile_phone:repair
 musical_instrument
-name_1
-name_disaster
 not:addr:postcode
 operational_status
-outdoor_seating
-pastry
-phone:mobile
 place
 power
 produced_on_site
 product
 project:opencities_abidjan
-real_ale
 repair
-reservation
 rooms
 seamark:small_craft_facility:category
 seamark:type
@@ -303,7 +303,4 @@ tourism
 waste:disposal
 water_tank:quantity
 waterway
-wheelchair_access
 wikimedia_commons
-wine:region
-wine_region
