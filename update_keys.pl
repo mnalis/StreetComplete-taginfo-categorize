@@ -12,7 +12,7 @@ use feature 'say';
 
 use JSON;
 
-my $min_fraction = 0.001;	# ignore keys which occur less often than this fraction (0.001 = 0.1%)
+my $min_fraction = 0.0001;	# ignore keys which occur less often than this fraction (0.0001 = 0.01%)
 
 # load existing keys
 my @existing = ();
