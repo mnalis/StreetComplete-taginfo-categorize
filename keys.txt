@@ -37,18 +37,27 @@ service		// shop=car;car_repair, service=car_electrical_repairs;dealer;repair et
 service:*	// service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
 trade
 smoking
-toilets
-toilets:*
 unisex
 male
 female
-wheelchair
-wheelchair:description
 amenity
 description
+beauty   // only applies to beauty shops, anyway
+check_date:opening_hours  // if opening hours go, so should their check_date
+cuisine                  // shop property; unlikely to stay correct if owners change
+delivery:covid19         // shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
+organic                  // shop property; unlikely to stay correct if owners change
+second_hand              // shop property; unlikely to stay correct if owners change
+self_service             // shop property; unlikely to stay correct if owners change
+
+
 
 ### KEYS TO PROBABLY REMOVE ###
 ref
+office  // top-level tag; shouldn't be associated with shop or craft to begin with.  Or is this a reason to leave it to human inspection?
+vending
+vending_machine
+
 
 
 ### KEYS TO KEEP ###
@@ -89,35 +98,32 @@ note
 
 ref:*
 
+type # used in relations, e.g., type=multipolygon
+
 
 ### KEYS TO PROBABLY KEEP ###
 
+air_conditioning
+atm
+check_date
+entrance
+start_date
+survey:date
+toilets     // Toilet information probably stays correct as shop owners change (worth a separate SC quest?)
+toilets:*
+wheelchair  // Wheelchair information probably stays correct as show owners change (worth a separate SC quest?)
+wheelchair:description
 
 ### TODO ###
 
 // from shop
-air_conditioning
-atm
-beauty
-check_date
-check_date:opening_hours
-cuisine
-delivery:covid19
-entrance
-fhrs:id
-fvst:navnelbnr
-ncat
-office
-organic
-second_hand
-self_service
-start_date
-survey:date
-type
-vending
-vending_machine
-wikidata
-wikipedia
+fhrs:id    // Don't know.  When a restaurant moves, does it keep its FHRS ID or is it attached to the building? https://wiki.openstreetmap.org/wiki/Key:fhrs:id
+fvst:navnelbnr  // Same thing as fhrs:id, apparently, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
+ncat            // Same thing, but for hospitality industry in South Korea (?)
+wikidata   // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
+wikipedia  // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
+
+
 
 // from craft
 product
