@@ -38,12 +38,14 @@ fax
 internet_access
 payment:*
 branch
+branch:*
 reservation
 license:*
 owner
 takeaway
 takeaway:*
 tobacco
+bulk_purchase
 
 
 # FIXME: shorten to ".*_name" if such syntax is supported by SC?
@@ -78,12 +80,15 @@ description
 description:*
 beauty   // only applies to beauty shops, anyway
 check_date:opening_hours  // if opening hours go, so should their check_date
+bar
+cafe
 microbrewery
 brewery
 real_ale
 distillery
 drink:*
 cocktails
+alcohol
 wine:region
 wine_region
 cuisine                  // shop property; unlikely to stay correct if owners change
@@ -92,13 +97,15 @@ organic                  // shop property; unlikely to stay correct if owners ch
 second_hand              // shop property; unlikely to stay correct if owners change
 self_service             // shop property; unlikely to stay correct if owners change
 fhrs:*			// tied to restaurant; see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
-currency:*
-fair_trade
 food
 pastry
 product
 produce
 chocolate
+currency:*
+cash_withdrawal
+cash_withdrawal:*
+fair_trade
 operational_status
 fee
 carpenter
@@ -106,6 +113,20 @@ caterer
 furniture
 lottery
 wholesale
+dispensing
+butcher
+books
+agrarian
+musical_instrument
+produced_on_site
+
+accommodation
+rooms
+beds
+capacity
+capacity:persons
+tourism
+
 
 // FIXME: is ".*:repair" possible?
 bicycle:repair
@@ -132,6 +153,7 @@ source:*		// see https://github.com/streetcomplete/StreetComplete/issues/3244
 source_ref
 source_ref:url
 
+import
 loc_ref
 
 landuse
@@ -174,6 +196,9 @@ ref:*
 
 type # used in relations, e.g., type=multipolygon
 
+chicago:building_id
+address
+
 
 ### KEYS TO PROBABLY KEEP ###
 
@@ -192,43 +217,29 @@ wikidata   // Tricky. Could be about the POI (in which case it should go) or abo
 wikipedia  // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 name_disaster	// https://taginfo.openstreetmap.org/keys/?key=name_disaster#values
 
+power
+generator:source
+
 ### TODO ###
 
 // from shop
 fvst:navnelbnr  // Same thing as fhrs:id, apparently, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
 ncat            // Same thing, but for hospitality industry in South Korea (?)
 access:covid19
-address
-agrarian
-alcohol
 arivac:name
 arivac:type_id
 arivac:typetxt
 attribution
-books
-branch:en
 buildingpart
-bulk_purchase
-butcher
-cafe
-capacity
-capacity:persons
-cash_withdrawal
-cash_withdrawal:fee
-cash_withdrawal:purchase_required
-cash_withdrawal:type
 changing_table
-chicago:building_id
 comment
 created_by
 date
 designation
-dispensing
 dog
 drive_through
 healthcare
 hgv:lanes
-import
 inscription
 lacounty:ain
 lacounty:bld_id
@@ -262,12 +273,9 @@ winkelnummer
 
 // from craft
 access
-accommodation
 at_bev:addr_date
 attraction
-bar
 barrier
-beds
 cellar_door
 damage
 delivery
@@ -276,19 +284,14 @@ electronics_repair
 fid
 fvst:fixme
 fvst:name
-generator:source
 goods_supply
 highway
 image
 industrial
 last_check
 loading_dock
-musical_instrument
-power
-produced_on_site
 project:opencities_abidjan
 repair
-rooms
 seamark:small_craft_facility:category
 seamark:type
 size
@@ -296,7 +299,6 @@ stars
 strapline
 surface
 tailor:alteration_service
-tourism
 waste:disposal
 water_tank:quantity
 waterway
