@@ -167,7 +167,6 @@ source_ref
 attribution
 
 import
-loc_ref
 
 landuse
 historic
@@ -234,6 +233,7 @@ wheelchair_access
 wikidata   // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 wikipedia  // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 name_disaster	// https://taginfo.openstreetmap.org/keys/?key=name_disaster#values
+loc_ref		// FIXME, verify
 
 power
 generator:source
