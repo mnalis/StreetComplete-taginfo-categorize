@@ -1,16 +1,16 @@
-- scripta za add samo "KEYS_TO_REMOVE" iz keys.txt u SC format
+- script to convert only "### KEYS TO REMOVE ###" from keys.txt into SC Kotlin format
 - warn if all keys have at least $min_fraction uses (so we need to fetch more with wget!)
 - print STDERR statistics (tags to keep, tags to remove)
 - also do for other keys, not just "shop=" (see ticket #3244 and source)
 - need to keep: 'barrier' and similar; are they added? see https://github.com/streetcomplete/StreetComplete/pull/3045#issuecomment-887663272
 - script to detect duplicates in keys.txt (eg. note:* and note:en)
+- Makefile: unify fetching *.JSON - just specify max_entities/key/(optional)value and have unifed way to fetch and process all of them
 
 
 - watch for this tags too:
 fun isKindOfShopExpression(prefix: String? = null): String {
     val p = if(prefix != null) "$prefix:" else ""
     return ("""
-        ${p}shop and ${p}shop !~ no|vacant|mall
         or ${p}tourism = information and ${p}information = office
         or """ +
         mapOf(
@@ -26,10 +26,6 @@ fun isKindOfShopExpression(prefix: String? = null): String {
             "office" to arrayOf(
                 "insurance", "travel_agent", "tax_advisor", "estate_agent", "political_party",
             ),
-            "craft" to arrayOf(
-                "shoemaker", "tailor", "photographer", "watchmaker", "optician",
-                "electronics_repair", "key_cutter",
-            )
         ).map { p + it.key + " ~ " + it.value.joinToString("|") }.joinToString("\n  or ") + "\n"
         ).trimIndent()
 }
