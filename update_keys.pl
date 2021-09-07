@@ -47,4 +47,7 @@ my $json_all = (decode_json <$json_fd>)[0]->{'data'};
 my @json_filtered = grep { ($_->{'to_fraction'} > $min_fraction) and is_new($_->{'other_key'}) } @$json_all;
 my @tags_many = map { $_->{'other_key'} } @json_filtered;
 
-say join "\n", @tags_many if @tags_many;
+if (@tags_many) {
+    say "// $json_file";
+    say join "\n", @tags_many;
+}
