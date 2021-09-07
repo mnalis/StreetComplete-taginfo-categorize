@@ -7,3 +7,10 @@ shop.json: Makefile
 
 craft.json: Makefile
 	curl -s 'https://taginfo.openstreetmap.org/api/4/key/combinations?key=craft&filter=all&sortname=to_count&sortorder=desc&page=1&rp=601&qtype=other_key&format=json_pretty' > $@
+
+clean:
+	rm -f *.json *~
+
+update: clean keys.txt
+
+.PHONY: clean update
