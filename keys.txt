@@ -5,10 +5,11 @@ craft
 amenity
 
 shop_1
+old_shop
 craft_1
+// FIXME: for this and tons of similar keys, can we more compactly use regex like "supermarket($|:.*)" ?
 supermarket
 supermarket:*
-old_shop
 
 created_by
 diet:*
@@ -25,10 +26,12 @@ brand
 brand:*
 operator
 operator:*
+ref:vatin
 // contacts
 contact:*
 website
 url
+source_ref:url
 facebook
 email
 phone
@@ -47,6 +50,7 @@ takeaway
 takeaway:*
 tobacco
 bulk_purchase
+tailor:*
 
 
 # FIXME: shorten to ".*_name" if such syntax is supported by SC?
@@ -94,10 +98,14 @@ wine:region
 wine_region
 cuisine                  // shop property; unlikely to stay correct if owners change
 delivery:covid19         // shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
+access:covid19		// FIXME: is it possible to use regex for all ".*:covid19" ?
 organic                  // shop property; unlikely to stay correct if owners change
 second_hand              // shop property; unlikely to stay correct if owners change
 self_service             // shop property; unlikely to stay correct if owners change
-fhrs:*			// tied to restaurant; see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
+fhrs:*			// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
+fvst:*			  // tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
+ncat            	// seems to be to classification for hospitality industry in South Korea (?)
+
 food
 pastry
 product
@@ -146,6 +154,7 @@ vending
 vending_machine
 outdoor_seating
 surveillance	// likely to be changed
+check_date	// we have just checked it
 
 
 
@@ -155,7 +164,7 @@ source
 source_1
 source:*		// see https://github.com/streetcomplete/StreetComplete/issues/3244
 source_ref
-source_ref:url
+attribution
 
 import
 loc_ref
@@ -200,6 +209,8 @@ ref:*
 
 type # used in relations, e.g., type=multipolygon
 
+lbcs:*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Shawnee_County/Import
+
 chicago:building_id
 address
 buildingpart
@@ -209,7 +220,8 @@ buildingpart
 
 air_conditioning
 atm
-check_date
+lastcheck	// last check of what? unknown/undocumented, so keep
+
 entrance
 start_date
 survey:date
@@ -226,16 +238,13 @@ name_disaster	// https://taginfo.openstreetmap.org/keys/?key=name_disaster#value
 power
 generator:source
 
+
 ### TODO ###
 
 // from shop
-fvst:navnelbnr  // Same thing as fhrs:id, apparently, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
-ncat            // Same thing, but for hospitality industry in South Korea (?)
-access:covid19
 arivac:name
 arivac:type_id
 arivac:typetxt
-attribution
 comment
 date
 designation
@@ -246,11 +255,6 @@ hgv:lanes
 inscription
 lacounty:ain
 lacounty:bld_id
-lastcheck
-lbcs:activity:code
-lbcs:activity:name
-lbcs:function:code
-lbcs:function:name
 leisure
 mapillary
 network
@@ -282,8 +286,6 @@ delivery
 drinking_water
 electronics_repair
 fid
-fvst:fixme
-fvst:name
 goods_supply
 highway
 image
@@ -298,7 +300,6 @@ size
 stars
 strapline
 surface
-tailor:alteration_service
 waste:disposal
 water_tank:quantity
 waterway
