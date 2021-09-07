@@ -4,7 +4,6 @@
 - also do for other keys, not just "shop=" (see ticket #3244 and source)
 - need to keep: 'barrier' and similar; are they added? see https://github.com/streetcomplete/StreetComplete/pull/3045#issuecomment-887663272
 - script to detect duplicates in keys.txt (eg. note:* and note:en)
-- avoid extra newline if no changes
 
 
 - watch for this tags too:
