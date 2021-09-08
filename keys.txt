@@ -53,6 +53,7 @@ bulk_purchase
 tailor:*
 
 
+
 # FIXME: shorten to ".*_name" if such syntax is supported by SC?
 alt_name
 alt_name:*
@@ -122,6 +123,8 @@ caterer
 furniture
 lottery
 wholesale
+sale
+sport
 dispensing
 butcher
 books
@@ -129,6 +132,9 @@ agrarian
 musical_instrument
 produced_on_site
 massage
+seamark:*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatyard; seamarktype=small_craft_facility
+waterway	// eg. craft=boatbuilder; waterway=boatyard
+
 
 accommodation
 rooms
@@ -146,6 +152,10 @@ fabrik:repair
 furniture:repair
 mobile_phone:repair
 
+electronics_repair
+electronics_repair:*
+
+
 
 ### KEYS TO PROBABLY REMOVE ###
 ref
@@ -156,6 +166,10 @@ outdoor_seating
 surveillance	// likely to be changed
 check_date	// we have just checked it
 
+comment		// might be either, but probably more likely shop-related
+
+damage		// if new shop, damage is probably being repaired?
+source:damage
 
 
 ### KEYS TO KEEP ###
@@ -163,7 +177,7 @@ check_date	// we have just checked it
 source
 source_1
 source:*		// see https://github.com/streetcomplete/StreetComplete/issues/3244
-source_ref
+source_ref		// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
 attribution
 
 import
@@ -213,13 +227,22 @@ lbcs:*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Sh
 chicago:building_id
 address
 buildingpart
+arivac:*	// location data, https://wiki.openstreetmap.org/wiki/Philippines/Data_import_Arivac_Bohol#Arivac_donated_Bohol_data
+lacounty:*	// parcel identifier import, https://wiki.openstreetmap.org/wiki/Key:lacounty:ain
+nysgissam:*	// address data, https://wiki.openstreetmap.org/wiki/New_York_(state)/NYS_GIS_SAM_Address_Points_Import
+barrier
+wall
+nycdoitt:bin	// building id
+fid		// not documented, but used much more on building (58%) than on shop/craft (11%+2%)
 
 
 ### KEYS TO PROBABLY KEEP ###
 
 air_conditioning
 atm
-lastcheck	// last check of what? unknown/undocumented, so keep
+
+lastcheck	// last check of what? unknown/undocumented, so keep?
+last_check	// last check of what? unknown/undocumented, so keep?
 
 entrance
 start_date
@@ -242,10 +265,6 @@ generator:source
 ### TODO ###
 
 // from shop
-arivac:name
-arivac:type_id
-arivac:typetxt
-comment
 date
 designation
 dog
@@ -253,24 +272,17 @@ drive_through
 healthcare
 hgv:lanes
 inscription
-lacounty:ain
-lacounty:bld_id
 leisure
 mapillary
 network
 noname
-nycdoitt:bin
-nysgissam:nysaddresspointid
 origin
 parts
 post_office
 religion
 rental
-sale
-sport
 stroller
 tickets:public_transport
-wall
 winkelnummer
 
 
@@ -279,28 +291,20 @@ winkelnummer
 access
 at_bev:addr_date
 attraction
-barrier
 cellar_door
-damage
 delivery
 drinking_water
-electronics_repair
-fid
 goods_supply
 highway
 image
 industrial
-last_check
 loading_dock
 project:opencities_abidjan
 repair
-seamark:small_craft_facility:category
-seamark:type
 size
 stars
 strapline
 surface
 waste:disposal
 water_tank:quantity
-waterway
 wikimedia_commons
