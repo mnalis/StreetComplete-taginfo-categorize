@@ -66,6 +66,8 @@ short_name:*
 int_name
 loc_name
 full_name
+noname
+
 
 fuel:*
 compressed_air
@@ -108,6 +110,7 @@ fvst:*			  // tied to restaurant, but for DK: https://wiki.openstreetmap.org/wik
 ncat            	// seems to be to classification for hospitality industry in South Korea (?)
 
 food
+origin
 pastry
 product
 produce
@@ -144,6 +147,10 @@ capacity:persons
 tourism
 laundry_service
 
+dog        // whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
+healthcare
+winkelnummer  // undocumented Dutch-only tag for "shop number"
+
 
 // FIXME: is ".*:repair" possible?
 bicycle:repair
@@ -154,6 +161,8 @@ mobile_phone:repair
 
 electronics_repair
 electronics_repair:*
+
+delivery
 
 
 
@@ -170,6 +179,13 @@ comment		// might be either, but probably more likely shop-related
 
 damage		// if new shop, damage is probably being repaired?
 source:damage
+
+drive_through
+network
+parts
+religion
+rental
+repair
 
 
 ### KEYS TO KEEP ###
@@ -234,6 +250,9 @@ barrier
 wall
 nycdoitt:bin	// building id
 fid		// not documented, but used much more on building (58%) than on shop/craft (11%+2%)
+date   // could be related to historic buildings, so should stay: https://wiki.openstreetmap.org/wiki/Key:date
+inscription   // could relate to building
+mapillary     // could relate to building
 
 
 ### KEYS TO PROBABLY KEEP ###
@@ -253,6 +272,7 @@ changing_table
 wheelchair  // Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
 wheelchair:description
 wheelchair_access
+stroller
 wikidata   // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 wikipedia  // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 name_disaster	// https://taginfo.openstreetmap.org/keys/?key=name_disaster#values
@@ -261,29 +281,17 @@ loc_ref		// FIXME, verify
 power
 generator:source
 
+post_office
+
+
 
 ### TODO ###
 
 // from shop
-date
-designation
-dog
-drive_through
-healthcare
-hgv:lanes
-inscription
-leisure
-mapillary
-network
-noname
-origin
-parts
-post_office
-religion
-rental
-stroller
+designation   // appears to be documented for highways, only: https://wiki.openstreetmap.org/wiki/Key:designation
+hgv:lanes     // a highway tag, isn't it?!?
+leisure       // top-level tag; shouldn't be associated with shop, probably.  
 tickets:public_transport
-winkelnummer
 
 
 
@@ -292,7 +300,6 @@ access
 at_bev:addr_date
 attraction
 cellar_door
-delivery
 drinking_water
 goods_supply
 highway
@@ -300,7 +307,6 @@ image
 industrial
 loading_dock
 project:opencities_abidjan
-repair
 size
 stars
 strapline
