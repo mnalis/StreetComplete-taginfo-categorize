@@ -47,7 +47,14 @@ my $json_all = (decode_json <$json_fd>)[0]->{'data'};
 my @json_filtered = grep { ($_->{'to_fraction'} > $min_fraction) and is_new($_->{'other_key'}) } @$json_all;
 my @tags_many = map { $_->{'other_key'} } @json_filtered;
 
-if (@tags_many) {
-    say "// $json_file";
-    say join "\n", @tags_many;
+my $done_count = scalar @tags_many;
+my $all_count  = scalar @$json_all;
+if ($done_count == $all_count) {
+    say STDERR "WARNING $json_file: added $done_count/$all_count tags; but you need to fetch bigger .JSON in Makefile!";
+} else {
+    if (@tags_many) {
+        say "// from $json_file";
+        say join "\n", @tags_many;
+        say STDERR "UPDATE $json_file: added $done_count/$all_count unclassified tags";
+    }
 }
