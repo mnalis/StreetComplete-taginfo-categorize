@@ -21,10 +21,14 @@ $(FILES_TAGS): Makefile
 	@$(CURL_FETCH) '$(CURL_URL)&key=$(KEY_VALUE)'
 	./update_keys.pl $@ >> keys.txt
 
+stats:
+	@echo "TO REMOVE: `sed -ne '1,/PROBABLY REMOVE/s/^\([a-z]\)/\1/p' keys.txt  | wc -l`"
+	@echo "TO KEEP  : `sed -ne '/KEEP/,/TODO/s/^\([a-z]\)/\1/p' keys.txt  | wc -l`"
+
 
 clean:
 	rm -f *.json *~
 
 update: clean keys.txt
 
-.PHONY: clean update
+.PHONY: clean update stats
