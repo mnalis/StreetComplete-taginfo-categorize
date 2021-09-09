@@ -140,7 +140,7 @@ massage
 seamark:*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatyard; seamarktype=small_craft_facility
 waterway	// eg. craft=boatbuilder; waterway=boatyard
 designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
-dog
+dog		// whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
 inscription	// seems to be mostly shop-related
 origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
 parts		// seems to be shop related https://wiki.openstreetmap.org/wiki/Key:parts
@@ -277,7 +277,7 @@ surface		// seems to be mostly unrelated; like amenity=parking + craft=winery + 
 
 lastcheck	// last check of what? unknown/undocumented, so keep?
 last_check	// last check of what? unknown/undocumented, so keep?
-date		// date when feature happened. https://wiki.openstreetmap.org/wiki/Key:date
+date		// could be related to historic buildings, so should stay: https://wiki.openstreetmap.org/wiki/Key:date
 
 entrance
 start_date
