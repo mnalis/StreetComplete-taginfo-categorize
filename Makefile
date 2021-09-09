@@ -28,6 +28,7 @@ $(FILES_TAGS): Makefile
 stats:
 	@echo "TO REMOVE: `sed -ne '1,/PROBABLY REMOVE/s/^\([a-z]\)/\1/p' keys.txt  | wc -l`"
 	@echo "TO KEEP  : `sed -ne '/KEEP/,/TODO/s/^\([a-z]\)/\1/p' keys.txt  | wc -l`"
+	@echo "TODO     : `sed -ne '/TODO/,$$s/^\([a-z]\)/\1/p' keys.txt  | wc -l`"
 
 
 clean:
