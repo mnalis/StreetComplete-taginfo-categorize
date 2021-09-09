@@ -201,7 +201,7 @@ note(:.*)?
 
 ref:*
 
-type # used in relations, e.g., type=multipolygon
+type 		// used in relations, e.g., type=multipolygon
 
 type:FR:FINESS	// on amenity=pharmacy; https://wiki.openstreetmap.org/wiki/Key:type:FR:FINESS says "Each establishment and each legal entity is assigned a 9-character FINESS number"
 lbcs:*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Shawnee_County/Import
