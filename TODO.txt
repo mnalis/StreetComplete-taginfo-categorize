@@ -1,5 +1,3 @@
 - script to convert only "### KEYS TO REMOVE ###" from keys.txt into SC Kotlin format
-- print STDERR statistics (tags to keep, tags to remove)
 - script to detect duplicates in keys.txt (eg. note:* and note:en)
-- add also minimum limit of tags? No sense for wading through tags is it is used only 50 times worldwide (usually in one place, too)
 
