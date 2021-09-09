@@ -144,7 +144,6 @@ seamark:*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatya
 waterway	// eg. craft=boatbuilder; waterway=boatyard
 designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
 dog		// whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
-inscription	// seems to be mostly shop-related
 origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
 parts		// seems to be shop related https://wiki.openstreetmap.org/wiki/Key:parts
 post_office	// used in combination like  post_office=post_partner shop=supermarket|convenience
@@ -280,6 +279,8 @@ air_conditioning
 atm
 drive_through	// likely to remain?
 surface		// seems to be mostly unrelated; like amenity=parking + craft=winery + surface=asphalt etc.
+inscription	// might be building-related, see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/4
+
 
 lastcheck	// last check of what? unknown/undocumented, so keep?
 last_check	// last check of what? unknown/undocumented, so keep?
@@ -314,4 +315,3 @@ generator:source
 
 
 ### TODO ###
-
