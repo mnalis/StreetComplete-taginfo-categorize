@@ -8,27 +8,21 @@ shop_1
 old_shop
 craft_1
 // FIXME: for this and tons of similar keys, can we more compactly use regex like "supermarket($|:.*)" ?
-supermarket
-supermarket:*
+supermarket(:.*)?
 
 created_by
 diet:*
 disused:*
 was:*
-internet_access
-internet_access:*
+internet_access(:.*)?
 
-name
+name(:.*)?
 name_1
-name:*
 noname
-opening_hours
-opening_hours:*
-brand
-brand:*
+opening_hours(:.*)?
+brand(:.*)?
 network		// used like brand
-operator
-operator:*
+operator(:.*)?
 ref:vatin
 // contacts
 contact:*
@@ -37,19 +31,16 @@ url
 source_ref:url
 facebook
 email
-phone
+phone(:.*)?
 phone_1
-phone:mobile
 mobile
 fax
 payment:*
-branch
-branch:*
+branch(:.*)?
 reservation
 license:*
 owner
-takeaway
-takeaway:*
+takeaway(:.*)?
 tobacco
 bulk_purchase
 tailor:*
@@ -75,8 +66,7 @@ compressed_air
 hgv:lanes
 
 clothes
-service		// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.
-service:*	// service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
+service(:.*)?		// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
 motorcycle:*
 repair
 
@@ -88,8 +78,7 @@ unisex
 male
 female
 
-description
-description:*
+description(:.*)?
 beauty	// only applies to beauty shops, anyway
 check_date:opening_hours	// if opening hours go, so should their check_date
 bar
@@ -121,8 +110,7 @@ product
 produce
 chocolate
 currency:*
-cash_withdrawal
-cash_withdrawal:*
+cash_withdrawal(:.*)?
 fair_trade
 operational_status
 fee
@@ -146,8 +134,7 @@ designation	// used to record the legal classification of an object, quick check
 dog		// whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
 origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
 parts		// seems to be shop related https://wiki.openstreetmap.org/wiki/Key:parts
-post_office	// used in combination like  post_office=post_partner shop=supermarket|convenience
-post_office:*
+post_office(:.*)?	// used in combination like  post_office=post_partner shop=supermarket|convenience
 religion	// eg. religion=christian + shop=books|gifts
 rental		// in combination with shop=rental
 tickets:*	// if shop sells tickets:public_transport=yes etc.
@@ -175,8 +162,7 @@ fabrik:repair
 furniture:repair
 mobile_phone:repair
 
-electronics_repair
-electronics_repair:*
+electronics_repair(:.*)?
 
 
 
@@ -200,50 +186,42 @@ source:damage
 
 ### KEYS TO KEEP ###
 // let's start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
-source
+source(:.*)?	// see https://github.com/streetcomplete/StreetComplete/issues/3244
 source_1
-source:*	// see https://github.com/streetcomplete/StreetComplete/issues/3244
 source_ref	// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
 attribution
 
 import
 
 landuse
-historic
-historic:*
-heritage
-heritage:*
+historic(:.*)?
+heritage(:.*)?
 
-building
-building:*
+building(:.*)?
 man_made
 roof:*
 architect
 
 addr:*
-is_in:*
+is_in(:.*)?
 
 not:addr:postcode
 postal_code
 place
 
 
-level
-level:ref
-indoor
-indoor:*
+level(:.*)?
+indoor(:.*)?
 room
 
 layer
 ele
 height
 area
-is_in
 
 FIXME
 fixme
-note
-note:*
+note(:.*)?
 
 ref:*
 
@@ -291,8 +269,7 @@ KSJ2:*		// http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html say
 entrance
 start_date
 survey:date
-toilets	// Toilet information probably stays correct as shop owners change (worth a separate SC quest?)
-toilets:*
+toilets(:.*)?	// Toilet information probably stays correct as shop owners change (worth a separate SC quest?)
 changing_table
 waste:disposal	// undocumented, used about 60 times in one place
 water_tank:quantity	// undocumented, used about 60 times in one place
