@@ -40,7 +40,7 @@ sub is_new($)
 
 # parse new keys
 my $json_file = $ARGV[0];
-if (defined $json_file and $json_file =~ /^([a-z_]*.json)$/) { $json_file = $1 } else { die "invalid filename" }
+if (defined $json_file and $json_file =~ /^([a-z_=]*.json)$/) { $json_file = $1 } else { die "invalid filename" }
 open my $json_fd, '<', $json_file;
 local $/;
 my $json_all = (decode_json <$json_fd>)[0]->{'data'};
