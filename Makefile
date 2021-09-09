@@ -15,6 +15,11 @@ FILES_TAGS := $(patsubst %,%.json,$(subst =,-,$(FETCH_TAGS)))
 FULL_TAG = $(subst .json,,$@)
 KEY_VALUE = $(subst -,&value=,$(FULL_TAG))
 
+sc_to_remove.txt: keys.txt Makefile
+	echo "val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(" > $@
+	sed -ne '1,/PROBABLY REMOVE/s/^\([a-z.]\)/\1/p' keys.txt | sed -e 's,[ \t]*//.*$$,,; s,\([^.]\)\*,\1.*,g; s/^/"/; s/$$/",/' | fmt >> $@
+	echo ").map { it.toRegex() }" >> $@
+
 keys.txt: $(FILES_KEYS) $(FILES_TAGS) update_keys.pl
 
 $(FILES_KEYS): Makefile
