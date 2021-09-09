@@ -20,10 +20,12 @@ internet_access:*
 name
 name_1
 name:*
+noname
 opening_hours
 opening_hours:*
 brand
 brand:*
+network		// used like brand
 operator
 operator:*
 ref:vatin
@@ -71,10 +73,13 @@ noname
 
 fuel:*
 compressed_air
+hgv:lanes
+
 clothes
 service		// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.
 service:*	// service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
 motorcycle:*
+repair
 
 trade
 smoking
@@ -137,8 +142,24 @@ produced_on_site
 massage
 seamark:*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatyard; seamarktype=small_craft_facility
 waterway	// eg. craft=boatbuilder; waterway=boatyard
+designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
+dog
+inscription	// seems to be mostly shop-related
+origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
+parts		// seems to be shop related https://wiki.openstreetmap.org/wiki/Key:parts
+post_office	// used in combination like  post_office=post_partner shop=supermarket|convenience
+post_office:*
+religion	// eg. religion=christian + shop=books|gifts
+rental		// in combination with shop=rental
+tickets:*	// if shop sells tickets:public_transport=yes etc.
+winkelnummer	// undocumented, but translates to "shop number"
+attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewery
+delivery	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key:delivery
+goods_supply	// undocumented. eg. craft=electrician + goods_supply=inside_the_camp; 60 uses only in one place?
+strapline	// "advertasing phrase" https://wiki.openstreetmap.org/wiki/Key:strapline
 
 
+stars
 accommodation
 rooms
 beds
@@ -174,6 +195,9 @@ vending_machine
 outdoor_seating
 surveillance	// likely to be changed
 check_date	// we have just checked it
+healthcare	// mostly stuff like healthcare=optometrist, shop=optician; but there are some exceptions like healthcare=doctor shop=hairdresser like #4474699292 ??
+leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + shop=massage
+cellar_door	// undocumented, only used 100 times in south Australia with craft=winery
 
 comment		// might be either, but probably more likely shop-related
 
@@ -246,22 +270,24 @@ buildingpart
 arivac:*	// location data, https://wiki.openstreetmap.org/wiki/Philippines/Data_import_Arivac_Bohol#Arivac_donated_Bohol_data
 lacounty:*	// parcel identifier import, https://wiki.openstreetmap.org/wiki/Key:lacounty:ain
 nysgissam:*	// address data, https://wiki.openstreetmap.org/wiki/New_York_(state)/NYS_GIS_SAM_Address_Points_Import
+at_bev:*	// australian address dataset, https://wiki.openstreetmap.org/wiki/Key:at_bev:addr_date
 barrier
 wall
 nycdoitt:bin	// building id
 fid		// not documented, but used much more on building (58%) than on shop/craft (11%+2%)
-date   // could be related to historic buildings, so should stay: https://wiki.openstreetmap.org/wiki/Key:date
-inscription   // could relate to building
-mapillary     // could relate to building
 
 
 ### KEYS TO PROBABLY KEEP ###
 
 air_conditioning
 atm
+drive_through	// likely to remain?
+surface		// seems to be mostly unrelated; like amenity=parking + craft=winery + surface=asphalt etc.
 
 lastcheck	// last check of what? unknown/undocumented, so keep?
 last_check	// last check of what? unknown/undocumented, so keep?
+date   // could be related to historic buildings, so should stay: https://wiki.openstreetmap.org/wiki/Key:date
+
 
 entrance
 start_date
@@ -269,14 +295,21 @@ survey:date
 toilets     // Toilet information probably stays correct as shop owners change (worth a separate SC quest?)
 toilets:*
 changing_table
+waste:disposal	// undocumented, used about 60 times in one place
+water_tank:quantity	// undocumented, used about 60 times in one place
 wheelchair  // Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
 wheelchair:description
 wheelchair_access
-stroller
+
+drinking_water	// likely to stay?
+
+stroller	// new shop owner probably keeps the layout? (see wheelchair/toilets above)
 wikidata   // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 wikipedia  // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 name_disaster	// https://taginfo.openstreetmap.org/keys/?key=name_disaster#values
-loc_ref		// FIXME, verify
+loc_ref		// hardly documented https://wiki.openstreetmap.org/wiki/Key:loc_ref
+loading_dock	// undocumented, used about 50 times in one place
+access		// sometimes logical like craft=gardener + access=agricultural; sometimes mistag like amenity=prison + barrier=wall + craft=insulation
 
 power
 generator:source
@@ -285,32 +318,5 @@ post_office
 
 
 
+
 ### TODO ###
-
-// from shop
-designation   // appears to be documented for highways, only: https://wiki.openstreetmap.org/wiki/Key:designation
-hgv:lanes     // a highway tag, isn't it?!?
-leisure       // top-level tag; shouldn't be associated with shop, probably.  
-tickets:public_transport
-
-
-
-// from craft
-access
-at_bev:addr_date
-attraction
-cellar_door
-drinking_water
-goods_supply
-highway
-image
-industrial
-loading_dock
-project:opencities_abidjan
-size
-stars
-strapline
-surface
-waste:disposal
-water_tank:quantity
-wikimedia_commons

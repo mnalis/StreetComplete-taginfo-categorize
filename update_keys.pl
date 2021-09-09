@@ -12,7 +12,7 @@ use feature 'say';
 
 use JSON;
 
-my $min_fraction = 0.0001;	# ignore keys which occur less often than this fraction (0.0001 = 0.01%)
+my $min_percent = 0.01;	# add keys which occur more often than this percentage (NOTE: can't go below 0.01%)
 
 # load existing keys
 my @existing = ();
@@ -44,10 +44,22 @@ if (defined $json_file and $json_file =~ /^([a-z_]*.json)$/) { $json_file = $1 }
 open my $json_fd, '<', $json_file;
 local $/;
 my $json_all = (decode_json <$json_fd>)[0]->{'data'};
-my @json_filtered = grep { ($_->{'to_fraction'} > $min_fraction) and is_new($_->{'other_key'}) } @$json_all;
+my @json_fraction = grep { $_->{'to_fraction'} * 100 > $min_percent } @$json_all;
+my @json_filtered = grep { is_new($_->{'other_key'}) } @json_fraction;
 my @tags_many = map { $_->{'other_key'} } @json_filtered;
 
+my $all_count  = scalar @$json_all;
+my $fraction_count  = scalar @json_fraction;
+my $done_count = scalar @tags_many;
+#say STDERR "TEST $json_file: todo $done_count/$fraction_count/$all_count tags";
+
 if (@tags_many) {
-    say "// $json_file";
+    say "\n// from $json_file";
     say join "\n", @tags_many;
+}
+
+if ($fraction_count == $all_count) {
+    say STDERR "WARNING $json_file: added $done_count/$all_count tags; but you need to fetch bigger .JSON in Makefile!";
+} else {
+    say STDERR "UPDATE $json_file: added $done_count/$all_count unclassified tags" if @tags_many;
 }

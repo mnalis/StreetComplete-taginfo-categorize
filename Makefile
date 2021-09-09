@@ -1,20 +1,34 @@
-keys.txt: shop.json craft.json amenity_restaurant.json update_keys.pl
-	./update_keys.pl shop.json >> $@
-	./update_keys.pl craft.json >> $@
-	./update_keys.pl amenity_restaurant.json >> $@
+# what keys/tags to fetch, and how
+FETCH_KEYS := shop craft
+FETCH_TAGS := amenity=restaurant amenity=cafe
+CURL_URL := https://taginfo.openstreetmap.org/api/4/key/combinations?filter=all&sortname=to_count&sortorder=desc&page=1&rp=801&qtype=other_key&format=json_pretty
+CURL_FETCH = curl --silent --output $@
 
-shop.json: Makefile
-	curl -s 'https://taginfo.openstreetmap.org/api/4/key/combinations?key=shop&filter=all&sortname=to_count&sortorder=desc&page=1&rp=801&qtype=other_key&format=json_pretty' > $@
+# those will be shop.json or amenity_cafe.json, respectively
+FILES_KEYS := $(patsubst %,%.json,$(FETCH_KEYS))
+FILES_TAGS := $(patsubst %,%.json,$(subst =,_,$(FETCH_TAGS)))
 
-craft.json: Makefile
-	curl -s 'https://taginfo.openstreetmap.org/api/4/key/combinations?key=craft&filter=all&sortname=to_count&sortorder=desc&page=1&rp=601&qtype=other_key&format=json_pretty' > $@
+FULL_TAG = $(subst .json,,$@)
+KEY_VALUE = $(subst _,&value=,$(FULL_TAG))
 
-amenity_restaurant.json: Makefile
-	curl -s 'https://taginfo.openstreetmap.org/api/4/tag/combinations?key=amenity&value=restaurant&filter=all&sortname=to_count&sortorder=desc&page=1&rp=301&qtype=other_tag&format=json_pretty' > $@
+keys.txt: $(FILES_KEYS) $(FILES_TAGS) update_keys.pl
+
+$(FILES_KEYS): Makefile
+	@$(CURL_FETCH) '$(CURL_URL)&key=$(FULL_TAG)'
+	./update_keys.pl $@ >> keys.txt
+
+$(FILES_TAGS): Makefile
+	@$(CURL_FETCH) '$(CURL_URL)&key=$(KEY_VALUE)'
+	./update_keys.pl $@ >> keys.txt
+
+stats:
+	@echo "TO REMOVE: `sed -ne '1,/PROBABLY REMOVE/s/^\([a-z]\)/\1/p' keys.txt  | wc -l`"
+	@echo "TO KEEP  : `sed -ne '/KEEP/,/TODO/s/^\([a-z]\)/\1/p' keys.txt  | wc -l`"
+
 
 clean:
 	rm -f *.json *~
 
 update: clean keys.txt
 
-.PHONY: clean update
+.PHONY: clean update stats
