@@ -15,6 +15,7 @@ created_by
 diet:*
 disused:*
 was:*
+internet_access
 internet_access:*
 
 name
@@ -41,7 +42,6 @@ phone_1
 phone:mobile
 mobile
 fax
-internet_access
 payment:*
 branch
 branch:*
@@ -53,6 +53,7 @@ takeaway:*
 tobacco
 bulk_purchase
 tailor:*
+min_age
 
 
 
@@ -111,6 +112,8 @@ self_service             // shop property; unlikely to stay correct if owners ch
 fhrs:*			// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
 fvst:*			  // tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
 ncat            	// seems to be to classification for hospitality industry in South Korea (?)
+nat_ref		// used on ton of amenity=bank in Taiwan
+gnis:county_id	// on amenity=post_office in US; https://wiki.openstreetmap.org/wiki/USGS_GNIS says  "If you come across a feature that no longer exists in the real world, feel free to delete it. "
 
 food
 pastry
@@ -241,11 +244,13 @@ is_in
 FIXME
 fixme
 note
+note:*
 
 ref:*
 
 type # used in relations, e.g., type=multipolygon
 
+type:FR:FINESS	// on amenity=pharmacy; https://wiki.openstreetmap.org/wiki/Key:type:FR:FINESS says "Each establishment and each legal entity is assigned a 9-character FINESS number"
 lbcs:*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Shawnee_County/Import
 
 chicago:building_id
@@ -266,6 +271,7 @@ size		// far more common (and less error-prone) to define width=*, height=* and 
 industrial	// used with landuse=industrial; https://wiki.openstreetmap.org/wiki/Key:industrial
 project:opencities_abidjan	// undocumented; seems to be import related 
 highway		// craft misused; eg. craft=carpenter + highway=service + service=driveway + surface=asphalt; or craft=metal_construction + highway=secondary_link
+KSJ2:*		// http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html says "This is a collection of data on the locations, types, names, addresses, managers, etc. of public offices, schools, hospitals, post offices, social welfare facilities, etc. nationwide"; also https://wiki.openstreetmap.org/wiki/Import/Catalogue/Japan_KSJ2_Import
 
 
 ### KEYS TO PROBABLY KEEP ###
@@ -299,30 +305,11 @@ name_disaster	// https://taginfo.openstreetmap.org/keys/?key=name_disaster#value
 loc_ref		// hardly documented https://wiki.openstreetmap.org/wiki/Key:loc_ref
 loading_dock	// undocumented, used about 50 times in one place
 access		// sometimes logical like craft=gardener + access=agricultural; sometimes mistag like amenity=prison + barrier=wall + craft=insulation
+access:roof	// used in about 1000 amenity=bank
 
 power
 generator:source
 
 
-
 ### TODO ###
 
-// from amenity-bar.json
-min_age
-
-// from amenity-bank.json
-nat_ref
-access:roof
-
-// from amenity-post_office.json
-note:ja
-gnis:feature_id
-KSJ2:ADS
-KSJ2:PubFacAdmin
-gnis:county_id
-gnis:created
-gnis:state_id
-KSJ2:AdminArea
-
-// from amenity-pharmacy.json
-type:FR:FINESS
