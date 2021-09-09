@@ -66,7 +66,7 @@ female
 
 description(:.*)?
 beauty	// only applies to beauty shops, anyway
-check_date:opening_hours	// if opening hours go, so should their check_date
+check_date:opening_hours	// when shop and its opening hours go, so should their check_date
 bar
 cafe
 microbrewery
@@ -140,24 +140,23 @@ capacity:persons
 tourism
 laundry_service
 
+damage		// if new shop, damage is probably being repaired?
+source:damage
+ref		// without extra clasification like ref:xxx, it is most likely shop related
+leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + shop=massage
+check_date	// we have just checked it!
 
 
 ### KEYS TO PROBABLY REMOVE ###
-ref
-office	// top-level tag; shouldn't be associated with shop or craft to begin with.  Or is this a reason to leave it to human inspection?
 vending
 vending_machine
 outdoor_seating
-surveillance	// likely to be changed
-check_date	// we have just checked it
+surveillance	// likely to be changed?
 healthcare	// mostly stuff like healthcare=optometrist, shop=optician; but there are some exceptions like healthcare=doctor shop=hairdresser like #4474699292 ??
-leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + shop=massage
 cellar_door	// undocumented, only used 100 times in south Australia with craft=winery
 
 comment		// might be either, but probably more likely shop-related
 
-damage		// if new shop, damage is probably being repaired?
-source:damage
 
 
 
@@ -263,6 +262,7 @@ loc_ref		// hardly documented https://wiki.openstreetmap.org/wiki/Key:loc_ref
 loading_dock	// undocumented, used about 50 times in one place
 access		// sometimes logical like craft=gardener + access=agricultural; sometimes mistag like amenity=prison + barrier=wall + craft=insulation
 access:roof	// used in about 1000 amenity=bank
+office		// seems to be used on building=* (when building contains both shops and offices), but there are exceptions like office=estate_agent + shop=estate_agent. see https://overpass-turbo.eu/s/1b2m
 
 power
 generator:source
