@@ -15,6 +15,8 @@ FILES_TAGS := $(patsubst %,%.json,$(subst =,-,$(FETCH_TAGS)))
 FULL_TAG = $(subst .json,,$@)
 KEY_VALUE = $(subst -,&value=,$(FULL_TAG))
 
+all: sc_to_remove.txt stats
+
 sc_to_remove.txt: keys.txt Makefile
 	echo "val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(" > $@
 	sed -ne '1,/PROBABLY REMOVE/s/^\([a-z.]\)/\1/p' keys.txt | sed -e 's,[ \t]*//.*$$,,; s,\([^.]\)\*,\1.*,g; s/^/"/; s/$$/",/' | fmt >> $@
@@ -44,4 +46,4 @@ update: clean keys.txt
 local_update:
 	for j in *.json; do echo ./update_keys.pl $$j $(MAX_TAGS) >&2 ; ./update_keys.pl $$j $(MAX_TAGS); done >> keys.txt
 
-.PHONY: clean update local_update stats
+.PHONY: clean update local_update stats all
