@@ -306,3 +306,23 @@ generator:source
 
 
 ### TODO ###
+
+// from amenity-bar.json
+min_age
+
+// from amenity-bank.json
+nat_ref
+access:roof
+
+// from amenity-post_office.json
+note:ja
+gnis:feature_id
+KSJ2:ADS
+KSJ2:PubFacAdmin
+gnis:county_id
+gnis:created
+gnis:state_id
+KSJ2:AdminArea
+
+// from amenity-pharmacy.json
+type:FR:FINESS
