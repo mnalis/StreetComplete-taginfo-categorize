@@ -90,8 +90,8 @@ female
 
 description
 description:*
-beauty   // only applies to beauty shops, anyway
-check_date:opening_hours  // if opening hours go, so should their check_date
+beauty	// only applies to beauty shops, anyway
+check_date:opening_hours	// if opening hours go, so should their check_date
 bar
 cafe
 microbrewery
@@ -103,15 +103,15 @@ cocktails
 alcohol
 wine:region
 wine_region
-cuisine                  // shop property; unlikely to stay correct if owners change
-delivery:covid19         // shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
+cuisine		// shop property; unlikely to stay correct if owners change
+delivery:covid19	// shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
 access:covid19		// FIXME: is it possible to use regex for all ".*:covid19" ?
-organic                  // shop property; unlikely to stay correct if owners change
-second_hand              // shop property; unlikely to stay correct if owners change
-self_service             // shop property; unlikely to stay correct if owners change
-fhrs:*			// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
-fvst:*			  // tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
-ncat            	// seems to be to classification for hospitality industry in South Korea (?)
+organic		// shop property; unlikely to stay correct if owners change
+second_hand	// shop property; unlikely to stay correct if owners change
+self_service	// shop property; unlikely to stay correct if owners change
+fhrs:*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
+fvst:*		// tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
+ncat		// seems to be to classification for hospitality industry in South Korea (?)
 nat_ref		// used on ton of amenity=bank in Taiwan
 gnis:county_id	// on amenity=post_office in US; https://wiki.openstreetmap.org/wiki/USGS_GNIS says  "If you come across a feature that no longer exists in the real world, feel free to delete it. "
 
@@ -183,7 +183,7 @@ electronics_repair:*
 
 ### KEYS TO PROBABLY REMOVE ###
 ref
-office  // top-level tag; shouldn't be associated with shop or craft to begin with.  Or is this a reason to leave it to human inspection?
+office	// top-level tag; shouldn't be associated with shop or craft to begin with.  Or is this a reason to leave it to human inspection?
 vending
 vending_machine
 outdoor_seating
@@ -203,8 +203,8 @@ source:damage
 // let's start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
 source
 source_1
-source:*		// see https://github.com/streetcomplete/StreetComplete/issues/3244
-source_ref		// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
+source:*	// see https://github.com/streetcomplete/StreetComplete/issues/3244
+source_ref	// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
 attribution
 
 import
@@ -289,19 +289,19 @@ date		// could be related to historic buildings, so should stay: https://wiki.op
 entrance
 start_date
 survey:date
-toilets     // Toilet information probably stays correct as shop owners change (worth a separate SC quest?)
+toilets	// Toilet information probably stays correct as shop owners change (worth a separate SC quest?)
 toilets:*
 changing_table
 waste:disposal	// undocumented, used about 60 times in one place
 water_tank:quantity	// undocumented, used about 60 times in one place
-wheelchair  // Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
+wheelchair	// Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
 wheelchair:description
 wheelchair_access
 drinking_water	// likely to stay?
 
 stroller	// new shop owner probably keeps the layout? (see wheelchair/toilets above)
-wikidata   // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
-wikipedia  // Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
+wikidata	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
+wikipedia	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 name_disaster	// https://taginfo.openstreetmap.org/keys/?key=name_disaster#values
 loc_ref		// hardly documented https://wiki.openstreetmap.org/wiki/Key:loc_ref
 loading_dock	// undocumented, used about 50 times in one place
