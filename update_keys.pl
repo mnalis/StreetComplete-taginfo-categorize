@@ -22,7 +22,7 @@ while (<$existing_fd>) {
     next unless /^[[:alpha:]]/i;
     chomp;
     s{\s*(#|//).*$}{};		# remove inline comments
-    s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already)
+    s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already). NOTE: not perfect, but works for us!
     push @existing, $_;
     #say STDERR "existing key: $_";
 }
