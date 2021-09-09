@@ -19,7 +19,7 @@ my @existing = ();
 
 open my $existing_fd, '<', 'keys.txt';
 while (<$existing_fd>) {
-    next unless /^[[:alpha:]]/i;
+    next unless /^[a-z.]/i;	# line could start with regex like ".*xxxx"
     chomp;
     s{\s*(#|//).*$}{};		# remove inline comments
     s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already). NOTE: not perfect, but works for us!
