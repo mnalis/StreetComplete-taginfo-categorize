@@ -40,7 +40,10 @@ sub is_new($)
 
 # parse new keys
 my $json_file = $ARGV[0];
-if (defined $json_file and $json_file =~ /^([a-z_=]*.json)$/) { $json_file = $1 } else { die "invalid filename" }
+if (defined $json_file and $json_file =~ /^([a-z_=-]*.json)$/) { $json_file = $1 } else { die "invalid JSON filename" }
+my $max_tags = $ARGV[1];
+if (defined $max_tags and $max_tags =~ /^(\d+)$/) { $max_tags = $1 } else { die "invalid max_tags" }
+
 open my $json_fd, '<', $json_file;
 local $/;
 my $json_all = (decode_json <$json_fd>)[0]->{'data'};
@@ -51,14 +54,14 @@ my @tags_many = map { $_->{'other_key'} } @json_filtered;
 my $all_count  = scalar @$json_all;
 my $fraction_count  = scalar @json_fraction;
 my $done_count = scalar @tags_many;
-#say STDERR "TEST $json_file: todo $done_count/$fraction_count/$all_count tags";
+#say STDERR "TEST $json_file: todo $done_count/$fraction_count/$all_count/$max_tags tags";
 
 if (@tags_many) {
     say "\n// from $json_file";
     say join "\n", @tags_many;
 }
 
-if ($fraction_count == $all_count) {
+if (($fraction_count == $all_count) and ($all_count == $max_tags)) {
     say STDERR "WARNING $json_file: added $done_count/$all_count tags; but you need to fetch bigger .JSON in Makefile!";
 } else {
     say STDERR "UPDATE $json_file: added $done_count/$all_count unclassified tags" if @tags_many;
