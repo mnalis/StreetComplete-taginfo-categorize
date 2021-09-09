@@ -272,7 +272,8 @@ industrial	// used with landuse=industrial; https://wiki.openstreetmap.org/wiki/
 project:opencities_abidjan	// undocumented; seems to be import related 
 highway		// craft misused; eg. craft=carpenter + highway=service + service=driveway + surface=asphalt; or craft=metal_construction + highway=secondary_link
 KSJ2:*		// http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html says "This is a collection of data on the locations, types, names, addresses, managers, etc. of public offices, schools, hospitals, post offices, social welfare facilities, etc. nationwide"; also https://wiki.openstreetmap.org/wiki/Import/Catalogue/Japan_KSJ2_Import
-
+utahagrc:parcelid	// https://wiki.openstreetmap.org/wiki/Key:utahagrc:parcelid
+WroclawGIS:building:ID	// Poland buildings
 
 ### KEYS TO PROBABLY KEEP ###
 
