@@ -113,7 +113,7 @@ fhrs:*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-
 fvst:*		// tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
 ncat		// seems to be to classification for hospitality industry in South Korea (?)
 nat_ref		// used on ton of amenity=bank in Taiwan
-gnis:county_id	// on amenity=post_office in US; https://wiki.openstreetmap.org/wiki/USGS_GNIS says  "If you come across a feature that no longer exists in the real world, feel free to delete it. "
+gnis:*		// on amenity=post_office in US; https://wiki.openstreetmap.org/wiki/USGS_GNIS says  "If you come across a feature that no longer exists in the real world, feel free to delete it. "
 
 food
 pastry
