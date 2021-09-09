@@ -36,4 +36,7 @@ clean:
 
 update: clean keys.txt
 
-.PHONY: clean update stats
+local_update:
+	for j in *.json; do echo ./update_keys.pl $$j $(MAX_TAGS) >&2 ; ./update_keys.pl $$j $(MAX_TAGS); done >> keys.txt
+
+.PHONY: clean update local_update stats
