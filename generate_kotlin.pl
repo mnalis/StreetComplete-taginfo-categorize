@@ -37,6 +37,7 @@ while (<$existing_fd>) {
     } elsif (m{^#}) {		# detect whole-line-#-comment
         next;
     } elsif (m{^\s*$}) {	# detect empty line
+        if ($kotlin_str =~ / $/) { $kotlin_str = substr($kotlin_str, 0, -1); }
         $kotlin_str .= "\n    ";
     } else {
         warn "SKIPPING unparseable line: $_";
