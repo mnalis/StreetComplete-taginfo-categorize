@@ -14,7 +14,7 @@ source:damage
 created_by
 check_date	// we have just checked it!
 
-// classificatlinks to external databases
+// classifications / links to external databases
 fhrs:*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
 fvst:*		// tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
 ncat		// seems to be to classification for hospitality industry in South Korea (?)
