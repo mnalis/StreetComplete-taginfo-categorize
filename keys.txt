@@ -28,14 +28,14 @@ ref:vatin
 // contacts
 contact:*
 website
-url
-source_ref:url
 facebook
 email
 phone(:.*)?
 phone_1
 mobile
 fax
+url
+source_ref:url
 payment:*
 branch(:.*)?
 reservation
@@ -52,7 +52,7 @@ compressed_air
 hgv:lanes
 
 clothes
-service(:.*)?		// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
+service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
 motorcycle:*
 repair
 
@@ -65,7 +65,7 @@ male
 female
 
 description(:.*)?
-beauty	// only applies to beauty shops, anyway
+beauty				// only applies to beauty shops, anyway
 check_date:opening_hours	// when shop and its opening hours go, so should their check_date
 bar
 cafe
