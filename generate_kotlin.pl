@@ -21,6 +21,7 @@ open my $existing_fd, '<', 'keys.txt';
 
 
 my $skip_it = 1;
+my $kotlin_str = '';
 while (<$existing_fd>) {
     if (/$SECTION_START/) { $skip_it=0; next; }
     if (/$SECTION_END/) { last; }
@@ -30,19 +31,22 @@ while (<$existing_fd>) {
     if (m{^[a-z.]}i) {		# detect key; line could start with regex like ".*xxxx"
         s{\s*(#|//).*$}{};		# remove inline comments
         s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already). NOTE: not perfect, but works for us!
-        print qq{"$_", };
+        $kotlin_str .= qq{"$_", };
     } elsif (m{^//}) {		# detect whole-line-//-comment
-        print "\n    $_\n    ";
+        $kotlin_str .= "\n    $_\n    ";
     } elsif (m{^#}) {		# detect whole-line-#-comment
         next;
     } elsif (m{^\s*$}) {	# detect empty line
-        print "\n    ";
+        $kotlin_str .= "\n    ";
     } else {
         warn "SKIPPING unparseable line: $_";
     }
 
     #say STDERR "DEBUG: line: $_";
 }
+
+if ($kotlin_str =~ /    $/) { $kotlin_str = substr($kotlin_str, 0, -4); }
+print $kotlin_str;
 
 say ').map { it.toRegex() }';
 exit 0;
