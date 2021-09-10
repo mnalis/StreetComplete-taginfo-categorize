@@ -33,7 +33,7 @@ while (<$existing_fd>) {
         s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already). NOTE: not perfect, but works for us!
         $kotlin_str .= qq{"$_", };
     } elsif (m{^//}) {		# detect whole-line-//-comment
-        $kotlin_str .= "\n    $_\n    ";
+        $kotlin_str .= "$_\n    ";
     } elsif (m{^#}) {		# detect whole-line-#-comment
         next;
     } elsif (m{^\s*$}) {	# detect empty line
