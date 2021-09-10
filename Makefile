@@ -21,7 +21,7 @@ sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl > $@
 
 keys.txt: $(FILES_KEYS) $(FILES_TAGS) update_keys.pl
-	[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@ || true
+	@[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@ || true
 
 $(FILES_KEYS): Makefile
 	@$(CURL_FETCH) '$(CURL_URL_KEY)&key=$(FULL_TAG)'
