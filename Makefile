@@ -21,6 +21,7 @@ sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl > $@
 
 keys.txt: $(FILES_KEYS) $(FILES_TAGS) update_keys.pl
+	[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@
 
 $(FILES_KEYS): Makefile
 	@$(CURL_FETCH) '$(CURL_URL_KEY)&key=$(FULL_TAG)'
@@ -34,6 +35,7 @@ stats:
 	@echo "TO REMOVE: `sed -ne '1,/PROBABLY REMOVE/s/^\([a-z.]\)/\1/p' keys.txt  | wc -l`"
 	@echo "TO KEEP  : `sed -ne '/KEEP/,/TODO/s/^\([a-z.]\)/\1/p' keys.txt  | wc -l`"
 	@echo "TODO     : `sed -ne '/TODO/,$$s/^\([a-z.]\)/\1/p' keys.txt  | wc -l`"
+	@[ `sed -ne '/TODO/,$$s/^\([a-z.]\)/\1/p' keys.txt  | wc -l` -eq 0 ]
 
 
 clean:
