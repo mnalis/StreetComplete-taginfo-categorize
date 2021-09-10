@@ -2,27 +2,38 @@
 shop
 craft
 amenity
-
 shop_1
 old_shop
 craft_1
-supermarket(:.*)?
 
-created_by
-diet:*
+// obsoleted information
 disused:*
 was:*
-internet_access(:.*)?
+damage		// if new shop, damage is probably being repaired?
+source:damage
+created_by
+check_date	// we have just checked it!
 
+// classificatlinks to external databases
+fhrs:*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
+fvst:*		// tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
+ncat		// seems to be to classification for hospitality industry in South Korea (?)
+nat_ref		// used on ton of amenity=bank in Taiwan
+gnis:*		// on amenity=post_office in US; https://wiki.openstreetmap.org/wiki/USGS_GNIS says  "If you come across a feature that no longer exists in the real world, feel free to delete it. "
+winkelnummer	// undocumented, but translates to "shop number"
+
+// names and identifications
 name(:.*)?
 name_1
 .*_name(:.*)?	// handles all of alt_name, old_name, short_name:en, etc. see https://github.com/streetcomplete/StreetComplete/issues/3244#issuecomment-915711994
 noname
-opening_hours(:.*)?
+branch(:.*)?
 brand(:.*)?
 network		// used like brand
 operator(:.*)?
+ref		// without extra clasification like ref:xxx, it is most likely shop related
 ref:vatin
+designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
 
 // contacts
 contact:*
@@ -35,39 +46,38 @@ mobile
 fax
 url
 source_ref:url
-
-payment:*
-branch(:.*)?
-reservation
-license:*
 owner
-takeaway(:.*)?
-tobacco
-bulk_purchase
-tailor:*
-min_age
 
-// fuel stations
-fuel:*
-compressed_air
-hgv:lanes
+// payments
+payment:*
+currency:*
+cash_withdrawal(:.*)?
+fee
 
-clothes
-service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
-motorcycle:*
-repair
-
-trade
-smoking
-
-// hairdresser
-unisex
-male
-female
-
-description(:.*)?
-beauty				// only applies to beauty shops, anyway
+// generic shop/craft attributes
+opening_hours(:.*)?
 check_date:opening_hours	// when shop and its opening hours go, so should their check_date
+internet_access(:.*)?
+second_hand	// shop property; unlikely to stay correct if owners change
+self_service	// shop property; unlikely to stay correct if owners change
+license:*
+bulk_purchase
+.*:covid19	// delivery:covid19, access:covid19 etc - shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
+description(:.*)?
+
+min_age
+supermarket(:.*)?
+operational_status
+trade
+wholesale
+sale
+smoking
+origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
+attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewery
+strapline	// "advertasing phrase" https://wiki.openstreetmap.org/wiki/Key:strapline
+dog		// whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
+
+// food and drink details
 bar
 cafe
 microbrewery
@@ -79,73 +89,73 @@ cocktails
 alcohol
 wine:region
 wine_region
+diet:*
 cuisine		// shop property; unlikely to stay correct if owners change
-.*:covid19	// delivery:covid19, access:covid19 etc - shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
-organic		// shop property; unlikely to stay correct if owners change
-second_hand	// shop property; unlikely to stay correct if owners change
-self_service	// shop property; unlikely to stay correct if owners change
-fhrs:*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
-fvst:*		// tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
-ncat		// seems to be to classification for hospitality industry in South Korea (?)
-nat_ref		// used on ton of amenity=bank in Taiwan
-gnis:*		// on amenity=post_office in US; https://wiki.openstreetmap.org/wiki/USGS_GNIS says  "If you come across a feature that no longer exists in the real world, feel free to delete it. "
 
+organic		// shop property; unlikely to stay correct if owners change
+produced_on_site
 food
 pastry
 product
 produce
 chocolate
-currency:*
-cash_withdrawal(:.*)?
 fair_trade
-operational_status
-fee
-carpenter
+butcher
+reservation
+takeaway(:.*)?
+delivery	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key:delivery
 caterer
+
+// fuel stations and boatbuilders
+fuel:*
+compressed_air
+hgv:lanes
+seamark:*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatyard; seamarktype=small_craft_facility
+waterway	// eg. craft=boatbuilder; waterway=boatyard
+
+// related to repair shops/crafts
+service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
+motorcycle:*
+repair
+.*:repair	// eg. bicycle:repair computer:repair fabrik:repair furniture:repair mobile_phone:repair etc.
+electronics_repair(:.*)?
+
+// hairdresser
+unisex
+male
+female
+
+// accomodation & layout
+rooms
+stars
+accommodation
+beds
+capacity(:persons)?
+tourism
+laundry_service
+
+// misc specific attributes
+clothes
+beauty				// only applies to beauty shops, anyway
+tobacco
+carpenter
 furniture
 lottery
-wholesale
-sale
 sport
+leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + shop=massage
 dispensing
-butcher
+tailor:*
+
 books
 agrarian
 musical_instrument
-produced_on_site
 massage
-seamark:*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatyard; seamarktype=small_craft_facility
-waterway	// eg. craft=boatbuilder; waterway=boatyard
-designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
-dog		// whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
-origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
 parts		// seems to be shop related https://wiki.openstreetmap.org/wiki/Key:parts
 post_office(:.*)?	// used in combination like  post_office=post_partner shop=supermarket|convenience
 religion	// eg. religion=christian + shop=books|gifts
 rental		// in combination with shop=rental
 tickets:*	// if shop sells tickets:public_transport=yes etc.
-winkelnummer	// undocumented, but translates to "shop number"
-attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewery
-delivery	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key:delivery
 goods_supply	// undocumented. eg. craft=electrician + goods_supply=inside_the_camp; 60 uses only in one place?
-strapline	// "advertasing phrase" https://wiki.openstreetmap.org/wiki/Key:strapline
-.*:repair	// eg. bicycle:repair computer:repair fabrik:repair furniture:repair mobile_phone:repair etc.
-electronics_repair(:.*)?
-
-stars
-accommodation
-rooms
-beds
-capacity
-capacity:persons
-tourism
-laundry_service
-
-damage		// if new shop, damage is probably being repaired?
-source:damage
-ref		// without extra clasification like ref:xxx, it is most likely shop related
-leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + shop=massage
-check_date	// we have just checked it!
 
 ### KEYS TO PROBABLY REMOVE ###
 vending
