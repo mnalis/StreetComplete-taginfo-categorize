@@ -1,5 +1,4 @@
 ### KEYS TO REMOVE ###
-
 shop
 craft
 amenity
@@ -7,7 +6,6 @@ amenity
 shop_1
 old_shop
 craft_1
-// FIXME: for this and tons of similar keys, can we more compactly use regex like "supermarket($|:.*)" ?
 supermarket(:.*)?
 
 created_by
@@ -25,6 +23,7 @@ brand(:.*)?
 network		// used like brand
 operator(:.*)?
 ref:vatin
+
 // contacts
 contact:*
 website
@@ -36,6 +35,7 @@ mobile
 fax
 url
 source_ref:url
+
 payment:*
 branch(:.*)?
 reservation
@@ -47,6 +47,7 @@ bulk_purchase
 tailor:*
 min_age
 
+// fuel stations
 fuel:*
 compressed_air
 hgv:lanes
@@ -145,7 +146,6 @@ source:damage
 ref		// without extra clasification like ref:xxx, it is most likely shop related
 leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + shop=massage
 check_date	// we have just checked it!
-
 
 ### KEYS TO PROBABLY REMOVE ###
 vending

@@ -1,3 +1,2 @@
-- when generating sc_to_remove.txt; perhaps make it smarter so it respects begining-of-line comments, and takes empty lines and line breakers?
 - script to detect and report duplicates in keys.txt (eg. note:* and note:en)? but there might in future be things we want that behaviour; like remove all "ref:*" except "ref:xxx". we currently can't handle that
 
