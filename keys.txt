@@ -50,6 +50,8 @@ fax
 facebook
 instagram
 twitter
+youtube
+telegram
 email
 website_?[1-9]?
 url
@@ -175,6 +177,7 @@ parts		// seems to be shop related https://wiki.openstreetmap.org/wiki/Key:parts
 post_office(:.*)?	// used in combination like  post_office=post_partner shop=supermarket|convenience
 religion	// eg. religion=christian + shop=books|gifts
 rental		// in combination with shop=rental
+*:rental
 tickets:*	// if shop sells tickets:public_transport=yes etc.
 goods_supply	// undocumented. eg. craft=electrician + goods_supply=inside_the_camp; 60 uses only in one place?
 
@@ -196,6 +199,7 @@ comment		// might be either, but probably more likely shop-related
 // let's start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
 source_?[1-9]?(:.*)?	// see https://github.com/streetcomplete/StreetComplete/issues/3244
 source_ref	// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
+Source
 attribution
 
 import
@@ -217,6 +221,7 @@ postal_code
 place
 
 
+location	// https://wiki.openstreetmap.org/wiki/Key:location
 level(:.*)?
 indoor(:.*)?
 room
@@ -286,6 +291,8 @@ KSJ2:*		// http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html say
 kvl_hro:type	// import: mostly building type, but could be amenity too; see https://wiki.openstreetmap.org/wiki/Rostock:Geb%C3%A4ude_und_Strukturen
 b5m:*		// undocumented, seems to be map/building related?
 it:fvg:ctrn:*	// seems to be geometry related; https://wiki.openstreetmap.org/wiki/CTRN_Friuli_Venezia_Giulia
+dcgis:*		// many are building related (note "dataset" below), see https://wiki.openstreetmap.org/wiki/Washington_DC/DCGIS_imports
+dataset
 
 wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
 entrance
@@ -326,7 +333,6 @@ collector
 condition
 construction
 cosmha
-dataset
 denomination
 door
 gender
@@ -338,7 +344,6 @@ information
 language:ar
 listed_status
 lit
-location
 lojic:bgnum
 maaamet:ETAK
 medical_supply
@@ -354,9 +359,7 @@ project:pdevii
 public_transport
 seasonal
 shower
-ski:rental
 social_facility:for
-Source
 surveillance:type
 tents
 time
@@ -369,7 +372,6 @@ artwork_type
 charity
 company
 crop
-dcgis:gis_id
 dry_cleaning
 factory
 feature
