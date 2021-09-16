@@ -1,26 +1,33 @@
 ### KEYS TO REMOVE ###
-shop
-craft
-amenity
-shop_1
+shop_?[1-3]?(:.*)?
+craft_?[1-3]?
+amenity_?[1-3]?
+old_amenity
 old_shop
-craft_1
 
 // obsoleted information
-disused:*
+abandoned(:.*)?
+disused(:.*)?
 was:*
 damage		// if new shop, damage is probably being repaired?
 source:damage
 created_by
 check_date	// we have just checked it!
+last_checked	// https://wiki.openstreetmap.org/wiki/Proposed_features/last_checked
+checked_exists:date
 
 // classifications / links to external databases
 fhrs:*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
+old_fhrs:*
 fvst:*		// tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
 ncat		// seems to be to classification for hospitality industry in South Korea (?)
 nat_ref		// used on ton of amenity=bank in Taiwan
 gnis:*		// on amenity=post_office in US; https://wiki.openstreetmap.org/wiki/USGS_GNIS says  "If you come across a feature that no longer exists in the real world, feel free to delete it. "
 winkelnummer	// undocumented, but translates to "shop number"
+type:FR:FINESS	// on amenity=pharmacy; https://wiki.openstreetmap.org/wiki/Key:type:FR:FINESS says "Each establishment and each legal entity is assigned a 9-character FINESS number"
+type:FR:APE	// https://wiki.openstreetmap.org/wiki/France/Liste_des_r%C3%A9f%C3%A9rences_nationales - maybe "INSEE code of the main branch of activity of a company"
+kvl_hro:amenity	// import: mostly amenity type; see https://wiki.openstreetmap.org/wiki/Rostock:Geb%C3%A4ude_und_Strukturen
+ref:DK:cvr(:.*)?	// official database of Danish businesses; https://wiki.openstreetmap.org/wiki/Key:ref:DK:cvr
 
 // names and identifications
 name(:.*)?
@@ -37,19 +44,21 @@ designation	// used to record the legal classification of an object, quick check
 
 // contacts
 contact:*
-website
-facebook
-email
 phone(:.*)?
-phone_1
+phone_?[1-3]?
 mobile
 fax
+facebook
+instagram
+twitter
+email
+website_?[1-3]?
 url
 source_ref:url
 owner
 
 // payments
-payment:*
+payment(:.*)?
 currency:*
 cash_withdrawal(:.*)?
 fee
@@ -57,6 +66,8 @@ fee
 // generic shop/craft attributes
 opening_hours(:.*)?
 check_date:opening_hours	// when shop and its opening hours go, so should their check_date
+wifi
+internet
 internet_access(:.*)?
 second_hand	// shop property; unlikely to stay correct if owners change
 self_service	// shop property; unlikely to stay correct if owners change
@@ -72,6 +83,7 @@ trade
 wholesale
 sale
 smoking
+zero_waste
 origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
 attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewery
 strapline	// "advertasing phrase" https://wiki.openstreetmap.org/wiki/Key:strapline
@@ -80,22 +92,29 @@ dog		// whether dogs are allowed is at the owner's discretion (in the jurisdicti
 // food and drink details
 bar
 cafe
+coffee
+microroasting
 microbrewery
 brewery
 real_ale
 distillery
-drink:*
+drink(:.*)?
 cocktails
 alcohol
-wine:region
-wine_region
+wine([:_].*)?
+happy_hours
 diet:*
 cuisine		// shop property; unlikely to stay correct if owners change
+tasting
+breakfast
+lunch
 
 organic		// shop property; unlikely to stay correct if owners change
 produced_on_site
+restaurant
 food
 pastry
+pastry_shop
 product
 produce
 chocolate
@@ -103,7 +122,7 @@ fair_trade
 butcher
 reservation
 takeaway(:.*)?
-delivery	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key:delivery
+delivery(:.*)?	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key:delivery
 caterer
 
 // fuel stations and boatbuilders
@@ -136,6 +155,8 @@ laundry_service
 
 // misc specific attributes
 clothes
+shoes
+tailor
 beauty				// only applies to beauty shops, anyway
 tobacco
 carpenter
@@ -145,6 +166,7 @@ sport
 leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + shop=massage
 dispensing
 tailor:*
+gambling
 
 books
 agrarian
@@ -164,6 +186,7 @@ outdoor_seating
 surveillance	// likely to be changed?
 healthcare	// mostly stuff like healthcare=optometrist, shop=optician; but there are some exceptions like healthcare=doctor shop=hairdresser like #4474699292 ??
 cellar_door	// undocumented, only used 100 times in south Australia with craft=winery
+cellar:use
 
 comment		// might be either, but probably more likely shop-related
 
@@ -213,7 +236,6 @@ ref:*
 
 type 		// used in relations, e.g., type=multipolygon
 
-type:FR:FINESS	// on amenity=pharmacy; https://wiki.openstreetmap.org/wiki/Key:type:FR:FINESS says "Each establishment and each legal entity is assigned a 9-character FINESS number"
 lbcs:*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Shawnee_County/Import
 
 chicago:building_id
@@ -225,6 +247,8 @@ nysgissam:*	// address data, https://wiki.openstreetmap.org/wiki/New_York_(state
 at_bev:*	// australian address dataset, https://wiki.openstreetmap.org/wiki/Key:at_bev:addr_date
 barrier
 wall
+fence_type
+castle_type	// building related, https://wiki.openstreetmap.org/wiki/Key:castle_type
 nycdoitt:bin	// building id
 fid		// not documented, but used much more on building (58%) than on shop/craft (11%+2%)
 wikimedia_commons	// picture, so quite more likely to show building itself
@@ -243,6 +267,9 @@ WroclawGIS:building:ID	// Poland buildings
 air_conditioning
 atm
 drive_through	// likely to remain?
+maxspeed
+lanes
+oneway		// misuse? eg. craft=metal_construction + highway=secondary_link + oneway=yes...
 surface		// seems to be mostly unrelated; like amenity=parking + craft=winery + surface=asphalt etc.
 inscription	// might be building-related, see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/4
 
@@ -250,9 +277,19 @@ inscription	// might be building-related, see https://github.com/mnalis/StreetCo
 lastcheck	// last check of what? unknown/undocumented, so keep?
 last_check	// last check of what? unknown/undocumented, so keep?
 date		// could be related to historic buildings, so should stay: https://wiki.openstreetmap.org/wiki/Key:date
+survey_date
+source_date
+source_type_survey
+source_type_imagery
+source_type_GPS
+source_type_walking_paper
 
 KSJ2:*		// http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html says "This is a collection of data on the locations, types, names, addresses, managers, etc. of public offices, schools, hospitals, post offices, social welfare facilities, etc. nationwide"; also https://wiki.openstreetmap.org/wiki/Import/Catalogue/Japan_KSJ2_Import
+kvl_hro:type	// import: mostly building type, but could be amenity too; see https://wiki.openstreetmap.org/wiki/Rostock:Geb%C3%A4ude_und_Strukturen
+b5m:*		// undocumented, seems to be map/building related?
+it:fvg:ctrn:*	// seems to be geometry related; https://wiki.openstreetmap.org/wiki/CTRN_Friuli_Venezia_Giulia
 
+wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
 entrance
 start_date
 survey:date
@@ -260,8 +297,8 @@ toilets(:.*)?	// Toilet information probably stays correct as shop owners change
 changing_table
 waste:disposal	// undocumented, used about 60 times in one place
 water_tank:quantity	// undocumented, used about 60 times in one place
-wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
-
+water_supply
+water_source:id
 drinking_water	// likely to stay?
 
 stroller	// new shop owner probably keeps the layout? (see wheelchair/toilets above)
@@ -275,144 +312,83 @@ access:roof	// used in about 1000 amenity=bank
 office		// seems to be used on building=* (when building contains both shops and offices), but there are exceptions like office=estate_agent + shop=estate_agent. see https://overpass-turbo.eu/s/1b2m
 
 power
-generator:source
+power_source
+generator:*
 
 
 
 ### TODO ###
 
 // from shop.json
-nohousenumber
-shoes
-parking
-power_source
-disused
-project
-denomination
-location
-source_type_GPS
-old_fhrs:id
-source_date
-information
-cosmha
-pet
-source_type_survey
-source_type_imagery
-dataset
-money_transfer
-indoor_seating
-source_type_walking_paper
-it:fvg:ctrn:code
-it:fvg:ctrn:revision
-Source
-car_wash
 automated
-maaamet:ETAK
-survey_date
-restaurant
-door
-language:ar
-seasonal
-wifi
-healthcare:speciality
-time
-shower
-instagram
-zero_waste
-delivery:description:it
-medical_supply
-vacuum_cleaner
-shop_2
-last_checked
-project:pdevii
-social_facility:for
-pastry_shop
-guid:belorusneft
-twitter
-listed_status
-tents
-abandoned
 caravans
-drink
-water_source:id
-surveillance:type
-amenity_1
-gender
-shop:anime
-shop:manga
-project:eurosha_2012
-public_transport
+car_wash
 club
-usar_addr:edit_date
-condition
-lojic:bgnum
-construction
-internet
-shop:comic_goods
-shop:doujinshi
 collector
-checked_exists:date
-gambling
-old_amenity
-lit
-coffee
+condition
+construction
+cosmha
+dataset
+denomination
+door
+gender
 government
-shop:videos
+guid:belorusneft
+healthcare:speciality
+indoor_seating
+information
+language:ar
+listed_status
+lit
+location
+lojic:bgnum
+maaamet:ETAK
+medical_supply
+money_transfer
 natural
+nohousenumber
 osm_id
+parking
+pet
+project
+project:eurosha_2012
+project:pdevii
+public_transport
+seasonal
+shower
 ski:rental
+social_facility:for
+Source
+surveillance:type
+tents
+time
+usar_addr:edit_date
+vacuum_cleaner
 
 // from craft.json
-feature
-fence_type
-material
 appliance
-happy_hours
-studio
 artwork_type
-kvl_hro:type
-mhs:inscription_date
-social_facility
-kvl_hro:amenity
-crop
-dry_cleaning
-lanes
-maxspeed
-lunch
-cellar:use
-company
-functional
-oneway
-type:FR:APE
-castle_type
 charity
-generator:method
-water_supply
-b5m:id
-b5m:url
-b5m:urlOrto
-breakfast
-foot
-health_service:examination
-website_1
-factory
-health_specialty:optometry
-microroasting
-tasting
-craft_2
-delivery:fee
-medical_system:western
-phone2
-substation
-tailor
-taproom
-wine
+company
+crop
 dcgis:gis_id
-payment
-phone_2
+dry_cleaning
+factory
+feature
+foot
+functional
+health_service:examination
+health_specialty:optometry
+material
+medical_system:western
+mhs:inscription_date
 raw_material
 ruins
 showroom
+social_facility
 stonemason
+studio
+substation
+taproom
 training
 year
