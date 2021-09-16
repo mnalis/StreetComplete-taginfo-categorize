@@ -1,2 +1,3 @@
+- parse iD fields/moreFields also? see https://github.com/streetcomplete/StreetComplete/pull/3278#issuecomment-919055919
 - script to detect and report duplicates in keys.txt (eg. note:* and note:en)? but there might in future be things we want that behaviour; like remove all "ref:*" except "ref:xxx". we currently can't handle that
 
