@@ -1,7 +1,7 @@
 ### KEYS TO REMOVE ###
-shop_?[1-3]?(:.*)?
-craft_?[1-3]?
-amenity_?[1-3]?
+shop_?[1-9]?(:.*)?
+craft_?[1-9]?
+amenity_?[1-9]?
 old_amenity
 old_shop
 
@@ -30,8 +30,7 @@ kvl_hro:amenity	// import: mostly amenity type; see https://wiki.openstreetmap.o
 ref:DK:cvr(:.*)?	// official database of Danish businesses; https://wiki.openstreetmap.org/wiki/Key:ref:DK:cvr
 
 // names and identifications
-name(:.*)?
-name_1
+name_?[1-9]?(:.*)?
 .*_name(:.*)?	// handles all of alt_name, old_name, short_name:en, etc. see https://github.com/streetcomplete/StreetComplete/issues/3244#issuecomment-915711994
 noname
 branch(:.*)?
@@ -45,14 +44,14 @@ designation	// used to record the legal classification of an object, quick check
 // contacts
 contact:*
 phone(:.*)?
-phone_?[1-3]?
+phone_?[1-9]?
 mobile
 fax
 facebook
 instagram
 twitter
 email
-website_?[1-3]?
+website_?[1-9]?
 url
 source_ref:url
 owner
@@ -74,8 +73,8 @@ self_service	// shop property; unlikely to stay correct if owners change
 license:*
 bulk_purchase
 .*:covid19	// delivery:covid19, access:covid19 etc - shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
-description(:.*)?
 
+description(:.*)?
 min_age
 supermarket(:.*)?
 operational_status
@@ -195,8 +194,7 @@ comment		// might be either, but probably more likely shop-related
 
 ### KEYS TO KEEP ###
 // let's start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
-source(:.*)?	// see https://github.com/streetcomplete/StreetComplete/issues/3244
-source_1
+source_?[1-9]?(:.*)?	// see https://github.com/streetcomplete/StreetComplete/issues/3244
 source_ref	// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
 attribution
 
