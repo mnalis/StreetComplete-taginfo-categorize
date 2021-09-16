@@ -64,8 +64,11 @@ payment(:.*)?
 currency:.*
 cash_withdrawal(:.*)?
 fee
+money_transfer	// might be bank, but also shop=stationery+money_transfer=Western Union etc. https://wiki.openstreetmap.org/wiki/Key:money_transfer
 
 // generic shop/craft attributes
+seasonal	// 398 combinations worldwide, shop=travel_agency, shop=greengrocer...
+time		// 385 combinations worldwide; either mistaken opening_hours, or some unknown timestamp 
 opening_hours(:.*)?
 check_date:opening_hours	// when shop and its opening hours go, so should their check_date
 wifi
@@ -82,6 +85,7 @@ language:.*	// language offered, https://wiki.openstreetmap.org/wiki/Key:languag
 description(:.*)?
 min_age
 supermarket(:.*)?
+social_facility(:.*)?	// shop=gift+social_facility=workshop+social_facility:for=disabled, shop=supermarket+social_facility=food_bank+social_facility:for=underprivileged
 operational_status
 trade
 wholesale
@@ -171,7 +175,6 @@ leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + s
 dispensing
 tailor:.*
 gambling
-denomination	// shop=religion, shop=funeral_directors etc., https://wiki.openstreetmap.org/wiki/Key:denomination
 
 club		// shop related, https://wiki.openstreetmap.org/wiki/Key:club
 collector	// with shop=collector, https://wiki.openstreetmap.org/wiki/Tag:shop=collector
@@ -182,9 +185,11 @@ massage
 parts		// seems to be shop related https://wiki.openstreetmap.org/wiki/Key:parts
 post_office(:.*)?	// used in combination like  post_office=post_partner shop=supermarket|convenience
 religion	// eg. religion=christian + shop=books|gifts
+denomination	// shop=religion, shop=funeral_directors etc., https://wiki.openstreetmap.org/wiki/Key:denomination
 rental		// in combination with shop=rental
 .*:rental
 tickets:.*	// if shop sells tickets:public_transport=yes etc.
+public_transport	// shop=ticket + public_transport=ticket_office; 285 combinations worldwide
 goods_supply	// undocumented. eg. craft=electrician + goods_supply=inside_the_camp; 60 uses only in one place?
 pet		// pet shop details, https://wiki.openstreetmap.org/wiki/Key:pet
 
@@ -195,7 +200,6 @@ vending_machine
 outdoor_seating
 indoor_seating
 surveillance(:.*)?	// likely to be changed?
-
 
 comment		// might be either, but probably more likely shop-related
 
@@ -287,6 +291,7 @@ highway		// craft misused; eg. craft=carpenter + highway=service + service=drive
 utahagrc:parcelid	// https://wiki.openstreetmap.org/wiki/Key:utahagrc:parcelid
 WroclawGIS:building:ID	// Poland buildings
 mhs:.*		// historical monuments in France? https://wiki.openstreetmap.org/wiki/Key:ref:mhs - mhs:inscription_date
+listed_status	//  official listed status of a building or other structure, usually due to their historical significance, https://wiki.openstreetmap.org/wiki/Key:listed_status
 
 
 
@@ -323,7 +328,12 @@ dcgis:.*		// many are building related (note "dataset" below), see https://wiki.
 dataset
 project:eurosha_2012	// undocumented, https://wiki.openstreetmap.org/wiki/Chad ?
 cosmha		// not documented, see https://wiki.openstreetmap.org/wiki/WikiProject_Haiti/Status/Hospitals
-government	// related to office=goverment, which we do not target specifically, overpass-turbo shows often marged in the same object with office=government + shop=car_repair|mall|photo...
+lojic:bgnum	// building ID, https://wiki.openstreetmap.org/wiki/Louisville,_Kentucky/Building_Outlines_Import
+maaamet:ETAK	// undocumented, 474 uses worldwide, might be addess-related due to other tags like "source:addr=Maa-amet 2013"
+osm_id		// undocumented, 244 uses worldwide
+project		// undocumented, 643 uses worldwide
+project:pdevii	// undocumented, 337 uses worldwide
+usar_addr:edit_date	// undocumented, 279 uses worldwide
 
 
 wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
@@ -335,6 +345,8 @@ water_tank:quantity	// undocumented, used about 60 times in one place
 water_supply
 water_source:id
 drinking_water	// likely to stay?
+lit		// likely to stay, or not? old 253 uses worldwide...
+government	// related to office=goverment, which we do not target specifically, overpass-turbo shows often marged in the same object with office=government + shop=car_repair|mall|photo...
 
 stroller	// new shop owner probably keeps the layout? (see wheelchair/toilets above)
 wikidata	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
@@ -348,6 +360,8 @@ office		// seems to be used on building=* (when building contains both shops and
 condition	// ambiguous, https://wiki.openstreetmap.org/wiki/Key:condition
 cellar_door	// undocumented, only used 100 times in south Australia with craft=winery
 cellar:use
+natural
+parking
 
 power
 power_source
@@ -356,23 +370,6 @@ generator:.*
 
 
 ### TODO ###
-
-// from shop.json
-listed_status
-lit
-lojic:bgnum
-maaamet:ETAK
-money_transfer
-natural
-osm_id
-parking
-project
-project:pdevii
-public_transport
-seasonal
-social_facility:for
-time
-usar_addr:edit_date
 
 // from craft.json
 appliance
