@@ -22,7 +22,7 @@ while (<$existing_fd>) {
     next unless /^[a-z.]/i;	# line could start with regex like ".*xxxx"
     chomp;
     s{\s*(#|//).*$}{};		# remove inline comments
-    s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already). NOTE: not perfect, but works for us!
+    die "please use RegEx not wildcard" if s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already). NOTE: not perfect, but works for us!
     push @existing, $_;
     #say STDERR "existing key: $_";
 }

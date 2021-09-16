@@ -4,6 +4,7 @@ craft_?[1-9]?
 amenity_?[1-9]?
 old_amenity
 old_shop
+information
 
 // obsoleted information
 abandoned(:.*)?
@@ -128,14 +129,6 @@ takeaway(:.*)?
 delivery(:.*)?	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key:delivery
 caterer
 
-// fuel stations and boatbuilders
-fuel:.*
-compressed_air
-hgv:lanes
-car_wash
-vacuum_cleaner
-seamark:.*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatyard; seamarktype=small_craft_facility
-waterway	// eg. craft=boatbuilder; waterway=boatyard
 
 // related to repair shops/crafts
 service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
@@ -144,13 +137,14 @@ repair
 .*:repair	// eg. bicycle:repair computer:repair fabrik:repair furniture:repair mobile_phone:repair etc.
 electronics_repair(:.*)?
 
-// hairdresser
+// shop=hairdresser, shop=clothes
 unisex
 male
 female
+gender
 
 // healthcare like optician
-healthcare:.*
+healthcare(:.*)?	// mostly stuff like healthcare=optometrist, shop=optician; but there are some exceptions like healthcare=doctor shop=hairdresser like #4474699292 ??
 health_.*	// health_service:examination, health_specialty:optometry, ... w/shop=optician
 medical_.*	// medical_system:western, medical_facility:type=office, ... w/shop=optician
 
@@ -177,7 +171,10 @@ leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + s
 dispensing
 tailor:.*
 gambling
+denomination	// shop=religion, shop=funeral_directors etc., https://wiki.openstreetmap.org/wiki/Key:denomination
 
+club		// shop related, https://wiki.openstreetmap.org/wiki/Key:club
+collector	// with shop=collector, https://wiki.openstreetmap.org/wiki/Tag:shop=collector
 books
 agrarian
 musical_instrument
@@ -196,11 +193,9 @@ pet		// pet shop details, https://wiki.openstreetmap.org/wiki/Key:pet
 vending
 vending_machine
 outdoor_seating
+indoor_seating
 surveillance(:.*)?	// likely to be changed?
 
-healthcare	// mostly stuff like healthcare=optometrist, shop=optician; but there are some exceptions like healthcare=doctor shop=hairdresser like #4474699292 ??
-cellar_door	// undocumented, only used 100 times in south Australia with craft=winery
-cellar:use
 
 comment		// might be either, but probably more likely shop-related
 
@@ -253,17 +248,32 @@ ref:.*
 
 type 		// used in relations, e.g., type=multipolygon
 
-lbcs:.*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Shawnee_County/Import
-
-chicago:building_id
+caravans	// seems to happen on tourism=camp_site which is also tagged with shop=*
+tents
+shower
 buildingpart
+door		// part of the physical building, likely to stay? https://wiki.openstreetmap.org/wiki/Key:door
+barrier
+wall
+fence_type
+
+// fuel stations and craft=boatbuilder (which we do not target)
+guid:belorusneft	// undocumented, seems to be amenity=fuel related, which we do not target. (but which may contain shop=convenience etc)
+fuel:.*
+compressed_air
+hgv:lanes
+car_wash
+vacuum_cleaner
+seamark:.*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatyard; seamarktype=small_craft_facility
+waterway	// eg. craft=boatbuilder; waterway=boatyard
+
+
+lbcs:.*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Shawnee_County/Import
+chicago:building_id
 arivac:.*	// location data, https://wiki.openstreetmap.org/wiki/Philippines/Data_import_Arivac_Bohol#Arivac_donated_Bohol_data
 lacounty:.*	// parcel identifier import, https://wiki.openstreetmap.org/wiki/Key:lacounty:ain
 nysgissam:.*	// address data, https://wiki.openstreetmap.org/wiki/New_York_(state)/NYS_GIS_SAM_Address_Points_Import
 at_bev:.*	// australian address dataset, https://wiki.openstreetmap.org/wiki/Key:at_bev:addr_date
-barrier
-wall
-fence_type
 castle_type	// building related, https://wiki.openstreetmap.org/wiki/Key:castle_type
 nycdoitt:bin	// building id
 fid		// not documented, but used much more on building (58%) than on shop/craft (11%+2%)
@@ -277,6 +287,7 @@ highway		// craft misused; eg. craft=carpenter + highway=service + service=drive
 utahagrc:parcelid	// https://wiki.openstreetmap.org/wiki/Key:utahagrc:parcelid
 WroclawGIS:building:ID	// Poland buildings
 mhs:.*		// historical monuments in France? https://wiki.openstreetmap.org/wiki/Key:ref:mhs - mhs:inscription_date
+
 
 
 ### KEYS TO PROBABLY KEEP ###
@@ -311,6 +322,9 @@ it:fvg:ctrn:.*	// seems to be geometry related; https://wiki.openstreetmap.org/w
 dcgis:.*		// many are building related (note "dataset" below), see https://wiki.openstreetmap.org/wiki/Washington_DC/DCGIS_imports
 dataset
 project:eurosha_2012	// undocumented, https://wiki.openstreetmap.org/wiki/Chad ?
+cosmha		// not documented, see https://wiki.openstreetmap.org/wiki/WikiProject_Haiti/Status/Hospitals
+government	// related to office=goverment, which we do not target specifically, overpass-turbo shows often marged in the same object with office=government + shop=car_repair|mall|photo...
+
 
 wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
 entrance
@@ -332,6 +346,8 @@ access		// sometimes logical like craft=gardener + access=agricultural; sometime
 access:roof	// used in about 1000 amenity=bank
 office		// seems to be used on building=* (when building contains both shops and offices), but there are exceptions like office=estate_agent + shop=estate_agent. see https://overpass-turbo.eu/s/1b2m
 condition	// ambiguous, https://wiki.openstreetmap.org/wiki/Key:condition
+cellar_door	// undocumented, only used 100 times in south Australia with craft=winery
+cellar:use
 
 power
 power_source
@@ -342,17 +358,6 @@ generator:.*
 ### TODO ###
 
 // from shop.json
-caravans
-club
-collector
-cosmha
-denomination
-door
-gender
-government
-guid:belorusneft
-indoor_seating
-information
 listed_status
 lit
 lojic:bgnum
@@ -365,9 +370,7 @@ project
 project:pdevii
 public_transport
 seasonal
-shower
 social_facility:for
-tents
 time
 usar_addr:edit_date
 
