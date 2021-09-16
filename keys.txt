@@ -8,7 +8,7 @@ old_shop
 // obsoleted information
 abandoned(:.*)?
 disused(:.*)?
-was:*
+was:.*
 damage		// if new shop, damage is probably being repaired?
 source:damage
 created_by
@@ -17,12 +17,12 @@ last_checked	// https://wiki.openstreetmap.org/wiki/Proposed_features/last_check
 checked_exists:date
 
 // classifications / links to external databases
-fhrs:*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
-old_fhrs:*
-fvst:*		// tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
+fhrs:.*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
+old_fhrs:.*
+fvst:.*		// tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
 ncat		// seems to be to classification for hospitality industry in South Korea (?)
 nat_ref		// used on ton of amenity=bank in Taiwan
-gnis:*		// on amenity=post_office in US; https://wiki.openstreetmap.org/wiki/USGS_GNIS says  "If you come across a feature that no longer exists in the real world, feel free to delete it. "
+gnis:.*		// on amenity=post_office in US; https://wiki.openstreetmap.org/wiki/USGS_GNIS says  "If you come across a feature that no longer exists in the real world, feel free to delete it. "
 winkelnummer	// undocumented, but translates to "shop number"
 type:FR:FINESS	// on amenity=pharmacy; https://wiki.openstreetmap.org/wiki/Key:type:FR:FINESS says "Each establishment and each legal entity is assigned a 9-character FINESS number"
 type:FR:APE	// https://wiki.openstreetmap.org/wiki/France/Liste_des_r%C3%A9f%C3%A9rences_nationales - maybe "INSEE code of the main branch of activity of a company"
@@ -42,7 +42,7 @@ ref:vatin
 designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
 
 // contacts
-contact:*
+contact:.*
 phone(:.*)?
 phone_?[1-9]?
 mobile
@@ -60,7 +60,7 @@ owner
 
 // payments
 payment(:.*)?
-currency:*
+currency:.*
 cash_withdrawal(:.*)?
 fee
 
@@ -72,9 +72,11 @@ internet
 internet_access(:.*)?
 second_hand	// shop property; unlikely to stay correct if owners change
 self_service	// shop property; unlikely to stay correct if owners change
-license:*
+automated
+license:.*
 bulk_purchase
 .*:covid19	// delivery:covid19, access:covid19 etc - shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
+language:.*	// language offered, https://wiki.openstreetmap.org/wiki/Key:language
 
 description(:.*)?
 min_age
@@ -104,7 +106,7 @@ cocktails
 alcohol
 wine([:_].*)?
 happy_hours
-diet:*
+diet:.*
 cuisine		// shop property; unlikely to stay correct if owners change
 tasting
 breakfast
@@ -127,15 +129,17 @@ delivery(:.*)?	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key
 caterer
 
 // fuel stations and boatbuilders
-fuel:*
+fuel:.*
 compressed_air
 hgv:lanes
-seamark:*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatyard; seamarktype=small_craft_facility
+car_wash
+vacuum_cleaner
+seamark:.*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatyard; seamarktype=small_craft_facility
 waterway	// eg. craft=boatbuilder; waterway=boatyard
 
 // related to repair shops/crafts
 service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
-motorcycle:*
+motorcycle:.*
 repair
 .*:repair	// eg. bicycle:repair computer:repair fabrik:repair furniture:repair mobile_phone:repair etc.
 electronics_repair(:.*)?
@@ -144,6 +148,11 @@ electronics_repair(:.*)?
 unisex
 male
 female
+
+// healthcare like optician
+healthcare:.*
+health_.*	// health_service:examination, health_specialty:optometry, ... w/shop=optician
+medical_.*	// medical_system:western, medical_facility:type=office, ... w/shop=optician
 
 // accomodation & layout
 rooms
@@ -166,7 +175,7 @@ lottery
 sport
 leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + shop=massage
 dispensing
-tailor:*
+tailor:.*
 gambling
 
 books
@@ -177,15 +186,18 @@ parts		// seems to be shop related https://wiki.openstreetmap.org/wiki/Key:parts
 post_office(:.*)?	// used in combination like  post_office=post_partner shop=supermarket|convenience
 religion	// eg. religion=christian + shop=books|gifts
 rental		// in combination with shop=rental
-*:rental
-tickets:*	// if shop sells tickets:public_transport=yes etc.
+.*:rental
+tickets:.*	// if shop sells tickets:public_transport=yes etc.
 goods_supply	// undocumented. eg. craft=electrician + goods_supply=inside_the_camp; 60 uses only in one place?
+pet		// pet shop details, https://wiki.openstreetmap.org/wiki/Key:pet
+
 
 ### KEYS TO PROBABLY REMOVE ###
 vending
 vending_machine
 outdoor_seating
-surveillance	// likely to be changed?
+surveillance(:.*)?	// likely to be changed?
+
 healthcare	// mostly stuff like healthcare=optometrist, shop=optician; but there are some exceptions like healthcare=doctor shop=hairdresser like #4474699292 ??
 cellar_door	// undocumented, only used 100 times in south Australia with craft=winery
 cellar:use
@@ -210,11 +222,13 @@ heritage(:.*)?
 
 building(:.*)?
 man_made
-roof:*
+roof:.*
 architect
 
-addr:*
+addr:.*
 is_in(:.*)?
+address
+nohousenumber
 
 not:addr:postcode
 postal_code
@@ -235,19 +249,18 @@ FIXME
 fixme
 note(:.*)?
 
-ref:*
+ref:.*
 
 type 		// used in relations, e.g., type=multipolygon
 
-lbcs:*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Shawnee_County/Import
+lbcs:.*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Shawnee_County/Import
 
 chicago:building_id
-address
 buildingpart
-arivac:*	// location data, https://wiki.openstreetmap.org/wiki/Philippines/Data_import_Arivac_Bohol#Arivac_donated_Bohol_data
-lacounty:*	// parcel identifier import, https://wiki.openstreetmap.org/wiki/Key:lacounty:ain
-nysgissam:*	// address data, https://wiki.openstreetmap.org/wiki/New_York_(state)/NYS_GIS_SAM_Address_Points_Import
-at_bev:*	// australian address dataset, https://wiki.openstreetmap.org/wiki/Key:at_bev:addr_date
+arivac:.*	// location data, https://wiki.openstreetmap.org/wiki/Philippines/Data_import_Arivac_Bohol#Arivac_donated_Bohol_data
+lacounty:.*	// parcel identifier import, https://wiki.openstreetmap.org/wiki/Key:lacounty:ain
+nysgissam:.*	// address data, https://wiki.openstreetmap.org/wiki/New_York_(state)/NYS_GIS_SAM_Address_Points_Import
+at_bev:.*	// australian address dataset, https://wiki.openstreetmap.org/wiki/Key:at_bev:addr_date
 barrier
 wall
 fence_type
@@ -263,6 +276,7 @@ project:opencities_abidjan	// undocumented; seems to be import related
 highway		// craft misused; eg. craft=carpenter + highway=service + service=driveway + surface=asphalt; or craft=metal_construction + highway=secondary_link
 utahagrc:parcelid	// https://wiki.openstreetmap.org/wiki/Key:utahagrc:parcelid
 WroclawGIS:building:ID	// Poland buildings
+mhs:.*		// historical monuments in France? https://wiki.openstreetmap.org/wiki/Key:ref:mhs - mhs:inscription_date
 
 
 ### KEYS TO PROBABLY KEEP ###
@@ -275,11 +289,14 @@ lanes
 oneway		// misuse? eg. craft=metal_construction + highway=secondary_link + oneway=yes...
 surface		// seems to be mostly unrelated; like amenity=parking + craft=winery + surface=asphalt etc.
 inscription	// might be building-related, see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/4
+construction	// related to building ?
 
 
 lastcheck	// last check of what? unknown/undocumented, so keep?
 last_check	// last check of what? unknown/undocumented, so keep?
 date		// could be related to historic buildings, so should stay: https://wiki.openstreetmap.org/wiki/Key:date
+start_date
+survey:date
 survey_date
 source_date
 source_type_survey
@@ -287,17 +304,16 @@ source_type_imagery
 source_type_GPS
 source_type_walking_paper
 
-KSJ2:*		// http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html says "This is a collection of data on the locations, types, names, addresses, managers, etc. of public offices, schools, hospitals, post offices, social welfare facilities, etc. nationwide"; also https://wiki.openstreetmap.org/wiki/Import/Catalogue/Japan_KSJ2_Import
+KSJ2:.*		// http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html says "This is a collection of data on the locations, types, names, addresses, managers, etc. of public offices, schools, hospitals, post offices, social welfare facilities, etc. nationwide"; also https://wiki.openstreetmap.org/wiki/Import/Catalogue/Japan_KSJ2_Import
 kvl_hro:type	// import: mostly building type, but could be amenity too; see https://wiki.openstreetmap.org/wiki/Rostock:Geb%C3%A4ude_und_Strukturen
-b5m:*		// undocumented, seems to be map/building related?
-it:fvg:ctrn:*	// seems to be geometry related; https://wiki.openstreetmap.org/wiki/CTRN_Friuli_Venezia_Giulia
-dcgis:*		// many are building related (note "dataset" below), see https://wiki.openstreetmap.org/wiki/Washington_DC/DCGIS_imports
+b5m:.*		// undocumented, seems to be map/building related?
+it:fvg:ctrn:.*	// seems to be geometry related; https://wiki.openstreetmap.org/wiki/CTRN_Friuli_Venezia_Giulia
+dcgis:.*		// many are building related (note "dataset" below), see https://wiki.openstreetmap.org/wiki/Washington_DC/DCGIS_imports
 dataset
+project:eurosha_2012	// undocumented, https://wiki.openstreetmap.org/wiki/Chad ?
 
 wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
 entrance
-start_date
-survey:date
 toilets(:.*)?	// Toilet information probably stays correct as shop owners change (worth a separate SC quest?)
 changing_table
 waste:disposal	// undocumented, used about 60 times in one place
@@ -315,56 +331,45 @@ loading_dock	// undocumented, used about 50 times in one place
 access		// sometimes logical like craft=gardener + access=agricultural; sometimes mistag like amenity=prison + barrier=wall + craft=insulation
 access:roof	// used in about 1000 amenity=bank
 office		// seems to be used on building=* (when building contains both shops and offices), but there are exceptions like office=estate_agent + shop=estate_agent. see https://overpass-turbo.eu/s/1b2m
+condition	// ambiguous, https://wiki.openstreetmap.org/wiki/Key:condition
 
 power
 power_source
-generator:*
+generator:.*
 
 
 
 ### TODO ###
 
 // from shop.json
-automated
 caravans
-car_wash
 club
 collector
-condition
-construction
 cosmha
 denomination
 door
 gender
 government
 guid:belorusneft
-healthcare:speciality
 indoor_seating
 information
-language:ar
 listed_status
 lit
 lojic:bgnum
 maaamet:ETAK
-medical_supply
 money_transfer
 natural
-nohousenumber
 osm_id
 parking
-pet
 project
-project:eurosha_2012
 project:pdevii
 public_transport
 seasonal
 shower
 social_facility:for
-surveillance:type
 tents
 time
 usar_addr:edit_date
-vacuum_cleaner
 
 // from craft.json
 appliance
@@ -377,11 +382,7 @@ factory
 feature
 foot
 functional
-health_service:examination
-health_specialty:optometry
 material
-medical_system:western
-mhs:inscription_date
 raw_material
 ruins
 showroom
