@@ -47,7 +47,7 @@ if (defined $max_tags and $max_tags =~ /^(\d+)$/) { $max_tags = $1 } else { die 
 open my $json_fd, '<', $json_file;
 local $/;
 my $json_all = (decode_json <$json_fd>)[0]->{'data'};
-my @json_fraction = grep { $_->{'to_fraction'} * 100 > $min_percent } @$json_all;
+my @json_fraction = grep { $_->{'to_fraction'} * 100 >= $min_percent } @$json_all;
 my @json_filtered = grep { is_new($_->{'other_key'}) } @json_fraction;
 my @tags_many = map { $_->{'other_key'} } @json_filtered;
 
