@@ -192,6 +192,14 @@ tickets:.*	// if shop sells tickets:public_transport=yes etc.
 public_transport	// shop=ticket + public_transport=ticket_office; 285 combinations worldwide
 goods_supply	// undocumented. eg. craft=electrician + goods_supply=inside_the_camp; 60 uses only in one place?
 pet		// pet shop details, https://wiki.openstreetmap.org/wiki/Key:pet
+appliance	// undocomented, seems related to craft=electrician+appliance=Washing_Machines Other etc.
+artwork_type	// like craft=handicraft+artwork_type=painting
+charity		// like craft=electronics_repair+charity=yes
+company		// like company=office+craft=carpenter or company=logistics+craft=transportation
+crop		// like craft=gardener+crop=mushroom
+dry_cleaning	// like craft=tailor+dry_cleaning=yes
+factory		// 12 uses worldwide (yeah, but inside 0.01%)
+feature		// like craft=carpenter+feature=workshop_feature
 
 
 ### KEYS TO PROBABLY REMOVE ###
@@ -347,6 +355,7 @@ water_source:id
 drinking_water	// likely to stay?
 lit		// likely to stay, or not? old 253 uses worldwide...
 government	// related to office=goverment, which we do not target specifically, overpass-turbo shows often marged in the same object with office=government + shop=car_repair|mall|photo...
+foot		// 13 usees worldwide
 
 stroller	// new shop owner probably keeps the layout? (see wheelchair/toilets above)
 wikidata	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
@@ -371,18 +380,8 @@ generator:.*
 
 ### TODO ###
 
-// from craft.json
-appliance
-artwork_type
-charity
-company
-crop
-dry_cleaning
-factory
-feature
-foot
-functional
-material
+functional	// undocumented, 15 uses worldwide
+material	// 27 uses worldwide
 raw_material
 ruins
 showroom
