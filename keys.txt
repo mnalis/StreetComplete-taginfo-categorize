@@ -81,9 +81,11 @@ license:.*
 bulk_purchase
 .*:covid19	// delivery:covid19, access:covid19 etc - shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
 language:.*	// language offered, https://wiki.openstreetmap.org/wiki/Key:language
+baby_feeding	// 342 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:baby_feeding; id_tagging_schema.json says might be used in office=*
 
 description(:.*)?
 min_age
+max_age		// used in leisure=amusement_arcade
 supermarket(:.*)?
 social_facility(:.*)?	// shop=gift+social_facility=workshop+social_facility:for=disabled, shop=supermarket+social_facility=food_bank+social_facility:for=underprivileged
 operational_status
@@ -137,6 +139,7 @@ reservation
 takeaway(:.*)?
 delivery(:.*)?	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key:delivery
 caterer
+real_fire		// 155 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:real_fire
 
 // related to repair shops/crafts
 service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
@@ -183,6 +186,8 @@ material	// 27 uses worldwide
 raw_material	// 10 uses worldwide; craft=cnc_machining;laser_cutting + raw_material=wood
 stonemason	// craft=stonemason + stonemason=tombstones
 studio		// 26 uses worldwide; like amenity=studio+craft=atelier+studio=music
+scuba_diving(:.*)?	// id_tagging_schema.json says might be used with shop=scuba_diving; https://wiki.openstreetmap.org/wiki/Tag:shop=scuba_diving
+polling_station	//  id_tagging_schema says it might be used on amenity=post_office https://wiki.openstreetmap.org/wiki/Key:polling_station
 
 club		// shop related, https://wiki.openstreetmap.org/wiki/Key:club
 collector	// with shop=collector, https://wiki.openstreetmap.org/wiki/Tag:shop=collector
@@ -287,6 +292,7 @@ seamark:.*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boaty
 waterway	// eg. craft=boatbuilder; waterway=boatyard
 ruins		// 10 uses worldwide, already ruins, so just specify craft of old ruins, like craft=oil_mill+ruins=yes+start_date=1860+tourism=attraction
 
+not:name	// https://wiki.openstreetmap.org/wiki/Key:not:name
 
 lbcs:.*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Shawnee_County/Import
 chicago:building_id
@@ -390,13 +396,3 @@ generator:.*
 
 ### TODO ###
 
-
-// from id_tagging_schema.json
-baby_feeding
-max_age
-building_area
-scuba_diving
-not:name
-height_building
-real_fire
-polling_station
