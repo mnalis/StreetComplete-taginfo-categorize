@@ -1,6 +1,7 @@
 # what keys/tags to fetch, and how
 FETCH_KEYS := shop craft
 FETCH_TAGS := information=office amenity=restaurant amenity=cafe amenity=ice_cream amenity=fast_food amenity=bar amenity=pub amenity=biergarten amenity=nightclub amenity=bank amenity=bureau_de_change amenity=money_transfer amenity=post_office amenity=internet_cafe amenity=pharmacy amenity=driving_school leisure=amusement_arcade leisure=adult_gaming_centre leisure=tanning_salon office=insurance office=travel_agent office=tax_advisor office=estate_agent office=political_party
+ID_DATA_PATH=../id-tagging-schema/data/presets
 
 MAX_TAGS := 801
 CURL_URL_KEY := https://taginfo.openstreetmap.org/api/4/key/combinations?filter=all&sortname=to_count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=other_key&format=json_pretty
@@ -11,16 +12,16 @@ CURL_FETCH = curl --silent --output $@
 FILES_KEYS := $(patsubst %,%.json,$(FETCH_KEYS))
 FILES_TAGS := $(patsubst %,%.json,$(subst =,-,$(FETCH_TAGS)))
 
-
 FULL_TAG = $(subst .json,,$@)
 KEY_VALUE = $(subst -,&value=,$(FULL_TAG))
+
 
 all: sc_to_remove.txt stats
 
 sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl > $@
 
-keys.txt: $(FILES_KEYS) $(FILES_TAGS) update_keys.pl
+keys.txt: $(FILES_KEYS) $(FILES_TAGS) update_keys.pl local_id
 	@[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@ || true
 
 $(FILES_KEYS): Makefile
@@ -46,4 +47,8 @@ update: clean all
 local_update:
 	for j in *.json; do echo ./update_keys.pl $$j $(MAX_TAGS) >&2 ; ./update_keys.pl $$j $(MAX_TAGS); done >> keys.txt
 
-.PHONY: clean update local_update stats all
+local_id: parse_id_tagging_schema.pl
+	@for k in $(FETCH_KEYS); do ./parse_id_tagging_schema.pl $(ID_DATA_PATH)/$$k.json; for t in $(ID_DATA_PATH)/$$k/*.json; do ./parse_id_tagging_schema.pl $$t; done; done
+	@for t in $(subst =,/,$(FETCH_TAGS)); do find $(ID_DATA_PATH) -iwholename "*/$$t.json" -print0 | xargs -0ri ./parse_id_tagging_schema.pl {}; done
+
+.PHONY: clean update local_update local_id stats all
