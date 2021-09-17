@@ -13,7 +13,6 @@ use JSON;
 use Data::Dumper;
 
 my $BASEDIR=undef;
-my %KEYS=();
 
 # parse one possible value (one key name)
 sub parse_value($)
@@ -25,8 +24,8 @@ sub parse_value($)
         parse_preset ($new_file);	# recursive parse
     } else {
         $value =~ tr{/}{:};
-        #say STDERR "V: $value";
-        $KEYS{$value}=1;
+        $value =~ s{_multi$}{:.*};	# NOTE: ideally we should be parsing data/fields/*.json
+        say $value;
     }
 }
 
@@ -35,7 +34,7 @@ sub parse_preset($)
 {
     my ($json_file) = @_;
 
-    #say STDERR "parsing file: $json_file";
+    say "# parsing file: $json_file";
     open my $json_fd, '<', $json_file;
     local $/;
     my $json_all = decode_json <$json_fd>;
@@ -55,10 +54,6 @@ while (my $arg = shift @ARGV) {
     parse_preset($arg)
 }
 
-foreach my $key (keys %KEYS) {
-    $key =~ s{_multi$}{:.*};	# NOTE: ideally we should be parsing data/fields/*.json
-    say $key;
-}
 
 #say STDERR "end.";
 
