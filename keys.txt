@@ -390,3 +390,13 @@ generator:.*
 
 ### TODO ###
 
+
+// from id_tagging_schema.json
+baby_feeding
+max_age
+building_area
+scuba_diving
+not:name
+height_building
+real_fire
+polling_station
