@@ -55,8 +55,9 @@ while (my $arg = shift @ARGV) {
     parse_preset($arg)
 }
 
-my %JSON = ( "page" => 1, "data" => [keys %KEYS] );
-print encode_json (\%JSON);
+foreach my $key (keys %KEYS) {
+    say $key;
+}
 
 #say STDERR "end.";
 
