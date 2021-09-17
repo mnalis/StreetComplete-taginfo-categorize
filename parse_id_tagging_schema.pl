@@ -56,6 +56,7 @@ while (my $arg = shift @ARGV) {
 }
 
 foreach my $key (keys %KEYS) {
+    $key =~ s{_multi$}{:.*};	# NOTE: ideally we should be parsing data/fields/*.json
     say $key;
 }
 
