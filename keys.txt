@@ -5,6 +5,9 @@ amenity_?[1-9]?
 old_amenity
 old_shop
 information
+leisure
+office
+tourism
 
 // obsoleted information
 abandoned(:.*)?
