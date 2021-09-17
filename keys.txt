@@ -101,7 +101,6 @@ strapline	// "advertasing phrase" https://wiki.openstreetmap.org/wiki/Key:strapl
 dog		// whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
 showroom	// undocumented, but probably if the shop has https://en.wikipedia.org/wiki/Showroom
 
-
 // food and drink details
 bar
 cafe
