@@ -87,6 +87,7 @@ min_age
 supermarket(:.*)?
 social_facility(:.*)?	// shop=gift+social_facility=workshop+social_facility:for=disabled, shop=supermarket+social_facility=food_bank+social_facility:for=underprivileged
 operational_status
+functional	// undocumented, 15 uses worldwide, seems to be like operational_status
 trade
 wholesale
 sale
@@ -96,6 +97,8 @@ origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
 attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewery
 strapline	// "advertasing phrase" https://wiki.openstreetmap.org/wiki/Key:strapline
 dog		// whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
+showroom	// undocumented, but probably if the shop has https://en.wikipedia.org/wiki/Showroom
+
 
 // food and drink details
 bar
@@ -105,6 +108,8 @@ microroasting
 microbrewery
 brewery
 real_ale
+taproom		// undocumented, craft=brewery related
+training	// 10 users worldwide; like craft=brewery+training=brewing
 distillery
 drink(:.*)?
 cocktails
@@ -132,7 +137,6 @@ reservation
 takeaway(:.*)?
 delivery(:.*)?	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key:delivery
 caterer
-
 
 // related to repair shops/crafts
 service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
@@ -175,6 +179,10 @@ leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + s
 dispensing
 tailor:.*
 gambling
+material	// 27 uses worldwide
+raw_material	// 10 uses worldwide; craft=cnc_machining;laser_cutting + raw_material=wood
+stonemason	// craft=stonemason + stonemason=tombstones
+studio		// 26 uses worldwide; like amenity=studio+craft=atelier+studio=music
 
 club		// shop related, https://wiki.openstreetmap.org/wiki/Key:club
 collector	// with shop=collector, https://wiki.openstreetmap.org/wiki/Tag:shop=collector
@@ -200,7 +208,6 @@ crop		// like craft=gardener+crop=mushroom
 dry_cleaning	// like craft=tailor+dry_cleaning=yes
 factory		// 12 uses worldwide (yeah, but inside 0.01%)
 feature		// like craft=carpenter+feature=workshop_feature
-
 
 ### KEYS TO PROBABLY REMOVE ###
 vending
@@ -278,6 +285,7 @@ car_wash
 vacuum_cleaner
 seamark:.*	// eg. craft=boatbuilder; seamark:small_craft_facility:category=boatyard; seamarktype=small_craft_facility
 waterway	// eg. craft=boatbuilder; waterway=boatyard
+ruins		// 10 uses worldwide, already ruins, so just specify craft of old ruins, like craft=oil_mill+ruins=yes+start_date=1860+tourism=attraction
 
 
 lbcs:.*		// address related import, https://wiki.openstreetmap.org/wiki/Kansas/Shawnee_County/Import
@@ -316,6 +324,7 @@ inscription	// might be building-related, see https://github.com/mnalis/StreetCo
 construction	// related to building ?
 
 
+year		// 10 uses worldwide, undocumented
 lastcheck	// last check of what? unknown/undocumented, so keep?
 last_check	// last check of what? unknown/undocumented, so keep?
 date		// could be related to historic buildings, so should stay: https://wiki.openstreetmap.org/wiki/Key:date
@@ -356,6 +365,7 @@ drinking_water	// likely to stay?
 lit		// likely to stay, or not? old 253 uses worldwide...
 government	// related to office=goverment, which we do not target specifically, overpass-turbo shows often marged in the same object with office=government + shop=car_repair|mall|photo...
 foot		// 13 usees worldwide
+substation	// 11 uses worldwide; misuse of craft like building=yes+craft=pottery+substation=transmission+voltage=220000
 
 stroller	// new shop owner probably keeps the layout? (see wheelchair/toilets above)
 wikidata	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
@@ -380,15 +390,3 @@ generator:.*
 
 ### TODO ###
 
-functional	// undocumented, 15 uses worldwide
-material	// 27 uses worldwide
-raw_material
-ruins
-showroom
-social_facility
-stonemason
-studio
-substation
-taproom
-training
-year
