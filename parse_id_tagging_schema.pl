@@ -25,6 +25,7 @@ sub parse_value($)
     } else {
         $value =~ tr{/}{:};
         $value =~ s{_multi$}{:.*};	# NOTE: ideally we should be parsing data/fields/*.json
+        next if /building_area|height_building/;
         say $value;
     }
 }
