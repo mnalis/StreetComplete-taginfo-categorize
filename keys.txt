@@ -167,7 +167,6 @@ stars
 accommodation
 beds
 capacity(:persons)?
-tourism
 laundry_service
 
 // misc specific attributes
