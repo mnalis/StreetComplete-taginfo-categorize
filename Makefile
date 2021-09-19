@@ -16,10 +16,13 @@ FULL_TAG = $(subst .json,,$@)
 KEY_VALUE = $(subst -,&value=,$(FULL_TAG))
 
 
-all: sc_to_remove.txt stats
+all: sc_to_remove.txt sc_to_keep.txt stats
 
 sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
-	./generate_kotlin.pl > $@
+	./generate_kotlin.pl '### KEYS TO REMOVE ###' '### KEYS TO' 'KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED' > $@
+
+sc_to_keep.txt: keys.txt Makefile generate_kotlin.pl
+	./generate_kotlin.pl '### KEYS TO KEEP ###' '### TODO' 'KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED' > $@
 
 keys.txt: $(FILES_KEYS) $(FILES_TAGS) update_keys.pl id_tagging_schema.json
 	@[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@ || true

@@ -9,22 +9,22 @@ use warnings;
 use autodie qw/:all/;
 use feature 'say';
 
-my $SECTION_START = qr/^### KEYS TO REMOVE ###/;
-my $SECTION_END = qr/^### KEYS TO/;
+my $SECTION_START = shift @ARGV;
+my $SECTION_END = shift @ARGV;
+my $VAR_NAME = shift @ARGV;
 
-say 'val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(';
+die "Usage: $0 <SECTION_START> <SECTION_END> <VAR_NAME>" if !defined $VAR_NAME;
+
+say "val $VAR_NAME = listOf(";
 print '    ';	# default indent
 
-# FIXME	sed -ne '1,/PROBABLY REMOVE/s/^\([a-z.]\)/\1/p' keys.txt | sed -e 's,[ \t]*//.*$$,,; s,\([^.]\)\*,\1.*,g; s/^/"/; s/$$/",/' | fmt >> $@
-
 open my $existing_fd, '<', 'keys.txt';
-
 
 my $skip_it = 1;
 my $kotlin_str = '';
 while (<$existing_fd>) {
-    if (/$SECTION_START/) { $skip_it=0; next; }
-    if (/$SECTION_END/) { last; }
+    if (/^$SECTION_START/) { $skip_it=0; next; }
+    if (/^$SECTION_END/) { last; }
     if ($skip_it) { next; }
     chomp;
 
