@@ -24,7 +24,7 @@ sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
 sc_to_keep.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl '### KEYS TO KEEP ###' '### TODO' 'KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED' > $@
 
-keys.txt: $(FILES_KEYS) $(FILES_TAGS) update_keys.pl id_tagging_schema.json
+keys.txt: $(FILES_KEYS) $(FILES_TAGS) update_keys.pl _id_tagging_schema.json
 	@[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@ || true
 	[ -z "`sort keys.txt | cat -s | uniq -dc`" ]
 
@@ -44,18 +44,18 @@ stats:
 
 
 clean:
-	rm -f *.json *~ id_tagging_schema.txt
+	rm -f *.json *~ _id_tagging_schema.txt
 
 update: clean all
 
 local_update:
 	for j in *.json; do echo ./update_keys.pl $$j $(MAX_TAGS) >&2 ; ./update_keys.pl $$j $(MAX_TAGS); done >> keys.txt
 
-id_tagging_schema.txt: parse_id_tagging_schema.pl $(ID_DATA_PATH)/shop/*.json $(ID_DATA_PATH)/craft/*.json $(ID_DATA_PATH)/amenity/*.json $(ID_DATA_PATH)/leisure/*.json $(ID_DATA_PATH)/office/*.json
+_id_tagging_schema.txt: parse_id_tagging_schema.pl $(ID_DATA_PATH)/shop/*.json $(ID_DATA_PATH)/craft/*.json $(ID_DATA_PATH)/amenity/*.json $(ID_DATA_PATH)/leisure/*.json $(ID_DATA_PATH)/office/*.json
 	for k in $(FETCH_KEYS); do ./parse_id_tagging_schema.pl $(ID_DATA_PATH)/$$k.json; for t in $(ID_DATA_PATH)/$$k/*.json; do ./parse_id_tagging_schema.pl $$t; done; done > $@
 	for t in $(subst =,/,$(FETCH_TAGS)); do find $(ID_DATA_PATH) -iwholename "*/$$t.json" -print0 | xargs -0ri ./parse_id_tagging_schema.pl {}; done >> $@
 
-id_tagging_schema.json: id_tagging_schema.txt Makefile
+_id_tagging_schema.json: _id_tagging_schema.txt Makefile
 	perl -MJSON -nE 'next if /^#/; chomp;$$KEYS{$$_}=1; END {my @data = map {other_key=> $$_, other_value=>"", to_fraction=>1, from_fraction=>1, together_count=>999}, keys %KEYS; say encode_json {"page"=>1, "data" => \@data };}' $< | json_reformat > $@
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
