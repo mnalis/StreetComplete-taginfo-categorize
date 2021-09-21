@@ -9,6 +9,22 @@ leisure
 office
 tourism
 
+// "popular" shop=* / craft=* subkeys
+video
+water
+wood
+swimming_pool
+model
+insurance
+motorcycle
+builder
+sculptor
+golf
+communication
+fuel
+photo
+bicycle
+
 // obsoleted information
 abandoned(:.*)?
 disused(:.*)?
@@ -393,6 +409,8 @@ power
 power_source
 generator:.*
 
+# _find_popular_subkeys.txt: there is 3012 "shop=no" and 189 "no=*", but although it passes the numbers, it is not really "popular subkey", so just ignore it
+no
 
 
 ### TODO ###

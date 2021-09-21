@@ -28,6 +28,6 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "wheelchair(.*)?", "entrance", "toilets(:.*)?", "changing_table", "waste:disposal", "water_tank:quantity", "water_supply", "water_source:id", "drinking_water", "lit", "government", "foot", "substation",
     "stroller", "wikidata", "wikipedia", "name_disaster", "loc_ref", "loading_dock", "access", "access:roof", "office", "condition", "cellar_door", "cellar:use", "natural", "parking",
     "power", "power_source", "generator:.*",
-   
+    "no",
    
 ).map { it.toRegex() }
