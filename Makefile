@@ -4,8 +4,9 @@ FETCH_TAGS := information=office amenity=restaurant amenity=cafe amenity=ice_cre
 ID_DATA_PATH=../id-tagging-schema/data/presets
 
 MAX_TAGS := 999
-CURL_URL_KEY := https://taginfo.openstreetmap.org/api/4/key/combinations?filter=all&sortname=to_count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=other_key&format=json_pretty
-CURL_URL_TAG := https://taginfo.openstreetmap.org/api/4/tag/combinations?filter=all&sortname=to_count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=other_tag&format=json_pretty
+CURL_URL_TAG  := https://taginfo.openstreetmap.org/api/4/tag/combinations?filter=all&sortname=to_count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=other_tag&format=json_pretty
+CURL_URL_KEY  := https://taginfo.openstreetmap.org/api/4/key/combinations?filter=all&sortname=to_count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=other_key&format=json_pretty
+CURL_URL_KEY2 := https://taginfo.openstreetmap.org/api/4/key/values?filter=all&lang=en&sortname=count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=value&format=json_pretty
 CURL_FETCH = curl --silent --output $@
 
 # those will be shop.json or amenity_cafe.json, respectively
@@ -14,6 +15,10 @@ FILES_TAGS := $(patsubst %,%.json,$(subst =,-,$(FETCH_TAGS)))
 
 FULL_TAG = $(subst .json,,$@)
 KEY_VALUE = $(subst -,&value=,$(FULL_TAG))
+
+FILES_KEYS2 := $(patsubst %,%.json2,$(FETCH_KEYS))
+FULL_TAG2 = $(subst .json2,,$@)
+KEY_VALUE2 = $(subst -,&value=,$(FULL_TAG2))
 
 
 all: sc_to_remove.txt sc_to_keep.txt stats
@@ -24,7 +29,7 @@ sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
 sc_to_keep.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl '### KEYS TO KEEP ###' '### TODO' 'KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED' > $@
 
-keys.txt: $(FILES_KEYS) $(FILES_TAGS) update_keys.pl _id_tagging_schema.json
+keys.txt: $(FILES_KEYS2) $(FILES_KEYS) $(FILES_TAGS) update_keys.pl _id_tagging_schema.json
 	@[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@ || true
 	[ -z "`sort keys.txt | cat -s | uniq -dc`" ]
 
@@ -41,6 +46,9 @@ stats:
 	@echo "TO KEEP  : `sed -ne '/KEEP/,/TODO/s/^\([a-z.]\)/\1/p' keys.txt  | wc -l`"
 	@echo "TODO     : `sed -ne '/TODO/,$$s/^\([a-z.]\)/\1/p' keys.txt  | wc -l`"
 	@[ `sed -ne '/TODO/,$$s/^\([a-z.]\)/\1/p' keys.txt  | wc -l` -eq 0 ]
+
+$(FILES_KEYS2): Makefile
+	$(CURL_FETCH) '$(CURL_URL_KEY2)&key=$(KEY_VALUE2)'
 
 
 clean:
