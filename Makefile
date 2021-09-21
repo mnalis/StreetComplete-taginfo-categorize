@@ -21,7 +21,7 @@ FULL_TAG2 = $(subst .json2,,$@)
 KEY_VALUE2 = $(subst -,&value=,$(FULL_TAG2))
 
 define txt-to-json
-	perl -MJSON -nE 'next if /^#/; s/\s*#.*$$//; chomp;$$KEYS{$$_}=1; END {my @data = map {other_key=> $$_, other_value=>"", to_fraction=>1, from_fraction=>1, together_count=>999}, keys %KEYS; say encode_json {"page"=>1, "data" => \@data };}' $< | json_reformat > $@
+	perl -MJSON -nE 'next if /^#|^\s*$$/; s/\s*#.*$$//; chomp;$$KEYS{$$_}=1; END {my @data = map {other_key=> $$_, other_value=>"", to_fraction=>1, from_fraction=>1, together_count=>999}, keys %KEYS; say encode_json {"page"=>1, "data" => \@data };}' $< | json_reformat > $@
 endef
 
 all: sc_to_remove.txt sc_to_keep.txt stats

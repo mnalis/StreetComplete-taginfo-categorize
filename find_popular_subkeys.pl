@@ -34,10 +34,14 @@ while (my $json_file = shift @ARGV) {
         print STDERR "$key ";
         my $url = "https://taginfo.openstreetmap.org/api/4/key/stats?key=$key";
         my $subjson_all = get_json "curl --silent '$url'";
-        my $subkeys_count = (map { $_->{'values'} } grep { $_->{'type'} eq 'all' } @$subjson_all)[0];
+        my $subkeys_count = (map { $_->{'count'} } grep { $_->{'type'} eq 'all' } @$subjson_all)[0];
 
         #say STDERR "subkeys_count=$subkeys_count";
-        say "$key\t# subkey count=$subkeys_count" if $subkeys_count > $MIN_SUBKEY_COUNT;
+        if ($subkeys_count > $MIN_SUBKEY_COUNT) {
+            say "$key\t# subkey count=$subkeys_count"
+        } else {
+            say "#$key\t# ignore, subkey count=$subkeys_count < $MIN_SUBKEY_COUNT"
+        }
     }
 
     print STDERR "\n";
