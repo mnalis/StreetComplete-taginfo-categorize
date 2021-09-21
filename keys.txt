@@ -10,20 +10,65 @@ office
 tourism
 
 // "popular" shop=* / craft=* subkeys
-video
-water
-wood
+marketplace
+household
 swimming_pool
-model
-insurance
-motorcycle
-builder
-sculptor
+telecommunication
+laundry
 golf
-communication
+sports
+ice_cream
+scooter
+music
+retail
+yes
+ticket
+health
+newsagent
+lighting
+truck
+car_repair
+video
 fuel
+farm
+car
+ski
+sculptor
+hearing_aids
+surf
 photo
+boat
+gas
+kitchen
+anime
+builder
+hairdresser
+security
+bakery
+fishing
+doors
+kiosk
+market
+bathroom
+lamps
+vacant
+insurance
+caravan
+gift
 bicycle
+insulation
+communication
+mall
+model
+empty
+wood
+hunting
+motorcycle
+trailer
+camera
+water
+fireplace
+outdoor
 
 // obsoleted information
 abandoned(:.*)?
@@ -411,7 +456,6 @@ generator:.*
 
 # _find_popular_subkeys.txt: there is 3012 "shop=no" and 189 "no=*", but although it passes the numbers, it is not really "popular subkey", so just ignore it
 no
-
 
 ### TODO ###
 
