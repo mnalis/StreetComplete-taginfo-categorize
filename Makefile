@@ -20,6 +20,9 @@ FILES_KEYS2 := $(patsubst %,%.json2,$(FETCH_KEYS))
 FULL_TAG2 = $(subst .json2,,$@)
 KEY_VALUE2 = $(subst -,&value=,$(FULL_TAG2))
 
+define txt-to-json
+	perl -MJSON -nE 'next if /^#/; s/\s*#.*$$//; chomp;$$KEYS{$$_}=1; END {my @data = map {other_key=> $$_, other_value=>"", to_fraction=>1, from_fraction=>1, together_count=>999}, keys %KEYS; say encode_json {"page"=>1, "data" => \@data };}' $< | json_reformat > $@
+endef
 
 all: sc_to_remove.txt sc_to_keep.txt stats
 
@@ -29,7 +32,7 @@ sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
 sc_to_keep.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl '### KEYS TO KEEP ###' '### TODO' 'KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED' > $@
 
-keys.txt: $(FILES_KEYS2) $(FILES_KEYS) $(FILES_TAGS) update_keys.pl _id_tagging_schema.json
+keys.txt: _find_popular_subkeys.json $(FILES_KEYS) $(FILES_TAGS) update_keys.pl _id_tagging_schema.json
 	@[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@ || true
 	[ -z "`sort keys.txt | cat -s | uniq -dc`" ]
 
@@ -50,9 +53,18 @@ stats:
 $(FILES_KEYS2): Makefile
 	$(CURL_FETCH) '$(CURL_URL_KEY2)&key=$(KEY_VALUE2)'
 
+_find_popular_subkeys.txt: $(FILES_KEYS2) find_popular_subkeys.pl Makefile
+	./find_popular_subkeys.pl $(FILES_KEYS2) > $@
+
+_find_popular_subkeys.json: _find_popular_subkeys.txt Makefile
+	$(txt-to-json)
+	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
 clean:
-	rm -f *.json *~ _id_tagging_schema.txt
+	rm -f *.json *.json2 *~ _id_tagging_schema.txt _find_popular_subkeys.txt
+
+distclean: clean
+	rm -f sc_to_keep.txt sc_to_remove.txt
 
 update: clean all
 
@@ -64,7 +76,7 @@ _id_tagging_schema.txt: parse_id_tagging_schema.pl $(ID_DATA_PATH)/shop/*.json $
 	for t in $(subst =,/,$(FETCH_TAGS)); do find $(ID_DATA_PATH) -iwholename "*/$$t.json" -print0 | xargs -0ri ./parse_id_tagging_schema.pl {}; done >> $@
 
 _id_tagging_schema.json: _id_tagging_schema.txt Makefile
-	perl -MJSON -nE 'next if /^#/; chomp;$$KEYS{$$_}=1; END {my @data = map {other_key=> $$_, other_value=>"", to_fraction=>1, from_fraction=>1, together_count=>999}, keys %KEYS; say encode_json {"page"=>1, "data" => \@data };}' $< | json_reformat > $@
+	$(txt-to-json)
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
-.PHONY: clean update local_update stats all
+.PHONY: clean distclean update local_update stats all
