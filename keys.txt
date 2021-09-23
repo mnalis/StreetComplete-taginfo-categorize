@@ -9,7 +9,7 @@ leisure
 office
 tourism
 
-// "popular" shop=* / craft=* subkeys
+// popular shop=* / craft=* subkeys
 marketplace
 household
 swimming_pool
@@ -146,7 +146,6 @@ bulk_purchase
 .*:covid19	// delivery:covid19, access:covid19 etc - shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
 language:.*	// language offered, https://wiki.openstreetmap.org/wiki/Key:language
 baby_feeding	// 342 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:baby_feeding; id_tagging_schema.json says might be used in office=*
-
 description(:.*)?
 min_age
 max_age		// used in leisure=amusement_arcade
@@ -186,7 +185,6 @@ cuisine		// shop property; unlikely to stay correct if owners change
 tasting
 breakfast
 lunch
-
 organic		// shop property; unlikely to stay correct if owners change
 produced_on_site
 restaurant
@@ -250,7 +248,6 @@ stonemason	// craft=stonemason + stonemason=tombstones
 studio		// 26 uses worldwide; like amenity=studio+craft=atelier+studio=music
 scuba_diving(:.*)?	// id_tagging_schema.json says might be used with shop=scuba_diving; https://wiki.openstreetmap.org/wiki/Tag:shop=scuba_diving
 polling_station	//  id_tagging_schema says it might be used on amenity=post_office https://wiki.openstreetmap.org/wiki/Key:polling_station
-
 club		// shop related, https://wiki.openstreetmap.org/wiki/Key:club
 collector	// with shop=collector, https://wiki.openstreetmap.org/wiki/Tag:shop=collector
 books

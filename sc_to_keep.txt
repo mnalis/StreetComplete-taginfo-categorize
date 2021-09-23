@@ -14,19 +14,31 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "type",
     "caravans", "tents", "shower", "buildingpart", "door", "barrier", "wall", "fence_type",
     // fuel stations and craft=boatbuilder (which we do not target)
-    "guid:belorusneft", "fuel:.*", "compressed_air", "hgv:lanes", "car_wash", "vacuum_cleaner", "seamark:.*", "waterway", "ruins",
+    "guid:belorusneft", "fuel:.*", "compressed_air", "hgv:lanes", "car_wash", "vacuum_cleaner",
+    "seamark:.*", "waterway", "ruins",
     "not:name",
-    "lbcs:.*", "chicago:building_id", "arivac:.*", "lacounty:.*", "nysgissam:.*", "at_bev:.*", "castle_type", "nycdoitt:bin", "fid", "wikimedia_commons", "mapillary", "image", "size", "industrial", "project:opencities_abidjan", "highway", "utahagrc:parcelid", "WroclawGIS:building:ID", "mhs:.*", "listed_status",
+    "lbcs:.*", "chicago:building_id", "arivac:.*", "lacounty:.*", "nysgissam:.*", "at_bev:.*",
+    "castle_type", "nycdoitt:bin", "fid", "wikimedia_commons", "mapillary", "image", "size",
+    "industrial", "project:opencities_abidjan", "highway", "utahagrc:parcelid",
+    "WroclawGIS:building:ID", "mhs:.*", "listed_status",
    
    
    
-    "air_conditioning", "atm", "drive_through", "maxspeed", "lanes", "oneway", "surface", "inscription", "construction",
+    "air_conditioning", "atm", "drive_through", "maxspeed", "lanes", "oneway", "surface",
+    "inscription", "construction",
    
-    "year", "lastcheck", "last_check", "date", "start_date", "survey:date", "survey_date", "source_date", "source_type_survey", "source_type_imagery", "source_type_GPS", "source_type_walking_paper",
-    "KSJ2:.*", "kvl_hro:type", "b5m:.*", "it:fvg:ctrn:.*", "dcgis:.*", "dataset", "project:eurosha_2012", "cosmha", "lojic:bgnum", "maaamet:ETAK", "osm_id", "project", "project:pdevii", "usar_addr:edit_date",
+    "year", "lastcheck", "last_check", "date", "start_date", "survey:date", "survey_date",
+    "source_date", "source_type_survey", "source_type_imagery", "source_type_GPS",
+    "source_type_walking_paper",
+    "KSJ2:.*", "kvl_hro:type", "b5m:.*", "it:fvg:ctrn:.*", "dcgis:.*", "dataset",
+    "project:eurosha_2012", "cosmha", "lojic:bgnum", "maaamet:ETAK", "osm_id", "project",
+    "project:pdevii", "usar_addr:edit_date",
    
-    "wheelchair(.*)?", "entrance", "toilets(:.*)?", "changing_table", "waste:disposal", "water_tank:quantity", "water_supply", "water_source:id", "drinking_water", "lit", "government", "foot", "substation",
-    "stroller", "wikidata", "wikipedia", "name_disaster", "loc_ref", "loading_dock", "access", "access:roof", "office", "condition", "cellar_door", "cellar:use", "natural", "parking",
+    "wheelchair(.*)?", "entrance", "toilets(:.*)?", "changing_table", "waste:disposal",
+    "water_tank:quantity", "water_supply", "water_source:id", "drinking_water", "lit",
+    "government", "foot", "substation",
+    "stroller", "wikidata", "wikipedia", "name_disaster", "loc_ref", "loading_dock", "access",
+    "access:roof", "office", "condition", "cellar_door", "cellar:use", "natural", "parking",
     "power", "power_source", "generator:.*",
     "no",
 ).map { it.toRegex() }
