@@ -8,7 +8,7 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "not:addr:postcode", "postal_code", "place",
    
     "location", "level(:.*)?", "indoor(:.*)?", "room",
-    "layer", "ele", "height", "area",
+    "layer", "ele", "height", "altitude", "author", "authorization", "area",
     "FIXME", "fixme", "note(:.*)?",
     "ref:.*",
     "type",
@@ -32,13 +32,12 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "source_type_walking_paper",
     "KSJ2:.*", "kvl_hro:type", "b5m:.*", "it:fvg:ctrn:.*", "dcgis:.*", "dataset",
     "project:eurosha_2012", "cosmha", "lojic:bgnum", "maaamet:ETAK", "osm_id", "project",
-    "project:pdevii", "usar_addr:edit_date",
+    "project:pdevii", "usar_addr:edit_date", "bmo:type",
    
-    "wheelchair(.*)?", "entrance", "toilets(:.*)?", "changing_table", "waste:disposal",
-    "water_tank:quantity", "water_supply", "water_source:id", "drinking_water", "lit",
-    "government", "foot", "substation",
-    "stroller", "wikidata", "wikipedia", "name_disaster", "loc_ref", "loading_dock", "access",
-    "access:roof", "office", "condition", "cellar_door", "cellar:use", "natural", "parking",
+    "entrance", "waste:disposal", "water_tank:quantity", "water_supply", "water_source:id",
+    "drinking_water", "lit", "government", "foot", "substation",
+    "wikidata", "wikipedia", "name_disaster", "loc_ref", "loading_dock", "access", "access:roof",
+    "office", "condition", "cellar_door", "cellar:use", "natural", "parking",
     "power", "power_source", "generator:.*",
     "no",
 ).map { it.toRegex() }
