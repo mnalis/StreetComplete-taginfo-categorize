@@ -163,6 +163,10 @@ attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewe
 strapline	// "advertasing phrase" https://wiki.openstreetmap.org/wiki/Key:strapline
 dog		// whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
 showroom	// undocumented, but probably if the shop has https://en.wikipedia.org/wiki/Showroom
+toilets(:.*)?	// Toilet information might change as shop owners change (worth a separate SC quest?)
+changing_table
+wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair access might be added with new owner.
+stroller	// new shop owner might change the layout? (see wheelchair/toilets above)
 
 // food and drink details
 bar
@@ -418,10 +422,7 @@ project:pdevii	// undocumented, 337 uses worldwide
 usar_addr:edit_date	// undocumented, 279 uses worldwide
 
 
-wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair information probably stays correct as shop owners change (worth a separate SC quest?)
 entrance
-toilets(:.*)?	// Toilet information probably stays correct as shop owners change (worth a separate SC quest?)
-changing_table
 waste:disposal	// undocumented, used about 60 times in one place
 water_tank:quantity	// undocumented, used about 60 times in one place
 water_supply
@@ -432,7 +433,6 @@ government	// related to office=goverment, which we do not target specifically, 
 foot		// 13 usees worldwide
 substation	// 11 uses worldwide; misuse of craft like building=yes+craft=pottery+substation=transmission+voltage=220000
 
-stroller	// new shop owner probably keeps the layout? (see wheelchair/toilets above)
 wikidata	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 wikipedia	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 name_disaster	// https://taginfo.openstreetmap.org/keys/?key=name_disaster#values
