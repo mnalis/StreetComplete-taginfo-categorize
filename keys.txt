@@ -225,7 +225,7 @@ healthcare(:.*)?	// mostly stuff like healthcare=optometrist, shop=optician; but
 health_.*	// health_service:examination, health_specialty:optometry, ... w/shop=optician
 medical_.*	// medical_system:western, medical_facility:type=office, ... w/shop=optician
 
-// accomodation & layout
+// accommodation & layout
 rooms
 stars
 accommodation
