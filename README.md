@@ -1,4 +1,4 @@
-Those scripts generate `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED` for StreetComplete project.
+Those scripts generate `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED` for the [StreetComplete](https://github.com/streetcomplete/StreetComplete) project.
 
 `make update` should be run periodically, to find new keys with usage > 0.01%
 and add them to `## TODO ##` section at the bottom of `keys.txt` file.
