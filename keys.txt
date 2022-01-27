@@ -94,6 +94,7 @@ type:FR:FINESS	// on amenity=pharmacy; https://wiki.openstreetmap.org/wiki/Key:t
 type:FR:APE	// https://wiki.openstreetmap.org/wiki/France/Liste_des_r%C3%A9f%C3%A9rences_nationales - maybe "INSEE code of the main branch of activity of a company"
 kvl_hro:amenity	// import: mostly amenity type; see https://wiki.openstreetmap.org/wiki/Rostock:Geb%C3%A4ude_und_Strukturen
 ref:DK:cvr(:.*)?	// official database of Danish businesses; https://wiki.openstreetmap.org/wiki/Key:ref:DK:cvr
+certifications?	// undocumented https://wiki.openstreetmap.org/wiki/Proposed_features/certification, HOT-related?
 
 // names and identifications
 name_?[1-9]?(:.*)?
@@ -101,14 +102,16 @@ name_?[1-9]?(:.*)?
 noname
 branch(:.*)?
 brand(:.*)?
+not:brand(:.*)?
 network		// used like brand
 operator(:.*)?
+operator_type	// misspelled https://wiki.openstreetmap.org/wiki/Key:operator:type ?
 ref		// without extra clasification like ref:xxx, it is most likely shop related
 ref:vatin
 designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
 
 // contacts
-contact:.*
+contact(:.*)?
 phone(:.*)?
 phone_?[1-9]?
 mobile
@@ -144,7 +147,7 @@ self_service	// shop property; unlikely to stay correct if owners change
 automated
 license:.*
 bulk_purchase
-.*:covid19	// delivery:covid19, access:covid19 etc - shop property; unlikely to stay correct if owners change (plus, hopefully it's obsolete)
+.*:covid19	// delivery:covid19, access:covid19 etc - shop property; unlikely to stay correct if owners change (plus, hopefully it is obsolete)
 language:.*	// language offered, https://wiki.openstreetmap.org/wiki/Key:language
 baby_feeding	// 342 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:baby_feeding; id_tagging_schema.json says might be used in office=*
 description(:.*)?
@@ -206,6 +209,7 @@ takeaway(:.*)?
 delivery(:.*)?	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key:delivery
 caterer
 real_fire		// 155 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:real_fire
+flour_fortified	// seems to be craft=grinding_mill related
 
 // related to repair shops/crafts
 service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
@@ -292,7 +296,7 @@ recycling_type		// just 12 nodes worldwide, sometimes eg. "amenity=recycling + c
 comment		// might be either, but probably more likely shop-related
 
 ### KEYS TO KEEP ###
-// let's start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
+// let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
 source_?[1-9]?(:.*)?	// see https://github.com/streetcomplete/StreetComplete/issues/3244
 source_ref	// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
 Source
@@ -317,9 +321,12 @@ nohousenumber
 not:addr:postcode
 postal_code
 place
+city
 
 
 location	// https://wiki.openstreetmap.org/wiki/Key:location
+location-Accuracy
+location-Altitude
 level(:.*)?
 indoor(:.*)?
 room
@@ -381,6 +388,7 @@ highway		// craft misused; eg. craft=carpenter + highway=service + service=drive
 utahagrc:parcelid	// https://wiki.openstreetmap.org/wiki/Key:utahagrc:parcelid
 WroclawGIS:building:ID	// Poland buildings
 mhs:.*		// historical monuments in France? https://wiki.openstreetmap.org/wiki/Key:ref:mhs - mhs:inscription_date
+sangis:.*	// address-related, https://wiki.openstreetmap.org/wiki/SanGIS
 listed_status	//  official listed status of a building or other structure, usually due to their historical significance, https://wiki.openstreetmap.org/wiki/Key:listed_status
 
 
@@ -456,6 +464,9 @@ generator:.*
 
 # _find_popular_subkeys.txt: there is 3012 "shop=no" and 189 "no=*", but although it passes the numbers, it is not really "popular subkey", so just ignore it
 no
+car;car_repair	// we handle each separetely (from _find_popular_subkeys.json)
+car_repair;car	// we handle each separetely (from _find_popular_subkeys.json)
+
 
 ### TODO ###
 

@@ -1,13 +1,13 @@
 val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
-    // let's start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
+    // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
     "source_?[1-9]?(:.*)?", "source_ref", "Source", "attribution",
     "import",
     "landuse", "historic(:.*)?", "heritage(:.*)?",
     "building(:.*)?", "man_made", "roof:.*", "architect",
     "addr:.*", "is_in(:.*)?", "address", "nohousenumber",
-    "not:addr:postcode", "postal_code", "place",
+    "not:addr:postcode", "postal_code", "place", "city",
    
-    "location", "level(:.*)?", "indoor(:.*)?", "room",
+    "location", "location-Accuracy", "location-Altitude", "level(:.*)?", "indoor(:.*)?", "room",
     "layer", "ele", "height", "altitude", "author", "authorization", "area",
     "FIXME", "fixme", "note(:.*)?",
     "ref:.*",
@@ -20,7 +20,7 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "lbcs:.*", "chicago:building_id", "arivac:.*", "lacounty:.*", "nysgissam:.*", "at_bev:.*",
     "castle_type", "nycdoitt:bin", "fid", "wikimedia_commons", "mapillary", "image", "size",
     "industrial", "project:opencities_abidjan", "highway", "utahagrc:parcelid",
-    "WroclawGIS:building:ID", "mhs:.*", "listed_status",
+    "WroclawGIS:building:ID", "mhs:.*", "sangis:.*", "listed_status",
    
    
    
@@ -38,5 +38,5 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "wikidata", "wikipedia", "name_disaster", "loc_ref", "loading_dock", "access", "access:roof",
     "office", "condition", "cellar_door", "cellar:use", "natural", "parking",
     "power", "power_source", "generator:.*",
-    "no",
+    "no", "car;car_repair", "car_repair;car",
 ).map { it.toRegex() }
