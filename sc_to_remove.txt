@@ -43,7 +43,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "unisex", "male", "female", "gender",
     // healthcare like optician
     "healthcare(:.*)?", "health_.*", "medical_.*",
-    // accomodation & layout
+    // accommodation & layout
     "rooms", "stars", "accommodation", "beds", "capacity(:persons)?", "laundry_service",
     // misc specific attributes
     "clothes", "shoes", "tailor", "beauty", "tobacco", "carpenter", "furniture", "lottery",
@@ -52,5 +52,6 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "agrarian", "musical_instrument", "massage", "parts", "post_office(:.*)?", "religion",
     "denomination", "rental", ".*:rental", "tickets:.*", "public_transport", "goods_supply", "pet",
     "appliance", "artwork_type", "charity", "company", "crop", "dry_cleaning", "factory",
-    "feature",
+    "feature", "air_conditioning", "atm", "drive_through", "surveillance(:.*)?", "outdoor_seating",
+    "indoor_seating", "vending", "vending_machine", "recycling_type",
 ).map { it.toRegex() }

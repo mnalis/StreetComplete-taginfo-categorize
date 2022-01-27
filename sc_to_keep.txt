@@ -24,8 +24,7 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
    
    
    
-    "air_conditioning", "atm", "drive_through", "maxspeed", "lanes", "oneway", "surface",
-    "inscription", "construction",
+    "maxspeed", "lanes", "oneway", "surface", "inscription", "construction",
    
     "year", "lastcheck", "last_check", "date", "start_date", "survey:date", "survey_date",
     "source_date", "source_type_survey", "source_type_imagery", "source_type_GPS",
