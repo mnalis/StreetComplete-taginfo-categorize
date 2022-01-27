@@ -277,19 +277,19 @@ crop		// like craft=gardener+crop=mushroom
 dry_cleaning	// like craft=tailor+dry_cleaning=yes
 factory		// 12 uses worldwide (yeah, but inside 0.01%)
 feature		// like craft=carpenter+feature=workshop_feature
-
-### KEYS TO PROBABLY REMOVE ###
+air_conditioning // change of tenants often means a renovation
+atm // a bank with atms moves out and takes the atms with it
+drive_through	// likely to remain IF the amenity stays the same type which is not a given
+surveillance(:.*)?	// likely to be changed after a renovation
+outdoor_seating // the following depend on the type of amenity there
+indoor_seating
 vending
 vending_machine
-outdoor_seating
-indoor_seating
-surveillance(:.*)?	// likely to be changed?
 recycling_type		// just 12 nodes worldwide, sometimes eg. "amenity=recycling + craft=cleaning"; so probably all amenity=recycling + recycling* should be removed?
 
+
+### KEYS TO PROBABLY REMOVE ###
 comment		// might be either, but probably more likely shop-related
-
-
-
 
 ### KEYS TO KEEP ###
 // let's start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
@@ -387,9 +387,6 @@ listed_status	//  official listed status of a building or other structure, usual
 
 ### KEYS TO PROBABLY KEEP ###
 
-air_conditioning
-atm
-drive_through	// likely to remain?
 maxspeed
 lanes
 oneway		// misuse? eg. craft=metal_construction + highway=secondary_link + oneway=yes...
