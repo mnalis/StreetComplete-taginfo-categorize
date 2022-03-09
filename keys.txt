@@ -210,6 +210,7 @@ delivery(:.*)?	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key
 caterer
 real_fire		// 155 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:real_fire
 flour_fortified	// seems to be craft=grinding_mill related
+highchair	// baby seating; 321 uses worldwide; https://wiki.openstreetmap.org/wiki/Key:highchair
 
 // related to repair shops/crafts
 service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
@@ -217,6 +218,7 @@ motorcycle:.*
 repair
 .*:repair	// eg. bicycle:repair computer:repair fabrik:repair furniture:repair mobile_phone:repair etc.
 electronics_repair(:.*)?
+workshop	// https://wiki.openstreetmap.org/wiki/Key:workshop
 
 // shop=hairdresser, shop=clothes
 unisex
@@ -322,6 +324,11 @@ not:addr:postcode
 postal_code
 place
 city
+quartier	// undocumented, seems location based, 5k+ uses worldwide
+Commune		// undocumented, seems location based, 4k+ uses worldwide, https://en.wikipedia.org/wiki/Communes_of_France
+City		// undocumented, seems location based, 4k+ uses worldwide
+street		// undocumented, seems location based, 5k+ uses worldwide
+sector		// undocumented, seems location based, 6k+ uses worldwide
 
 
 location	// https://wiki.openstreetmap.org/wiki/Key:location
@@ -466,6 +473,10 @@ generator:.*
 no
 car;car_repair	// we handle each separetely (from _find_popular_subkeys.json)
 car_repair;car	// we handle each separetely (from _find_popular_subkeys.json)
+
+# _id_tagging_schema.json -- ignorelist for "macros" in id-tagging-schema/dist/fields.json
+branch_brand		// this is branch=* which we handle
+real_fire-GB-IE		// this is real_fire=* which we handle
 
 
 ### TODO ###

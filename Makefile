@@ -1,6 +1,6 @@
 # what keys/tags to fetch, and how
 FETCH_KEYS := shop craft
-FETCH_TAGS := information=office amenity=restaurant amenity=cafe amenity=ice_cream amenity=fast_food amenity=bar amenity=pub amenity=biergarten amenity=nightclub amenity=bank amenity=bureau_de_change amenity=money_transfer amenity=post_office amenity=internet_cafe amenity=pharmacy amenity=driving_school leisure=amusement_arcade leisure=adult_gaming_centre leisure=tanning_salon office=insurance office=travel_agent office=tax_advisor office=estate_agent office=political_party
+FETCH_TAGS := information=office amenity=restaurant amenity=cafe amenity=ice_cream amenity=fast_food amenity=bar amenity=pub amenity=biergarten amenity=nightclub amenity=stripclub amenity=bank amenity=bureau_de_change amenity=money_transfer amenity=post_office amenity=internet_cafe amenity=pharmacy amenity=driving_school leisure=amusement_arcade leisure=adult_gaming_centre leisure=tanning_salon office=insurance office=travel_agent office=tax_advisor office=estate_agent office=political_party
 ID_DATA_PATH=../id-tagging-schema/data/presets
 
 MAX_TAGS := 999
