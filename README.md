@@ -1,3 +1,9 @@
+## Prerequisites
+- make, perl, JSON perl module, json_reformat (on Debian-based system: `apt-get install make perl libjson-perl yajl-tools`)
+- up-to-date `https://github.com/openstreetmap/id-tagging-schema` in `../id-tagging-schema`
+
+## Usage instructions
+
 Those scripts generate `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED` for the [StreetComplete](https://github.com/streetcomplete/StreetComplete) project.
 
 `make update` should be run periodically, to find new keys with usage > 0.01%
@@ -10,7 +16,8 @@ Running `make` again will then generate `sc_to_remove.txt` with kotlin code to c
 https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt
 It is generated only from data in `### KEYS TO REMOVE ###` section.
 
-Notes on `keys.txt` format:
+## Notes on `keys.txt` format:
+
 * each line can contain a regex (or normal text) representing key (in-line comments are possible too, as everything after `//` or `#` is ignored
 * blank lines in `### KEYS TO REMOVE ###` section will become newlines in `sc_to_remove.txt`
 * lines beginning with `//` in `### KEYS TO REMOVE ###` section will be copied to `sc_to_remove.txt`
