@@ -13,7 +13,7 @@ User should then investigate and move them from there to correct section
 like `### KEYS TO REMOVE ###` or `### KEYS TO KEEP ###` sections of `keys.txt`.
 
 Running `make` again will then generate `sc_to_remove.txt` with kotlin code to copy/paste to
-https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt
+https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Shop.kt#L6
 It is generated only from data in `### KEYS TO REMOVE ###` section.
 
 ## Notes on `keys.txt` format:
