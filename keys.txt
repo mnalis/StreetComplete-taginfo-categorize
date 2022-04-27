@@ -294,7 +294,6 @@ vending
 vending_machine
 recycling_type		// just 12 nodes worldwide, sometimes eg. "amenity=recycling + craft=cleaning"; so probably all amenity=recycling + recycling* should be removed?
 
-
 ### KEYS TO PROBABLY REMOVE ###
 comment		// might be either, but probably more likely shop-related
 
@@ -316,8 +315,7 @@ man_made
 roof:.*
 architect
 
-addr:.*
-addr2:.*
+addr[1-9]?:.*
 is_in(:.*)?
 address
 nohousenumber
@@ -480,6 +478,5 @@ car_repair;car	// we handle each separetely (from _find_popular_subkeys.json)
 # _id_tagging_schema.json -- ignorelist for "macros" in id-tagging-schema/dist/fields.json
 branch_brand		// this is branch=* which we handle
 real_fire-GB-IE		// this is real_fire=* which we handle
-
 
 ### TODO ###
