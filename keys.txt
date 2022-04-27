@@ -28,6 +28,7 @@ newsagent
 lighting
 truck
 car_repair
+car_parts
 video
 fuel
 farm
@@ -316,6 +317,7 @@ roof:.*
 architect
 
 addr:.*
+addr2:.*
 is_in(:.*)?
 address
 nohousenumber
@@ -324,6 +326,7 @@ not:addr:postcode
 postal_code
 place
 city
+country
 quartier	// undocumented, seems location based, 5k+ uses worldwide
 Commune		// undocumented, seems location based, 4k+ uses worldwide, https://en.wikipedia.org/wiki/Communes_of_France
 City		// undocumented, seems location based, 4k+ uses worldwide
@@ -480,4 +483,3 @@ real_fire-GB-IE		// this is real_fire=* which we handle
 
 
 ### TODO ###
-
