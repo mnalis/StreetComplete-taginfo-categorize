@@ -4,7 +4,7 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "import",
     "landuse", "historic(:.*)?", "heritage(:.*)?",
     "building(:.*)?", "man_made", "roof:.*", "architect",
-    "addr:.*", "addr2:.*", "is_in(:.*)?", "address", "nohousenumber",
+    "addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber",
     "not:addr:postcode", "postal_code", "place", "city", "country", "quartier", "Commune", "City",
     "street", "sector",
    
