@@ -34,6 +34,7 @@ fuel
 farm
 car
 tractor
+hgv
 ski
 sculptor
 hearing_aids
@@ -769,9 +770,6 @@ taluk
 
 // from amenity-kindergarten.json
 SEP:CLAVEESC
-
-// from amenity-fuel.json
-hgv
 
 // from _id_tagging_schema.json
 blood_components
