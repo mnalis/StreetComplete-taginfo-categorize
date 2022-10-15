@@ -4,18 +4,19 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     // popular shop=* / craft=* subkeys
     "marketplace", "household", "swimming_pool", "telecommunication", "laundry", "golf", "sports",
     "ice_cream", "scooter", "music", "retail", "yes", "ticket", "health", "newsagent", "lighting",
-    "truck", "car_repair", "car_parts", "video", "fuel", "farm", "car", "ski", "sculptor",
-    "hearing_aids", "surf", "photo", "boat", "gas", "kitchen", "anime", "builder", "hairdresser",
-    "security", "bakery", "bakehouse", "fishing", "doors", "kiosk", "market", "bathroom", "lamps",
-    "vacant", "insurance", "caravan", "gift", "bicycle", "insulation", "communication", "mall",
-    "model", "empty", "wood", "hunting", "motorcycle", "trailer", "camera", "water", "fireplace",
-    "outdoor",
+    "truck", "car_repair", "car_parts", "video", "fuel", "farm", "car", "tractor", "ski",
+    "sculptor", "hearing_aids", "surf", "photo", "boat", "gas", "kitchen", "anime", "builder",
+    "hairdresser", "security", "bakery", "bakehouse", "fishing", "doors", "kiosk", "market",
+    "bathroom", "lamps", "vacant", "insurance", "caravan", "gift", "bicycle", "bicycle_rental",
+    "insulation", "communication", "mall", "model", "empty", "wood", "hunting", "motorcycle",
+    "trailer", "camera", "water", "fireplace", "outdoor", "blacksmith",
     // obsoleted information
     "abandoned(:.*)?", "disused(:.*)?", "was:.*", "damage", "source:damage", "created_by",
-    "check_date", "last_checked", "checked_exists:date",
+    "check_date", "opening_date", "last_checked", "checked_exists:date",
     // classifications / links to external databases
     "fhrs:.*", "old_fhrs:.*", "fvst:.*", "ncat", "nat_ref", "gnis:.*", "winkelnummer",
     "type:FR:FINESS", "type:FR:APE", "kvl_hro:amenity", "ref:DK:cvr(:.*)?", "certifications?",
+    "transiscope",
     // names and identifications
     "name_?[1-9]?(:.*)?", ".*_name(:.*)?", "noname", "branch(:.*)?", "brand(:.*)?",
     "not:brand(:.*)?", "network", "operator(:.*)?", "operator_type", "ref", "ref:vatin",
@@ -24,7 +25,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "contact(:.*)?", "phone(:.*)?", "phone_?[1-9]?", "mobile", "fax", "facebook", "instagram",
     "twitter", "youtube", "telegram", "email", "website_?[1-9]?", "url", "source_ref:url", "owner",
     // payments
-    "payment(:.*)?", "currency:.*", "cash_withdrawal(:.*)?", "fee", "money_transfer",
+    "payment(:.*)?", "currency:.*", "cash_withdrawal(:.*)?", "fee", "charge", "money_transfer",
     // generic shop/craft attributes
     "seasonal", "time", "opening_hours(:.*)?", "check_date:opening_hours", "wifi", "internet",
     "internet_access(:.*)?", "second_hand", "self_service", "automated", "license:.*",
@@ -56,5 +57,5 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "denomination", "rental", ".*:rental", "tickets:.*", "public_transport", "goods_supply", "pet",
     "appliance", "artwork_type", "charity", "company", "crop", "dry_cleaning", "factory",
     "feature", "air_conditioning", "atm", "drive_through", "surveillance(:.*)?", "outdoor_seating",
-    "indoor_seating", "vending", "vending_machine", "recycling_type",
+    "indoor_seating", "vending", "vending_machine", "recycling_type", "museum",
 ).map { it.toRegex() }

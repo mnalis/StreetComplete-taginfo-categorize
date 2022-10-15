@@ -3,7 +3,7 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "source_?[1-9]?(:.*)?", "source_ref", "Source", "attribution",
     "import",
     "landuse", "historic(:.*)?", "heritage(:.*)?",
-    "building(:.*)?", "man_made", "roof:.*", "architect",
+    "building(:.*)?", "building_type", "man_made", "roof:.*", "architect", "covered",
     "addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber",
     "not:addr:postcode", "postal_code", "place", "city", "country", "quartier", "Commune", "City",
     "street", "sector",
@@ -29,10 +29,10 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
    
     "year", "lastcheck", "last_check", "date", "start_date", "survey:date", "survey_date",
     "source_date", "source_type_survey", "source_type_imagery", "source_type_GPS",
-    "source_type_walking_paper",
+    "source_type_walking_paper", "addr.source:housenumber", "addr.source:street",
     "KSJ2:.*", "kvl_hro:type", "b5m:.*", "it:fvg:ctrn:.*", "dcgis:.*", "dataset",
     "project:eurosha_2012", "cosmha", "lojic:bgnum", "maaamet:ETAK", "osm_id", "project",
-    "project:pdevii", "usar_addr:edit_date", "bmo:type",
+    "project:pdevii", "usar_addr:edit_date", "bmo:type", "osm_type",
    
     "entrance", "waste:disposal", "water_tank:quantity", "water_supply", "water_source:id",
     "drinking_water", "lit", "government", "foot", "substation",

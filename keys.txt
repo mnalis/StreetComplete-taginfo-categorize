@@ -33,6 +33,7 @@ video
 fuel
 farm
 car
+tractor
 ski
 sculptor
 hearing_aids
@@ -58,6 +59,7 @@ insurance
 caravan
 gift
 bicycle
+bicycle_rental  // sometimes used with shop=rental
 insulation
 communication
 mall
@@ -71,6 +73,7 @@ camera
 water
 fireplace
 outdoor
+blacksmith
 
 // obsoleted information
 abandoned(:.*)?
@@ -80,6 +83,7 @@ damage		// if new shop, damage is probably being repaired?
 source:damage
 created_by
 check_date	// we have just checked it!
+opening_date    // if it no longer exists, that opening_date is obsolete as well
 last_checked	// https://wiki.openstreetmap.org/wiki/Proposed_features/last_checked
 checked_exists:date
 
@@ -96,6 +100,7 @@ type:FR:APE	// https://wiki.openstreetmap.org/wiki/France/Liste_des_r%C3%A9f%C3%
 kvl_hro:amenity	// import: mostly amenity type; see https://wiki.openstreetmap.org/wiki/Rostock:Geb%C3%A4ude_und_Strukturen
 ref:DK:cvr(:.*)?	// official database of Danish businesses; https://wiki.openstreetmap.org/wiki/Key:ref:DK:cvr
 certifications?	// undocumented https://wiki.openstreetmap.org/wiki/Proposed_features/certification, HOT-related?
+transiscope     // ecologic transition in progress, seems to be shop attribute. see https://wiki.openstreetmap.org/wiki/Key:transiscope
 
 // names and identifications
 name_?[1-9]?(:.*)?
@@ -133,6 +138,7 @@ payment(:.*)?
 currency:.*
 cash_withdrawal(:.*)?
 fee
+charge          // https://wiki.openstreetmap.org/wiki/Key:charge
 money_transfer	// might be bank, but also shop=stationery+money_transfer=Western Union etc. https://wiki.openstreetmap.org/wiki/Key:money_transfer
 
 // generic shop/craft attributes
@@ -293,6 +299,8 @@ indoor_seating
 vending
 vending_machine
 recycling_type		// just 12 nodes worldwide, sometimes eg. "amenity=recycling + craft=cleaning"; so probably all amenity=recycling + recycling* should be removed?
+museum
+
 
 ### KEYS TO PROBABLY REMOVE ###
 comment		// might be either, but probably more likely shop-related
@@ -311,9 +319,11 @@ historic(:.*)?
 heritage(:.*)?
 
 building(:.*)?
+building_type
 man_made
 roof:.*
 architect
+covered
 
 addr[1-9]?:.*
 is_in(:.*)?
@@ -423,6 +433,8 @@ source_type_survey
 source_type_imagery
 source_type_GPS
 source_type_walking_paper
+addr.source:housenumber // undocumented
+addr.source:street
 
 KSJ2:.*		// http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html says "This is a collection of data on the locations, types, names, addresses, managers, etc. of public offices, schools, hospitals, post offices, social welfare facilities, etc. nationwide"; also https://wiki.openstreetmap.org/wiki/Import/Catalogue/Japan_KSJ2_Import
 kvl_hro:type	// import: mostly building type, but could be amenity too; see https://wiki.openstreetmap.org/wiki/Rostock:Geb%C3%A4ude_und_Strukturen
@@ -439,6 +451,7 @@ project		// undocumented, 643 uses worldwide
 project:pdevii	// undocumented, 337 uses worldwide
 usar_addr:edit_date	// undocumented, 279 uses worldwide
 bmo:type	// https://wiki.openstreetmap.org/wiki/BMO - Cadastre related for Brest, France?
+osm_type    // undocumented, mostly used in Nigeria (914 times); confusing but does not seem shop-related, but geometry-related 
 
 
 entrance
