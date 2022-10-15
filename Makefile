@@ -75,7 +75,10 @@ clean:
 distclean: clean
 	rm -f sc_to_keep.txt sc_to_remove.txt
 
-update: clean all
+update_id:
+	cd $(ID_DATA_PATH) && git pull
+
+update: clean update_id all
 
 local_update:
 	for j in *.json; do echo ./update_keys.pl $$j $(MAX_TAGS) >&2 ; ./update_keys.pl $$j $(MAX_TAGS); done >> keys.txt
@@ -88,4 +91,4 @@ _id_tagging_schema.json: _id_tagging_schema.txt Makefile
 	$(txt-to-json)
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
-.PHONY: clean distclean update local_update stats all
+.PHONY: clean distclean update update_id local_update stats all
