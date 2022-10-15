@@ -30,3 +30,22 @@ If `isShopExpressionFragment()` in `OsmTaggings.kt` changes, then
 scripts re-run (i.e. `make update` + `make`) in order to generate new
 `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED` to put in
 `OsmTaggings.kt`.
+
+For example, if `isShopExpressionFragment()` was extended with:
+
+```diff
++        or ${p}healthcare
++        or """ + mapOf(
++        "leisure" to listOf(
++            "adult_gaming_centre",
++            "amusement_arcade",
+```
+
+one would update `Makefile` with:
+
+```diff
+-FETCH_KEYS := shop craft
++FETCH_KEYS := shop craft healthcare
+-FETCH_TAGS := information=office amenity=restaurant amenity=cafe [...]
++FETCH_TAGS := information=office amenity=restaurant amenity=cafe [...] leisure=adult_gaming_centre leisure=amusement_arcade
+```
