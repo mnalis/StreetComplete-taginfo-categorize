@@ -56,7 +56,7 @@ market
 bathroom
 lamps
 vacant
-insurance
+insurance(:.*)?
 caravan
 gift
 bicycle
@@ -129,17 +129,19 @@ twitter
 youtube
 telegram
 email
-website_?[1-9]?
+website_?[1-9]?(:.*)?
 url
 source_ref:url
 owner
 
 // payments
 payment(:.*)?
+payment_multi_fee
 currency:.*
 cash_withdrawal(:.*)?
 fee
 charge          // https://wiki.openstreetmap.org/wiki/Key:charge
+charge_fee
 money_transfer	// might be bank, but also shop=stationery+money_transfer=Western Union etc. https://wiki.openstreetmap.org/wiki/Key:money_transfer
 
 // generic shop/craft attributes
@@ -179,6 +181,7 @@ toilets(:.*)?	// Toilet information might change as shop owners change (worth a 
 changing_table
 wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair access might be added with new owner.
 stroller	// new shop owner might change the layout? (see wheelchair/toilets above)
+
 
 // food and drink details
 bar
@@ -578,7 +581,6 @@ GNS:id
 HE_ref
 identifier
 id:uuid
-insurance:car
 IOM:project
 isced:level
 it:type
@@ -621,8 +623,6 @@ ward
 water_source
 wb_pb:id
 webshop
-website:refugee:uk
-website:ua
 wikipedia:en
 year_of_construction
 
@@ -635,10 +635,8 @@ app:apple
 app:google
 AUTORIZATIE
 bed_count
-blood:plasma
-blood:platelets
-blood:stemcells
-blood:whole
+blood(:.*)?
+infection(:.*)?
 capacity:beds
 category
 CLA_PERS
@@ -692,16 +690,6 @@ HSE_region
 IJSN:tipoAgrup
 IJSN:tipoUnidad
 import_uuid
-infection:hiv
-insurance:BVA
-insurance:GKK
-insurance:health
-insurance:KFAG
-insurance:KFAW
-insurance:OEDA
-insurance:SVA
-insurance:SVB
-insurance:VA
 kids_area
 laboratory:type
 landmark
@@ -762,8 +750,6 @@ toilets_number
 urgent_care
 vaccination
 walk-in
-website:booking
-website:stock
 who:code_csref
 who:distance
 who:nbre_village
@@ -775,10 +761,8 @@ SEP:CLAVEESC
 access_simple
 blind
 blood_components
-charge_fee
 dance:style
 diplomatic:services
-payment_multi_fee
 preschool
 social_facility_for
 
