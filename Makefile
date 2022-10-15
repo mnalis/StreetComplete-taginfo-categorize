@@ -1,6 +1,15 @@
 # what keys/tags to fetch, and how
-FETCH_KEYS := shop craft
-FETCH_TAGS := information=office amenity=restaurant amenity=cafe amenity=ice_cream amenity=fast_food amenity=bar amenity=pub amenity=biergarten amenity=nightclub amenity=stripclub amenity=bank amenity=bureau_de_change amenity=money_transfer amenity=post_office amenity=internet_cafe amenity=pharmacy amenity=driving_school leisure=amusement_arcade leisure=adult_gaming_centre leisure=tanning_salon office=insurance office=travel_agent office=tax_advisor office=estate_agent office=political_party office=telecommunication office=it office=lawyer office=accountant
+FETCH_KEYS := shop craft office healthcare
+FETCH_TAGS := information=office \
+ amenity=social_facility amenity=fast_food amenity=childcare amenity=dive_centre amenity=dojo amenity=kindergarten amenity=language_school amenity=library amenity=music_school \
+ amenity=prep_school amenity=toy_library amenity=training amenity=car_rental amenity=car_wash amenity=fuel amenity=motorcycle_rental amenity=vehicle_inspection amenity=payment_centre \
+ amenity=clinic amenity=dentist amenity=doctors amenity=hospital amenity=veterinary amenity=arts_centre amenity=community_centre amenity=events_venue amenity=gambling amenity=social_centre \
+ amenity=studio amenity=coworking_space amenity=restaurant amenity=cafe amenity=ice_cream amenity=fast_food amenity=bar amenity=pub amenity=biergarten amenity=nightclub amenity=stripclub \
+ amenity=bank amenity=bureau_de_change amenity=money_transfer amenity=post_office amenity=internet_cafe amenity=pharmacy amenity=driving_school \
+ leisure=amusement_arcade leisure=adult_gaming_centre leisure=tanning_salon leisure=dance leisure=dancing_school leisure=escape_game leisure=indoor_play leisure=fitness_centre \
+ leisure=hackerspace leisure=sauna \
+ tourism=gallery tourism=museum
+
 ID_DATA_PATH=../id-tagging-schema/data/presets
 
 MAX_TAGS := 999
