@@ -6,7 +6,7 @@ old_amenity
 old_shop
 information
 leisure
-office
+office_?[1-9]?
 tourism
 
 // popular shop=* / craft=* subkeys
@@ -105,7 +105,7 @@ certifications?	// undocumented https://wiki.openstreetmap.org/wiki/Proposed_fea
 transiscope     // ecologic transition in progress, seems to be shop attribute. see https://wiki.openstreetmap.org/wiki/Key:transiscope
 
 // names and identifications
-name_?[1-9]?(:.*)?
+(.*_)?name_?[1-9]?(:.*)?
 .*_name(:.*)?	// handles all of alt_name, old_name, short_name:en, etc. see https://github.com/streetcomplete/StreetComplete/issues/3244#issuecomment-915711994
 noname
 branch(:.*)?
@@ -135,6 +135,7 @@ telegram
 email
 website_?[1-9]?(:.*)?
 app:.*
+ownership   // changing shop probably changes ownership - https://wiki.openstreetmap.org/wiki/Key:ownership
 
 url
 source_ref:url
@@ -183,14 +184,17 @@ attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewe
 strapline	// "advertasing phrase" https://wiki.openstreetmap.org/wiki/Key:strapline
 dog		// whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
 showroom	// undocumented, but probably if the shop has https://en.wikipedia.org/wiki/Showroom
-toilets(:.*)?	// Toilet information might change as shop owners change (worth a separate SC quest?)
+toilets?(:.*)?	// Toilet information might change as shop owners change (worth a separate SC quest?)
 changing_table
 wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair access might be added with new owner.
+blind           // undocumented; blind uses accessibility?
+company(:.*)?
 stroller	// new shop owner might change the layout? (see wheelchair/toilets above)
 walk-in
 reservation(:.*)?
 webshop     // undocumented, 153 uses, type of webshop
 power_supply
+backup_generator
 operational_status.*
 drive_through	// likely to remain IF the amenity stays the same type which is not a given
 surveillance(:.*)?	// likely to be changed after a renovation
@@ -237,6 +241,8 @@ caterer
 real_fire		// 155 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:real_fire
 flour_fortified	// seems to be craft=grinding_mill related
 highchair	// baby seating; 321 uses worldwide; https://wiki.openstreetmap.org/wiki/Key:highchair
+sport_pub    // undocumented, unused, from _id_tagging_schema.json
+access_simple   // undocumented, unused, from _id_tagging_schema.json
 
 // related to repair shops/crafts
 service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
@@ -251,6 +257,7 @@ unisex
 male
 female
 gender
+lgbtq(:.*)?   // https://wiki.openstreetmap.org/wiki/Key:lgbtq
 
 // healthcare like optician
 healthcare(:.*)?	// mostly stuff like healthcare=optometrist, shop=optician; but there are some exceptions like healthcare=doctor shop=hairdresser like #4474699292 ??
@@ -289,6 +296,8 @@ laboratory
 sample_collection
 provided_for(:.*)?
 social_facility_for
+ambulance
+ward
 
 // accommodation & layout
 rooms
@@ -349,6 +358,13 @@ vending_machine
 recycling_type		// just 12 nodes worldwide, sometimes eg. "amenity=recycling + craft=cleaning"; so probably all amenity=recycling + recycling* should be removed?
 museum
 license_classes // driving school subattribute - https://wiki.openstreetmap.org/wiki/Key%3Alicense_classes
+dance:style
+preschool
+diplomatic(:.*)?
+embassy
+consulate
+
+
 
 ### KEYS TO PROBABLY REMOVE ###
 comment		// might be either, but probably more likely shop-related
@@ -370,7 +386,7 @@ building(:.*)?
 building_type
 man_made
 roof:.*
-architect
+architect(:.*)?
 year_of_construction    // building related: https://wiki.openstreetmap.org/wiki/Key:year_of_construction
 covered
 
@@ -574,9 +590,6 @@ utility
 admin_level
 aerospace:product
 aeroway
-alt_name_1
-architect:wikidata
-backup_generator
 boundary
 buildings:floor
 building_status
@@ -585,24 +598,13 @@ cargo
 colour
 community_centre
 comoros-dgsc:code
-company:size:FR
-company:startup
-consulate
 department
 depot
 description1
 description2
 diocese
-diplomatic:services
-diplomatic:services:citizen_services
-diplomatic:services:consulate
-diplomatic:services:immigrant_visas
-diplomatic:services:non-immigrant_visas
-diplomatic:services:Notarial_Services
-diplomatic:services:passport
 disaster:shelter_type
 elevation
-embassy
 emergency
 emergency:amenity
 emergency:shelter_type
@@ -628,7 +630,6 @@ isced:level
 it:type
 kitchen:facilities
 levels
-lgbtq
 liaison
 member_of
 M:hazard_prone
@@ -636,7 +637,6 @@ min_height
 office_1
 official_status
 old_ref
-ownership
 party
 population
 previously
@@ -655,11 +655,9 @@ source_url
 survey:name
 target
 telecom
-toilet:facilities
 topic
 townhall:type
 update
-ward
 water_source
 wb_pb:id
 wikipedia:en
@@ -667,7 +665,6 @@ wikipedia:en
 // from healthcare.json
 activities
 admin_staff
-ambulance
 AUTORIZATIE
 
 
@@ -738,14 +735,5 @@ who:code_csref
 who:distance
 who:nbre_village
 
-
-// from _id_tagging_schema.json
-access_simple
-blind
-dance:style
-preschool
-
-// from _id_tagging_schema.json
-sport_pub
 
 reg_id
