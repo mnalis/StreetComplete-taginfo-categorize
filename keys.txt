@@ -192,14 +192,13 @@ company(:.*)?
 stroller	// new shop owner might change the layout? (see wheelchair/toilets above)
 walk-in
 webshop     // undocumented, 153 uses, type of webshop
-power_supply
-backup_generator
 operational_status.*
 drive_through	// likely to remain IF the amenity stays the same type which is not a given
 surveillance(:.*)?	// likely to be changed after a renovation
 outdoor_seating // the following depend on the type of amenity there
 indoor_seating
 colour
+access_simple   // undocumented, unused, from _id_tagging_schema.json
 
 
 // food and drink details
@@ -242,7 +241,6 @@ real_fire		// 155 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:real_f
 flour_fortified	// seems to be craft=grinding_mill related
 highchair	// baby seating; 321 uses worldwide; https://wiki.openstreetmap.org/wiki/Key:highchair
 sport_pub    // undocumented, unused, from _id_tagging_schema.json
-access_simple   // undocumented, unused, from _id_tagging_schema.json
 
 // related to repair shops/crafts
 service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
@@ -373,12 +371,14 @@ camp_site   // camp_site=reception &  office=camping
 emergency(:.*)? // https://wiki.openstreetmap.org/wiki/Key:emergency
 evacuation_cent(er|re)
 education
+isced:level
 engineering
 forestry
 foundation
 lawyer
 logistics
 military
+community_centre
 
 
 ### KEYS TO PROBABLY REMOVE ###
@@ -559,9 +559,15 @@ cellar:use
 natural
 parking
 
+electricity
+power_supply
 power
 power_source
 generator:.*
+backup_generator
+
+shelter_type
+disaster:shelter_type
 
 # _find_popular_subkeys.txt: there is 3012 "shop=no" and 189 "no=*", but although it passes the numbers, it is not really "popular subkey", so just ignore it
 no
@@ -599,14 +605,12 @@ boundary
 buildings:floor
 building_status
 cargo
-community_centre
 comoros-dgsc:code
 department
 depot
 description1
 description2
 diocese
-disaster:shelter_type
 elevation
 faculty
 fire_operator
@@ -622,7 +626,6 @@ HE_ref
 identifier
 id:uuid
 IOM:project
-isced:level
 it:type
 kitchen:facilities
 levels
@@ -643,7 +646,6 @@ project:mappingforniger
 project:oif-dfen_carteinnov
 region
 service_times
-shelter_type
 source_url
 survey:name
 target
@@ -668,7 +670,6 @@ collection_centre
 design:code:SPb
 design:ref
 donation:compensation
-electricity
 elevator
 emergency:phone
 EMP_EST
