@@ -118,6 +118,7 @@ ref		// without extra clasification like ref:xxx, it is most likely shop related
 ref:vatin
 designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
 SEP:CLAVEESC    // from amenity-kindergarten.json - undocumented, seems to be subtype of facility code?
+AUTORIZATIE     // undocumented, seems to be healthcare id or type from https://data.gov.ro/dataset/situatia-farmaciilor-din-romania ?
 
 
 // contacts
@@ -199,6 +200,8 @@ outdoor_seating // the following depend on the type of amenity there
 indoor_seating
 colour
 access_simple   // undocumented, unused, from _id_tagging_schema.json
+government	// related to office=goverment, which we now allow removing
+office		// https://wiki.openstreetmap.org/wiki/Key:office
 
 
 // food and drink details
@@ -257,12 +260,13 @@ female
 gender
 lgbtq(:.*)?   // https://wiki.openstreetmap.org/wiki/Key:lgbtq
 
-// healthcare like optician
+// healthcare
 healthcare(:.*)?	// mostly stuff like healthcare=optometrist, shop=optician; but there are some exceptions like healthcare=doctor shop=hairdresser like #4474699292 ??
 health
 health_.*	// health_service:examination, health_specialty:optometry, ... w/shop=optician
 medical_.*	// medical_system:western, medical_facility:type=office, ... w/shop=optician
 facility
+activities      // undocumented; seems to be healthcare services
 healthcare_facility(:.*)?
 laboratory(:.*)?
 blood(:.*)?
@@ -280,6 +284,7 @@ bed_count
 capacity:beds
 personnel:count
 staff_count(:.*)?
+admin_staff
 doctors_num
 nurses_num
 counselling_type
@@ -357,6 +362,7 @@ recycling_type		// just 12 nodes worldwide, sometimes eg. "amenity=recycling + c
 museum
 license_classes // driving school subattribute - https://wiki.openstreetmap.org/wiki/Key%3Alicense_classes
 dance:style
+isced:level
 school
 preschool
 university
@@ -371,7 +377,6 @@ camp_site   // camp_site=reception &  office=camping
 emergency(:.*)? // https://wiki.openstreetmap.org/wiki/Key:emergency
 evacuation_cent(er|re)
 education
-isced:level
 engineering
 forestry
 foundation
@@ -379,6 +384,7 @@ lawyer
 logistics
 military
 community_centre
+bank
 
 
 ### KEYS TO PROBABLY REMOVE ###
@@ -541,25 +547,23 @@ water_supply
 water_source:id
 drinking_water	// likely to stay?
 lit		// likely to stay, or not? old 253 uses worldwide...
-government	// related to office=goverment, which we do not target specifically, overpass-turbo shows often marged in the same object with office=government + shop=car_repair|mall|photo...
 foot		// 13 usees worldwide
 substation	// 11 uses worldwide; misuse of craft like building=yes+craft=pottery+substation=transmission+voltage=220000
 
 wikidata	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
-wikipedia	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
+wikipedia(:.*)?	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 name_disaster	// https://taginfo.openstreetmap.org/keys/?key=name_disaster#values
 loc_ref		// hardly documented https://wiki.openstreetmap.org/wiki/Key:loc_ref
 loading_dock	// undocumented, used about 50 times in one place
 access		// sometimes logical like craft=gardener + access=agricultural; sometimes mistag like amenity=prison + barrier=wall + craft=insulation
 access:roof	// used in about 1000 amenity=bank
-office		// seems to be used on building=* (when building contains both shops and offices), but there are exceptions like office=estate_agent + shop=estate_agent. see https://overpass-turbo.eu/s/1b2m
 condition	// ambiguous, https://wiki.openstreetmap.org/wiki/Key:condition
 cellar_door	// undocumented, only used 100 times in south Australia with craft=winery
 cellar:use
 natural
 parking
 
-electricity
+electricity // will power stay?
 power_supply
 power
 power_source
@@ -584,7 +588,6 @@ real_fire-GB-IE		// this is real_fire=* which we handle
 administration
 administrative
 association
-bank
 camping
 church
 commercial
@@ -654,12 +657,7 @@ topic
 update
 water_source
 wb_pb:id
-wikipedia:en
 
-// from healthcare.json
-activities
-admin_staff
-AUTORIZATIE
 
 
 category
