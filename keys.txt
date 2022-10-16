@@ -191,7 +191,6 @@ blind           // undocumented; blind uses accessibility?
 company(:.*)?
 stroller	// new shop owner might change the layout? (see wheelchair/toilets above)
 walk-in
-reservation(:.*)?
 webshop     // undocumented, 153 uses, type of webshop
 power_supply
 backup_generator
@@ -235,7 +234,7 @@ produce
 chocolate
 fair_trade
 butcher
-reservation
+reservation(:.*)?
 takeaway(:.*)?
 delivery(:.*)?	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key:delivery
 caterer
@@ -364,6 +363,7 @@ school
 preschool
 university
 research_institution
+research
 townhall:type
 
 diplomatic(:.*)?
@@ -372,6 +372,13 @@ consulate
 camp_site   // camp_site=reception &  office=camping
 emergency(:.*)? // https://wiki.openstreetmap.org/wiki/Key:emergency
 evacuation_cent(er|re)
+education
+engineering
+forestry
+foundation
+lawyer
+logistics
+military
 
 
 ### KEYS TO PROBABLY REMOVE ###
@@ -577,18 +584,9 @@ church
 commercial
 consulting
 design
-diplomatic
-education
-engineering
-forestry
-foundation
-lawyer
-logistics
-military
 parish
 police
 private
-research
 taxi
 transport
 utility
@@ -632,7 +630,6 @@ liaison
 member_of
 M:hazard_prone
 min_height
-office_1
 official_status
 old_ref
 party
