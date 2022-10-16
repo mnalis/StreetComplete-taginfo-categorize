@@ -23,7 +23,6 @@ music
 retail
 yes
 ticket
-health
 newsagent
 lighting
 truck
@@ -87,6 +86,8 @@ check_date	// we have just checked it!
 opening_date    // if it no longer exists, that opening_date is obsolete as well
 last_checked	// https://wiki.openstreetmap.org/wiki/Proposed_features/last_checked
 checked_exists:date
+pharmacy_survey     // undocumented, mostly date of survey?
+
 
 // classifications / links to external databases
 fhrs:.*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
@@ -116,8 +117,11 @@ operator_type	// misspelled https://wiki.openstreetmap.org/wiki/Key:operator:typ
 ref		// without extra clasification like ref:xxx, it is most likely shop related
 ref:vatin
 designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
+SEP:CLAVEESC    // from amenity-kindergarten.json - undocumented, seems to be subtype of facility code?
+
 
 // contacts
+contact_person
 contact(:.*)?
 phone(:.*)?
 phone_?[1-9]?
@@ -130,6 +134,8 @@ youtube
 telegram
 email
 website_?[1-9]?(:.*)?
+app:.*
+
 url
 source_ref:url
 owner
@@ -181,6 +187,15 @@ toilets(:.*)?	// Toilet information might change as shop owners change (worth a 
 changing_table
 wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair access might be added with new owner.
 stroller	// new shop owner might change the layout? (see wheelchair/toilets above)
+walk-in
+reservation(:.*)?
+webshop     // undocumented, 153 uses, type of webshop
+power_supply
+operational_status.*
+drive_through	// likely to remain IF the amenity stays the same type which is not a given
+surveillance(:.*)?	// likely to be changed after a renovation
+outdoor_seating // the following depend on the type of amenity there
+indoor_seating
 
 
 // food and drink details
@@ -239,8 +254,41 @@ gender
 
 // healthcare like optician
 healthcare(:.*)?	// mostly stuff like healthcare=optometrist, shop=optician; but there are some exceptions like healthcare=doctor shop=hairdresser like #4474699292 ??
+health
 health_.*	// health_service:examination, health_specialty:optometry, ... w/shop=optician
 medical_.*	// medical_system:western, medical_facility:type=office, ... w/shop=optician
+facility
+healthcare_facility(:.*)?
+laboratory(:.*)?
+blood(:.*)?
+blood_components
+infection(:.*)?
+disease(:.*)?
+covid19(:.*)?
+CovidVaccineCenterId
+coronaquarantine
+hospital(:.*)?
+hospital_type_id
+emergency_room
+sample_collection(:.*)?
+bed_count
+capacity:beds
+personnel:count
+staff_count(:.*)?
+doctors_num
+nurses_num
+counselling_type
+testing_centres
+toilets_number
+urgent_care
+vaccination
+clinic
+hospital
+pharmacy
+laboratory
+sample_collection
+provided_for(:.*)?
+social_facility_for
 
 // accommodation & layout
 rooms
@@ -296,14 +344,11 @@ factory		// 12 uses worldwide (yeah, but inside 0.01%)
 feature		// like craft=carpenter+feature=workshop_feature
 air_conditioning // change of tenants often means a renovation
 atm // a bank with atms moves out and takes the atms with it
-drive_through	// likely to remain IF the amenity stays the same type which is not a given
-surveillance(:.*)?	// likely to be changed after a renovation
-outdoor_seating // the following depend on the type of amenity there
-indoor_seating
 vending
 vending_machine
 recycling_type		// just 12 nodes worldwide, sometimes eg. "amenity=recycling + craft=cleaning"; so probably all amenity=recycling + recycling* should be removed?
 museum
+license_classes // driving school subattribute - https://wiki.openstreetmap.org/wiki/Key%3Alicense_classes
 
 ### KEYS TO PROBABLY REMOVE ###
 comment		// might be either, but probably more likely shop-related
@@ -326,6 +371,7 @@ building_type
 man_made
 roof:.*
 architect
+year_of_construction    // building related: https://wiki.openstreetmap.org/wiki/Key:year_of_construction
 covered
 
 addr[1-9]?:.*
@@ -504,7 +550,6 @@ association
 bank
 camping
 church
-clinic
 commercial
 consulting
 design
@@ -513,17 +558,13 @@ education
 engineering
 forestry
 foundation
-hospital
-laboratory
 lawyer
 logistics
 military
 parish
-pharmacy
 police
 private
 research
-sample_collection
 taxi
 transport
 university
@@ -552,6 +593,7 @@ depot
 description1
 description2
 diocese
+diplomatic:services
 diplomatic:services:citizen_services
 diplomatic:services:consulate
 diplomatic:services:immigrant_visas
@@ -594,10 +636,8 @@ min_height
 office_1
 official_status
 old_ref
-operational_status_quality
 ownership
 party
-personnel:count
 population
 previously
 product_category
@@ -622,67 +662,32 @@ update
 ward
 water_source
 wb_pb:id
-webshop
 wikipedia:en
-year_of_construction
 
 // from healthcare.json
 activities
 admin_staff
 ambulance
-app:apk
-app:apple
-app:google
 AUTORIZATIE
-bed_count
-blood(:.*)?
-infection(:.*)?
-capacity:beds
+
+
 category
 CLA_PERS
 CLA_PRES
 COD_HAB
 collection_centre
-contact_person
-coronaquarantine
-counselling_type
-covid19:antigen_test
-CovidVaccineCenterId
 design:code:SPb
 design:ref
-disease:malaria
-doctors_num
 donation:compensation
 electricity
 elevator
 emergency:phone
-emergency_room
 EMP_EST
 ESTADO
-facility:ambulance
-facility:blood_test
-facility:ct_scan
-facility:ipd
-facility:mri
-facility:opd
-facility:operating_theater
-facility:pathology_labs
-facility:radiology_labs
-facility:services1
-facility:services1:mn
-facility:services2:mn
-facility:sonography
-facility:stool_test
-facility:urine_test
-facility:ventilator
-facility:xray
 floor:material
-healthcare_facility:type
 helipad
 hfac_bed
 hfac_type
-hospital:level:CN
-hospital_type_id
 HSE_code
 HSE_hgid
 HSE_hgroup
@@ -691,7 +696,6 @@ IJSN:tipoAgrup
 IJSN:tipoUnidad
 import_uuid
 kids_area
-laboratory:type
 landmark
 LGA
 LOCALIDAD
@@ -703,11 +707,9 @@ nature_of_facility
 NIVSOCIO
 NO
 not:operator:wikidata
-nurses_num
 OGD-Stmk:ARZTNR
 OGD-Stmk:OBJECTID
 opendata:type
-operational_status:electricity
 paho:commune
 paho:commune_id
 paho:department
@@ -721,51 +723,29 @@ pbf_contract
 pcode
 pe:minsa:categoria
 pe:minsa:codigo
-pharmacy_survey
-power_supply
-provided_for:adolescent
-provided_for:child
-provided_for:female
-provided_for:infant
-provided_for:toddler
 province
-reg_id
-reservation:url
-reservation:website
 resort
-sample_collection:test_type
 scope
 since
 snis_code:as
 snis_code:zs
-staff_count:doctors
-staff_count:nurses
 state
 STATE
 survey
 taluk
 temporary
-testing_centres
-toilets_number
-urgent_care
-vaccination
-walk-in
 who:code_csref
 who:distance
 who:nbre_village
 
-// from amenity-kindergarten.json
-SEP:CLAVEESC
 
 // from _id_tagging_schema.json
 access_simple
 blind
-blood_components
 dance:style
-diplomatic:services
 preschool
-social_facility_for
 
 // from _id_tagging_schema.json
-license_classes
 sport_pub
+
+reg_id
