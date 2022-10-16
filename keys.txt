@@ -200,6 +200,7 @@ drive_through	// likely to remain IF the amenity stays the same type which is no
 surveillance(:.*)?	// likely to be changed after a renovation
 outdoor_seating // the following depend on the type of amenity there
 indoor_seating
+colour
 
 
 // food and drink details
@@ -359,11 +360,18 @@ recycling_type		// just 12 nodes worldwide, sometimes eg. "amenity=recycling + c
 museum
 license_classes // driving school subattribute - https://wiki.openstreetmap.org/wiki/Key%3Alicense_classes
 dance:style
+school
 preschool
+university
+research_institution
+townhall:type
+
 diplomatic(:.*)?
 embassy
 consulate
-
+camp_site   // camp_site=reception &  office=camping
+emergency(:.*)? // https://wiki.openstreetmap.org/wiki/Key:emergency
+evacuation_cent(er|re)
 
 
 ### KEYS TO PROBABLY REMOVE ###
@@ -583,7 +591,6 @@ private
 research
 taxi
 transport
-university
 utility
 
 // from office.json
@@ -593,9 +600,7 @@ aeroway
 boundary
 buildings:floor
 building_status
-camp_site
 cargo
-colour
 community_centre
 comoros-dgsc:code
 department
@@ -605,13 +610,6 @@ description2
 diocese
 disaster:shelter_type
 elevation
-emergency
-emergency:amenity
-emergency:shelter_type
-emergency:social_facility
-emergency:social_facility:id
-evacuation_center
-evacuation_centre
 faculty
 fire_operator
 fire_rank
@@ -647,8 +645,6 @@ project:geoloc_unicef:id
 project:mappingforniger
 project:oif-dfen_carteinnov
 region
-research_institution
-school
 service_times
 shelter_type
 source_url
@@ -656,7 +652,6 @@ survey:name
 target
 telecom
 topic
-townhall:type
 update
 water_source
 wb_pb:id
