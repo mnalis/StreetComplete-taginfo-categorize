@@ -169,6 +169,7 @@ bulk_purchase
 language:.*	// language offered, https://wiki.openstreetmap.org/wiki/Key:language
 baby_feeding	// 342 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:baby_feeding; id_tagging_schema.json says might be used in office=*
 description(:.*)?
+description[0-9]
 min_age
 max_age		// used in leisure=amusement_arcade
 supermarket(:.*)?
@@ -563,6 +564,7 @@ cellar:use
 natural
 parking
 
+elevator    // https://wiki.openstreetmap.org/wiki/Key:elevator
 electricity // will power stay?
 power_supply
 power
@@ -611,8 +613,6 @@ cargo
 comoros-dgsc:code
 department
 depot
-description1
-description2
 diocese
 elevation
 faculty
@@ -668,7 +668,6 @@ collection_centre
 design:code:SPb
 design:ref
 donation:compensation
-elevator
 emergency:phone
 EMP_EST
 ESTADO
