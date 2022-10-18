@@ -203,6 +203,9 @@ colour
 access_simple   // undocumented, unused, from _id_tagging_schema.json
 government	// related to office=goverment, which we now allow removing
 office		// https://wiki.openstreetmap.org/wiki/Key:office
+administration      // undocumented; details for office=administration
+administrative      // undocumented; details for office=government e.g. administrative=taxes
+association         // details for office=association, see https://wiki.openstreetmap.org/wiki/Key:association
 
 
 // food and drink details
@@ -302,6 +305,9 @@ provided_for(:.*)?
 social_facility_for
 ambulance
 ward
+HSE_(code|hgid|hgroup|region)   // undocumented, seems to be healthcare-related
+collection_centre           // undocumented; healthcare related
+
 
 // accommodation & layout
 rooms
@@ -370,6 +376,8 @@ university
 research_institution
 research
 townhall:type
+police          //  https://wiki.openstreetmap.org/wiki/Key:police e.g. office=government + police=offices
+
 
 diplomatic(:.*)?
 embassy
@@ -548,8 +556,10 @@ water_supply
 water_source:id
 drinking_water	// likely to stay?
 lit		// likely to stay, or not? old 253 uses worldwide...
-foot		// 13 usees worldwide
+foot		// 13 uses worldwide
 substation	// 11 uses worldwide; misuse of craft like building=yes+craft=pottery+substation=transmission+voltage=220000
+church  // undocumented; building related
+
 
 wikidata	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 wikipedia(:.*)?	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
@@ -564,6 +574,7 @@ cellar:use
 natural
 parking
 
+helipad     // undocumented; seems to be type of helipad related to  https://wiki.openstreetmap.org/wiki/Tag:aeroway=helipad so probably building-related
 elevator    // https://wiki.openstreetmap.org/wiki/Key:elevator
 electricity // will power stay?
 power_supply
@@ -579,6 +590,8 @@ disaster:shelter_type
 no
 car;car_repair	// we handle each separetely (from _find_popular_subkeys.json)
 car_repair;car	// we handle each separetely (from _find_popular_subkeys.json)
+nature_of_facility  // undocumented, 1 use worldwide
+
 
 # _id_tagging_schema.json -- ignorelist for "macros" in id-tagging-schema/dist/fields.json
 branch_brand		// this is branch=* which we handle
@@ -587,16 +600,11 @@ real_fire-GB-IE		// this is real_fire=* which we handle
 ### TODO ###
 
 // from _find_popular_subkeys.json
-administration
-administrative
-association
 camping
-church
 commercial
 consulting
 design
 parish
-police
 private
 taxi
 transport
@@ -664,7 +672,6 @@ category
 CLA_PERS
 CLA_PRES
 COD_HAB
-collection_centre
 design:code:SPb
 design:ref
 donation:compensation
@@ -672,13 +679,8 @@ emergency:phone
 EMP_EST
 ESTADO
 floor:material
-helipad
 hfac_bed
 hfac_type
-HSE_code
-HSE_hgid
-HSE_hgroup
-HSE_region
 IJSN:tipoAgrup
 IJSN:tipoUnidad
 import_uuid
@@ -690,7 +692,6 @@ locality
 massgis:id
 moph_code
 nature
-nature_of_facility
 NIVSOCIO
 NO
 not:operator:wikidata
