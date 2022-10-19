@@ -201,11 +201,6 @@ outdoor_seating // the following depend on the type of amenity there
 indoor_seating
 colour
 access_simple   // undocumented, unused, from _id_tagging_schema.json
-government	// related to office=goverment, which we now allow removing
-office		// https://wiki.openstreetmap.org/wiki/Key:office
-administration      // undocumented; details for office=administration
-administrative      // undocumented; details for office=government e.g. administrative=taxes
-association         // details for office=association, see https://wiki.openstreetmap.org/wiki/Key:association
 
 
 // food and drink details
@@ -376,14 +371,24 @@ university
 research_institution
 research
 townhall:type
-police          //  https://wiki.openstreetmap.org/wiki/Key:police e.g. office=government + police=offices
+police              //  https://wiki.openstreetmap.org/wiki/Key:police e.g. office=government + police=offices
+government      	// related to office=goverment, which we now allow removing
+office	        	// https://wiki.openstreetmap.org/wiki/Key:office
+administration      // undocumented; details for office=administration
+administrative      // undocumented; details for office=government e.g. administrative=taxes
+association         // details for office=association, see https://wiki.openstreetmap.org/wiki/Key:association
+transport           // undocumented, used with office=transport
+utility             // e.g. office=energy_supplier + utility=electric,  https://wiki.openstreetmap.org/wiki/Key:utility
+consulting          // used with office=consulting, https://wiki.openstreetmap.org/wiki/Key:consulting
+commercial          // undocumented, e.g. office=logistics + commercial=transport
 
 
 diplomatic(:.*)?
 embassy
 consulate
-camp_site   // camp_site=reception &  office=camping
-emergency(:.*)? // https://wiki.openstreetmap.org/wiki/Key:emergency
+camp_site           // camp_site=reception &  office=camping
+camping             // e.g. amenity=cafe+camping=yes
+emergency(:.*)?     // https://wiki.openstreetmap.org/wiki/Key:emergency
 evacuation_cent(er|re)
 education
 engineering
@@ -600,15 +605,10 @@ real_fire-GB-IE		// this is real_fire=* which we handle
 ### TODO ###
 
 // from _find_popular_subkeys.json
-camping
-commercial
-consulting
 design
 parish
 private
 taxi
-transport
-utility
 
 // from office.json
 admin_level
