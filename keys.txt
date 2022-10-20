@@ -105,8 +105,8 @@ certifications?	// undocumented https://wiki.openstreetmap.org/wiki/Proposed_fea
 transiscope     // ecologic transition in progress, seems to be shop attribute. see https://wiki.openstreetmap.org/wiki/Key:transiscope
 
 // names and identifications
-(.*_)?name_?[1-9]?(:.*)?
-.*_name(:.*)?	// handles all of alt_name, old_name, short_name:en, etc. see https://github.com/streetcomplete/StreetComplete/issues/3244#issuecomment-915711994
+name_?[1-9]?(:.*)?
+.*_name_?[1-9]?(:.*)?	// handles all of alt_name, old_name, short_name:en, etc. see https://github.com/streetcomplete/StreetComplete/issues/3244#issuecomment-915711994
 noname
 branch(:.*)?
 brand(:.*)?
@@ -264,7 +264,7 @@ healthcare(:.*)?	// mostly stuff like healthcare=optometrist, shop=optician; but
 health
 health_.*	// health_service:examination, health_specialty:optometry, ... w/shop=optician
 medical_.*	// medical_system:western, medical_facility:type=office, ... w/shop=optician
-facility
+facility(:.*)?
 activities      // undocumented; seems to be healthcare services
 healthcare_facility(:.*)?
 laboratory(:.*)?
@@ -728,137 +728,3 @@ who:nbre_village
 
 
 reg_id
-
-// from shop.json
-name
-name:en
-name:ru
-name:ja
-name:ar
-name:ko
-name:es
-name:zh
-name:uk
-name:ja_rm
-name:be
-name:fr
-name:ko-Latn
-name:de
-name:ro
-name:he
-name:ja-Latn
-name:it
-name:pl
-name:pt
-name:th
-name:ja_kana
-name:mn
-name:sr
-name:ku
-name:signed
-name:sr-Latn
-name:ka
-name:zh-Hant
-name:fa
-name:vi
-name:el
-name:tr
-name:ja-Hira
-name:zh-Hans
-name:my
-name:nan
-name:bg
-name:nl
-name:ne
-name:kk
-name:nan-HJ
-name:nan-POJ
-name:nan-TL
-name:ca
-name:kn
-name:hy
-name:ms
-name:ms-Arab
-name:sq
-name:fi
-name:km
-name:hu
-name:cs
-name:bn
-name:az
-name:ckb
-name:sv
-name:sw
-name:br
-name:ml
-name:mr
-name:hr
-name:lv
-name_1
-name:am
-name:cy
-name:hi
-
-// from craft.json
-name:gd
-
-// from office.json
-name:tl
-name:sk
-name:lt
-name:tk
-name:da
-name:ur
-name:et
-name:ga
-name:id
-name:sl
-name:lb
-name:kab
-name:mt
-name:lo
-name:ta
-name:abbr
-name:uz
-name:gl
-name:no
-name:eu
-name:md
-name:mk
-name:etymology:wikidata
-name:ko-Hani
-name:mi
-alt_name_1
-name:nb
-name:bs
-name:simple
-name:te
-name:oc
-name:se
-name:yue-Latn
-
-// from healthcare.json
-facility:services2:mn
-facility:services1
-facility:services1:mn
-facility:blood_test
-facility:urine_test
-facility:stool_test
-facility:xray
-facility:sonography
-facility:ventilator
-facility:opd
-facility:mri
-facility:ct_scan
-facility:ipd
-facility:ambulance
-facility:pathology_labs
-facility:operating_theater
-facility:radiology_labs
-name:etymology
-name:sat
-
-// from amenity-childcare.json
-name:pa
-name:pnb
-name:ks
