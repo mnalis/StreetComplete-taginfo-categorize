@@ -79,6 +79,7 @@ blacksmith
 abandoned(:.*)?
 disused(:.*)?
 was:.*
+not:.*
 damage		// if new shop, damage is probably being repaired?
 source:damage
 created_by
@@ -118,7 +119,6 @@ ref		// without extra clasification like ref:xxx, it is most likely shop related
 ref:vatin
 designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
 SEP:CLAVEESC    // from amenity-kindergarten.json - undocumented, seems to be subtype of facility code?
-AUTORIZATIE     // undocumented, seems to be healthcare id or type from https://data.gov.ro/dataset/situatia-farmaciilor-din-romania ?
 
 
 // contacts
@@ -303,6 +303,8 @@ ward
 HSE_(code|hgid|hgroup|region)   // undocumented, seems to be healthcare-related
 collection_centre           // undocumented; healthcare related
 design              // e.g. healthcare=alternative + design=heilkundliche Psychotherapie/Musiktherapie, seems unrelated (or wrong nodes) to power infrastructure documented https://wiki.openstreetmap.org/wiki/Key:design
+AUTORIZATIE     // undocumented, seems to be healthcare id or type from https://data.gov.ro/dataset/situatia-farmaciilor-din-romania ?
+reg_id          // undocumented, used only in Liberia, seem to be healt-related
 
 
 // accommodation & layout
@@ -385,11 +387,15 @@ consulting          // used with office=consulting, https://wiki.openstreetmap.o
 commercial          // undocumented, e.g. office=logistics + commercial=transport
 private             // undocumented; used in combination with access=*; e.g. shop=craft + access=private + private=students
 taxi                // e.g. shop=taxi or office=taxi + taxi=minicab, see https://wiki.openstreetmap.org/wiki/Key:taxi
-
-
-diplomatic(:.*)?
+admin_level         // often used with office=government, see https://wiki.openstreetmap.org/wiki/Key:admin_level
+aeroway             // used with office=aviation
+department          // used with office=university, see https://wiki.openstreetmap.org/wiki/Key:department
+faculty             // used with office=university, see https://wiki.openstreetmap.org/wiki/Key:faculty
+liaison             // used with office=diplomatic, see https://wiki.openstreetmap.org/wiki/Key:liaison
+diplomatic(:.*)?    // used with office=diplomatic
 embassy
 consulate
+
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
 emergency(:.*)?     // https://wiki.openstreetmap.org/wiki/Key:emergency
@@ -609,19 +615,15 @@ real_fire-GB-IE		// this is real_fire=* which we handle
 ### TODO ###
 
 // from office.json
-admin_level
 aerospace:product
-aeroway
 boundary
 buildings:floor
 building_status
 cargo
 comoros-dgsc:code
-department
 depot
 diocese
 elevation
-faculty
 fire_operator
 fire_rank
 flood_prone
@@ -638,7 +640,6 @@ IOM:project
 it:type
 kitchen:facilities
 levels
-liaison
 member_of
 M:hazard_prone
 min_height
@@ -692,7 +693,6 @@ moph_code
 nature
 NIVSOCIO
 NO
-not:operator:wikidata
 OGD-Stmk:ARZTNR
 OGD-Stmk:OBJECTID
 opendata:type
@@ -725,4 +725,3 @@ who:distance
 who:nbre_village
 
 
-reg_id
