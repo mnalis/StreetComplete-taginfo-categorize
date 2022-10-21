@@ -302,6 +302,7 @@ ambulance
 ward
 HSE_(code|hgid|hgroup|region)   // undocumented, seems to be healthcare-related
 collection_centre           // undocumented; healthcare related
+design              // e.g. healthcare=alternative + design=heilkundliche Psychotherapie/Musiktherapie, seems unrelated (or wrong nodes) to power infrastructure documented https://wiki.openstreetmap.org/wiki/Key:design
 
 
 // accommodation & layout
@@ -371,7 +372,8 @@ university
 research_institution
 research
 townhall:type
-police              //  https://wiki.openstreetmap.org/wiki/Key:police e.g. office=government + police=offices
+parish              // https://wiki.openstreetmap.org/wiki/Key:parish e.g. office=parish
+police              // https://wiki.openstreetmap.org/wiki/Key:police e.g. office=government + police=offices
 government      	// related to office=goverment, which we now allow removing
 office	        	// https://wiki.openstreetmap.org/wiki/Key:office
 administration      // undocumented; details for office=administration
@@ -381,6 +383,8 @@ transport           // undocumented, used with office=transport
 utility             // e.g. office=energy_supplier + utility=electric,  https://wiki.openstreetmap.org/wiki/Key:utility
 consulting          // used with office=consulting, https://wiki.openstreetmap.org/wiki/Key:consulting
 commercial          // undocumented, e.g. office=logistics + commercial=transport
+private             // undocumented; used in combination with access=*; e.g. shop=craft + access=private + private=students
+taxi                // e.g. shop=taxi or office=taxi + taxi=minicab, see https://wiki.openstreetmap.org/wiki/Key:taxi
 
 
 diplomatic(:.*)?
@@ -603,12 +607,6 @@ branch_brand		// this is branch=* which we handle
 real_fire-GB-IE		// this is real_fire=* which we handle
 
 ### TODO ###
-
-// from _find_popular_subkeys.json
-design
-parish
-private
-taxi
 
 // from office.json
 admin_level
