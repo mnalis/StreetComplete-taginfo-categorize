@@ -13,7 +13,6 @@ tourism
 marketplace
 household
 swimming_pool
-telecommunication
 laundry
 golf
 sports
@@ -88,6 +87,8 @@ opening_date    // if it no longer exists, that opening_date is obsolete as well
 last_checked	// https://wiki.openstreetmap.org/wiki/Proposed_features/last_checked
 checked_exists:date
 pharmacy_survey     // undocumented, mostly date of survey?
+old_ref         // https://wiki.openstreetmap.org/wiki/Key:old_ref
+
 
 
 // classifications / links to external databases
@@ -388,13 +389,26 @@ commercial          // undocumented, e.g. office=logistics + commercial=transpor
 private             // undocumented; used in combination with access=*; e.g. shop=craft + access=private + private=students
 taxi                // e.g. shop=taxi or office=taxi + taxi=minicab, see https://wiki.openstreetmap.org/wiki/Key:taxi
 admin_level         // often used with office=government, see https://wiki.openstreetmap.org/wiki/Key:admin_level
-aeroway             // used with office=aviation
-department          // used with office=university, see https://wiki.openstreetmap.org/wiki/Key:department
-faculty             // used with office=university, see https://wiki.openstreetmap.org/wiki/Key:faculty
+official_status     // proposed, used with office=administrative mostly in Russia, see https://wiki.openstreetmap.org/wiki/Proposed_features/Official_status
 liaison             // used with office=diplomatic, see https://wiki.openstreetmap.org/wiki/Key:liaison
 diplomatic(:.*)?    // used with office=diplomatic
 embassy
 consulate
+aeroway             // used with office=aviation
+department          // used with office=university, see https://wiki.openstreetmap.org/wiki/Key:department
+faculty             // used with office=university, see https://wiki.openstreetmap.org/wiki/Key:faculty
+aerospace:product   // used with office=company etc., see https://wiki.openstreetmap.org/wiki/Key:aerospace:product
+boundary            // used with office=governament / research / political_party
+population          // used with office=government, see https://wiki.openstreetmap.org/wiki/Key:population, 
+diocese             // used with office=parish / religion, see https://wiki.openstreetmap.org/wiki/Key:diocese
+depot               // undocumented, used with office=travel_agent/company
+cargo               // used with office=logistics, see https://wiki.openstreetmap.org/wiki/Key:cargo
+function            // undocumented, used as function=retail/headquarters with office=*
+game                // undocumented, used mostly in Japan, e.g. game=studio with office=company
+party               // undocumented, used with office=political_party
+telecom(munication)?   // used with office=telecommunication / it, see https://wiki.openstreetmap.org/wiki/Key:telecom
+service_times       // used with office=religion, https://wiki.openstreetmap.org/wiki/Key:service_times
+
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
@@ -450,6 +464,7 @@ Commune		// undocumented, seems location based, 4k+ uses worldwide, https://en.w
 City		// undocumented, seems location based, 4k+ uses worldwide
 street		// undocumented, seems location based, 5k+ uses worldwide
 sector		// undocumented, seems location based, 6k+ uses worldwide
+region      // undocumented, used mostly in New York, USA
 
 
 location	// https://wiki.openstreetmap.org/wiki/Key:location
@@ -562,6 +577,7 @@ project:pdevii	// undocumented, 337 uses worldwide
 usar_addr:edit_date	// undocumented, 279 uses worldwide
 bmo:type	// https://wiki.openstreetmap.org/wiki/BMO - Cadastre related for Brest, France?
 osm_type    // undocumented, mostly used in Nigeria (914 times); confusing but does not seem shop-related, but geometry-related 
+previously  // reference old node it replaced for history tracking, see https://wiki.openstreetmap.org/wiki/Key:previously
 
 
 entrance
@@ -615,22 +631,15 @@ real_fire-GB-IE		// this is real_fire=* which we handle
 ### TODO ###
 
 // from office.json
-aerospace:product
-boundary
 buildings:floor
 building_status
-cargo
 comoros-dgsc:code
-depot
-diocese
 elevation
 fire_operator
 fire_rank
 flood_prone
 floor
 full_id
-function
-game
 GNS:dsg_code
 GNS:id
 HE_ref
@@ -643,23 +652,15 @@ levels
 member_of
 M:hazard_prone
 min_height
-official_status
-old_ref
-party
-population
-previously
 product_category
 project:anr_cohesion_bouake
 project:geoloc_unicef
 project:geoloc_unicef:id
 project:mappingforniger
 project:oif-dfen_carteinnov
-region
-service_times
 source_url
 survey:name
 target
-telecom
 topic
 update
 water_source
