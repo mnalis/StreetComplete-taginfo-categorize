@@ -202,6 +202,9 @@ outdoor_seating // the following depend on the type of amenity there
 indoor_seating
 colour
 access_simple   // undocumented, unused, from _id_tagging_schema.json
+floor               // undocumented, seems to mishmash of surface=* and level=*
+product_category    // undocumented, seems office=company related, Taiwan-only
+source_url      // undocumented, mostly seems office/amenity-related
 
 
 // food and drink details
@@ -408,6 +411,8 @@ game                // undocumented, used mostly in Japan, e.g. game=studio with
 party               // undocumented, used with office=political_party
 telecom(munication)?   // used with office=telecommunication / it, see https://wiki.openstreetmap.org/wiki/Key:telecom
 service_times       // used with office=religion, https://wiki.openstreetmap.org/wiki/Key:service_times
+kitchen:facilities  // undocumented, likely office-related
+
 
 
 camp_site           // camp_site=reception &  office=camping
@@ -471,6 +476,7 @@ location	// https://wiki.openstreetmap.org/wiki/Key:location
 location-Accuracy
 location-Altitude
 level(:.*)?
+levels              // undocumented, possibly mistakenly clone of https://wiki.openstreetmap.org/wiki/Key:building:levels
 indoor(:.*)?
 room
 
@@ -481,6 +487,7 @@ altitude
 author		// undocumented, seems to be used instead of changeset user? https://wiki.openstreetmap.org/wiki/Key:author
 authorization	// undocumented, seems to be mostly some small integer?
 area
+min_height      // building-related, https://wiki.openstreetmap.org/wiki/Key:min_height
 
 FIXME
 fixme
@@ -590,6 +597,14 @@ lit		// likely to stay, or not? old 253 uses worldwide...
 foot		// 13 uses worldwide
 substation	// 11 uses worldwide; misuse of craft like building=yes+craft=pottery+substation=transmission+voltage=220000
 church  // undocumented; building related
+buildings:floor     // undocumented, only in Jakarta, likely misspelling of undocumented building:floor, likely building-related
+building_status     // undocumented, seems building-related
+elevation           // undocumented, likely duplicate of https://wiki.openstreetmap.org/wiki/Key:ele and thus building-related
+fire_operator       // likely location-related, see see https://wiki.openstreetmap.org/wiki/Key:fire_operator
+fire_rank           // likely building-related, see https://wiki.openstreetmap.org/wiki/Key:fire_rank
+flood_prone         // likely building-related, https://wiki.openstreetmap.org/wiki/Key:flood_prone, used mostly in Jakarta on building=* / office=*
+water_source        // https://wiki.openstreetmap.org/wiki/Key:water_source, likely building-related
+
 
 
 wikidata	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
@@ -631,14 +646,7 @@ real_fire-GB-IE		// this is real_fire=* which we handle
 ### TODO ###
 
 // from office.json
-buildings:floor
-building_status
 comoros-dgsc:code
-elevation
-fire_operator
-fire_rank
-flood_prone
-floor
 full_id
 GNS:dsg_code
 GNS:id
@@ -647,23 +655,17 @@ identifier
 id:uuid
 IOM:project
 it:type
-kitchen:facilities
-levels
 member_of
 M:hazard_prone
-min_height
-product_category
 project:anr_cohesion_bouake
 project:geoloc_unicef
 project:geoloc_unicef:id
 project:mappingforniger
 project:oif-dfen_carteinnov
-source_url
 survey:name
 target
 topic
 update
-water_source
 wb_pb:id
 
 
