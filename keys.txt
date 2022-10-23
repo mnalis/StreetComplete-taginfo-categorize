@@ -91,8 +91,6 @@ old_ref         // https://wiki.openstreetmap.org/wiki/Key:old_ref
 update              // undocumented, low-usage, seems to be a date of update or value "yes"
 import_uuid         // "This tags do not serve an useful function anymore and in general can be removed." - https://wiki.openstreetmap.org/wiki/Key:import_uuid
 
-
-
 // classifications / links to external databases
 fhrs:.*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
 old_fhrs:.*
@@ -124,7 +122,6 @@ ref:vatin
 designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
 SEP:CLAVEESC    // from amenity-kindergarten.json - undocumented, seems to be subtype of facility code?
 identifier          // undocumented, seems office=related
-
 
 // contacts
 contact_person
@@ -158,7 +155,6 @@ charge          // https://wiki.openstreetmap.org/wiki/Key:charge
 charge_fee
 money_transfer	// might be bank, but also shop=stationery+money_transfer=Western Union etc. https://wiki.openstreetmap.org/wiki/Key:money_transfer
 donation:compensation   // amenity related https://wiki.openstreetmap.org/wiki/Key:donation:compensation
-
 
 // generic shop/craft attributes
 seasonal	// 398 combinations worldwide, shop=travel_agency, shop=greengrocer...
@@ -218,7 +214,6 @@ since               // used worldwide with amenity/shop, seems to be amenity-rel
 state               // Operational state, used worldwide, see https://wiki.openstreetmap.org/wiki/Key:state
 operational_status
 temporary           // used mostly with healthcase-related, see https://wiki.openstreetmap.org/wiki/Key:temporary
-
 
 // food and drink details
 bar
@@ -346,8 +341,6 @@ pcode               // undocumented, seems to be healthcare-related, used mostly
 pe:minsa:.*         // undocumented, seems to be healthcare-related, in Peru (pe:minsa:categoria, pe:minsa:codigo)
 who:.*              // undocumented, seems to be healthcare-related in Africa. (who:code_csref, who:distance, who:nbre_village, ...)
 
-
-
 // accommodation & layout
 rooms
 stars
@@ -453,9 +446,7 @@ telecom(munication)?   // used with office=telecommunication / it, see https://w
 service_times       // used with office=religion, https://wiki.openstreetmap.org/wiki/Key:service_times
 kitchen:facilities  // undocumented, likely office-related
 it:(type|sales)     // undocumented, seems to be type of office=it
-
-
-
+cannabis:cbd        // undocumented, used in combination with shop=cannabis
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
@@ -470,7 +461,6 @@ logistics
 military
 community_centre
 bank
-
 
 ### KEYS TO PROBABLY REMOVE ###
 comment		// might be either, but probably more likely shop-related
@@ -522,7 +512,6 @@ province    // undocumented, seems location based
 taluk       // undocumented, seems location-based
 LOCALIDAD   // undocumented, seems location based (also seems health-related)
 LGA         // undocumented, seems location based (also seems health-related)
-
 
 location	// https://wiki.openstreetmap.org/wiki/Key:location
 location-Accuracy
@@ -651,8 +640,6 @@ IOM:project         // undocumented, used mostly in Republica Dominicana
 wb_pb:id            // undocumented, used in Kenya
 project:.*          // undocumented - maybe part of the mapping project? e.g. project:anr_cohesion_bouake, project:geoloc_unicef, project:geoloc_unicef:id, project:mappingforniger, project:oif-dfen_carteinnov
 
-
-
 entrance
 waste:disposal	// undocumented, used about 60 times in one place
 water_tank:quantity	// undocumented, used about 60 times in one place
@@ -669,10 +656,8 @@ elevation           // undocumented, likely duplicate of https://wiki.openstreet
 fire_operator       // likely location-related, see see https://wiki.openstreetmap.org/wiki/Key:fire_operator
 fire_rank           // likely building-related, see https://wiki.openstreetmap.org/wiki/Key:fire_rank
 flood_prone         // likely building-related, https://wiki.openstreetmap.org/wiki/Key:flood_prone, used mostly in Jakarta on building=* / office=*
-(M:)?hazard_prone   // undocumented, possibly related to https://wiki.openstreetmap.org/wiki/Key:hazard_prone which is location-based
+M:hazard_prone   // undocumented, possibly related to https://wiki.openstreetmap.org/wiki/Key:hazard_prone which is location-based
 water_source        // https://wiki.openstreetmap.org/wiki/Key:water_source, likely building-related
-
-
 
 wikidata	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
 wikipedia(:.*)?	// Tricky. Could be about the POI (in which case it should go) or about the building (in which case it should stay).
@@ -705,10 +690,8 @@ car;car_repair	// we handle each separetely (from _find_popular_subkeys.json)
 car_repair;car	// we handle each separetely (from _find_popular_subkeys.json)
 nature_of_facility  // undocumented, 1 use worldwide
 
-
 # _id_tagging_schema.json -- ignorelist for "macros" in id-tagging-schema/dist/fields.json
 branch_brand		// this is branch=* which we handle
 real_fire-GB-IE		// this is real_fire=* which we handle
 
 ### TODO ###
-
