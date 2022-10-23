@@ -217,6 +217,7 @@ resort              // used worldwide with amenity=doctors/restaurant/... - when
 since               // used worldwide with amenity/shop, seems to be amenity-related year or date of initial establishment
 state               // Operational state, used worldwide, see https://wiki.openstreetmap.org/wiki/Key:state
 operational_status
+temporary           // used mostly with healthcase-related, see https://wiki.openstreetmap.org/wiki/Key:temporary
 
 
 // food and drink details
@@ -343,6 +344,7 @@ panchayath          // undocumented, seems to be healthcare-related, in India
 pbf_contract        // undocumented, seems to be healthcare-related, in Burundi
 pcode               // undocumented, seems to be healthcare-related, used mostly in Africa and Republica Dominicana
 pe:minsa:.*         // undocumented, seems to be healthcare-related, in Peru (pe:minsa:categoria, pe:minsa:codigo)
+who:.*              // undocumented, seems to be healthcare-related in Africa. (who:code_csref, who:distance, who:nbre_village, ...)
 
 
 
@@ -478,6 +480,7 @@ comment		// might be either, but probably more likely shop-related
 source_?[1-9]?(:.*)?	// see https://github.com/streetcomplete/StreetComplete/issues/3244
 source_ref	// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
 Source
+survey              // undocumented, mostly e.g. survey=GPS or survey=2022-05-07
 attribution
 
 import
@@ -620,7 +623,7 @@ source_type_walking_paper
 addr.source:housenumber // undocumented
 addr.source:street
 
-STATE               // unclear as undocumented, seems to be a mix of operational "state" (amenity-based) and  location-based (i.e. misspell "addr:state"). In our case mostly addr:state in California
+STATE               // unclear as undocumented, seems to be a mix of operational "state" (amenity-based) and  location-based (i.e. misspell "addr:state"). In our case probably mostly meaning "addr:state" in California
 
 KSJ2:.*		// http://nlftp.mlit.go.jp/ksj/jpgis/datalist/KsjTmplt-P02-v2_0.html says "This is a collection of data on the locations, types, names, addresses, managers, etc. of public offices, schools, hospitals, post offices, social welfare facilities, etc. nationwide"; also https://wiki.openstreetmap.org/wiki/Import/Catalogue/Japan_KSJ2_Import
 kvl_hro:type	// import: mostly building type, but could be amenity too; see https://wiki.openstreetmap.org/wiki/Rostock:Geb%C3%A4ude_und_Strukturen
@@ -709,9 +712,3 @@ real_fire-GB-IE		// this is real_fire=* which we handle
 
 ### TODO ###
 
-
-survey
-temporary
-who:code_csref
-who:distance
-who:nbre_village
