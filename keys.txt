@@ -695,3 +695,60 @@ branch_brand		// this is branch=* which we handle
 real_fire-GB-IE		// this is real_fire=* which we handle
 
 ### TODO ###
+
+// from _find_popular_subkeys.json
+alternative
+windows
+primary
+doctors
+engineer
+snack
+confectionery
+lifeguard
+
+// from shop.json
+female:signed
+male:signed
+check_date:currency:XBT
+local_ref
+entrance:width
+entrance:step_count
+self_checkout
+entrance:kerb:height
+audio_loop
+atmotorway
+fast_food
+
+// from craft.json
+construction_date
+us.fo:kommununr
+us.fo:Adressutal
+us.fo:Galdandi_frá
+us.fo:Postnr
+us.fo:Veganr
+
+// from office.json
+monitoring:weather
+official_ref
+old_addr:housenumber
+public
+house
+
+// from healthcare.json
+pharmacy:category
+operational
+district
+county
+sub_district
+pmfsefin:idedif
+post_addr
+kids_area:indoor
+emergency_telephone_code
+review
+tactile_paving
+
+// from _id_tagging_schema.json
+sport:sport_pub
+gender_simple
+healthcare_therapist
+dance:teaching
