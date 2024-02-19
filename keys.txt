@@ -106,6 +106,8 @@ ref:DK:cvr(:.*)?	// official database of Danish businesses; https://wiki.openstr
 certifications?	// undocumented https://wiki.openstreetmap.org/wiki/Proposed_features/certification, HOT-related?
 transiscope     // ecologic transition in progress, seems to be shop attribute. see https://wiki.openstreetmap.org/wiki/Key:transiscope
 opendata:type       // undocumented, seems to specify type of shop/amenity imported. Used in Toronto,Canada
+local_ref
+official_ref
 
 // names and identifications
 name_?[1-9]?(:.*)?
@@ -149,6 +151,7 @@ owner
 payment(:.*)?
 payment_multi_fee
 currency:.*
+check_date:currency:.*
 cash_withdrawal(:.*)?
 fee
 charge          // https://wiki.openstreetmap.org/wiki/Key:charge
@@ -214,6 +217,7 @@ since               // used worldwide with amenity/shop, seems to be amenity-rel
 state               // Operational state, used worldwide, see https://wiki.openstreetmap.org/wiki/Key:state
 operational_status
 temporary           // used mostly with healthcase-related, see https://wiki.openstreetmap.org/wiki/Key:temporary
+self_checkout
 
 // food and drink details
 bar
@@ -254,6 +258,9 @@ caterer
 real_fire		// 155 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:real_fire
 flour_fortified	// seems to be craft=grinding_mill related
 highchair	// baby seating; 321 uses worldwide; https://wiki.openstreetmap.org/wiki/Key:highchair
+fast_food
+snack
+confectionery
 sport_pub    // undocumented, unused, from _id_tagging_schema.json
 
 // related to repair shops/crafts
@@ -270,6 +277,8 @@ male
 female
 gender
 lgbtq(:.*)?   // https://wiki.openstreetmap.org/wiki/Key:lgbtq
+female:signed
+male:signed
 
 // healthcare
 healthcare(:.*)?	// mostly stuff like healthcare=optometrist, shop=optician; but there are some exceptions like healthcare=doctor shop=hairdresser like #4474699292 ??
@@ -702,22 +711,14 @@ windows
 primary
 doctors
 engineer
-snack
-confectionery
 lifeguard
 
 // from shop.json
-female:signed
-male:signed
-check_date:currency:XBT
-local_ref
 entrance:width
 entrance:step_count
-self_checkout
 entrance:kerb:height
 audio_loop
 atmotorway
-fast_food
 
 // from craft.json
 construction_date
@@ -729,7 +730,6 @@ us.fo:Veganr
 
 // from office.json
 monitoring:weather
-official_ref
 old_addr:housenumber
 public
 house
