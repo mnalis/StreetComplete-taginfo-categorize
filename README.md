@@ -25,7 +25,8 @@ It is generated only from data in `### KEYS TO REMOVE ###` section.
 
 ## when isShopExpressionFragment() changes
 
-If `isShopExpressionFragment()` in `OsmTaggings.kt` changes, then
+If `isShopExpressionFragment()` in `OsmTaggings.kt` changes 
+(FIXME - how that works with v57.0-beta1 and newer?), then
 `FETCH_KEYS` / `FETCH_TAGS` in `Makefile` should be updated too, and
 scripts re-run (i.e. `make update` + `make`) in order to generate new
 `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED` to put in
