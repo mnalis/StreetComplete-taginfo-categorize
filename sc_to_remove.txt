@@ -17,7 +17,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     // classifications / links to external databases
     "fhrs:.*", "old_fhrs:.*", "fvst:.*", "ncat", "nat_ref", "gnis:.*", "winkelnummer",
     "type:FR:FINESS", "type:FR:APE", "kvl_hro:amenity", "ref:DK:cvr(:.*)?", "certifications?",
-    "transiscope", "opendata:type",
+    "transiscope", "opendata:type", "local_ref", "official_ref",
     // names and identifications
     "name_?[1-9]?(:.*)?", ".*_name_?[1-9]?(:.*)?", "noname", "branch(:.*)?", "brand(:.*)?",
     "not:brand(:.*)?", "network", "operator(:.*)?", "operator_type", "ref", "ref:vatin",
@@ -28,8 +28,9 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "website_?[1-9]?(:.*)?", "app:.*", "ownership",
     "url", "source_ref:url", "owner",
     // payments
-    "payment(:.*)?", "payment_multi_fee", "currency:.*", "cash_withdrawal(:.*)?", "fee", "charge",
-    "charge_fee", "money_transfer", "donation:compensation",
+    "payment(:.*)?", "payment_multi_fee", "currency:.*", "check_date:currency:.*",
+    "cash_withdrawal(:.*)?", "fee", "charge", "charge_fee", "money_transfer",
+    "donation:compensation",
     // generic shop/craft attributes
     "seasonal", "time", "opening_hours(:.*)?", "check_date:opening_hours", "wifi", "internet",
     "internet_access(:.*)?", "second_hand", "self_service", "automated", "license:.*",
@@ -40,19 +41,20 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "company(:.*)?", "stroller", "walk-in", "webshop", "operational_status.*", "drive_through",
     "surveillance(:.*)?", "outdoor_seating", "indoor_seating", "colour", "access_simple", "floor",
     "product_category", "source_url", "category", "kids_area", "resort", "since", "state",
-    "operational_status", "temporary",
+    "operational_status", "temporary", "self_checkout",
     // food and drink details
     "bar", "cafe", "coffee", "microroasting", "microbrewery", "brewery", "real_ale", "taproom",
     "training", "distillery", "drink(:.*)?", "cocktails", "alcohol", "wine([:_].*)?",
     "happy_hours", "diet:.*", "cuisine", "tasting", "breakfast", "lunch", "organic",
     "produced_on_site", "restaurant", "food", "pastry", "pastry_shop", "product", "produce",
     "chocolate", "fair_trade", "butcher", "reservation(:.*)?", "takeaway(:.*)?", "delivery(:.*)?",
-    "caterer", "real_fire", "flour_fortified", "highchair", "sport_pub",
+    "caterer", "real_fire", "flour_fortified", "highchair", "fast_food", "snack", "confectionery",
+    "sport_pub",
     // related to repair shops/crafts
     "service(:.*)?", "motorcycle:.*", "repair", ".*:repair", "electronics_repair(:.*)?",
     "workshop",
     // shop=hairdresser, shop=clothes
-    "unisex", "male", "female", "gender", "lgbtq(:.*)?",
+    "unisex", "male", "female", "gender", "lgbtq(:.*)?", "female:signed", "male:signed",
     // healthcare
     "healthcare(:.*)?", "health", "health_.*", "medical_.*", "facility(:.*)?", "activities",
     "healthcare_facility(:.*)?", "laboratory(:.*)?", "blood(:.*)?", "blood_components",
