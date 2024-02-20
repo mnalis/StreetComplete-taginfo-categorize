@@ -318,6 +318,7 @@ vaccination
 clinic
 hospital
 pharmacy
+alternative // used in variety of meaning - but for POIs it is specifying type of healthcare=alternative
 laboratory
 sample_collection
 provided_for(:.*)?
@@ -351,6 +352,7 @@ pbf_contract        // undocumented, seems to be healthcare-related, in Burundi
 pcode               // undocumented, seems to be healthcare-related, used mostly in Africa and Republica Dominicana
 pe:minsa:.*         // undocumented, seems to be healthcare-related, in Peru (pe:minsa:categoria, pe:minsa:codigo)
 who:.*              // undocumented, seems to be healthcare-related in Africa. (who:code_csref, who:distance, who:nbre_village, ...)
+pharmacy:category
 
 // accommodation & layout
 rooms
@@ -500,6 +502,7 @@ construction_date       // usually building-related, see https://wiki.openstreet
 covered
 design:code:SPb     // building-related, see https://wiki.openstreetmap.org/wiki/RU:Key:design:code:SPb
 design:ref          // building-related, see https://wiki.openstreetmap.org/wiki/Key:design:ref
+pmfsefin:idedif     // building-related, see https://wiki.openstreetmap.org/wiki/Key:pmfsefin:idedif
 
 addr[1-9]?:.*
 is_in(:.*)?
@@ -712,7 +715,6 @@ sport_pub           // see above, fake key from _id_tagging_schema.json
 ### TODO ###
 
 // from _find_popular_subkeys.json
-alternative
 windows
 primary
 engineer
@@ -740,12 +742,10 @@ public
 house
 
 // from healthcare.json
-pharmacy:category
 operational
 district
 county
 sub_district
-pmfsefin:idedif
 post_addr
 kids_area:indoor
 emergency_telephone_code
