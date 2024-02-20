@@ -4,7 +4,8 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "import",
     "landuse", "historic(:.*)?", "heritage(:.*)?",
     "building(:.*)?", "building_type", "man_made", "roof:.*", "architect(:.*)?",
-    "year_of_construction", "covered", "design:code:SPb", "design:ref",
+    "year_of_construction", "construction_date", "covered", "design:code:SPb", "design:ref",
+    "pmfsefin:idedif",
     "addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber",
    
     "not:addr:postcode", "postal_code", "place", "city", "country",
@@ -49,5 +50,6 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED = listOf(
     "backup_generator",
     "shelter_type", "disaster:shelter_type",
     "no", "car;car_repair", "car_repair;car", "nature_of_facility",
-    "branch_brand", "real_fire-GB-IE",
+    "branch_brand", "real_fire-GB-IE", "sport:sport_pub", "sport_pub",
+   
 ).map { it.toRegex() }
