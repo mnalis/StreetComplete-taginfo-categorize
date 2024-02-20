@@ -5,6 +5,7 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "landuse", "historic(:.*)?", "heritage(:.*)?",
     "building(:.*)?", "building_type", "man_made", "roof:.*", "architect(:.*)?",
     "year_of_construction", "construction_date", "covered", "design:code:SPb", "design:ref",
+    "pmfsefin:idedif",
     "addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber",
    
     "not:addr:postcode", "postal_code", "place", "city", "country",
