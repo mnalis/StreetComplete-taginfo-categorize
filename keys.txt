@@ -724,7 +724,7 @@ lifeguard
 entrance:width
 entrance:step_count
 entrance:kerb:height
-audio_loop
+audio_loop // asked for now on https://www.openstreetmap.org/changeset/5552042
 atmotorway
 
 // from craft.json
