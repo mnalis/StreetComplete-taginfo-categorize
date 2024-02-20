@@ -477,7 +477,7 @@ bank
 comment		// might be either, but probably more likely shop-related
 
 ### KEYS TO KEEP ###
-// let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_SHOP_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
+// let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED from https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/data/meta/OsmTaggings.kt#L35-L59
 source_?[1-9]?(:.*)?	// see https://github.com/streetcomplete/StreetComplete/issues/3244
 source_ref	// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
 Source

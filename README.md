@@ -4,7 +4,7 @@
 
 ## Usage instructions
 
-Those scripts generate `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED` for the [StreetComplete](https://github.com/streetcomplete/StreetComplete) project.
+Those scripts generate `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED` for the [StreetComplete](https://github.com/streetcomplete/StreetComplete) project.
 
 `make update` should be run periodically, to find new keys with usage > 0.01%
 and add them to `## TODO ##` section at the bottom of `keys.txt` file.
@@ -28,7 +28,7 @@ It is generated only from data in `### KEYS TO REMOVE ###` section.
 If `isShopExpressionFragment()` in `OsmTaggings.kt` changes, then
 `FETCH_KEYS` / `FETCH_TAGS` in `Makefile` should be updated too, and
 scripts re-run (i.e. `make update` + `make`) in order to generate new
-`KEYS_THAT_SHOULD_BE_REMOVED_WHEN_SHOP_IS_REPLACED` to put in
+`KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED` to put in
 `OsmTaggings.kt`.
 
 For example, if `isShopExpressionFragment()` was extended with:
