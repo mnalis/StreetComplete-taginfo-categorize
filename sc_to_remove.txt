@@ -66,7 +66,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "clinic", "hospital", "pharmacy", "alternative", "laboratory", "sample_collection",
     "provided_for(:.*)?", "social_facility_for", "ambulance", "ward",
     "HSE_(code|hgid|hgroup|region)", "collection_centre", "design", "AUTORIZATIE", "reg_id",
-    "scope", "ESTADO", "NIVSOCIO", "NO", "EMP_EST", "COD_HAB", "CLA_PERS", "CLA_PRES",
+    "post_addr", "scope", "ESTADO", "NIVSOCIO", "NO", "EMP_EST", "COD_HAB", "CLA_PERS", "CLA_PRES",
     "snis_code:.*", "hfac_bed", "hfac_type", "nature", "moph_code", "IJSN:.*", "massgis:id",
     "OGD-Stmk:.*", "paho:.*", "panchayath", "pbf_contract", "pcode", "pe:minsa:.*", "who:.*",
     "pharmacy:category",
