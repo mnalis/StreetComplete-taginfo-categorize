@@ -13,7 +13,7 @@ User should then investigate and move them from there to correct section
 like `### KEYS TO REMOVE ###` or `### KEYS TO KEEP ###` sections of `keys.txt`.
 
 Running `make` again will then generate `sc_to_remove.txt` with kotlin code to copy/paste to
-https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Shop.kt#L6
+https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt#L244
 It is generated only from data in `### KEYS TO REMOVE ###` section.
 
 ## Notes on `keys.txt` format:
@@ -29,7 +29,7 @@ If `isShopExpressionFragment()` in `OsmTaggings.kt` changes, then
 `FETCH_KEYS` / `FETCH_TAGS` in `Makefile` should be updated too, and
 scripts re-run (i.e. `make update` + `make`) in order to generate new
 `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED` to put in
-`OsmTaggings.kt`.
+`Place.kt`.
 
 For example, if `isShopExpressionFragment()` was extended with:
 
