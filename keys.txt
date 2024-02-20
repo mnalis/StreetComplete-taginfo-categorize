@@ -330,6 +330,7 @@ collection_centre           // undocumented; healthcare related
 design              // e.g. healthcare=alternative + design=heilkundliche Psychotherapie/Musiktherapie, seems unrelated (or wrong nodes) to power infrastructure documented https://wiki.openstreetmap.org/wiki/Key:design
 AUTORIZATIE     // undocumented, seems to be healthcare id or type from https://data.gov.ro/dataset/situatia-farmaciilor-din-romania ?
 reg_id          // undocumented, used only in Liberia, seem to be healt-related
+post_addr       // undocumented, used only in Liberia, seem to be healt-related
 scope     // undocumented, seems to healthcare related  
 ESTADO              // undocumented, seems to be health-related ("status" grade?)
 NIVSOCIO            // undocumented, seems to be health-related
@@ -746,7 +747,6 @@ operational
 district
 county
 sub_district
-post_addr
 kids_area:indoor
 emergency_telephone_code
 review
