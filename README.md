@@ -23,19 +23,17 @@ It is generated only from data in `### KEYS TO REMOVE ###` section.
 * lines beginning with `//` in `### KEYS TO REMOVE ###` section will be copied to `sc_to_remove.txt`
 * lines beginning with `#` are ignored completely
 
-## when isShopExpressionFragment() changes
+## when IS_PLACE_EXPRESSION changes
 
-If `isShopExpressionFragment()` in `OsmTaggings.kt` changes 
-(FIXME - how that works with v57.0-beta1 and newer?), then
-`FETCH_KEYS` / `FETCH_TAGS` in `Makefile` should be updated too, and
-scripts re-run (i.e. `make update` + `make`) in order to generate new
-`KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED` to put in
-`Place.kt`.
+If [`IS_PLACE_EXPRESSION` in `Place.kt`](https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt#L34C13-L34C32)
+changes, then `FETCH_KEYS` / `FETCH_TAGS` in `Makefile` should be updated too,
+and scripts re-run (i.e. `make update` + `make`) in order to generate new
+`KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED` to put in `Place.kt`.
 
-For example, if `isShopExpressionFragment()` was extended with:
+For example, if `IS_PLACE_EXPRESSION` was extended with:
 
 ```diff
-+        or ${p}healthcare
++        or healthcare
 +        or """ + mapOf(
 +        "leisure" to listOf(
 +            "adult_gaming_centre",
