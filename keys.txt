@@ -144,6 +144,7 @@ app:.*
 ownership   // changing shop probably changes ownership - https://wiki.openstreetmap.org/wiki/Key:ownership
 
 url
+url:official
 source_ref:url
 owner
 
@@ -593,6 +594,10 @@ import
 landuse
 historic(:.*)?
 heritage(:.*)?
+OnroerendErfgoed:criteria // apparently some heritage identifier, likely linked to building not POI - see https://wiki.openstreetmap.org/wiki/Key:heritage
+lda:criteria
+nrhp:criteria
+nrhp:inscription_date
 
 building(:.*)?
 building_type
@@ -607,7 +612,6 @@ covered
 design:code:SPb     // building-related, see https://wiki.openstreetmap.org/wiki/RU:Key:design:code:SPb
 design:ref          // building-related, see https://wiki.openstreetmap.org/wiki/Key:design:ref
 pmfsefin:idedif     // building-related, see https://wiki.openstreetmap.org/wiki/Key:pmfsefin:idedif
-OnroerendErfgoed:criteria // apparently some heritage identifier, likely linked to building not POI - see https://wiki.openstreetmap.org/wiki/Key:heritage
 uuid:building
 
 atmotorway // refers to location (is it accessible from motorway and therefore restricted), not affected by changing POI
@@ -893,7 +897,6 @@ IPP:CodLote
 IPP:CodQuadra
 kayak_rental
 landcover
-lda:criteria
 length
 library
 LINZ2OSM:dataset
@@ -910,8 +913,6 @@ motorboat
 motor_vehicle
 music_genre
 network:wikidata
-nrhp:criteria
-nrhp:inscription_date
 nudism
 observatory:type
 playground
@@ -929,5 +930,4 @@ sanitary_dump_station
 scale
 site
 tower:type
-url:official
 zoo

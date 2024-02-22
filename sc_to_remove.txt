@@ -26,7 +26,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "contact_person", "contact(:.*)?", "phone(:.*)?", "phone_?[1-9]?", "emergency:phone", "mobile",
     "fax", "facebook", "instagram", "twitter", "youtube", "telegram", "email",
     "website_?[1-9]?(:.*)?", "app:.*", "ownership",
-    "url", "source_ref:url", "owner",
+    "url", "url:official", "source_ref:url", "owner",
     // payments
     "payment(:.*)?", "payment_multi_fee", "currency:.*", "check_date:currency:.*",
     "cash_withdrawal(:.*)?", "fee", "charge", "charge_fee", "money_transfer",
