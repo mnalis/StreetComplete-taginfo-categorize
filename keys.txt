@@ -492,6 +492,7 @@ logistics
 military
 community_centre
 bank
+operational // trolltag referring to current POI
 
 ### KEYS TO PROBABLY REMOVE ###
 comment		// might be either, but probably more likely shop-related
@@ -522,6 +523,8 @@ design:code:SPb     // building-related, see https://wiki.openstreetmap.org/wiki
 design:ref          // building-related, see https://wiki.openstreetmap.org/wiki/Key:design:ref
 pmfsefin:idedif     // building-related, see https://wiki.openstreetmap.org/wiki/Key:pmfsefin:idedif
 OnroerendErfgoed:criteria // apparently some heritage identifier, likely linked to building not POI - see https://wiki.openstreetmap.org/wiki/Key:heritage
+
+atmotorway // refers to location (is it accessible from motorway and therefore restricted), not affected by changing POI
 
 addr[1-9]?:.*
 is_in(:.*)?
@@ -744,7 +747,6 @@ entrance:width
 entrance:step_count
 entrance:kerb:height
 audio_loop // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3Dyes
-atmotorway
 
 // from craft.json
 construction_date
@@ -761,7 +763,6 @@ public
 house
 
 // from healthcare.json
-operational
 district
 county
 sub_district
