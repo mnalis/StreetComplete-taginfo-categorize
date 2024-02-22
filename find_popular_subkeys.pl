@@ -8,11 +8,9 @@ use warnings;
 use strict;
 use autodie qw/:all/;
 use feature 'say';
-use Carp 'verbose';
-
-$SIG{__DIE__} = \&Carp::confess; # umjesto croak, da dobijemo stack trace
 
 use JSON;
+use URI::Escape;
 
 my $MIN_VALUE_COUNT = 100;	# ignore values  with less than this many occurances (eg. keep shop=scooter as it has 113 occurances, and 113 > 100)
 my $MIN_SUBKEY_COUNT = 90;	# ignore subkeys with less than this many occurances (eg. keep scooter=* as it has 2093 occurances, and 2093 > 90)
@@ -23,8 +21,9 @@ sub slurp_cmd($) {
 
     open my $json_fd, '-|', $cmd;
     my $output;
+    #say "DEBUG: running JSON cmd: $cmd";
     { local $/; $output = <$json_fd>; }
-    #say "DEBUG: JSON text output=$output";
+    #say "DEBUG: JSON text output: $output";
     return $output;
 }
 
@@ -33,28 +32,6 @@ sub get_json($) {
     my ($cmd) = @_;
     my @json = decode_json (slurp_cmd($cmd));
     return $json[0]->{'data'};;
-    # FIXME error:
-    #       00000000  73 6f 63 69 c3 a9 74 c3  a9 5f                    |soci..t.._|    //  "value": "société_de_boule_de_fort",
-    
-    # ./find_popular_subkeys.pl club.json2 craft.json2 healthcare.json2 office.json2 shop.json2 > _find_popular_subkeys.txt.tmp && mv -f _find_popular_subkeys.txt.tmp _find_popular_subkeys.txt
-    # Fetching (club.json2): sport yes scout social freemasonry music culture automobile veterans sailing soci�t�_de_boule_de_fort malformed JSON string, neither tag, array, object, number, string or atom, at character offset 0 (before "invalid URL") at ./find_popular_subkeys.pl line 22, <$_[...]> chunk 1.
-    # make: *** [Makefile:80: _find_popular_subkeys.txt] Error 255
-    
-    #Fetching (club.json2): sport sport      # subkey count=2621246
-    #yes #yes        # ignore, subkey count=0 < 90
-    #scout scout     # subkey count=1170
-    #social #social  # ignore, subkey count=80 < 90
-    #freemasonry #freemasonry        # ignore, subkey count=1 < 90
-    #music music     # subkey count=352
-    #culture culture # subkey count=436
-    #automobile #automobile  # ignore, subkey count=11 < 90
-    #veterans #veterans      # ignore, subkey count=0 < 90
-    #sailing #sailing        # ignore, subkey count=7 < 90
-    #soci�t�_de_boule_de_fort malformed JSON string, neither tag, array, object, number, string or atom, at character offset 0 (before "invalid URL") at ./find_popular_subkeys.pl line 34.
-    # at ./find_popular_subkeys.pl line 34.
-    #        main::get_json("curl --silent 'https://taginfo.openstreetmap.org/api/4/key/st"...) called at ./find_popular_subkeys.pl line 74
-
-
 }
 
 
@@ -67,7 +44,7 @@ while (my $json_file = shift @ARGV) {
     print STDERR "Fetching ($json_file): ";
     foreach my $key (@values_many) {
         print STDERR "$key ";
-        my $url = "https://taginfo.openstreetmap.org/api/4/key/stats?key=$key";
+        my $url = 'https://taginfo.openstreetmap.org/api/4/key/stats?key=' . uri_escape($key);
         my $subjson_all = get_json "curl --silent '$url'";
         my $subkeys_count = (map { $_->{'count'} } grep { $_->{'type'} eq 'all' } @$subjson_all)[0];
 
