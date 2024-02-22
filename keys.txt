@@ -117,7 +117,7 @@ noname
 branch(:.*)?
 brand(:.*)?
 not:brand(:.*)?
-network		// used like brand
+network(:wikidata)?		// used like brand
 operator(:.*)?
 operator_type	// misspelled https://wiki.openstreetmap.org/wiki/Key:operator:type ?
 ref		// without extra clasification like ref:xxx, it is most likely shop related
@@ -369,6 +369,10 @@ capacity(:persons)?
 laundry_service
 guest_house
 
+// amenity=place_of_worship
+deanery
+subject:(wikidata|wikipedia)
+
 // schools
 capacity:(pupils|teachers)
 grades
@@ -376,15 +380,13 @@ population:pupils:.*
 school:(FR|gender|trust|type|type_idn)
 
 // clubs
-animal
-animal_breeding
-animal_training
+animal(_breeding|_training)?
 billiards(:.*)?
 board_game
 boat:type
 boules
 callsign
-canoe(_rental|:service)
+(canoe|kayak|sailboat)(_rental|:service)
 card_games
 car_service
 catastro:ref
@@ -523,6 +525,7 @@ kitchen:facilities  // undocumented, likely office-related
 it:(type|sales)     // undocumented, seems to be type of office=it
 cannabis:cbd        // undocumented, used in combination with shop=cannabis
 bath:type
+bath:(open_air|sand_bath)      // deprecated|undocumented, https://wiki.openstreetmap.org/wiki/Key:bath:open_air
 animal_boarding
 animal_shelter
 mattress
@@ -791,6 +794,7 @@ branch_brand		// this is branch=* which we handle
 real_fire-GB-IE		// this is real_fire=* which we handle
 sport:sport_pub     // this is about sport which we handle, see https://github.com/search?q=repo%3Aopenstreetmap%2Fid-tagging-schema%20sport_pub&type=code
 sport_pub           // see above, fake key from _id_tagging_schema.json
+sport:sport_ice     // used by leisure=ice_rink, piste=ice_skate
 
 
 ### TODO ###
@@ -831,18 +835,11 @@ tactile_paving
 divipola // undocumented import tag in a single country, see https://taginfo.openstreetmap.org/keys/divipola#chronology - asked on https://www.openstreetmap.org/changeset/4485936
 Observation
 
-// from amenity-place_of_worship.json
-deanery
-subject:wikidata
-subject:wikipedia
 
 // from _id_tagging_schema.json
-bath:open_air
-bath:sand_bath
 drinking_water_available
 horse_riding
 screen
-sport:sport_ice
 
 // from club.json
 antenna:type // https://www.openstreetmap.org/note/4123928 https://www.openstreetmap.org/note/4123930 https://www.openstreetmap.org/note/4123931
@@ -860,7 +857,6 @@ identity
 interaction
 IPP:CodLote
 IPP:CodQuadra
-kayak_rental
 landcover
 length
 library
@@ -877,11 +873,9 @@ maxheight
 motorboat
 motor_vehicle
 music_genre
-network:wikidata
 nudism
 observatory:type
-playground
-playground:theme
+playground(:theme)?
 protect_class
 protected
 protection_title
@@ -890,7 +884,6 @@ reference_point
 regional
 residential
 rugby
-sailboat_rental
 sanitary_dump_station
 scale
 site

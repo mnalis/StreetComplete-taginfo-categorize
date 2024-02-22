@@ -52,6 +52,6 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "backup_generator",
     "shelter_type", "disaster:shelter_type",
     "no", "car;car_repair", "car_repair;car", "nature_of_facility",
-    "branch_brand", "real_fire-GB-IE", "sport:sport_pub", "sport_pub",
+    "branch_brand", "real_fire-GB-IE", "sport:sport_pub", "sport_pub", "sport:sport_ice",
    
 ).map { it.toRegex() }
