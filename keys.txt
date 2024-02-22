@@ -751,3 +751,43 @@ kids_area:indoor
 emergency_telephone_code
 review
 tactile_paving
+
+// from amenity-school.json
+school:FR
+grades
+population:pupils:2015
+population:pupils:2012
+school:type
+school:trust
+school:FR
+school:type_idn
+school:trust
+school:FR
+school:gender
+capacity:pupils
+capacity:teachers
+school:gender
+school:type_idn
+divipola
+Observation
+
+// from amenity-place_of_worship.json
+deanery
+OnroerendErfgoed:criteria
+subject:wikidata
+subject:wikipedia
+
+// from tourism-guest_house.json
+guest_house
+
+// from _id_tagging_schema.json
+bath:sand_bath
+screen
+drinking_water_available
+horse_riding
+bath:open_air
+sport:sport_ice
+bath:type
+animal_boarding
+animal_shelter
+mattress
