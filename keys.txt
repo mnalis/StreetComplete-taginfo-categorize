@@ -748,7 +748,7 @@ atmotorway
 
 // from craft.json
 construction_date
-us.fo:kommununr
+us.fo:kommununr // asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo
 us.fo:Adressutal
 us.fo:Galdandi_frá
 us.fo:Postnr
