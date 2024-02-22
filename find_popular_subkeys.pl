@@ -10,16 +10,28 @@ use autodie qw/:all/;
 use feature 'say';
 
 use JSON;
+use URI::Escape;
 
 my $MIN_VALUE_COUNT = 100;	# ignore values  with less than this many occurances (eg. keep shop=scooter as it has 113 occurances, and 113 > 100)
 my $MIN_SUBKEY_COUNT = 90;	# ignore subkeys with less than this many occurances (eg. keep scooter=* as it has 2093 occurances, and 2093 > 90)
 
+# slurps multiline JSON output from a command, and returns it as a string
+sub slurp_cmd($) {
+    my ($cmd) = @_;
+
+    open my $json_fd, '-|', $cmd;
+    my $output;
+    #say "DEBUG: running JSON cmd: $cmd";
+    { local $/; $output = <$json_fd>; }
+    #say "DEBUG: JSON text output: $output";
+    return $output;
+}
+
 # parse one JSON file and return its main "data" array.
 sub get_json($) {
     my ($cmd) = @_;
-    local $/;
-    open my $json_fd, '-|', $cmd;
-    return (decode_json <$json_fd>)[0]->{'data'};
+    my @json = decode_json (slurp_cmd($cmd));
+    return $json[0]->{'data'};;
 }
 
 
@@ -32,7 +44,7 @@ while (my $json_file = shift @ARGV) {
     print STDERR "Fetching ($json_file): ";
     foreach my $key (@values_many) {
         print STDERR "$key ";
-        my $url = "https://taginfo.openstreetmap.org/api/4/key/stats?key=$key";
+        my $url = 'https://taginfo.openstreetmap.org/api/4/key/stats?key=' . uri_escape($key);
         my $subjson_all = get_json "curl --silent '$url'";
         my $subkeys_count = (map { $_->{'count'} } grep { $_->{'type'} eq 'all' } @$subjson_all)[0];
 

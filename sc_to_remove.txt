@@ -73,9 +73,8 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     // accommodation & layout
     "rooms", "stars", "accommodation", "beds", "capacity(:persons)?", "laundry_service",
     // schools
-    "school:FR", "grades", "population:pupils:2015", "population:pupils:2012", "school:type",
-    "school:trust", "school:FR", "school:type_idn", "school:trust", "school:FR", "school:gender",
-    "capacity:pupils", "capacity:teachers", "school:gender", "school:type_idn",
+    "capacity:(pupils|teachers)", "grades", "population:pupils:.*",
+    "school:(FR|gender|trust|type|type_idn)",
     // misc specific attributes
     "clothes", "shoes", "tailor", "beauty", "tobacco", "carpenter", "furniture", "lottery",
     "sport", "leisure", "dispensing", "tailor:.*", "gambling", "material", "raw_material",
@@ -96,4 +95,5 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "camp_site", "camping", "emergency(:.*)?", "evacuation_cent(er|re)", "education",
     "engineering", "forestry", "foundation", "lawyer", "logistics", "military", "community_centre",
     "bank", "operational",
+    "comment", "entrance:(width|step_count|kerb:height)",
 ).map { it.toRegex() }

@@ -1,6 +1,6 @@
 # what keys/tags to fetch, and how
 # this should match https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
-FETCH_KEYS := craft healthcare office shop
+FETCH_KEYS := club craft healthcare office shop
 FETCH_TAGS := information=office information=visitor_centre \
 amenity=bar amenity=biergarten amenity=cafe amenity=fast_food amenity=food_court amenity=ice_cream amenity=pub amenity=restaurant \
 amenity=childcare amenity=college amenity=dancing_school amenity=dive_centre amenity=dojo amenity=driving_school amenity=kindergarten \
@@ -50,7 +50,7 @@ endef
 all: sc_to_remove.txt sc_to_keep.txt stats
 
 sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
-	./generate_kotlin.pl '### KEYS TO REMOVE ###' '### KEYS TO' 'KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED' > $@
+	./generate_kotlin.pl '### KEYS TO REMOVE ###' '### KEYS TO KEEP ###' 'KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED' > $@
 
 sc_to_keep.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl '### KEYS TO KEEP ###' '### TODO' 'KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED' > $@
@@ -77,14 +77,14 @@ $(FILES_KEYS2): Makefile
 	$(CURL_FETCH) '$(CURL_URL_KEY2)&key=$(KEY_VALUE2)'
 
 _find_popular_subkeys.txt: $(FILES_KEYS2) find_popular_subkeys.pl Makefile
-	./find_popular_subkeys.pl $(FILES_KEYS2) > $@
+	./find_popular_subkeys.pl $(FILES_KEYS2) > $@.tmp && mv -f $@.tmp $@
 
 _find_popular_subkeys.json: _find_popular_subkeys.txt Makefile
 	$(txt-to-json)
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
 clean:
-	rm -f *.json *.json2 *~ _id_tagging_schema.txt _find_popular_subkeys.txt
+	rm -f *.json *.json2 *~ _id_tagging_schema.txt _find_popular_subkeys.txt *.tmp
 
 distclean: clean
 	rm -f sc_to_keep.txt sc_to_remove.txt
