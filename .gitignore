@@ -1,5 +1,6 @@
 *~
 *.json
 *.json2
+*.tmp
 _id_tagging_schema.txt
 _find_popular_subkeys.txt

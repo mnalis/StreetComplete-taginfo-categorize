@@ -1,6 +1,6 @@
 # what keys/tags to fetch, and how
 # this should match https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
-FETCH_KEYS := craft healthcare office shop
+FETCH_KEYS := club craft healthcare office shop
 FETCH_TAGS := information=office information=visitor_centre \
 amenity=bar amenity=biergarten amenity=cafe amenity=fast_food amenity=food_court amenity=ice_cream amenity=pub amenity=restaurant \
 amenity=childcare amenity=college amenity=dancing_school amenity=dive_centre amenity=dojo amenity=driving_school amenity=kindergarten \
@@ -77,7 +77,7 @@ $(FILES_KEYS2): Makefile
 	$(CURL_FETCH) '$(CURL_URL_KEY2)&key=$(KEY_VALUE2)'
 
 _find_popular_subkeys.txt: $(FILES_KEYS2) find_popular_subkeys.pl Makefile
-	./find_popular_subkeys.pl $(FILES_KEYS2) > $@
+	./find_popular_subkeys.pl $(FILES_KEYS2) > $@.tmp && mv -f $@.tmp $@
 
 _find_popular_subkeys.json: _find_popular_subkeys.txt Makefile
 	$(txt-to-json)
