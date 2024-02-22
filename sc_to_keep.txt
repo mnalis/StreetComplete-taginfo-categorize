@@ -3,9 +3,10 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "source_?[1-9]?(:.*)?", "source_ref", "Source", "survey", "attribution",
     "import",
     "landuse", "historic(:.*)?", "heritage(:.*)?",
-    "building(:.*)?", "building_type", "man_made", "roof:.*", "architect(:.*)?",
-    "year_of_construction", "construction_date", "covered", "design:code:SPb", "design:ref",
-    "pmfsefin:idedif",
+    "building(:.*)?", "building_type", "house", "man_made", "roof:.*", "architect(:.*)?",
+    "engineer(:.*)?", "year_of_construction", "construction_date", "covered", "design:code:SPb",
+    "design:ref", "pmfsefin:idedif", "OnroerendErfgoed:criteria",
+    "atmotorway",
     "addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber",
    
     "not:addr:postcode", "postal_code", "place", "city", "country",
