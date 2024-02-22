@@ -6,7 +6,7 @@ club_?[1-9]?
 old_amenity
 old_shop
 information
-leisure
+leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + shop=massage
 office_?[1-9]?
 tourism
 
@@ -437,7 +437,6 @@ carpenter
 furniture
 lottery
 sport
-leisure		// for example leisure=sports_centre + shop=ticket or leisure=sauna + shop=massage
 dispensing
 tailor:.*
 gambling
@@ -794,7 +793,8 @@ branch_brand		// this is branch=* which we handle
 real_fire-GB-IE		// this is real_fire=* which we handle
 sport:sport_pub     // this is about sport which we handle, see https://github.com/search?q=repo%3Aopenstreetmap%2Fid-tagging-schema%20sport_pub&type=code
 sport_pub           // see above, fake key from _id_tagging_schema.json
-sport:sport_ice     // used by leisure=ice_rink, piste=ice_skate
+sport:sport_ice     // fake, used by leisure=ice_rink, piste=ice_skate
+drinking_water_available    // fake, used by highway=rest_area, tourism=wilderness_hut, tourism=camp_site
 
 
 ### TODO ###
@@ -837,7 +837,6 @@ Observation
 
 
 // from _id_tagging_schema.json
-drinking_water_available
 horse_riding
 screen
 
