@@ -1,6 +1,6 @@
 # what keys/tags to fetch, and how
 # this should match https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
-FETCH_KEYS := club craft healthcare office shop
+FETCH_KEYS := craft healthcare office shop
 FETCH_TAGS := information=office information=visitor_centre \
 amenity=bar amenity=biergarten amenity=cafe amenity=fast_food amenity=food_court amenity=ice_cream amenity=pub amenity=restaurant \
 amenity=childcare amenity=college amenity=dancing_school amenity=dive_centre amenity=dojo amenity=driving_school amenity=kindergarten \
