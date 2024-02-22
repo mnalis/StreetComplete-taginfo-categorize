@@ -212,6 +212,7 @@ product_category    // undocumented, seems office=company related, Taiwan-only
 source_url      // undocumented, mostly seems office/amenity-related
 category            // undocumented, seems to be type of office/amenity
 kids_area           // amenity-based, see https://wiki.openstreetmap.org/wiki/Key:kids_area
+kids_area:indoor
 resort              // used worldwide with amenity=doctors/restaurant/... - when amenity is gone, so should this go away. see https://wiki.openstreetmap.org/wiki/Key:resort
 since               // used worldwide with amenity/shop, seems to be amenity-related year or date of initial establishment
 state               // Operational state, used worldwide, see https://wiki.openstreetmap.org/wiki/Key:state
@@ -260,6 +261,7 @@ real_fire		// 155 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:real_f
 flour_fortified	// seems to be craft=grinding_mill related
 highchair	// baby seating; 321 uses worldwide; https://wiki.openstreetmap.org/wiki/Key:highchair
 fast_food
+pub
 snack
 confectionery
 
@@ -451,6 +453,10 @@ old_website
 organisation
 school_type
 scout:type
+fraternity
+scout
+live_music
+lockable
 
 // misc specific attributes
 clothes
@@ -693,6 +699,7 @@ fid		// not documented, but used much more on building (58%) than on shop/craft 
 wikimedia_commons	// picture, so quite more likely to show building itself
 mapillary		// picture, so quite more likely to show building itself (street view mostly)
 image			// picture
+image:*         // image subtags used by a single mapper
 size		// far more common (and less error-prone) to define width=*, height=* and length=* separately; https://wiki.openstreetmap.org/wiki/Key:size
 industrial	// used with landuse=industrial; https://wiki.openstreetmap.org/wiki/Key:industrial
 project:opencities_abidjan	// undocumented; seems to be import related 
@@ -847,7 +854,6 @@ public
 county
 district
 emergency_telephone_code
-kids_area:indoor
 review
 sub_district
 tactile_paving
@@ -872,11 +878,8 @@ sport:sport_ice
 // from club.json
 antenna:type // https://www.openstreetmap.org/note/4123928 https://www.openstreetmap.org/note/4123930 https://www.openstreetmap.org/note/4123931
 bench // https://www.openstreetmap.org/note/4123918 https://www.openstreetmap.org/note/4123920 https://www.openstreetmap.org/note/4123922
-fraternity
-scout
 commons
 fenced
-fire_station:type:FR
 floating
 ft_link
 garden:type
@@ -885,9 +888,6 @@ groomer
 group_only
 hazard
 identity
-image:creator
-image:license
-image:license:wikidata
 interaction
 IPP:CodLote
 IPP:CodQuadra
@@ -900,8 +900,6 @@ LINZ2OSM:dataset
 LINZ2OSM:layer
 linz2osm:objectid
 LINZ2OSM:source_version
-live_music
-lockable
 logo
 massgis:ARTICLE97
 massgis:ASSESS_ACR
@@ -922,7 +920,6 @@ protect_class
 protected
 protection_title
 provides
-pub
 reference_point
 regional
 residential
