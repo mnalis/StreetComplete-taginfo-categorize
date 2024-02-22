@@ -363,6 +363,23 @@ beds
 capacity(:persons)?
 laundry_service
 
+// schools
+school:FR
+grades
+population:pupils:2015
+population:pupils:2012
+school:type
+school:trust
+school:FR
+school:type_idn
+school:trust
+school:FR
+school:gender
+capacity:pupils
+capacity:teachers
+school:gender
+school:type_idn
+
 // misc specific attributes
 clothes
 shoes
@@ -504,6 +521,7 @@ covered
 design:code:SPb     // building-related, see https://wiki.openstreetmap.org/wiki/RU:Key:design:code:SPb
 design:ref          // building-related, see https://wiki.openstreetmap.org/wiki/Key:design:ref
 pmfsefin:idedif     // building-related, see https://wiki.openstreetmap.org/wiki/Key:pmfsefin:idedif
+OnroerendErfgoed:criteria // apparently some heritage identifier, likely linked to building not POI - see https://wiki.openstreetmap.org/wiki/Key:heritage
 
 addr[1-9]?:.*
 is_in(:.*)?
@@ -725,7 +743,7 @@ lifeguard
 entrance:width
 entrance:step_count
 entrance:kerb:height
-audio_loop // asked for now on https://www.openstreetmap.org/changeset/5552042
+audio_loop // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3Dyes
 atmotorway
 
 // from craft.json
@@ -753,27 +771,11 @@ review
 tactile_paving
 
 // from amenity-school.json
-school:FR
-grades
-population:pupils:2015
-population:pupils:2012
-school:type
-school:trust
-school:FR
-school:type_idn
-school:trust
-school:FR
-school:gender
-capacity:pupils
-capacity:teachers
-school:gender
-school:type_idn
-divipola
+divipola // undocumented import tag in a single country, see https://taginfo.openstreetmap.org/keys/divipola#chronology - asked on https://www.openstreetmap.org/changeset/4485936
 Observation
 
 // from amenity-place_of_worship.json
 deanery
-OnroerendErfgoed:criteria
 subject:wikidata
 subject:wikipedia
 
