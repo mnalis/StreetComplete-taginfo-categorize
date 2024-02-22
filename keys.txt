@@ -485,6 +485,7 @@ operational // trolltag referring to current POI
 
 ### KEYS TO PROBABLY REMOVE ###
 comment		// might be either, but probably more likely shop-related
+entrance:(width|step_count|kerb:height)     // tricky, but details of the entrance are possibly going to change with new owners
 
 ### KEYS TO KEEP ###
 // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED, which was used previously before StreetComplete v35.0
@@ -666,7 +667,8 @@ IOM:project         // undocumented, used mostly in Republica Dominicana
 wb_pb:id            // undocumented, used in Kenya
 project:.*          // undocumented - maybe part of the mapping project? e.g. project:anr_cohesion_bouake, project:geoloc_unicef, project:geoloc_unicef:id, project:mappingforniger, project:oif-dfen_carteinnov
 
-entrance
+entrance        // entrance itself is probably going to stay at the same place unless bigger renovations are being made
+
 waste:disposal	// undocumented, used about 60 times in one place
 water_tank:quantity	// undocumented, used about 60 times in one place
 water_supply
@@ -732,9 +734,6 @@ engineer
 lifeguard
 
 // from shop.json
-entrance:width
-entrance:step_count
-entrance:kerb:height
 audio_loop // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3Dyes
 
 // from craft.json
