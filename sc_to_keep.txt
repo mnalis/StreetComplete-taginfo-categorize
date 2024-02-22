@@ -2,13 +2,13 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED, which was used previously before StreetComplete v35.0
     "source_?[1-9]?(:.*)?", "source_ref", "Source", "survey", "attribution",
     "import",
-    "landuse", "historic(:.*)?", "heritage(:.*)?",
+    "landuse", "historic(:.*)?", "heritage(:.*)?", "OnroerendErfgoed:criteria", "lda:criteria",
+    "nrhp:criteria", "nrhp:inscription_date",
     "building(:.*)?", "building_type", "house", "man_made", "roof:.*", "architect(:.*)?",
     "engineer(:.*)?", "year_of_construction", "construction_date", "covered", "design:code:SPb",
-    "design:ref", "pmfsefin:idedif", "OnroerendErfgoed:criteria",
+    "design:ref", "pmfsefin:idedif", "uuid:building",
     "atmotorway",
-    "addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber",
-   
+    "addr[1-9]?:.*", "old_addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber", "noaddress",
     "not:addr:postcode", "postal_code", "place", "city", "country",
     "quartier", "Commune", "City", "street", "sector", "region", "locality", "province", "taluk",
     "LOCALIDAD", "LGA",
@@ -16,7 +16,7 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "room",
     "landmark", "layer", "ele", "height", "altitude", "author", "authorization", "area",
     "min_height", "floor:material",
-    "FIXME", "fixme", "note(:.*)?",
+    "FIXME", "fixme", "note(:.*)?", "fixme:type",
     "ref:.*",
     "type",
     "caravans", "tents", "shower", "buildingpart", "door", "barrier", "wall", "fence_type",
@@ -25,8 +25,8 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "seamark:.*", "waterway", "ruins",
     "not:name",
     "lbcs:.*", "chicago:building_id", "arivac:.*", "lacounty:.*", "nysgissam:.*", "at_bev:.*",
-    "castle_type", "nycdoitt:bin", "fid", "wikimedia_commons", "mapillary", "image", "size",
-    "industrial", "project:opencities_abidjan", "highway", "utahagrc:parcelid",
+    "castle_type", "nycdoitt:bin", "fid", "wikimedia_commons", "mapillary", "image", "image:.*",
+    "size", "industrial", "project:opencities_abidjan", "highway", "utahagrc:parcelid",
     "WroclawGIS:building:ID", "mhs:.*", "sangis:.*", "listed_status",
    
    

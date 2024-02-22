@@ -144,6 +144,7 @@ app:.*
 ownership   // changing shop probably changes ownership - https://wiki.openstreetmap.org/wiki/Key:ownership
 
 url
+url:official
 source_ref:url
 owner
 
@@ -212,6 +213,7 @@ product_category    // undocumented, seems office=company related, Taiwan-only
 source_url      // undocumented, mostly seems office/amenity-related
 category            // undocumented, seems to be type of office/amenity
 kids_area           // amenity-based, see https://wiki.openstreetmap.org/wiki/Key:kids_area
+kids_area:indoor
 resort              // used worldwide with amenity=doctors/restaurant/... - when amenity is gone, so should this go away. see https://wiki.openstreetmap.org/wiki/Key:resort
 since               // used worldwide with amenity/shop, seems to be amenity-related year or date of initial establishment
 state               // Operational state, used worldwide, see https://wiki.openstreetmap.org/wiki/Key:state
@@ -237,6 +239,7 @@ wine([:_].*)?
 happy_hours
 diet:.*
 cuisine		// shop property; unlikely to stay correct if owners change
+ethnic
 tasting
 breakfast
 lunch
@@ -259,6 +262,7 @@ real_fire		// 155 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:real_f
 flour_fortified	// seems to be craft=grinding_mill related
 highchair	// baby seating; 321 uses worldwide; https://wiki.openstreetmap.org/wiki/Key:highchair
 fast_food
+pub
 snack
 confectionery
 
@@ -362,12 +366,98 @@ accommodation
 beds
 capacity(:persons)?
 laundry_service
+guest_house
 
 // schools
 capacity:(pupils|teachers)
 grades
 population:pupils:.*
 school:(FR|gender|trust|type|type_idn)
+
+// clubs
+animal
+animal_breeding
+animal_training
+billiards:carom
+billiards:pool
+billiards:snooker
+board_game
+boat:type
+boules
+callsign
+canoe_rental
+canoe:service
+card_games
+car_service
+catastro:ref
+changing_table:fee
+chess:association
+chess:league
+chess:training
+children
+climbing:boulder
+climbing:length
+climbing:routes
+climbing:toprope
+club_1
+club_2
+club:against
+club:against:wikidata
+club:name
+club:student
+communication:amateur_radio
+communication:amateur_radio:callsign
+community_centre:for
+dffr:network
+dormitory
+education_for:ages
+electrified
+esperanto
+events_venue
+family
+federation
+free_flying:club
+free_flying:ground_handling
+free_flying:guest-guidelines
+free_flying:paragliding
+free_flying:school
+free_flying:site
+free_flying:site_orientation
+free_flying:tandem
+freemasonry:grand_lodge
+freemasonry:group
+freemasonry:lodge:name
+freemasonry:lodge:ref
+freemasonry:province
+free_refill
+gaelic_games:football
+gaelic_games:handball
+gaelic_games:hurling
+membership
+military_service
+model_aerodrome:combustion
+model_aerodrome:electric
+model_aerodrome:heli
+model_aerodrome:turbine
+mode_of_organisation:ownership_structure
+mode_of_organisation:purpose
+mode_of_organisation:self_managed
+smoking:outside
+snowmobile
+social_centre
+social_centre:for
+source_dat
+sport_1
+sport:boating
+tennis
+old_website
+organisation
+school_type
+scout:type
+fraternity
+scout
+live_music
+lockable
 
 // misc specific attributes
 clothes
@@ -504,6 +594,10 @@ import
 landuse
 historic(:.*)?
 heritage(:.*)?
+OnroerendErfgoed:criteria // apparently some heritage identifier, likely linked to building not POI - see https://wiki.openstreetmap.org/wiki/Key:heritage
+lda:criteria
+nrhp:criteria
+nrhp:inscription_date
 
 building(:.*)?
 building_type
@@ -518,15 +612,16 @@ covered
 design:code:SPb     // building-related, see https://wiki.openstreetmap.org/wiki/RU:Key:design:code:SPb
 design:ref          // building-related, see https://wiki.openstreetmap.org/wiki/Key:design:ref
 pmfsefin:idedif     // building-related, see https://wiki.openstreetmap.org/wiki/Key:pmfsefin:idedif
-OnroerendErfgoed:criteria // apparently some heritage identifier, likely linked to building not POI - see https://wiki.openstreetmap.org/wiki/Key:heritage
+uuid:building
 
 atmotorway // refers to location (is it accessible from motorway and therefore restricted), not affected by changing POI
 
 addr[1-9]?:.*
+old_addr[1-9]?:.*
 is_in(:.*)?
 address
 nohousenumber
-
+noaddress
 
 not:addr:postcode
 postal_code
@@ -568,6 +663,7 @@ floor:material      // lower side of surface=* (as seen from outside), building-
 FIXME
 fixme
 note(:.*)?
+fixme:type
 
 ref:.*
 
@@ -607,6 +703,7 @@ fid		// not documented, but used much more on building (58%) than on shop/craft 
 wikimedia_commons	// picture, so quite more likely to show building itself
 mapillary		// picture, so quite more likely to show building itself (street view mostly)
 image			// picture
+image:*         // image subtags used by a single mapper
 size		// far more common (and less error-prone) to define width=*, height=* and length=* separately; https://wiki.openstreetmap.org/wiki/Key:size
 industrial	// used with landuse=industrial; https://wiki.openstreetmap.org/wiki/Key:industrial
 project:opencities_abidjan	// undocumented; seems to be import related 
@@ -736,11 +833,7 @@ sport_pub           // see above, fake key from _id_tagging_schema.json
 // from _find_popular_subkeys.json
 cadet
 culture
-ethnic
-fraternity
 lifeguard
-primary
-scout
 shooting
 theatre
 windows
@@ -753,35 +846,30 @@ audio_loop // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3
 construction_date
 us.fo:kommununr // asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo
 us.fo:Adressutal
-us.fo:Galdandi_frá
+us.fo:Galdandi_frá // asked on https://www.openstreetmap.org/changeset/1888617
 us.fo:Postnr
 us.fo:Veganr
 
 // from office.json
 monitoring:weather
-old_addr:housenumber
 public
 
 // from healthcare.json
 county
 district
 emergency_telephone_code
-kids_area:indoor
 review
 sub_district
 tactile_paving
 
 // from amenity-school.json
-divipola //Â undocumented import tag in a single country, see https://taginfo.openstreetmap.org/keys/divipola#chronology - asked on https://www.openstreetmap.org/changeset/4485936
+divipola // undocumented import tag in a single country, see https://taginfo.openstreetmap.org/keys/divipola#chronology - asked on https://www.openstreetmap.org/changeset/4485936
 Observation
 
 // from amenity-place_of_worship.json
 deanery
 subject:wikidata
 subject:wikipedia
-
-// from tourism-guest_house.json
-guest_house
 
 // from _id_tagging_schema.json
 bath:open_air
@@ -792,130 +880,47 @@ screen
 sport:sport_ice
 
 // from club.json
-animal
-animal_breeding
-animal_training
-antenna:type
-bench
-billiards:carom
-billiards:pool
-billiards:snooker
-board_game
-boat:type
-boules
-bridge
-callsign
-canoe_rental
-canoe:service
-card_games
-car_service
-catastro:ref
-changing_table:fee
-chess:association
-chess:league
-chess:training
-children
-climbing:boulder
-climbing:length
-climbing:routes
-climbing:toprope
-club_1
-club_2
-club:against
-club:against:wikidata
-club:name
-club:student
+antenna:type // https://www.openstreetmap.org/note/4123928 https://www.openstreetmap.org/note/4123930 https://www.openstreetmap.org/note/4123931
+bench // https://www.openstreetmap.org/note/4123918 https://www.openstreetmap.org/note/4123920 https://www.openstreetmap.org/note/4123922
 commons
-communication:amateur_radio
-communication:amateur_radio:callsign
-community_centre:for
-dffr:network
-dormitory
-education_for:ages
-electrified
-esperanto
-events_venue
-family
-federation
 fenced
-fire_station:type:FR
-fixme:type
 floating
-free_flying:club
-free_flying:ground_handling
-free_flying:guest-guidelines
-free_flying:paragliding
-free_flying:school
-free_flying:site
-free_flying:site_orientation
-free_flying:tandem
-freemasonry:grand_lodge
-freemasonry:group
-freemasonry:lodge:name
-freemasonry:lodge:ref
-freemasonry:province
-free_refill
 ft_link
-gaelic_games:football
-gaelic_games:handball
-gaelic_games:hurling
 garden:type
 gay
 groomer
 group_only
 hazard
 identity
-image:creator
-image:license
-image:license:wikidata
 interaction
 IPP:CodLote
 IPP:CodQuadra
 kayak_rental
 landcover
-lda:criteria
 length
 library
 LINZ2OSM:dataset
 LINZ2OSM:layer
 linz2osm:objectid
 LINZ2OSM:source_version
-live_music
-lockable
 logo
 massgis:ARTICLE97
 massgis:ASSESS_ACR
 massgis:ATT_DATE
 massgis:OS_ID
 maxheight
-membership
-military_service
-model_aerodrome:combustion
-model_aerodrome:electric
-model_aerodrome:heli
-model_aerodrome:turbine
-mode_of_organisation:ownership_structure
-mode_of_organisation:purpose
-mode_of_organisation:self_managed
 motorboat
 motor_vehicle
 music_genre
 network:wikidata
-noaddress
-nrhp:criteria
-nrhp:inscription_date
 nudism
 observatory:type
-old_addr:street
-old_website
-organisation
 playground
 playground:theme
 protect_class
 protected
 protection_title
 provides
-pub
 reference_point
 regional
 residential
@@ -923,19 +928,6 @@ rugby
 sailboat_rental
 sanitary_dump_station
 scale
-school_type
-scout:type
 site
-smoking:outside
-snowmobile
-social_centre
-social_centre:for
-source_dat
-sport_1
-sport:boating
-tennis
 tower:type
-url:official
-us.fo:Galdandi_fr�
-uuid:building
 zoo
