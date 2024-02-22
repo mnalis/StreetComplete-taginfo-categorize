@@ -822,9 +822,7 @@ sport_pub           // see above, fake key from _id_tagging_schema.json
 // from _find_popular_subkeys.json
 cadet
 culture
-fraternity
 lifeguard
-scout
 shooting
 theatre
 windows
@@ -874,6 +872,8 @@ sport:sport_ice
 // from club.json
 antenna:type // https://www.openstreetmap.org/note/4123928 https://www.openstreetmap.org/note/4123930 https://www.openstreetmap.org/note/4123931
 bench // https://www.openstreetmap.org/note/4123918 https://www.openstreetmap.org/note/4123920 https://www.openstreetmap.org/note/4123922
+fraternity
+scout
 commons
 fenced
 fire_station:type:FR
