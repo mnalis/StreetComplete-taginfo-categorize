@@ -740,7 +740,6 @@ sport_pub           // see above, fake key from _id_tagging_schema.json
 
 // from _find_popular_subkeys.json
 windows
-primary
 lifeguard
 
 // from shop.json
