@@ -739,7 +739,6 @@ culture
 ethnic
 fraternity
 lifeguard
-primary
 scout
 shooting
 theatre
@@ -803,7 +802,6 @@ billiards:snooker
 board_game
 boat:type
 boules
-bridge
 callsign
 canoe_rental
 canoe:service
