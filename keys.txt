@@ -364,21 +364,10 @@ capacity(:persons)?
 laundry_service
 
 // schools
-school:FR
+capacity:(pupils|teachers)
 grades
-population:pupils:2015
-population:pupils:2012
-school:type
-school:trust
-school:FR
-school:type_idn
-school:trust
-school:FR
-school:gender
-capacity:pupils
-capacity:teachers
-school:gender
-school:type_idn
+population:pupils:.*
+school:(FR|gender|trust|type|type_idn)
 
 // misc specific attributes
 clothes
