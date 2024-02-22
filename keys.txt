@@ -363,6 +363,23 @@ beds
 capacity(:persons)?
 laundry_service
 
+// schools
+school:FR
+grades
+population:pupils:2015
+population:pupils:2012
+school:type
+school:trust
+school:FR
+school:type_idn
+school:trust
+school:FR
+school:gender
+capacity:pupils
+capacity:teachers
+school:gender
+school:type_idn
+
 // misc specific attributes
 clothes
 shoes
@@ -475,6 +492,7 @@ logistics
 military
 community_centre
 bank
+operational // trolltag referring to current POI
 
 ### KEYS TO PROBABLY REMOVE ###
 comment		// might be either, but probably more likely shop-related
@@ -504,6 +522,9 @@ covered
 design:code:SPb     // building-related, see https://wiki.openstreetmap.org/wiki/RU:Key:design:code:SPb
 design:ref          // building-related, see https://wiki.openstreetmap.org/wiki/Key:design:ref
 pmfsefin:idedif     // building-related, see https://wiki.openstreetmap.org/wiki/Key:pmfsefin:idedif
+OnroerendErfgoed:criteria // apparently some heritage identifier, likely linked to building not POI - see https://wiki.openstreetmap.org/wiki/Key:heritage
+
+atmotorway // refers to location (is it accessible from motorway and therefore restricted), not affected by changing POI
 
 addr[1-9]?:.*
 is_in(:.*)?
@@ -725,12 +746,11 @@ lifeguard
 entrance:width
 entrance:step_count
 entrance:kerb:height
-audio_loop // asked for now on https://www.openstreetmap.org/changeset/5552042
-atmotorway
+audio_loop // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3Dyes
 
 // from craft.json
 construction_date
-us.fo:kommununr
+us.fo:kommununr // asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo
 us.fo:Adressutal
 us.fo:Galdandi_frá
 us.fo:Postnr
@@ -743,7 +763,6 @@ public
 house
 
 // from healthcare.json
-operational
 district
 county
 sub_district
@@ -751,3 +770,27 @@ kids_area:indoor
 emergency_telephone_code
 review
 tactile_paving
+
+// from amenity-school.json
+divipola //Â undocumented import tag in a single country, see https://taginfo.openstreetmap.org/keys/divipola#chronology - asked on https://www.openstreetmap.org/changeset/4485936
+Observation
+
+// from amenity-place_of_worship.json
+deanery
+subject:wikidata
+subject:wikipedia
+
+// from tourism-guest_house.json
+guest_house
+
+// from _id_tagging_schema.json
+bath:sand_bath
+screen
+drinking_water_available
+horse_riding
+bath:open_air
+sport:sport_ice
+bath:type
+animal_boarding
+animal_shelter
+mattress
