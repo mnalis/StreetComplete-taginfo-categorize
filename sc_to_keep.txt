@@ -24,8 +24,8 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "seamark:.*", "waterway", "ruins",
     "not:name",
     "lbcs:.*", "chicago:building_id", "arivac:.*", "lacounty:.*", "nysgissam:.*", "at_bev:.*",
-    "castle_type", "nycdoitt:bin", "fid", "wikimedia_commons", "mapillary", "image", "size",
-    "industrial", "project:opencities_abidjan", "highway", "utahagrc:parcelid",
+    "castle_type", "nycdoitt:bin", "fid", "wikimedia_commons", "mapillary", "image", "image:.*",
+    "size", "industrial", "project:opencities_abidjan", "highway", "utahagrc:parcelid",
     "WroclawGIS:building:ID", "mhs:.*", "sangis:.*", "listed_status",
    
    
