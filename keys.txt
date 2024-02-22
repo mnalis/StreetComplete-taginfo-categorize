@@ -2,6 +2,7 @@
 shop_?[1-9]?(:.*)?
 craft_?[1-9]?
 amenity_?[1-9]?
+club_?[1-9]?
 old_amenity
 old_shop
 information
@@ -186,7 +187,7 @@ functional	// undocumented, 15 uses worldwide, seems to be like operational_stat
 trade
 wholesale
 sale
-smoking
+smoking(:outside)?
 zero_waste
 origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
 attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewery
@@ -260,7 +261,7 @@ delivery(:.*)?	// does shop do delivery, https://wiki.openstreetmap.org/wiki/Key
 caterer
 real_fire		// 155 uses worldwide, https://wiki.openstreetmap.org/wiki/Key:real_fire
 flour_fortified	// seems to be craft=grinding_mill related
-highchair	// baby seating; 321 uses worldwide; https://wiki.openstreetmap.org/wiki/Key:highchair
+highchair       // baby seating; 321 uses worldwide; https://wiki.openstreetmap.org/wiki/Key:highchair
 fast_food
 pub
 snack
@@ -322,7 +323,7 @@ vaccination
 clinic
 hospital
 pharmacy
-alternative // used in variety of meaning - but for POIs it is specifying type of healthcare=alternative
+alternative     // used in variety of meaning - but for POIs it is specifying type of healthcare=alternative
 laboratory
 sample_collection
 provided_for(:.*)?
@@ -378,35 +379,21 @@ school:(FR|gender|trust|type|type_idn)
 animal
 animal_breeding
 animal_training
-billiards:carom
-billiards:pool
-billiards:snooker
+billiards(:.*)?
 board_game
 boat:type
 boules
 callsign
-canoe_rental
-canoe:service
+canoe(_rental|:service)
 card_games
 car_service
 catastro:ref
 changing_table:fee
-chess:association
-chess:league
-chess:training
+chess(:.*)?
 children
-climbing:boulder
-climbing:length
-climbing:routes
-climbing:toprope
-club_1
-club_2
-club:against
-club:against:wikidata
-club:name
-club:student
-communication:amateur_radio
-communication:amateur_radio:callsign
+climbing(:.*)?
+club(:.*)?
+communication(:amateur_radio.*)
 community_centre:for
 dffr:network
 dormitory
@@ -416,36 +403,16 @@ esperanto
 events_venue
 family
 federation
-free_flying:club
-free_flying:ground_handling
-free_flying:guest-guidelines
-free_flying:paragliding
-free_flying:school
-free_flying:site
-free_flying:site_orientation
-free_flying:tandem
-freemasonry:grand_lodge
-freemasonry:group
-freemasonry:lodge:name
-freemasonry:lodge:ref
-freemasonry:province
+free_flying(:.*)?
+freemasonry(:.*)?
 free_refill
-gaelic_games:football
-gaelic_games:handball
-gaelic_games:hurling
+gaelic_games(:.*)?
 membership
 military_service
-model_aerodrome:combustion
-model_aerodrome:electric
-model_aerodrome:heli
-model_aerodrome:turbine
-mode_of_organisation:ownership_structure
-mode_of_organisation:purpose
-mode_of_organisation:self_managed
-smoking:outside
+model_aerodrome(:.*)?
+mode_of_organisation(:.*)?
 snowmobile
-social_centre
-social_centre:for
+social_centre(:for)?
 source_dat
 sport_1
 sport:boating
@@ -453,9 +420,8 @@ tennis
 old_website
 organisation
 school_type
-scout:type
+scout(:type)?
 fraternity
-scout
 live_music
 lockable
 
@@ -479,7 +445,6 @@ stonemason	// craft=stonemason + stonemason=tombstones
 studio		// 26 uses worldwide; like amenity=studio+craft=atelier+studio=music
 scuba_diving(:.*)?	// id_tagging_schema.json says might be used with shop=scuba_diving; https://wiki.openstreetmap.org/wiki/Tag:shop=scuba_diving
 polling_station	//  id_tagging_schema says it might be used on amenity=post_office https://wiki.openstreetmap.org/wiki/Key:polling_station
-club		// shop related, https://wiki.openstreetmap.org/wiki/Key:club
 collector	// with shop=collector, https://wiki.openstreetmap.org/wiki/Tag:shop=collector
 books
 agrarian
