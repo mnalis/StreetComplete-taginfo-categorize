@@ -467,6 +467,10 @@ service_times       // used with office=religion, https://wiki.openstreetmap.org
 kitchen:facilities  // undocumented, likely office-related
 it:(type|sales)     // undocumented, seems to be type of office=it
 cannabis:cbd        // undocumented, used in combination with shop=cannabis
+bath:type
+animal_boarding
+animal_shelter
+mattress
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
@@ -503,9 +507,11 @@ heritage(:.*)?
 
 building(:.*)?
 building_type
+house               // refers to building itself, see https://wiki.openstreetmap.org/wiki/Key:house
 man_made
 roof:.*
 architect(:.*)?
+engineer(:.*)?      // https://wiki.openstreetmap.org/wiki/Key:engineer
 year_of_construction    // building related: https://wiki.openstreetmap.org/wiki/Key:year_of_construction
 construction_date       // usually building-related, see https://wiki.openstreetmap.org/wiki/Key:construction_date
 covered
@@ -729,8 +735,6 @@ sport_pub           // see above, fake key from _id_tagging_schema.json
 
 // from _find_popular_subkeys.json
 windows
-primary
-engineer
 lifeguard
 
 // from shop.json
@@ -740,7 +744,7 @@ audio_loop // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3
 construction_date
 us.fo:kommununr // asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo
 us.fo:Adressutal
-us.fo:Galdandi_fr�
+us.fo:Galdandi_frá
 us.fo:Postnr
 us.fo:Veganr
 
@@ -748,7 +752,6 @@ us.fo:Veganr
 monitoring:weather
 old_addr:housenumber
 public
-house
 
 // from healthcare.json
 district
@@ -760,7 +763,7 @@ review
 tactile_paving
 
 // from amenity-school.json
-divipola // undocumented import tag in a single country, see https://taginfo.openstreetmap.org/keys/divipola#chronology - asked on https://www.openstreetmap.org/changeset/4485936
+divipola //Â undocumented import tag in a single country, see https://taginfo.openstreetmap.org/keys/divipola#chronology - asked on https://www.openstreetmap.org/changeset/4485936
 Observation
 
 // from amenity-place_of_worship.json
