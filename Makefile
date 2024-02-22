@@ -50,7 +50,7 @@ endef
 all: sc_to_remove.txt sc_to_keep.txt stats
 
 sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
-	./generate_kotlin.pl '### KEYS TO REMOVE ###' '### KEYS TO' 'KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED' > $@
+	./generate_kotlin.pl '### KEYS TO REMOVE ###' '### KEYS TO KEEP ###' 'KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED' > $@
 
 sc_to_keep.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl '### KEYS TO KEEP ###' '### TODO' 'KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED' > $@
