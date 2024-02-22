@@ -45,7 +45,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     // food and drink details
     "bar", "cafe", "coffee", "microroasting", "microbrewery", "brewery", "real_ale", "taproom",
     "training", "distillery", "drink(:.*)?", "cocktails", "alcohol", "wine([:_].*)?",
-    "happy_hours", "diet:.*", "cuisine", "tasting", "breakfast", "lunch", "organic",
+    "happy_hours", "diet:.*", "cuisine", "ethnic", "tasting", "breakfast", "lunch", "organic",
     "produced_on_site", "restaurant", "food", "pastry", "pastry_shop", "product", "produce",
     "chocolate", "fair_trade", "butcher", "reservation(:.*)?", "takeaway(:.*)?", "delivery(:.*)?",
     "caterer", "real_fire", "flour_fortified", "highchair", "fast_food", "snack", "confectionery",
@@ -72,9 +72,29 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "pharmacy:category",
     // accommodation & layout
     "rooms", "stars", "accommodation", "beds", "capacity(:persons)?", "laundry_service",
+    "guest_house",
     // schools
     "capacity:(pupils|teachers)", "grades", "population:pupils:.*",
     "school:(FR|gender|trust|type|type_idn)",
+    // clubs
+    "animal", "animal_breeding", "animal_training", "billiards:carom", "billiards:pool",
+    "billiards:snooker", "board_game", "boat:type", "boules", "callsign", "canoe_rental",
+    "canoe:service", "card_games", "car_service", "catastro:ref", "changing_table:fee",
+    "chess:association", "chess:league", "chess:training", "children", "climbing:boulder",
+    "climbing:length", "climbing:routes", "climbing:toprope", "club_1", "club_2", "club:against",
+    "club:against:wikidata", "club:name", "club:student", "communication:amateur_radio",
+    "communication:amateur_radio:callsign", "community_centre:for", "dffr:network", "dormitory",
+    "education_for:ages", "electrified", "esperanto", "events_venue", "family", "federation",
+    "free_flying:club", "free_flying:ground_handling", "free_flying:guest-guidelines",
+    "free_flying:paragliding", "free_flying:school", "free_flying:site",
+    "free_flying:site_orientation", "free_flying:tandem", "freemasonry:grand_lodge",
+    "freemasonry:group", "freemasonry:lodge:name", "freemasonry:lodge:ref", "freemasonry:province",
+    "free_refill", "gaelic_games:football", "gaelic_games:handball", "gaelic_games:hurling",
+    "membership", "military_service", "model_aerodrome:combustion", "model_aerodrome:electric",
+    "model_aerodrome:heli", "model_aerodrome:turbine", "mode_of_organisation:ownership_structure",
+    "mode_of_organisation:purpose", "mode_of_organisation:self_managed", "smoking:outside",
+    "snowmobile", "social_centre", "social_centre:for", "source_dat", "sport_1", "sport:boating",
+    "tennis", "old_website", "organisation", "school_type", "scout:type",
     // misc specific attributes
     "clothes", "shoes", "tailor", "beauty", "tobacco", "carpenter", "furniture", "lottery",
     "sport", "leisure", "dispensing", "tailor:.*", "gambling", "material", "raw_material",
