@@ -57,7 +57,7 @@ sc_to_keep.txt: keys.txt Makefile generate_kotlin.pl
 
 keys.txt: _find_popular_subkeys.json $(FILES_KEYS) $(FILES_TAGS) update_keys.pl _id_tagging_schema.json
 	@[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@ || true
-	[ -z "`sort keys.txt | cat -s | uniq -dc`" ]
+	[ -z "`sort keys.txt | sed -e 's,\s*//.*$$,,g' | cat -s | uniq -dc`" ]
 
 $(FILES_KEYS): Makefile
 	@$(CURL_FETCH) '$(CURL_URL_KEY)&key=$(FULL_TAG)'
