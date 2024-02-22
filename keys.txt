@@ -478,6 +478,10 @@ service_times       // used with office=religion, https://wiki.openstreetmap.org
 kitchen:facilities  // undocumented, likely office-related
 it:(type|sales)     // undocumented, seems to be type of office=it
 cannabis:cbd        // undocumented, used in combination with shop=cannabis
+bath:type
+animal_boarding
+animal_shelter
+mattress
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
@@ -789,7 +793,3 @@ drinking_water_available
 horse_riding
 bath:open_air
 sport:sport_ice
-bath:type
-animal_boarding
-animal_shelter
-mattress
