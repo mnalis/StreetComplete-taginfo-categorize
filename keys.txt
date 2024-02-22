@@ -670,7 +670,7 @@ fid		// not documented, but used much more on building (58%) than on shop/craft 
 wikimedia_commons	// picture, so quite more likely to show building itself
 mapillary		// picture, so quite more likely to show building itself (street view mostly)
 image			// picture
-image:*         // image subtags used by a single mapper
+image:.*         // image subtags used by a single mapper
 size		// far more common (and less error-prone) to define width=*, height=* and length=* separately; https://wiki.openstreetmap.org/wiki/Key:size
 industrial	// used with landuse=industrial; https://wiki.openstreetmap.org/wiki/Key:industrial
 project:opencities_abidjan	// undocumented; seems to be import related 
@@ -698,16 +698,10 @@ lastcheck	// last check of what? unknown/undocumented, so keep?
 last_check	// last check of what? unknown/undocumented, so keep?
 date		// could be related to historic buildings, so should stay: https://wiki.openstreetmap.org/wiki/Key:date
 start_date
-survey:name
-survey:date
-survey_date
+survey(:name|:date|_date)
 source_date
-source_type_survey
-source_type_imagery
-source_type_GPS
-source_type_walking_paper
-addr.source:housenumber // undocumented
-addr.source:street
+source_type_(survey|imagery|GPS|walking_paper)
+addr.source:(housenumber|street) // undocumented
 
 STATE               // unclear as undocumented, seems to be a mix of operational "state" (amenity-based) and  location-based (i.e. misspell "addr:state"). In our case probably mostly meaning "addr:state" in California
 
@@ -773,9 +767,7 @@ parking
 helipad     // undocumented; seems to be type of helipad related to  https://wiki.openstreetmap.org/wiki/Tag:aeroway=helipad so probably building-related
 elevator    // https://wiki.openstreetmap.org/wiki/Key:elevator
 electricity // will power stay?
-power_supply
-power
-power_source
+power(_supply|_source)?
 generator:.*
 backup_generator
 
@@ -806,13 +798,13 @@ lifeguard
 shooting
 theatre
 windows
+primary
 
 
 // from shop.json
 audio_loop // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3Dyes
 
 // from craft.json
-construction_date
 us.fo:kommununr // asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo
 us.fo:Adressutal
 us.fo:Galdandi_fr√° // asked on https://www.openstreetmap.org/changeset/1888617
@@ -843,8 +835,10 @@ screen
 // from club.json
 antenna:type // https://www.openstreetmap.org/note/4123928 https://www.openstreetmap.org/note/4123930 https://www.openstreetmap.org/note/4123931
 bench // https://www.openstreetmap.org/note/4123918 https://www.openstreetmap.org/note/4123920 https://www.openstreetmap.org/note/4123922
+bridge
 commons
 fenced
+fire_station:type:FR
 floating
 ft_link
 garden:type
@@ -887,4 +881,6 @@ sanitary_dump_station
 scale
 site
 tower:type
+us.fo:Galdandi_fr·
 zoo
+
