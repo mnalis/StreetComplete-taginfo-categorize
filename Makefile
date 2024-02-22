@@ -84,7 +84,7 @@ _find_popular_subkeys.json: _find_popular_subkeys.txt Makefile
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
 clean:
-	rm -f *.json *.json2 *~ _id_tagging_schema.txt _find_popular_subkeys.txt
+	rm -f *.json *.json2 *~ _id_tagging_schema.txt _find_popular_subkeys.txt *.tmp
 
 distclean: clean
 	rm -f sc_to_keep.txt sc_to_remove.txt
