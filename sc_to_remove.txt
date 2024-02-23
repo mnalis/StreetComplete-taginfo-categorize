@@ -13,7 +13,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     // obsoleted information
     "abandoned(:.*)?", "disused(:.*)?", "was:.*", "not:.*", "damage", "source:damage",
     "created_by", "check_date", "opening_date", "last_checked", "checked_exists:date",
-    "pharmacy_survey", "old_ref", "update", "import_uuid",
+    "pharmacy_survey", "old_ref", "update", "import_uuid", "review",
     // classifications / links to external databases
     "fhrs:.*", "old_fhrs:.*", "fvst:.*", "ncat", "nat_ref", "gnis:.*", "winkelnummer",
     "type:FR:FINESS", "type:FR:APE", "kvl_hro:amenity", "ref:DK:cvr(:.*)?", "certifications?",
@@ -23,8 +23,9 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "not:brand(:.*)?", "network(:wikidata)?", "operator(:.*)?", "operator_type", "ref",
     "ref:vatin", "designation", "SEP:CLAVEESC", "identifier",
     // contacts
-    "contact_person", "contact(:.*)?", "phone(:.*)?", "phone_?[1-9]?", "emergency:phone", "mobile",
-    "fax", "facebook", "instagram", "twitter", "youtube", "telegram", "email",
+    "contact_person", "contact(:.*)?", "phone(:.*)?", "phone_?[1-9]?", "emergency:phone",
+    "emergency_telephone_code",
+    "mobile", "fax", "facebook", "instagram", "twitter", "youtube", "telegram", "email",
     "website_?[1-9]?(:.*)?", "app:.*", "ownership",
     "url", "url:official", "source_ref:url", "owner",
     // payments
@@ -56,7 +57,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "service(:.*)?", "motorcycle:.*", "repair", ".*:repair", "electronics_repair(:.*)?",
     "workshop",
     // shop=hairdresser, shop=clothes
-    "unisex", "male", "female", "gender", "gender_simple", "lgbtq(:.*)?", "female:signed",
+    "unisex", "male", "female", "gender", "gender_simple", "lgbtq(:.*)?", "gay", "female:signed",
     "male:signed",
     // healthcare
     "healthcare(:.*)?", "healthcare_.*", "health", "health_.*", "medical_.*", "facility(:.*)?",
@@ -72,7 +73,8 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "post_addr", "scope", "ESTADO", "NIVSOCIO", "NO", "EMP_EST", "COD_HAB", "CLA_PERS", "CLA_PRES",
     "snis_code:.*", "hfac_bed", "hfac_type", "nature", "moph_code", "IJSN:.*", "massgis:id",
     "OGD-Stmk:.*", "paho:.*", "panchayath", "pbf_contract", "pcode", "pe:minsa:.*", "who:.*",
-    "pharmacy:category",
+    "pharmacy:category", "tactile_paving",
+   
     // accommodation & layout
     "rooms", "stars", "accommodation", "beds", "capacity(:persons)?", "laundry_service",
     "guest_house",
@@ -84,7 +86,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     // clubs
     "animal(_breeding|_training)?", "billiards(:.*)?", "board_game", "sport_1", "sport:boating",
     "boat:type", "canoe(_rental|:service)?", "kayak(_rental|:service)?",
-    "sailboat(_rental|:service)?", "horse_riding", "boules", "callsign", "card_games",
+    "sailboat(_rental|:service)?", "horse_riding", "rugby", "boules", "callsign", "card_games",
     "car_service", "catastro:ref", "changing_table:fee", "chess(:.*)?", "children",
     "climbing(:.*)?", "club(:.*)?", "communication(:amateur_radio.*)", "community_centre:for",
     "dffr:network", "dormitory", "education_for:ages", "electrified", "esperanto", "events_venue",
@@ -92,7 +94,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "gaelic_games(:.*)?", "membership", "military_service", "model_aerodrome(:.*)?",
     "mode_of_organisation(:.*)?", "snowmobile", "social_centre(:for)?", "source_dat", "tennis",
     "old_website", "organisation", "school_type", "scout(:type)?", "fraternity", "live_music",
-    "lockable",
+    "lockable", "playground(:theme)?", "nudism",
     // misc specific attributes
     "clothes", "shoes", "tailor", "beauty", "tobacco", "carpenter", "furniture", "lottery",
     "sport", "dispensing", "tailor:.*", "gambling", "material", "raw_material", "stonemason",
@@ -109,7 +111,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "faculty", "aerospace:product", "boundary", "population", "diocese", "depot", "cargo",
     "function", "game", "party", "telecom(munication)?", "service_times", "kitchen:facilities",
     "it:(type|sales)", "cannabis:cbd", "bath:type", "bath:(open_air|sand_bath)", "animal_boarding",
-    "animal_shelter", "mattress", "screen",
+    "animal_shelter", "mattress", "screen", "monitoring:weather", "public",
     "camp_site", "camping", "emergency(:.*)?", "evacuation_cent(er|re)", "education",
     "engineering", "forestry", "foundation", "lawyer", "logistics", "military", "community_centre",
     "bank", "operational",
