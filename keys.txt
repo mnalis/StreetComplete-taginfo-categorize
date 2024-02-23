@@ -221,6 +221,8 @@ state               // Operational state, used worldwide, see https://wiki.opens
 operational_status
 temporary           // used mostly with healthcase-related, see https://wiki.openstreetmap.org/wiki/Key:temporary
 self_checkout
+audio_loop          // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3Dyes
+
 
 // food and drink details
 bar
@@ -383,10 +385,15 @@ school:(FR|gender|trust|type|type_idn)
 animal(_breeding|_training)?
 billiards(:.*)?
 board_game
+sport_1
+sport:boating
 boat:type
+canoe(_rental|:service)?
+kayak(_rental|:service)?
+sailboat(_rental|:service)?
+horse_riding
 boules
 callsign
-(canoe|kayak|sailboat)(_rental|:service)
 card_games
 car_service
 catastro:ref
@@ -416,8 +423,6 @@ mode_of_organisation(:.*)?
 snowmobile
 social_centre(:for)?
 source_dat
-sport_1
-sport:boating
 tennis
 old_website
 organisation
@@ -528,6 +533,7 @@ bath:(open_air|sand_bath)      // deprecated|undocumented, https://wiki.openstre
 animal_boarding
 animal_shelter
 mattress
+screen               // cinema related, https://wiki.openstreetmap.org/wiki/Key:screen
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
@@ -802,7 +808,6 @@ primary
 
 
 // from shop.json
-audio_loop // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3Dyes
 
 // from craft.json
 us.fo:kommununr // asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo
@@ -826,11 +831,6 @@ tactile_paving
 // from amenity-school.json
 divipola // undocumented import tag in a single country, see https://taginfo.openstreetmap.org/keys/divipola#chronology - asked on https://www.openstreetmap.org/changeset/4485936
 Observation
-
-
-// from _id_tagging_schema.json
-horse_riding
-screen
 
 // from club.json
 antenna:type // https://www.openstreetmap.org/note/4123928 https://www.openstreetmap.org/note/4123930 https://www.openstreetmap.org/note/4123931
