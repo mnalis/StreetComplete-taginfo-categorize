@@ -836,7 +836,6 @@ Observation
 // from club.json
 antenna:type // https://www.openstreetmap.org/note/4123928 https://www.openstreetmap.org/note/4123930 https://www.openstreetmap.org/note/4123931
 bench // https://www.openstreetmap.org/note/4123918 https://www.openstreetmap.org/note/4123920 https://www.openstreetmap.org/note/4123922
-bridge
 commons
 fenced
 fire_station:type:FR
