@@ -91,6 +91,7 @@ pharmacy_survey     // undocumented, mostly date of survey?
 old_ref         // https://wiki.openstreetmap.org/wiki/Key:old_ref
 update              // undocumented, low-usage, seems to be a date of update or value "yes"
 import_uuid         // "This tags do not serve an useful function anymore and in general can be removed." - https://wiki.openstreetmap.org/wiki/Key:import_uuid
+review          // obsolete fixme=* related, see https://wiki.openstreetmap.org/wiki/Key:review
 
 // classifications / links to external databases
 fhrs:.*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
@@ -132,6 +133,8 @@ contact(:.*)?
 phone(:.*)?
 phone_?[1-9]?
 emergency:phone      // amenity-based, https://wiki.openstreetmap.org/wiki/Key:emergency:phone
+emergency_telephone_code    // https://wiki.openstreetmap.org/wiki/Key%3Aemergency_telephone_code
+
 mobile
 fax
 facebook
@@ -284,6 +287,7 @@ female
 gender
 gender_simple
 lgbtq(:.*)?   // https://wiki.openstreetmap.org/wiki/Key:lgbtq
+gay           // https://wiki.openstreetmap.org/wiki/Key:gay
 female:signed
 male:signed
 
@@ -361,6 +365,8 @@ pcode               // undocumented, seems to be healthcare-related, used mostly
 pe:minsa:.*         // undocumented, seems to be healthcare-related, in Peru (pe:minsa:categoria, pe:minsa:codigo)
 who:.*              // undocumented, seems to be healthcare-related in Africa. (who:code_csref, who:distance, who:nbre_village, ...)
 pharmacy:category
+tactile_paving      // https://wiki.openstreetmap.org/wiki/Key:tactile_paving used with healthcare -- if healthcare is gone, likely to change status when new owner renovates
+
 
 // accommodation & layout
 rooms
@@ -392,6 +398,7 @@ canoe(_rental|:service)?
 kayak(_rental|:service)?
 sailboat(_rental|:service)?
 horse_riding
+rugby       // used with club=sport
 boules
 callsign
 card_games
@@ -431,6 +438,8 @@ scout(:type)?
 fraternity
 live_music
 lockable
+playground(:theme)?
+nudism              // https://wiki.openstreetmap.org/wiki/Key%3Anudism often used used with club=nudism
 
 // misc specific attributes
 clothes
@@ -534,6 +543,8 @@ animal_boarding
 animal_shelter
 mattress
 screen               // cinema related, https://wiki.openstreetmap.org/wiki/Key:screen
+monitoring:weather      // https://wiki.openstreetmap.org/wiki/Key%3Amonitoring%3Aweather often used (perhaps incorrectly) with office=government
+public      // undocumented, often user with office=government
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
@@ -601,6 +612,10 @@ postal_code
 place
 city
 country
+county      // used in Liberia with healthcare, address-based
+district    // used in Liberia with healthcare, address-based
+sub_district    // used in Liberia with healthcare, address-based
+
 
 quartier	// undocumented, seems location based, 5k+ uses worldwide
 Commune		// undocumented, seems location based, 4k+ uses worldwide, https://en.wikipedia.org/wiki/Communes_of_France
@@ -807,26 +822,12 @@ windows
 primary
 
 
-// from shop.json
-
 // from craft.json
 us.fo:kommununr // asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo
 us.fo:Adressutal
 us.fo:Galdandi_frá // asked on https://www.openstreetmap.org/changeset/1888617
 us.fo:Postnr
 us.fo:Veganr
-
-// from office.json
-monitoring:weather
-public
-
-// from healthcare.json
-county
-district
-emergency_telephone_code
-review
-sub_district
-tactile_paving
 
 // from amenity-school.json
 divipola // undocumented import tag in a single country, see https://taginfo.openstreetmap.org/keys/divipola#chronology - asked on https://www.openstreetmap.org/changeset/4485936
@@ -842,7 +843,6 @@ fire_station:type:FR
 floating
 ft_link
 garden:type
-gay
 groomer
 group_only
 hazard
@@ -866,9 +866,7 @@ maxheight
 motorboat
 motor_vehicle
 music_genre
-nudism
 observatory:type
-playground(:theme)?
 protect_class
 protected
 protection_title
@@ -876,7 +874,6 @@ provides
 reference_point
 regional
 residential
-rugby
 sanitary_dump_station
 scale
 site
