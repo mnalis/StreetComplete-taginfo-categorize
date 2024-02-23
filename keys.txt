@@ -440,6 +440,8 @@ live_music
 lockable
 playground(:theme)?
 nudism              // https://wiki.openstreetmap.org/wiki/Key%3Anudism often used used with club=nudism
+music_genre
+length              // swimming pool length tagged on club https://www.openstreetmap.org/node/8733856290
 
 // misc specific attributes
 clothes
@@ -597,6 +599,7 @@ design:code:SPb     // building-related, see https://wiki.openstreetmap.org/wiki
 design:ref          // building-related, see https://wiki.openstreetmap.org/wiki/Key:design:ref
 pmfsefin:idedif     // building-related, see https://wiki.openstreetmap.org/wiki/Key:pmfsefin:idedif
 uuid:building
+LINZ2OSM:.*         // should be discardable (but SC does not do discardable tags), from import, more likely to refer to buildings than POIs
 
 atmotorway // refers to location (is it accessible from motorway and therefore restricted), not affected by changing POI
 
@@ -702,6 +705,8 @@ mhs:.*		// historical monuments in France? https://wiki.openstreetmap.org/wiki/K
 sangis:.*	// address-related, https://wiki.openstreetmap.org/wiki/SanGIS
 listed_status	//  official listed status of a building or other structure, usually due to their historical significance, https://wiki.openstreetmap.org/wiki/Key:listed_status
 
+landcover   // land data, not POI data
+massgis:.*
 
 
 ### KEYS TO PROBABLY KEEP ###
@@ -849,22 +854,11 @@ identity
 interaction
 IPP:CodLote
 IPP:CodQuadra
-landcover
-length
 library
-LINZ2OSM:dataset
-LINZ2OSM:layer
-linz2osm:objectid
-LINZ2OSM:source_version
 logo
-massgis:ARTICLE97
-massgis:ASSESS_ACR
-massgis:ATT_DATE
-massgis:OS_ID
 maxheight
 motorboat
 motor_vehicle
-music_genre
 observatory:type
 protect_class
 protected
