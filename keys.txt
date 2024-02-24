@@ -450,6 +450,9 @@ observatory:type    // https://wiki.openstreetmap.org/wiki/Key:observatory:type 
 tower:type  // used with amenity = community_centre, club = amateur_radio
 zoo     // https://wiki.openstreetmap.org/wiki/Key:zoo on e.g. club=aviculture zoo=aviary
 shooting    // https://wiki.openstreetmap.org/wiki/Key:shooting sometimes used on club=sport, sport=shooting
+commons             // undocumented, used with club=social, or club=foodcoop with identity=commons
+groomer             // undocumented, seems to be used at single place with club=*
+group_only          // https://wiki.openstreetmap.org/wiki/Key:group_only used with club=scout and similar
 
 // misc specific attributes
 clothes
@@ -557,6 +560,7 @@ monitoring:weather      // https://wiki.openstreetmap.org/wiki/Key:monitoring:we
 public      // undocumented, often user with office=government
 theatre             // undocumented, used with amenity=theatre (theatre type/existence)
 culture         // undocumented, used with e.g. amenity=library, amenity=threatre
+library             // undocumented, used with amenity=school / club=social
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
@@ -576,6 +580,7 @@ operational // trolltag referring to current POI
 ### KEYS TO PROBABLY REMOVE ###
 comment		// might be either, but probably more likely shop-related
 entrance:(width|step_count|kerb:height)     // tricky, but details of the entrance are possibly going to change with new owners
+fenced              // https://wiki.openstreetmap.org/wiki/Key:fenced used with club=sport usually; might change if sport is gone
 
 ### KEYS TO KEEP ###
 // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED, which was used previously before StreetComplete v35.0
@@ -777,7 +782,6 @@ id:uuid             // undocumented, used mostly in Africa
 IOM:project         // undocumented, used mostly in Republica Dominicana
 wb_pb:id            // undocumented, used in Kenya
 project:.*          // undocumented - maybe part of the mapping project? e.g. project:anr_cohesion_bouake, project:geoloc_unicef, project:geoloc_unicef:id, project:mappingforniger, project:oif-dfen_carteinnov
-Observation     // undocumented, seems to be used either on towers and other tall things to mention what is observable from there, or at highways in capacity of note=*
 
 entrance        // entrance itself is probably going to stay at the same place unless bigger renovations are being made
 
@@ -811,6 +815,12 @@ cellar_door	// undocumented, only used 100 times in south Australia with craft=w
 cellar:use
 natural
 parking
+Observation     // undocumented, seems to be used either on towers and other tall things to mention what is observable from there, or at highways in capacity of note=*
+antenna:type // undocumented, related to radioameteur clubs? see https://www.openstreetmap.org/note/4123928 https://www.openstreetmap.org/note/4123930 https://www.openstreetmap.org/note/4123931
+bench // https://www.openstreetmap.org/note/4123918 https://www.openstreetmap.org/note/4123920 https://www.openstreetmap.org/note/4123922
+floating            // https://wiki.openstreetmap.org/wiki/Key:floating club=sport,sport=swimming|kayak - but might relate to pier or stationed boat instead
+ft_link             // undocumented, links to http://www.freietonne.de/ maritime seamarks; used with club=yachting - but seamark:type=harbour etc. will probably remain evenif yachting club is gone
+garden:type         // used with club=gardening and such but on leisure=garden, so keep it even if club is gone - see https://wiki.openstreetmap.org/wiki/Key:garden:type
 
 lifeguard           // https://wiki.openstreetmap.org/wiki/Key:lifeguard , used with emergency=*
 helipad     // undocumented; seems to be type of helipad related to  https://wiki.openstreetmap.org/wiki/Tag:aeroway=helipad so probably building-related
@@ -841,21 +851,11 @@ drinking_water_available    // fake, used by highway=rest_area, tourism=wilderne
 ### TODO ###
 
 // from club.json
-antenna:type // https://www.openstreetmap.org/note/4123928 https://www.openstreetmap.org/note/4123930 https://www.openstreetmap.org/note/4123931
-bench // https://www.openstreetmap.org/note/4123918 https://www.openstreetmap.org/note/4123920 https://www.openstreetmap.org/note/4123922
-commons
-fenced
-floating
-ft_link
-garden:type
-groomer
-group_only
 hazard
 identity
 interaction
 IPP:CodLote
 IPP:CodQuadra
-library
 logo
 maxheight
 motorboat
