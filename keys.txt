@@ -387,6 +387,7 @@ capacity:(pupils|teachers)
 grades
 population:pupils:.*
 school:(FR|gender|trust|type|type_idn)
+primary         // undocumented, sometimes used with amenity = school, perhaps with meaning of "primary school"?
 
 // clubs
 animal(_breeding|_training)?
@@ -554,6 +555,8 @@ mattress
 screen               // cinema related, https://wiki.openstreetmap.org/wiki/Key:screen
 monitoring:weather      // https://wiki.openstreetmap.org/wiki/Key:monitoring:weather often used (perhaps incorrectly) with office=government
 public      // undocumented, often user with office=government
+theatre             // undocumented, used with amenity=theatre (theatre type/existence)
+culture         // undocumented, used with e.g. amenity=library, amenity=threatre
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
@@ -598,6 +601,7 @@ building_type
 house               // refers to building itself, see https://wiki.openstreetmap.org/wiki/Key:house
 man_made
 roof:.*
+windows             // does the building have windows? https://wiki.openstreetmap.org/wiki/Key:windows
 architect(:.*)?
 engineer(:.*)?      // https://wiki.openstreetmap.org/wiki/Key:engineer
 year_of_construction    // building related: https://wiki.openstreetmap.org/wiki/Key:year_of_construction
@@ -808,6 +812,7 @@ cellar:use
 natural
 parking
 
+lifeguard           // https://wiki.openstreetmap.org/wiki/Key:lifeguard , used with emergency=*
 helipad     // undocumented; seems to be type of helipad related to  https://wiki.openstreetmap.org/wiki/Tag:aeroway=helipad so probably building-related
 elevator    // https://wiki.openstreetmap.org/wiki/Key:elevator
 electricity // will power stay?
@@ -834,13 +839,6 @@ drinking_water_available    // fake, used by highway=rest_area, tourism=wilderne
 
 
 ### TODO ###
-
-// from _find_popular_subkeys.json
-culture
-lifeguard
-theatre
-windows
-primary
 
 // from club.json
 antenna:type // https://www.openstreetmap.org/note/4123928 https://www.openstreetmap.org/note/4123930 https://www.openstreetmap.org/note/4123931
