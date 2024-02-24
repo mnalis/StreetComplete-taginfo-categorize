@@ -17,7 +17,7 @@ my $VAR_NAME = shift @ARGV;
 
 die "Usage: $0 <SECTION_START> <SECTION_END> <VAR_NAME>" if !defined $VAR_NAME;
 
-my $kotlin_str = "val $VAR_NAME = listOf(\n    ";	# start with default indent
+my $kotlin_str = "private val $VAR_NAME = listOf(\n    ";	# start with default indent
 
 open my $existing_fd, '<', 'keys.txt';
 

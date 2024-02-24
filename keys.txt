@@ -227,7 +227,6 @@ temporary           // used mostly with healthcase-related, see https://wiki.ope
 self_checkout
 audio_loop          // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3Dyes
 
-
 // food and drink details
 bar
 cafe
@@ -367,7 +366,6 @@ pe:minsa:.*         // undocumented, seems to be healthcare-related, in Peru (pe
 who:.*              // undocumented, seems to be healthcare-related in Africa. (who:code_csref, who:distance, who:nbre_village, ...)
 pharmacy:category
 tactile_paving      // https://wiki.openstreetmap.org/wiki/Key:tactile_paving used with healthcare -- if healthcare is gone, likely to change status when new owner renovates
-
 
 // accommodation & layout
 rooms

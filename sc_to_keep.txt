@@ -1,4 +1,4 @@
-val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
+private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED, which was used previously before StreetComplete v35.0
     "source_?[1-9]?(:.*)?", "source_ref", "Source", "survey", "attribution",
     "import",
