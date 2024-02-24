@@ -95,7 +95,8 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "mode_of_organisation(:.*)?", "snowmobile", "social_centre(:for)?", "source_dat", "tennis",
     "old_website", "organisation", "school_type", "scout(:type)?", "fraternity", "live_music",
     "lockable", "playground(:theme)?", "nudism", "music_genre", "length", "fire_station:type:FR",
-    "cadet", "observatory:type", "tower:type", "zoo", "shooting",
+    "cadet", "observatory:type", "tower:type", "zoo", "shooting", "commons", "groomer",
+    "group_only", "hazard", "identity", "interaction", "logo", "maxheight",
     // misc specific attributes
     "clothes", "shoes", "tailor", "beauty", "tobacco", "carpenter", "furniture", "lottery",
     "sport", "dispensing", "tailor:.*", "gambling", "material", "raw_material", "stonemason",
@@ -113,8 +114,9 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "function", "game", "party", "telecom(munication)?", "service_times", "kitchen:facilities",
     "it:(type|sales)", "cannabis:cbd", "bath:type", "bath:(open_air|sand_bath)", "animal_boarding",
     "animal_shelter", "mattress", "screen", "monitoring:weather", "public", "theatre", "culture",
+    "library",
     "camp_site", "camping", "emergency(:.*)?", "evacuation_cent(er|re)", "education",
     "engineering", "forestry", "foundation", "lawyer", "logistics", "military", "community_centre",
     "bank", "operational",
-    "comment", "entrance:(width|step_count|kerb:height)",
+    "comment", "entrance:(width|step_count|kerb:height)", "fenced",
 ).map { it.toRegex() }

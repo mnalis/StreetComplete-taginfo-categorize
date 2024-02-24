@@ -453,6 +453,11 @@ shooting    // https://wiki.openstreetmap.org/wiki/Key:shooting sometimes used o
 commons             // undocumented, used with club=social, or club=foodcoop with identity=commons
 groomer             // undocumented, seems to be used at single place with club=*
 group_only          // https://wiki.openstreetmap.org/wiki/Key:group_only used with club=scout and similar
+hazard              // used with club=sport sport=shooting|archery -- https://wiki.openstreetmap.org/wiki/Key:hazard
+identity            // undocumented, identity=commons used with club=foodcoop|culture|... but also identity=permaculture on club=environment_protection etc
+interaction         // undocumented, e.g. interaction=buying_and_selling on club=foodcoop
+logo                // undocumented, seems to be link to graphical logo of the club=sport
+maxheight           // seems to be used with club=automobile
 
 // misc specific attributes
 clothes
@@ -617,6 +622,8 @@ design:ref          // building-related, see https://wiki.openstreetmap.org/wiki
 pmfsefin:idedif     // building-related, see https://wiki.openstreetmap.org/wiki/Key:pmfsefin:idedif
 uuid:building
 LINZ2OSM:.*         // should be discardable (but SC does not do discardable tags), from import, more likely to refer to buildings than POIs
+IPP:(CodLote|CodQuadra)     // undocumented, building related import - see https://wiki.openstreetmap.org/wiki/Rio_Olympics_%E2%80%93_Tutorial_para_Importa%C3%A7%C3%A3o_de_Edifica%C3%A7%C3%B5es
+
 
 atmotorway // refers to location (is it accessible from motorway and therefore restricted), not affected by changing POI
 
@@ -821,6 +828,7 @@ bench // https://www.openstreetmap.org/note/4123918 https://www.openstreetmap.or
 floating            // https://wiki.openstreetmap.org/wiki/Key:floating club=sport,sport=swimming|kayak - but might relate to pier or stationed boat instead
 ft_link             // undocumented, links to http://www.freietonne.de/ maritime seamarks; used with club=yachting - but seamark:type=harbour etc. will probably remain evenif yachting club is gone
 garden:type         // used with club=gardening and such but on leisure=garden, so keep it even if club is gone - see https://wiki.openstreetmap.org/wiki/Key:garden:type
+motorboat           // used on club=yacht; but also leisure=marina so likely to remain even when club is gone
 
 lifeguard           // https://wiki.openstreetmap.org/wiki/Key:lifeguard , used with emergency=*
 helipad     // undocumented; seems to be type of helipad related to  https://wiki.openstreetmap.org/wiki/Tag:aeroway=helipad so probably building-related
@@ -851,14 +859,6 @@ drinking_water_available    // fake, used by highway=rest_area, tourism=wilderne
 ### TODO ###
 
 // from club.json
-hazard
-identity
-interaction
-IPP:CodLote
-IPP:CodQuadra
-logo
-maxheight
-motorboat
 motor_vehicle
 protect_class
 protected
