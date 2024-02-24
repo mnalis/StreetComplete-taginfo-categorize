@@ -2,8 +2,8 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED, which was used previously before StreetComplete v35.0
     "source_?[1-9]?(:.*)?", "source_ref", "Source", "survey", "attribution",
     "import",
-    "landuse", "historic(:.*)?", "heritage(:.*)?", "OnroerendErfgoed:criteria", "lda:criteria",
-    "nrhp:criteria", "nrhp:inscription_date",
+    "landuse", "residential", "historic(:.*)?", "heritage(:.*)?", "OnroerendErfgoed:criteria",
+    "lda:criteria", "nrhp:criteria", "nrhp:inscription_date",
     "building(:.*)?", "building_type", "house", "man_made", "roof:.*", "architect(:.*)?",
     "engineer(:.*)?", "year_of_construction", "construction_date", "covered", "design:code:SPb",
     "design:ref", "pmfsefin:idedif", "uuid:building", "LINZ2OSM:.*",

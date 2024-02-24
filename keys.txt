@@ -133,7 +133,7 @@ contact(:.*)?
 phone(:.*)?
 phone_?[1-9]?
 emergency:phone      // amenity-based, https://wiki.openstreetmap.org/wiki/Key:emergency:phone
-emergency_telephone_code    // https://wiki.openstreetmap.org/wiki/Key%3Aemergency_telephone_code
+emergency_telephone_code    // https://wiki.openstreetmap.org/wiki/Key:emergency_telephone_code
 
 mobile
 fax
@@ -198,6 +198,7 @@ strapline	// "advertasing phrase" https://wiki.openstreetmap.org/wiki/Key:strapl
 dog		// whether dogs are allowed is at the owner's discretion (in the jurisdictions I'm familiar with)
 showroom	// undocumented, but probably if the shop has https://en.wikipedia.org/wiki/Showroom
 toilets?(:.*)?	// Toilet information might change as shop owners change (worth a separate SC quest?)
+sanitary_dump_station   // used at club=* sometimes
 changing_table
 wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair access might be added with new owner.
 blind           // undocumented; blind uses accessibility?
@@ -439,9 +440,14 @@ fraternity
 live_music
 lockable
 playground(:theme)?
-nudism              // https://wiki.openstreetmap.org/wiki/Key%3Anudism often used used with club=nudism
+nudism              // https://wiki.openstreetmap.org/wiki/Key:nudism often used used with club=nudism
 music_genre
 length              // swimming pool length tagged on club https://www.openstreetmap.org/node/8733856290
+fire_station:type:FR        // used on some club=cadet, cadet=fire which also have amenity=fire_station.
+cadet   // used with club=cadet - see https://wiki.openstreetmap.org/wiki/Key:cadet
+observatory:type    // https://wiki.openstreetmap.org/wiki/Key:observatory:type used with club=astronomy
+tower:type  // used with amenity = community_centre, club = amateur_radio
+zoo     // https://wiki.openstreetmap.org/wiki/Key:zoo on e.g. club=aviculture zoo=aviary
 
 // misc specific attributes
 clothes
@@ -545,7 +551,7 @@ animal_boarding
 animal_shelter
 mattress
 screen               // cinema related, https://wiki.openstreetmap.org/wiki/Key:screen
-monitoring:weather      // https://wiki.openstreetmap.org/wiki/Key%3Amonitoring%3Aweather often used (perhaps incorrectly) with office=government
+monitoring:weather      // https://wiki.openstreetmap.org/wiki/Key:monitoring:weather often used (perhaps incorrectly) with office=government
 public      // undocumented, often user with office=government
 
 camp_site           // camp_site=reception &  office=camping
@@ -578,6 +584,7 @@ attribution
 import
 
 landuse
+residential     // https://wiki.openstreetmap.org/wiki/Key:residential
 historic(:.*)?
 heritage(:.*)?
 OnroerendErfgoed:criteria // apparently some heritage identifier, likely linked to building not POI - see https://wiki.openstreetmap.org/wiki/Key:heritage
@@ -706,7 +713,7 @@ sangis:.*	// address-related, https://wiki.openstreetmap.org/wiki/SanGIS
 listed_status	//  official listed status of a building or other structure, usually due to their historical significance, https://wiki.openstreetmap.org/wiki/Key:listed_status
 
 landcover   // land data, not POI data
-massgis:.*
+massgis:.*  // https://wiki.openstreetmap.org/wiki/Key:massgis:ARTICLE97 and https://wiki.openstreetmap.org/wiki/MassGIS
 
 
 ### KEYS TO PROBABLY KEEP ###
@@ -809,7 +816,7 @@ nature_of_facility  // undocumented, 1 use worldwide
 # _id_tagging_schema.json -- ignorelist for "macros" in id-tagging-schema/dist/fields.json
 branch_brand		// this is branch=* which we handle
 real_fire-GB-IE		// this is real_fire=* which we handle
-sport:sport_pub     // this is about sport which we handle, see https://github.com/search?q=repo%3Aopenstreetmap%2Fid-tagging-schema%20sport_pub&type=code
+sport:sport_pub     // this is about sport which we handle, see https://github.com/search?q=repo:openstreetmap/id-tagging-schema%20sport_pub&type=code
 sport_pub           // see above, fake key from _id_tagging_schema.json
 sport:sport_ice     // fake, used by leisure=ice_rink, piste=ice_skate
 drinking_water_available    // fake, used by highway=rest_area, tourism=wilderness_hut, tourism=camp_site
@@ -818,7 +825,6 @@ drinking_water_available    // fake, used by highway=rest_area, tourism=wilderne
 ### TODO ###
 
 // from _find_popular_subkeys.json
-cadet
 culture
 lifeguard
 shooting
@@ -843,7 +849,6 @@ antenna:type // https://www.openstreetmap.org/note/4123928 https://www.openstree
 bench // https://www.openstreetmap.org/note/4123918 https://www.openstreetmap.org/note/4123920 https://www.openstreetmap.org/note/4123922
 commons
 fenced
-fire_station:type:FR
 floating
 ft_link
 garden:type
@@ -859,18 +864,13 @@ logo
 maxheight
 motorboat
 motor_vehicle
-observatory:type
 protect_class
 protected
 protection_title
 provides
 reference_point
 regional
-residential
-sanitary_dump_station
 scale
 site
-tower:type
 us.fo:Galdandi_frá
-zoo
 
