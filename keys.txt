@@ -458,6 +458,10 @@ identity            // undocumented, identity=commons used with club=foodcoop|cu
 interaction         // undocumented, e.g. interaction=buying_and_selling on club=foodcoop
 logo                // undocumented, seems to be link to graphical logo of the club=sport
 maxheight           // seems to be used with club=automobile
+provides            // undocumented, seems to be about what club=* provides; e.g. provides=culture;spaces;participation;community
+regional            // undocumented, seems to be about geographic locality for club=foodcoop 
+scale               // undocumented, used on club=model_railway, likely model railway scale
+site                // https://wiki.openstreetmap.org/wiki/Key:site used on club=scout|youth relations sometimes e.g. with site=community_centre
 
 // misc specific attributes
 clothes
@@ -586,6 +590,7 @@ operational // trolltag referring to current POI
 comment		// might be either, but probably more likely shop-related
 entrance:(width|step_count|kerb:height)     // tricky, but details of the entrance are possibly going to change with new owners
 fenced              // https://wiki.openstreetmap.org/wiki/Key:fenced used with club=sport usually; might change if sport is gone
+motor_vehicle       // access to club=sport|gardening..., may change with new owners
 
 ### KEYS TO KEEP ###
 // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED, which was used previously before StreetComplete v35.0
@@ -829,6 +834,9 @@ floating            // https://wiki.openstreetmap.org/wiki/Key:floating club=spo
 ft_link             // undocumented, links to http://www.freietonne.de/ maritime seamarks; used with club=yachting - but seamark:type=harbour etc. will probably remain evenif yachting club is gone
 garden:type         // used with club=gardening and such but on leisure=garden, so keep it even if club is gone - see https://wiki.openstreetmap.org/wiki/Key:garden:type
 motorboat           // used on club=yacht; but also leisure=marina so likely to remain even when club is gone
+protect(ed|_class)       // sometimes used on club=scout|hunting|freemasonry|fraternal_order but likely to stay even if club is gone; https://wiki.openstreetmap.org/wiki/Key:protect_class https://wiki.openstreetmap.org/wiki/Key:protected
+protection_title    // used on club=hunting|aeronautical but likely to stay even if club is gone, see https://wiki.openstreetmap.org/wiki/Key:protection_title
+reference_point     // https://wiki.openstreetmap.org/wiki/Key:reference_point - probably only coincides with club=*
 
 lifeguard           // https://wiki.openstreetmap.org/wiki/Key:lifeguard , used with emergency=*
 helipad     // undocumented; seems to be type of helipad related to  https://wiki.openstreetmap.org/wiki/Tag:aeroway=helipad so probably building-related
@@ -857,15 +865,3 @@ drinking_water_available    // fake, used by highway=rest_area, tourism=wilderne
 
 
 ### TODO ###
-
-// from club.json
-motor_vehicle
-protect_class
-protected
-protection_title
-provides
-reference_point
-regional
-scale
-site
-

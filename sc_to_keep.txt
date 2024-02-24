@@ -56,6 +56,7 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "wikidata", "wikipedia(:.*)?", "name_disaster", "loc_ref", "loading_dock", "access",
     "access:roof", "condition", "cellar_door", "cellar:use", "natural", "parking", "Observation",
     "antenna:type", "bench", "floating", "ft_link", "garden:type", "motorboat",
+    "protect(ed|_class)", "protection_title", "reference_point",
     "lifeguard", "helipad", "elevator", "electricity", "power(_supply|_source)?", "generator:.*",
     "backup_generator",
     "shelter_type", "disaster:shelter_type",

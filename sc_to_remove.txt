@@ -96,7 +96,8 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "old_website", "organisation", "school_type", "scout(:type)?", "fraternity", "live_music",
     "lockable", "playground(:theme)?", "nudism", "music_genre", "length", "fire_station:type:FR",
     "cadet", "observatory:type", "tower:type", "zoo", "shooting", "commons", "groomer",
-    "group_only", "hazard", "identity", "interaction", "logo", "maxheight",
+    "group_only", "hazard", "identity", "interaction", "logo", "maxheight", "provides", "regional",
+    "scale", "site",
     // misc specific attributes
     "clothes", "shoes", "tailor", "beauty", "tobacco", "carpenter", "furniture", "lottery",
     "sport", "dispensing", "tailor:.*", "gambling", "material", "raw_material", "stonemason",
@@ -118,5 +119,5 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "camp_site", "camping", "emergency(:.*)?", "evacuation_cent(er|re)", "education",
     "engineering", "forestry", "foundation", "lawyer", "logistics", "military", "community_centre",
     "bank", "operational",
-    "comment", "entrance:(width|step_count|kerb:height)", "fenced",
+    "comment", "entrance:(width|step_count|kerb:height)", "fenced", "motor_vehicle",
 ).map { it.toRegex() }
