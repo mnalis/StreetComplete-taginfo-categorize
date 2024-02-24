@@ -94,7 +94,7 @@ val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "gaelic_games(:.*)?", "membership", "military_service", "model_aerodrome(:.*)?",
     "mode_of_organisation(:.*)?", "snowmobile", "social_centre(:for)?", "source_dat", "tennis",
     "old_website", "organisation", "school_type", "scout(:type)?", "fraternity", "live_music",
-    "lockable", "playground(:theme)?", "nudism",
+    "lockable", "playground(:theme)?", "nudism", "music_genre", "length",
     // misc specific attributes
     "clothes", "shoes", "tailor", "beauty", "tobacco", "carpenter", "furniture", "lottery",
     "sport", "dispensing", "tailor:.*", "gambling", "material", "raw_material", "stonemason",

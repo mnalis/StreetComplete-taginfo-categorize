@@ -6,7 +6,7 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "nrhp:criteria", "nrhp:inscription_date",
     "building(:.*)?", "building_type", "house", "man_made", "roof:.*", "architect(:.*)?",
     "engineer(:.*)?", "year_of_construction", "construction_date", "covered", "design:code:SPb",
-    "design:ref", "pmfsefin:idedif", "uuid:building",
+    "design:ref", "pmfsefin:idedif", "uuid:building", "LINZ2OSM:.*",
     "atmotorway",
     "addr[1-9]?:.*", "old_addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber", "noaddress",
     "not:addr:postcode", "postal_code", "place", "city", "country", "county", "district",
@@ -30,7 +30,7 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "castle_type", "nycdoitt:bin", "fid", "wikimedia_commons", "mapillary", "image", "image:.*",
     "size", "industrial", "project:opencities_abidjan", "highway", "utahagrc:parcelid",
     "WroclawGIS:building:ID", "mhs:.*", "sangis:.*", "listed_status",
-   
+    "landcover", "massgis:.*",
    
    
     "maxspeed", "lanes", "oneway", "surface", "inscription", "construction",
