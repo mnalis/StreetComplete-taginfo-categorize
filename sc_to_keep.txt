@@ -7,13 +7,13 @@ val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "building(:.*)?", "building_type", "house", "man_made", "roof:.*", "windows",
     "architect(:.*)?", "engineer(:.*)?", "year_of_construction", "construction_date", "covered",
     "design:code:SPb", "design:ref", "pmfsefin:idedif", "uuid:building", "LINZ2OSM:.*",
-    "IPP:(CodLote|CodQuadra)",
+    "linz2osm:.*", "IPP:(CodLote|CodQuadra)",
    
     "atmotorway",
     "addr[1-9]?:.*", "old_addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber", "noaddress",
     "not:addr:postcode", "postal_code", "place", "city", "country", "county", "district",
     "sub_district",
-    "us.fo:Galdandi_frá", "us.fo:Galdandi_fr", "us.fo:kommununr", "us.fo:Adressutal",
+    "us.fo:Galdandi_frá", "us.fo:Galdandi_fr�", "us.fo:kommununr", "us.fo:Adressutal",
     "us.fo:Postnr", "us.fo:Veganr",
    
     "quartier", "Commune", "City", "street", "sector", "region", "locality", "province", "taluk",

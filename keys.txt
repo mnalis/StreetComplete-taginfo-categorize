@@ -627,6 +627,7 @@ design:ref          // building-related, see https://wiki.openstreetmap.org/wiki
 pmfsefin:idedif     // building-related, see https://wiki.openstreetmap.org/wiki/Key:pmfsefin:idedif
 uuid:building
 LINZ2OSM:.*         // should be discardable (but SC does not do discardable tags), from import, more likely to refer to buildings than POIs
+linz2osm:.*         // discardable, see https://wiki.openstreetmap.org/wiki/LINZ/Invented_Tags
 IPP:(CodLote|CodQuadra)     // undocumented, building related import - see https://wiki.openstreetmap.org/wiki/Rio_Olympics_%E2%80%93_Tutorial_para_Importa%C3%A7%C3%A3o_de_Edifica%C3%A7%C3%B5es
 
 
@@ -649,7 +650,7 @@ district    // used in Liberia with healthcare, address-based
 sub_district    // used in Liberia with healthcare, address-based
 
 us.fo:Galdandi_frá  // unspecified, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , asked on https://www.openstreetmap.org/changeset/1888617 - looks like ("valid from"?) date
-us.fo:Galdandi_fr   // mismatch of us.fo:Galdandi_frá ?
+us.fo:Galdandi_fr�   // mismatch of us.fo:Galdandi_frá ?
 us.fo:kommununr     // unspecified integer, asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo , automatic translation from Danish says "municipalities"
 us.fo:Adressutal    // unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "Address number"
 us.fo:Postnr        // unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "ZIP code"
