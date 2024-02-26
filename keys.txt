@@ -647,12 +647,12 @@ county      // used in Liberia with healthcare, address-based
 district    // used in Liberia with healthcare, address-based
 sub_district    // used in Liberia with healthcare, address-based
 
-us.fo:Galdandi_frá  // unspecified, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , asked on https://www.openstreetmap.org/changeset/1888617 - looks like ("valid from"?) date
-us.fo:Galdandi_fr�   // mismatch of us.fo:Galdandi_frá ?
-us.fo:kommununr     // unspecified integer, asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo , automatic translation from Danish says "municipalities"
-us.fo:Adressutal    // unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "Address number"
-us.fo:Postnr        // unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "ZIP code"
-us.fo:Veganr        // unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , unclear, possibly "Street number" ?
+us.fo:Adressutal    // unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "Address number"; used for import syncing - see https://www.openstreetmap.org/changeset/1888617
+us.fo:Galdandi_frá  // discardable, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , asked on https://www.openstreetmap.org/changeset/1888617 (means "valid from" date)
+us.fo:Galdandi_fr�  // discardable, mismatch of us.fo:Galdandi_frá ?
+us.fo:kommununr     // discardable, unspecified integer, asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo , automatic translation from Danish says "municipalities"
+us.fo:Postnr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "ZIP code"
+us.fo:Veganr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , unclear, possibly "Street number" ?
 
 
 quartier	// undocumented, seems location based, 5k+ uses worldwide
