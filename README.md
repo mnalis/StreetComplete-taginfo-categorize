@@ -26,7 +26,7 @@ If in doubt, `make distclean` will force next `make update` to refetch everythin
 * lines beginning with `//` in `### KEYS TO REMOVE ###` section will be copied to `sc_to_remove.txt`
 * lines beginning with `#` are ignored completely
 
-## when IS_PLACE_EXPRESSION changes
+## when IS_PLACE_EXPRESSION in Place.kt changes
 
 If [`IS_PLACE_EXPRESSION` in `Place.kt`](https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt#L34C13-L34C32)
 changes, then `FETCH_KEYS.make` / `FETCH_TAGS.make` should be updated too,
@@ -44,3 +44,8 @@ For example, if `IS_PLACE_EXPRESSION` was extended with:
 ```
 
 one would add `healthcare` to `FETCH_KEYS.make`, and `leisure=adult_gaming_centre leisure=amusement_arcade` to `FETCH_TAGS.make`
+When you have completed updating `FETCH_KEYS.make` and `FETCH_TAGS.make`, you need to edit `Makefile` and update
+`STREETCOMPLETE_LAST_GIT` at the top of it with git commit id that changed `Place.kt`, i.e. the one returned by:
+```
+cd $STREETCOMPLETE_PATH && git log -n 1 --format='%h' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
+```

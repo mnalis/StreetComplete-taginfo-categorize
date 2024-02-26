@@ -1,11 +1,20 @@
+# when app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt changes from StreetComplete are merged 
+# in FETCH_KEYS.make and FETCH_TAGS.make files , update this value with last git commit that changed Place.kt, i.e. one returned by:
+# cd $STREETCOMPLETE_PATH && git log -n 1 --format='%h' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
+STREETCOMPLETE_LAST_GIT=8e4042f95
+
+# paths to id-tagging-schema and StreetComplete git working directories
+STREETCOMPLETE_PATH=../StreetComplete
+ID_DATA_PATH=../id-tagging-schema/data/presets
+
+#
+# no user configurable parts below
+#
+
 # what keys/tags to fetch, and how
 # content of FETCH_KEYS.make & FETCH_TAGS.make should match https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
 FETCH_KEYS := $(shell cat FETCH_KEYS.make)
 FETCH_TAGS := $(shell cat FETCH_TAGS.make)
-
-# paths to id-tagging-schema and StreetComplete git working directories
-ID_DATA_PATH=../id-tagging-schema/data/presets
-STREETCOMPLETE_PATH=../StreetComplete
 
 MAX_TAGS := 999
 CURL_URL_TAG  := https://taginfo.openstreetmap.org/api/4/tag/combinations?filter=all&sortname=to_count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=other_tag&format=json_pretty
@@ -39,7 +48,7 @@ sc_to_keep.txt: keys.txt Makefile generate_kotlin.pl
 
 keys.txt: _find_popular_subkeys.json $(FILES_KEYS) $(FILES_TAGS) update_keys.pl _id_tagging_schema.json
 	@[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@ || true
-	[ -z "`sort keys.txt | sed -e 's,\s*//.*$$,,g' | cat -s | uniq -dc`" ]
+	@[ -z "`sort keys.txt | sed -e 's,\s*//.*$$,,g' | cat -s | uniq -dc | tee /dev/stderr`" ] || (echo "Please fix duplicates above in keys.txt"; exit 1)
 
 $(FILES_KEYS): FETCH_KEYS.make
 	@$(CURL_FETCH) '$(CURL_URL_KEY)&key=$(FULL_TAG)'
@@ -76,6 +85,7 @@ update_id:
 
 update_sc:
 	cd $(STREETCOMPLETE_PATH) && git pull
+	@[ "`cd $(STREETCOMPLETE_PATH) && git log -n 1 --format='%h' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt`" = "$(STREETCOMPLETE_LAST_GIT)" ] || (echo "Place.kt in StreetComplete changed (no longer "$(STREETCOMPLETE_LAST_GIT)"), please see README.md for instruction how to fix this" ; exit 2)
 
 update: clean update_id update_sc all
 
