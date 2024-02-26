@@ -32,7 +32,9 @@ endef
 all: sc_to_remove.txt sc_to_keep.txt stats
 
 test:
-	@echo "Fetch keys is: $(FETCH_TAGS)"
+	@echo "Fetch keys is: $(FETCH_KEYS)"
+	@echo "replacement $(patsubst %,$(ID_DATA_PATH)/%/*.json,$(FETCH_KEYS))"
+	@echo "replacementwild $(wildcard $(patsubst %,$(ID_DATA_PATH)/%/*.json,$(FETCH_KEYS)))"
 
 sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl '### KEYS TO REMOVE ###' '### KEYS TO KEEP ###' 'KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED' > $@
@@ -86,7 +88,12 @@ local_update:
 	for j in *.json; do echo ./update_keys.pl $$j $(MAX_TAGS) >&2 ; ./update_keys.pl $$j $(MAX_TAGS); done >> keys.txt
 
 # FIXME hardcoded keys dependencies !
-_id_tagging_schema.txt: parse_id_tagging_schema.pl $(ID_DATA_PATH)/shop/*.json $(ID_DATA_PATH)/craft/*.json $(ID_DATA_PATH)/amenity/*.json $(ID_DATA_PATH)/leisure/*.json $(ID_DATA_PATH)/office/*.json
+_id_tagging_schema.txt: parse_id_tagging_schema.pl  \
+$(ID_DATA_PATH)/shop/*.json \
+$(ID_DATA_PATH)/craft/*.json \
+$(ID_DATA_PATH)/amenity/*.json \
+$(ID_DATA_PATH)/leisure/*.json \
+$(ID_DATA_PATH)/office/*.json
 	for k in $(FETCH_KEYS); do ./parse_id_tagging_schema.pl $(ID_DATA_PATH)/$$k.json; for t in $(ID_DATA_PATH)/$$k/*.json; do ./parse_id_tagging_schema.pl $$t; done; done > $@
 	for t in $(subst =,/,$(FETCH_TAGS)); do find $(ID_DATA_PATH) -iwholename "*/$$t.json" -print0 | xargs -0ri ./parse_id_tagging_schema.pl {}; done >> $@
 
