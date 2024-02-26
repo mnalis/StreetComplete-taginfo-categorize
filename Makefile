@@ -25,6 +25,7 @@ tourism=alpine_hut tourism=apartment tourism=aquarium tourism=chalet tourism=gal
 tourism=hunting_lodge tourism=museum tourism=motel tourism=trail_riding_station tourism=wilderness_hut
 
 ID_DATA_PATH=../id-tagging-schema/data/presets
+STREETCOMPLETE_PATH=../StreetComplete
 
 MAX_TAGS := 999
 CURL_URL_TAG  := https://taginfo.openstreetmap.org/api/4/tag/combinations?filter=all&sortname=to_count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=other_tag&format=json_pretty
@@ -92,7 +93,10 @@ distclean: clean
 update_id:
 	cd $(ID_DATA_PATH) && git pull
 
-update: clean update_id all
+update_sc:
+	cd $(STREETCOMPLETE_PATH) && git pull
+
+update: clean update_id update_sc all
 
 local_update:
 	for j in *.json; do echo ./update_keys.pl $$j $(MAX_TAGS) >&2 ; ./update_keys.pl $$j $(MAX_TAGS); done >> keys.txt
@@ -105,4 +109,4 @@ _id_tagging_schema.json: _id_tagging_schema.txt Makefile
 	$(txt-to-json)
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
-.PHONY: clean distclean update update_id local_update stats all
+.PHONY: clean distclean update update_id update_sc local_update stats all
