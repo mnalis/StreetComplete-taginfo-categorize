@@ -1,6 +1,6 @@
 # what keys/tags to fetch, and how
 # this should match https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
-FETCH_KEYS := club craft healthcare office shop
+FETCH_KEYS := $(shell cat FETCH_KEYS.make)
 FETCH_TAGS := information=office information=visitor_centre \
 amenity=bar amenity=biergarten amenity=cafe amenity=fast_food amenity=food_court amenity=ice_cream amenity=pub amenity=restaurant \
 amenity=childcare amenity=college amenity=dancing_school amenity=dive_centre amenity=dojo amenity=driving_school amenity=kindergarten \
@@ -48,7 +48,11 @@ define txt-to-json
 	perl -MJSON -nE 'next if /^#|^\s*$$/; s/\s*#.*$$//; chomp;$$KEYS{$$_}=1; END {my @data = map {other_key=> $$_, other_value=>"", to_fraction=>1, from_fraction=>1, together_count=>999}, keys %KEYS; say encode_json {"page"=>1, "data" => \@data };}' $< | json_reformat > $@
 endef
 
+
 all: sc_to_remove.txt sc_to_keep.txt stats
+
+test:
+	echo "Fetch keys is: $(FETCH_KEYS)"
 
 sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl '### KEYS TO REMOVE ###' '### KEYS TO KEEP ###' 'KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED' > $@
