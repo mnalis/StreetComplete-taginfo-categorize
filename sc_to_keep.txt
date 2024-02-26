@@ -13,7 +13,7 @@ private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "addr[1-9]?:.*", "old_addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber", "noaddress",
     "not:addr:postcode", "postal_code", "place", "city", "country", "county", "district",
     "sub_district",
-    "us.fo:Galdandi_fr√°", "us.fo:Galdandi_fr·", "us.fo:kommununr", "us.fo:Adressutal",
+    "us.fo:Adressutal", "us.fo:Galdandi_fr√°", "us.fo:Galdandi_fr·", "us.fo:kommununr",
     "us.fo:Postnr", "us.fo:Veganr",
    
     "quartier", "Commune", "City", "street", "sector", "region", "locality", "province", "taluk",
