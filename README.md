@@ -17,6 +17,8 @@ Running `make` again will then generate `sc_to_remove.txt` with kotlin code to c
 https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt#L244
 It is generated only from data in `### KEYS TO REMOVE ###` section.
 
+If in doubt, `make distclean` will force next `make update` to refetch everything
+
 ## Notes on `keys.txt` format:
 
 * each line can contain a regex (or normal text) representing key (in-line comments are possible too, as everything after `//` or `#` is ignored
@@ -27,7 +29,7 @@ It is generated only from data in `### KEYS TO REMOVE ###` section.
 ## when IS_PLACE_EXPRESSION changes
 
 If [`IS_PLACE_EXPRESSION` in `Place.kt`](https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt#L34C13-L34C32)
-changes, then `FETCH_KEYS` / `FETCH_TAGS` in `Makefile` should be updated too,
+changes, then `FETCH_KEYS.make` / `FETCH_TAGS.make` should be updated too,
 and scripts re-run (i.e. `make update` + `make`) in order to generate new
 `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED` to put in `Place.kt`.
 
@@ -41,11 +43,4 @@ For example, if `IS_PLACE_EXPRESSION` was extended with:
 +            "amusement_arcade",
 ```
 
-one would update `Makefile` with:
-
-```diff
--FETCH_KEYS := shop craft
-+FETCH_KEYS := shop craft healthcare
--FETCH_TAGS := information=office amenity=restaurant amenity=cafe [...]
-+FETCH_TAGS := information=office amenity=restaurant amenity=cafe [...] leisure=adult_gaming_centre leisure=amusement_arcade
-```
+one would add `healthcare` to `FETCH_KEYS.make`, and `leisure=adult_gaming_centre leisure=amusement_arcade` to `FETCH_TAGS.make`

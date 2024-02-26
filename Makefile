@@ -13,7 +13,7 @@ CURL_URL_KEY  := https://taginfo.openstreetmap.org/api/4/key/combinations?filter
 CURL_URL_KEY2 := https://taginfo.openstreetmap.org/api/4/key/values?filter=all&lang=en&sortname=count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=value&format=json_pretty
 CURL_FETCH = curl --silent --output $@
 
-# those will be shop.json or amenity_cafe.json, respectively
+# those will be e.g. shop.json or amenity_cafe.json, respectively
 FILES_KEYS := $(patsubst %,%.json,$(FETCH_KEYS))
 FILES_TAGS := $(patsubst %,%.json,$(subst =,-,$(FETCH_TAGS)))
 
@@ -44,11 +44,11 @@ keys.txt: _find_popular_subkeys.json $(FILES_KEYS) $(FILES_TAGS) update_keys.pl 
 	@[ `tail -c 1 keys.txt | od -A none -t d` -gt 32 ] && echo >> $@ || true
 	[ -z "`sort keys.txt | sed -e 's,\s*//.*$$,,g' | cat -s | uniq -dc`" ]
 
-$(FILES_KEYS): Makefile
+$(FILES_KEYS): FETCH_KEYS.make
 	@$(CURL_FETCH) '$(CURL_URL_KEY)&key=$(FULL_TAG)'
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
-$(FILES_TAGS): Makefile
+$(FILES_TAGS): FETCH_TAGS.make
 	@$(CURL_FETCH) '$(CURL_URL_TAG)&key=$(KEY_VALUE)'
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
@@ -58,13 +58,13 @@ stats:
 	@echo "TODO     : `sed -ne '/TODO/,$$s/^\([a-z.]\)/\1/p' keys.txt  | wc -l` more need categorising at the end in keys.txt file"
 	@[ `sed -ne '/TODO/,$$s/^\([a-z.]\)/\1/p' keys.txt  | wc -l` -eq 0 ]
 
-$(FILES_KEYS2): Makefile
+$(FILES_KEYS2): FETCH_KEYS.make
 	$(CURL_FETCH) '$(CURL_URL_KEY2)&key=$(KEY_VALUE2)'
 
-_find_popular_subkeys.txt: $(FILES_KEYS2) find_popular_subkeys.pl Makefile
+_find_popular_subkeys.txt: $(FILES_KEYS2) find_popular_subkeys.pl FETCH_KEYS.make
 	./find_popular_subkeys.pl $(FILES_KEYS2) > $@.tmp && mv -f $@.tmp $@
 
-_find_popular_subkeys.json: _find_popular_subkeys.txt Makefile
+_find_popular_subkeys.json: _find_popular_subkeys.txt
 	$(txt-to-json)
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
@@ -85,11 +85,12 @@ update: clean update_id update_sc all
 local_update:
 	for j in *.json; do echo ./update_keys.pl $$j $(MAX_TAGS) >&2 ; ./update_keys.pl $$j $(MAX_TAGS); done >> keys.txt
 
+# FIXME hardcoded keys dependencies !
 _id_tagging_schema.txt: parse_id_tagging_schema.pl $(ID_DATA_PATH)/shop/*.json $(ID_DATA_PATH)/craft/*.json $(ID_DATA_PATH)/amenity/*.json $(ID_DATA_PATH)/leisure/*.json $(ID_DATA_PATH)/office/*.json
 	for k in $(FETCH_KEYS); do ./parse_id_tagging_schema.pl $(ID_DATA_PATH)/$$k.json; for t in $(ID_DATA_PATH)/$$k/*.json; do ./parse_id_tagging_schema.pl $$t; done; done > $@
 	for t in $(subst =,/,$(FETCH_TAGS)); do find $(ID_DATA_PATH) -iwholename "*/$$t.json" -print0 | xargs -0ri ./parse_id_tagging_schema.pl {}; done >> $@
 
-_id_tagging_schema.json: _id_tagging_schema.txt Makefile
+_id_tagging_schema.json: _id_tagging_schema.txt
 	$(txt-to-json)
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
