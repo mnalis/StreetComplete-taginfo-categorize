@@ -44,7 +44,8 @@ For example, if `IS_PLACE_EXPRESSION` was extended with:
 ```
 
 one would add `healthcare` to `FETCH_KEYS.make`, and `leisure=adult_gaming_centre leisure=amusement_arcade` to `FETCH_TAGS.make`
-When you have completed updating `FETCH_KEYS.make` and `FETCH_TAGS.make`, you need to edit `Makefile` and update
+
+When one has completed updating `FETCH_KEYS.make` and `FETCH_TAGS.make`, they need to edit `Makefile` and update
 `STREETCOMPLETE_LAST_GIT` at the top of it with git commit id that changed `Place.kt`, i.e. the one returned by:
 ```
 cd $STREETCOMPLETE_PATH && git log -n 1 --format='%h' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
