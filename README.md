@@ -1,7 +1,7 @@
 ## Prerequisites
 - make, perl, JSON perl module, json_reformat (on Debian-based system: `apt-get install make perl libjson-perl yajl-tools`)
-- `https://github.com/openstreetmap/id-tagging-schema` repository in `../id-tagging-schema` - `cd ../id-tagging-schema/data/presets && git pull` will be performed so it does not need to be up date
-- `https://github.com/streetcomplete/StreetComplete/` repository in `../StreetComplete` - `cd ../StreetComplete && git pull` will be performed so it does not need to be up date
+- `https://github.com/openstreetmap/id-tagging-schema` repository in `../id-tagging-schema`
+- `https://github.com/streetcomplete/StreetComplete/` repository in `../StreetComplete`
 
 ## Usage instructions
 
