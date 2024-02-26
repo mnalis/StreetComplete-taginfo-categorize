@@ -29,7 +29,7 @@ If in doubt, `make distclean` will force next `make update` to refetch everythin
 ## when IS_PLACE_EXPRESSION in Place.kt changes
 
 If [`IS_PLACE_EXPRESSION` in `Place.kt`](https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt#L34C13-L34C32)
-changes, then `FETCH_KEYS.make` / `FETCH_TAGS.make` should be updated too,
+changes (`make update` will warn you of that), then `FETCH_KEYS.make` / `FETCH_TAGS.make` should be updated too,
 and scripts re-run (i.e. `make update` + `make`) in order to generate new
 `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED` to put in `Place.kt`.
 
