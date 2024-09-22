@@ -126,6 +126,9 @@ ref:vatin
 designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
 SEP:CLAVEESC    // from amenity-kindergarten.json - undocumented, seems to be subtype of facility code?
 identifier          // undocumented, seems office=related
+ref:FR:SIRET          // organisation number given by INSEE in France https://wiki.openstreetmap.org/wiki/Key:ref:FR:SIRET
+ref:FR:SIREN          // company number given by INSEE in France https://wiki.openstreetmap.org/wiki/Key:ref:FR:SIREN
+ref:FR:NAF          // 5-digits code describing organization main activity in France https://wiki.openstreetmap.org/wiki/Key:ref:FR:NAF
 
 // contacts
 contact_person
@@ -648,8 +651,8 @@ district    // used in Liberia with healthcare, address-based
 sub_district    // used in Liberia with healthcare, address-based
 
 us.fo:Adressutal    // unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "Address number"; used for import syncing - see https://www.openstreetmap.org/changeset/1888617
-us.fo:Galdandi_frá  // discardable, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , asked on https://www.openstreetmap.org/changeset/1888617 (means "valid from" date)
-us.fo:Galdandi_fr�  // discardable, mismatch of us.fo:Galdandi_frá ?
+us.fo:Galdandi_frÃ¡  // discardable, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , asked on https://www.openstreetmap.org/changeset/1888617 (means "valid from" date)
+us.fo:Galdandi_frá  // discardable, mismatch of us.fo:Galdandi_frÃ¡ ?
 us.fo:kommununr     // discardable, unspecified integer, asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo , automatic translation from Danish says "municipalities"
 us.fo:Postnr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "ZIP code"
 us.fo:Veganr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , unclear, possibly "Street number" ?
@@ -739,7 +742,7 @@ WroclawGIS:building:ID	// Poland buildings
 mhs:.*		// historical monuments in France? https://wiki.openstreetmap.org/wiki/Key:ref:mhs - mhs:inscription_date
 sangis:.*	// address-related, https://wiki.openstreetmap.org/wiki/SanGIS
 listed_status	//  official listed status of a building or other structure, usually due to their historical significance, https://wiki.openstreetmap.org/wiki/Key:listed_status
-divipola // The Administrative Political Division of Colombia - see https://wiki.openstreetmap.org/wiki/ES:Key:divipola
+divipola //Â The Administrative Political Division of Colombia - see https://wiki.openstreetmap.org/wiki/ES:Key:divipola
 
 
 landcover   // land data, not POI data
