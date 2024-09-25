@@ -628,8 +628,6 @@ design:code:SPb     // building-related, see https://wiki.openstreetmap.org/wiki
 design:ref          // building-related, see https://wiki.openstreetmap.org/wiki/Key:design:ref
 pmfsefin:idedif     // building-related, see https://wiki.openstreetmap.org/wiki/Key:pmfsefin:idedif
 uuid:building
-LINZ2OSM:.*         // should be discardable (but SC does not do discardable tags), from import, more likely to refer to buildings than POIs
-linz2osm:.*         // discardable, see https://wiki.openstreetmap.org/wiki/LINZ/Invented_Tags
 IPP:(CodLote|CodQuadra)     // undocumented, building related import - see https://wiki.openstreetmap.org/wiki/Rio_Olympics_%E2%80%93_Tutorial_para_Importa%C3%A7%C3%A3o_de_Edifica%C3%A7%C3%B5es
 
 
@@ -651,17 +649,7 @@ county      // used in Liberia with healthcare, address-based
 district    // used in Liberia with healthcare, address-based
 sub_district    // used in Liberia with healthcare, address-based
 
-us.fo:Adressutal    // unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "Address number"; used for import syncing - see https://www.openstreetmap.org/changeset/1888617
-us.fo:Galdandi_frá  // discardable, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , asked on https://www.openstreetmap.org/changeset/1888617 (means "valid from" date)
-us.fo:Galdandi_fr�  // discardable, mismatch of us.fo:Galdandi_frá ?
-us.fo:kommununr     // discardable, unspecified integer, asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo , automatic translation from Danish says "municipalities"
-us.fo:Postnr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "ZIP code"
-us.fo:Veganr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , unclear, possibly "Street number" ?
-
-lat         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lat
-latitude    // discardable, see https://wiki.openstreetmap.org/wiki/Key:lat
-lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
-longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
+us.fo:Adressutal    // integer used for sync, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "Address number"; used for import syncing - see https://www.openstreetmap.org/changeset/1888617
 
 quartier	// undocumented, seems location based, 5k+ uses worldwide
 Commune		// undocumented, seems location based, 4k+ uses worldwide, https://en.wikipedia.org/wiki/Communes_of_France
@@ -755,6 +743,8 @@ massgis:.*  // https://wiki.openstreetmap.org/wiki/Key:massgis:ARTICLE97 and htt
 
 
 ### KEYS TO PROBABLY KEEP ###
+
+
 
 maxspeed
 lanes
@@ -870,6 +860,20 @@ sport_pub           // see above, fake key from _id_tagging_schema.json
 sport:sport_ice     // fake, used by leisure=ice_rink, piste=ice_skate
 drinking_water_available    // fake, used by highway=rest_area, tourism=wilderness_hut, tourism=camp_site
 
+# discardables; might actually be removable according to https://github.com/streetcomplete/StreetComplete/issues/4873#issuecomment-1467208064 but we need to fix encoding issues from https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/28 first (or remove them via mass-edit in https://community.openstreetmap.org/t/faroe-islands-address-metadata-cleanup-proposed-mass-edit/109790/3)
+LINZ2OSM:.*         // deprecated/useless discardable, from import, more likely to refer to buildings than POIs, see https://wiki.openstreetmap.org/wiki/LINZ/Invented_Tags
+linz2osm:.*         // deprecated/useless discardable, see https://wiki.openstreetmap.org/wiki/LINZ/Invented_Tags
+
+us.fo:Galdandi_frá  // discardable, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , asked on https://www.openstreetmap.org/changeset/1888617 (means "valid from" date)
+us.fo:Galdandi_fr�  // discardable, mismatch of us.fo:Galdandi_frá ?
+us.fo:kommununr     // discardable, unspecified integer, asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo , automatic translation from Danish says "municipalities"
+us.fo:Postnr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "ZIP code"
+us.fo:Veganr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , unclear, possibly "Street number" ?
+
+lat         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lat
+latitude    // discardable, see https://wiki.openstreetmap.org/wiki/Key:lat
+lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
+longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
 
