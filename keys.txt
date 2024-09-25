@@ -92,6 +92,7 @@ old_ref         // https://wiki.openstreetmap.org/wiki/Key:old_ref
 update              // undocumented, low-usage, seems to be a date of update or value "yes"
 import_uuid         // "This tags do not serve an useful function anymore and in general can be removed." - https://wiki.openstreetmap.org/wiki/Key:import_uuid
 review          // obsolete fixme=* related, see https://wiki.openstreetmap.org/wiki/Key:review
+fixme:atp   // see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/29, https://wiki.openstreetmap.org/wiki/Import/All_the_Places_US_data
 
 // classifications / links to external databases
 fhrs:.*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
@@ -203,7 +204,7 @@ dog		// whether dogs are allowed is at the owner's discretion (in the jurisdicti
 showroom	// undocumented, but probably if the shop has https://en.wikipedia.org/wiki/Showroom
 toilets?(:.*)?	// Toilet information might change as shop owners change (worth a separate SC quest?)
 sanitary_dump_station   // used at club=* sometimes
-changing_table
+changing_table(:.*)?    // changing_table:fee, changing_table:adult etc.
 wheelchair(.*)?	// eg. wheelchair, wheelchair:description, wheelchair_access etc. Wheelchair access might be added with new owner.
 blind           // undocumented; blind uses accessibility?
 company(:.*)?
@@ -211,6 +212,7 @@ stroller	// new shop owner might change the layout? (see wheelchair/toilets abov
 walk-in
 webshop     // undocumented, 153 uses, type of webshop
 operational_status.*
+status      // deprecated, https://wiki.openstreetmap.org/wiki/Key:status, seems to be used in combination with shop=* like operational_status=*
 drive_through	// likely to remain IF the amenity stays the same type which is not a given
 surveillance(:.*)?	// likely to be changed after a renovation
 outdoor_seating // the following depend on the type of amenity there
@@ -226,7 +228,6 @@ kids_area:indoor
 resort              // used worldwide with amenity=doctors/restaurant/... - when amenity is gone, so should this go away. see https://wiki.openstreetmap.org/wiki/Key:resort
 since               // used worldwide with amenity/shop, seems to be amenity-related year or date of initial establishment
 state               // Operational state, used worldwide, see https://wiki.openstreetmap.org/wiki/Key:state
-operational_status
 temporary           // used mostly with healthcase-related, see https://wiki.openstreetmap.org/wiki/Key:temporary
 self_checkout
 audio_loop          // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3Dyes
@@ -408,7 +409,6 @@ callsign
 card_games
 car_service
 catastro:ref
-changing_table:fee
 chess(:.*)?
 children
 climbing(:.*)?
@@ -534,7 +534,7 @@ association         // details for office=association, see https://wiki.openstre
 transport           // undocumented, used with office=transport
 utility             // e.g. office=energy_supplier + utility=electric,  https://wiki.openstreetmap.org/wiki/Key:utility
 consulting          // used with office=consulting, https://wiki.openstreetmap.org/wiki/Key:consulting
-commercial          // undocumented, e.g. office=logistics + commercial=transport
+[Cc]ommercial          // undocumented, e.g. office=logistics + commercial=transport
 private             // undocumented; used in combination with access=*; e.g. shop=craft + access=private + private=students
 taxi                // e.g. shop=taxi or office=taxi + taxi=minicab, see https://wiki.openstreetmap.org/wiki/Key:taxi
 admin_level         // often used with office=government, see https://wiki.openstreetmap.org/wiki/Key:admin_level
@@ -658,6 +658,10 @@ us.fo:kommununr     // discardable, unspecified integer, asked on https://wiki.o
 us.fo:Postnr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "ZIP code"
 us.fo:Veganr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , unclear, possibly "Street number" ?
 
+lat         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lat
+latitude    // discardable, see https://wiki.openstreetmap.org/wiki/Key:lat
+lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
+longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 quartier	// undocumented, seems location based, 5k+ uses worldwide
 Commune		// undocumented, seems location based, 4k+ uses worldwide, https://en.wikipedia.org/wiki/Communes_of_France
@@ -888,8 +892,6 @@ check_in
 manufacturer
 
 // from healthcare.json
-latitude
-longitude
 COVID_BED
 COVID_ICU
 COVID_TEST
@@ -900,9 +902,3 @@ entrance:ramp
 HF_N_EN
 bin
 Comments
-
-// from shop.json
-fixme:atp
-changing_table:adult
-Commercial
-status
