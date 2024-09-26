@@ -312,6 +312,7 @@ blood_components
 infection(:.*)?
 disease(:.*)?
 covid19(:.*)?
+COVID_.*        // Undocumented: COVID_BED, COVID_ICU, COVID_TEST...
 CovidVaccineCenterId
 coronaquarantine
 hospital(:.*)?
@@ -372,6 +373,10 @@ pe:minsa:.*         // undocumented, seems to be healthcare-related, in Peru (pe
 who:.*              // undocumented, seems to be healthcare-related in Africa. (who:code_csref, who:distance, who:nbre_village, ...)
 pharmacy:category
 tactile_paving      // https://wiki.openstreetmap.org/wiki/Key:tactile_paving used with healthcare -- if healthcare is gone, likely to change status when new owner renovates
+HF_(ID|TYPE|N_EN)   // undocumented, seems to be imported hospital types/id/description in Myanmar
+RoadConn            // undocumented, seems to be used only on imported hospitals in Myanmar
+bin                 // https://wiki.openstreetmap.org/wiki/Key:bin, sometimes used on healthcare=*. When that is gone, likely the wastebakets are gone too
+
 
 // accommodation & layout
 rooms
@@ -594,7 +599,7 @@ bank
 operational // trolltag referring to current POI
 
 ### KEYS TO PROBABLY REMOVE ###
-comment		// might be either, but probably more likely shop-related
+[Cc]omments?		// might be either, but probably more likely shop-related
 entrance:(width|step_count|kerb:height)     // tricky, but details of the entrance are possibly going to change with new owners
 fenced              // https://wiki.openstreetmap.org/wiki/Key:fenced used with club=sport usually; might change if sport is gone
 motor_vehicle       // access to club=sport|gardening..., may change with new owners
@@ -741,7 +746,7 @@ mhs:.*		// historical monuments in France? https://wiki.openstreetmap.org/wiki/K
 sangis:.*	// address-related, https://wiki.openstreetmap.org/wiki/SanGIS
 listed_status	//  official listed status of a building or other structure, usually due to their historical significance, https://wiki.openstreetmap.org/wiki/Key:listed_status
 divipola // The Administrative Political Division of Colombia - see https://wiki.openstreetmap.org/wiki/ES:Key:divipola
-
+entrance:ramp       // used a lot for pharmacies in Belgium. Probably more building than shop related. https://wiki.openstreetmap.org/wiki/Key:entrance:ramp
 
 landcover   // land data, not POI data
 massgis:.*  // https://wiki.openstreetmap.org/wiki/Key:massgis:ARTICLE97 and https://wiki.openstreetmap.org/wiki/MassGIS
@@ -892,15 +897,3 @@ electronics
 piercing
 political_party
 fan
-
-// from healthcare.json
-COVID_BED
-COVID_ICU
-COVID_TEST
-HF_ID
-HF_TYPE
-RoadConn
-entrance:ramp
-HF_N_EN
-bin
-Comments
