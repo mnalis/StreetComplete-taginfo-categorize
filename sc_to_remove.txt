@@ -23,7 +23,6 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "not:brand(:.*)?", "network(:wikidata)?", "operator(:.*)?", "operator_type", "ref",
     "ref:vatin", "designation", "SEP:CLAVEESC", "identifier", "ref:FR:SIRET", "ref:FR:SIREN",
     "ref:FR:NAF",
-   
     // contacts
     "contact_person", "contact(:.*)?", "phone(:.*)?", "phone_?[1-9]?", "emergency:phone",
     "emergency_telephone_code",
@@ -75,7 +74,6 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "snis_code:.*", "hfac_bed", "hfac_type", "nature", "moph_code", "IJSN:.*", "massgis:id",
     "OGD-Stmk:.*", "paho:.*", "panchayath", "pbf_contract", "pcode", "pe:minsa:.*", "who:.*",
     "pharmacy:category", "tactile_paving", "HF_(ID|TYPE|N_EN)", "RoadConn", "bin",
-   
     // accommodation & layout
     "rooms", "stars", "accommodation", "beds", "capacity(:persons)?", "laundry_service",
     "guest_house",
