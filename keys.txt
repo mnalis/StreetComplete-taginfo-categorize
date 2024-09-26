@@ -74,6 +74,9 @@ water
 fireplace
 outdoor
 blacksmith
+electronics     // used on shop=electronics, see https://wiki.openstreetmap.org/wiki/Key:electronics
+fan             // e.g. fan=sport, used on shop=fan
+piercing        // https://wiki.openstreetmap.org/wiki/Key:piercing used on shop=piercing|tattoo
 
 // obsoleted information
 abandoned(:.*)?
@@ -471,6 +474,7 @@ regional            // undocumented, seems to be about geographic locality for c
 scale               // undocumented, used on club=model_railway, likely model railway scale
 site                // https://wiki.openstreetmap.org/wiki/Key:site used on club=scout|youth relations sometimes e.g. with site=community_centre
 plots               // undocumented, seems to be number of plots for club=gardening
+allotments          // mostly plot|gardening, see https://wiki.openstreetmap.org/wiki/Tag:allotments=plot 
 local_food          // undocumented, 7 uses worldwide, seems to be used with club=local_food
 monitoring:pedestrian       // seems to be used on club=sport + sport=running; if that club is gone, probably monitoring equipment will be gone too
 recording:automated         // seems to be used on club=sport + sport=running; if that club is gone, probably monitoring equipment will be gone too
@@ -544,7 +548,8 @@ association         // details for office=association, see https://wiki.openstre
 transport           // undocumented, used with office=transport
 utility             // e.g. office=energy_supplier + utility=electric,  https://wiki.openstreetmap.org/wiki/Key:utility
 consulting          // used with office=consulting, https://wiki.openstreetmap.org/wiki/Key:consulting
-[Cc]ommercial          // undocumented, e.g. office=logistics + commercial=transport
+Commercial          // undocumented, seems to be shop typ - mostly "Toko Kelontong" (Grocery store) in Indonesia
+commercial          // undocumented, e.g. office=logistics + commercial=transport
 private             // undocumented; used in combination with access=*; e.g. shop=craft + access=private + private=students
 taxi                // e.g. shop=taxi or office=taxi + taxi=minicab, see https://wiki.openstreetmap.org/wiki/Key:taxi
 admin_level         // often used with office=government, see https://wiki.openstreetmap.org/wiki/Key:admin_level
@@ -566,6 +571,7 @@ cargo               // used with office=logistics, see https://wiki.openstreetma
 function            // undocumented, used as function=retail/headquarters with office=*
 game                // undocumented, used mostly in Japan, e.g. game=studio with office=company
 party               // undocumented, used with office=political_party
+political_party.*   // mostly used on office=political_party, see https://wiki.openstreetmap.org/wiki/Key:political_party
 telecom(munication)?   // used with office=telecommunication / it, see https://wiki.openstreetmap.org/wiki/Key:telecom
 service_times       // used with office=religion, https://wiki.openstreetmap.org/wiki/Key:service_times
 kitchen:facilities  // undocumented, likely office-related
@@ -582,6 +588,7 @@ public      // undocumented, often user with office=government
 theatre             // undocumented, used with amenity=theatre (theatre type/existence)
 culture         // undocumented, used with e.g. amenity=library, amenity=threatre
 library             // undocumented, used with amenity=school / club=social
+cooperative     // see e.g. https://wiki.openstreetmap.org/wiki/Tag:cooperative=agricultural, mostly used with office=cooperative
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
@@ -599,7 +606,8 @@ bank
 operational // trolltag referring to current POI
 
 ### KEYS TO PROBABLY REMOVE ###
-[Cc]omments?		// might be either, but probably more likely shop-related
+Comments?		// might be either, but probably more likely shop-related
+comments?		// might be either, but probably more likely shop-related
 entrance:(width|step_count|kerb:height)     // tricky, but details of the entrance are possibly going to change with new owners
 fenced              // https://wiki.openstreetmap.org/wiki/Key:fenced used with club=sport usually; might change if sport is gone
 motor_vehicle       // access to club=sport|gardening..., may change with new owners
@@ -845,6 +853,7 @@ protect(ed|_class)       // sometimes used on club=scout|hunting|freemasonry|fra
 protection_title    // used on club=hunting|aeronautical but likely to stay even if club is gone, see https://wiki.openstreetmap.org/wiki/Key:protection_title
 reference_point     // https://wiki.openstreetmap.org/wiki/Key:reference_point - probably only coincides with club=*
 manufacturer        // seems to be used like (also undocumented builder=*), probably builder of the building? - probably only coincides with club=*
+atv         // https://wiki.openstreetmap.org/wiki/Key:atv, mostly used on amenity=parking|car_wash ?
 
 
 lifeguard           // https://wiki.openstreetmap.org/wiki/Key:lifeguard , used with emergency=*
@@ -888,12 +897,3 @@ lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
-
-// from _find_popular_subkeys.json
-cooperative
-allotments
-atv
-electronics
-piercing
-political_party
-fan
