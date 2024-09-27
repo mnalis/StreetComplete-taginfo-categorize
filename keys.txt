@@ -665,7 +665,7 @@ county      // used in Liberia with healthcare, address-based
 district    // used in Liberia with healthcare, address-based
 sub_district    // used in Liberia with healthcare, address-based
 
-us.fo:Adressutal    // integer used for sync, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "Address number"; used for import syncing - see https://www.openstreetmap.org/changeset/1888617
+us.fo:[Aa]dressutal    // integer used for sync, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "Address number"; used for import syncing - see https://www.openstreetmap.org/changeset/1888617
 
 quartier	// undocumented, seems location based, 5k+ uses worldwide
 Commune		// undocumented, seems location based, 4k+ uses worldwide, https://en.wikipedia.org/wiki/Communes_of_France
@@ -883,11 +883,8 @@ drinking_water_available    // fake, used by highway=rest_area, tourism=wilderne
 LINZ2OSM:.*         // deprecated/useless discardable, from import, more likely to refer to buildings than POIs, see https://wiki.openstreetmap.org/wiki/LINZ/Invented_Tags
 linz2osm:.*         // deprecated/useless discardable, see https://wiki.openstreetmap.org/wiki/LINZ/Invented_Tags
 
-us.fo:Galdandi_frá  // discardable, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , asked on https://www.openstreetmap.org/changeset/1888617 (means "valid from" date)
-us.fo:Galdandi_fr�  // discardable, mismatch of us.fo:Galdandi_frá ?
-us.fo:kommununr     // discardable, unspecified integer, asked on https://wiki.openstreetmap.org/wiki/Talk:Import/Catalogue/usfo , automatic translation from Danish says "municipalities"
-us.fo:Postnr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "ZIP code"
-us.fo:Veganr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , unclear, possibly "Street number" ?
+us.fo:[Pp]ostnr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , automatic translation from Danish says "ZIP code"
+us.fo:[Vv]eganr        // discardable, unspecified integer, see https://wiki.openstreetmap.org/wiki/Import/Catalogue/usfo , unclear, possibly "Street number" ?
 
 lat         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lat
 latitude    // discardable, see https://wiki.openstreetmap.org/wiki/Key:lat
