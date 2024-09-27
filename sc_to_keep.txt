@@ -12,7 +12,7 @@ private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "addr[1-9]?:.*", "old_addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber", "noaddress",
     "not:addr:postcode", "postal_code", "place", "city", "country", "county", "district",
     "sub_district",
-    "us.fo:Adressutal",
+    "us.fo:[Aa]dressutal",
     "quartier", "Commune", "City", "street", "sector", "region", "locality", "province", "taluk",
     "LOCALIDAD", "LGA",
     "location", "location-Accuracy", "location-Altitude", "level(:.*)?", "levels", "indoor(:.*)?",
@@ -63,6 +63,6 @@ private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "branch_brand", "real_fire-GB-IE", "sport:sport_pub", "sport_pub", "sport:sport_ice",
     "drinking_water_available",
     "LINZ2OSM:.*", "linz2osm:.*",
-    "us.fo:Galdandi_fr√°", "us.fo:Galdandi_fr·", "us.fo:kommununr", "us.fo:Postnr", "us.fo:Veganr",
+    "us.fo:[Pp]ostnr", "us.fo:[Vv]eganr",
     "lat", "latitude", "lon", "longitude",
 ).map { it.toRegex() }
