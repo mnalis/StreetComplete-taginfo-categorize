@@ -751,7 +751,7 @@ WroclawGIS:building:ID	// Poland buildings
 mhs:.*		// historical monuments in France? https://wiki.openstreetmap.org/wiki/Key:ref:mhs - mhs:inscription_date
 sangis:.*	// address-related, https://wiki.openstreetmap.org/wiki/SanGIS
 listed_status	//  official listed status of a building or other structure, usually due to their historical significance, https://wiki.openstreetmap.org/wiki/Key:listed_status
-divipola // The Administrative Political Division of Colombia - see https://wiki.openstreetmap.org/wiki/ES:Key:divipola
+divipola    // The Administrative Political Division of Colombia - see https://wiki.openstreetmap.org/wiki/ES:Key:divipola
 entrance:ramp       // used a lot for pharmacies in Belgium. Probably more building than shop related. https://wiki.openstreetmap.org/wiki/Key:entrance:ramp
 
 landcover   // land data, not POI data
