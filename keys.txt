@@ -892,3 +892,31 @@ lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
+
+// from _find_popular_subkeys.json
+camp
+
+// from club.json
+panoramax
+url:spaceapi
+yacht
+background_music
+
+// from craft.json
+users_PLWD
+users_boy
+users_elderly
+users_female
+users_girl
+users_men
+
+// from healthcare.json
+emergency_ward
+
+// from office.json
+subject:wikimedia_commons
+thw:lv
+thw:rb
+
+// from amenity-place_of_worship.json
+church:type
