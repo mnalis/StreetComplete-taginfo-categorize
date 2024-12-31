@@ -602,12 +602,7 @@ military
 community_centre
 bank
 operational // trolltag referring to current POI
-users_PLWD // yes, mapping it in OSM is highly dubious
-users_boy // yes, mapping it in OSM is highly dubious
-users_elderly // yes, mapping it in OSM is highly dubious
-users_female // yes, mapping it in OSM is highly dubious
-users_girl // yes, mapping it in OSM is highly dubious
-users_men // yes, mapping it in OSM is highly dubious
+users_(PLWD|boy|elderly|female|girl|men) // yes, mapping it in OSM is highly dubious; see https://www.openstreetmap.org/changeset/158333852
 
 ### KEYS TO PROBABLY REMOVE ###
 Comments?		// might be either, but probably more likely shop-related
