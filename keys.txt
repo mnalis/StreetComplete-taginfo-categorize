@@ -621,6 +621,7 @@ motor_vehicle       // access to club=sport|gardening..., may change with new ow
 ### KEYS TO KEEP ###
 // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED, which was used previously before StreetComplete v35.0
 source_?[1-9]?(:.*)?	// see https://github.com/streetcomplete/StreetComplete/issues/3244
+                        // but also note that SC internally also removes source:XXX (and check_date:XXX) for all affected XXX keys (https://github.com/streetcomplete/StreetComplete/pull/6067)
 source_ref	// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
 Source
 survey              // undocumented, mostly e.g. survey=GPS or survey=2022-05-07
