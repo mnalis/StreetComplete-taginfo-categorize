@@ -390,7 +390,7 @@ guest_house
 
 // amenity=place_of_worship
 deanery
-subject:(wikidata|wikipedia)
+subject:(wikidata|wikipedia|wikimedia_commons)
 
 // schools
 capacity:(pupils|teachers)
@@ -602,6 +602,12 @@ military
 community_centre
 bank
 operational // trolltag referring to current POI
+users_PLWD // yes, mapping it in OSM is highly dubious
+users_boy // yes, mapping it in OSM is highly dubious
+users_elderly // yes, mapping it in OSM is highly dubious
+users_female // yes, mapping it in OSM is highly dubious
+users_girl // yes, mapping it in OSM is highly dubious
+users_men // yes, mapping it in OSM is highly dubious
 
 ### KEYS TO PROBABLY REMOVE ###
 Comments?		// might be either, but probably more likely shop-related
@@ -740,6 +746,7 @@ nycdoitt:bin	// building id
 fid		// not documented, but used much more on building (58%) than on shop/craft (11%+2%)
 wikimedia_commons	// picture, so quite more likely to show building itself
 mapillary		// picture, so quite more likely to show building itself (street view mostly)
+panoramax       // like mapillary
 image			// picture
 image:.*         // image subtags used by a single mapper
 size		// far more common (and less error-prone) to define width=*, height=* and length=* separately; https://wiki.openstreetmap.org/wiki/Key:size
@@ -892,3 +899,21 @@ lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
+
+// from _find_popular_subkeys.json
+camp
+
+// from club.json
+url:spaceapi
+yacht
+background_music
+
+// from healthcare.json
+emergency_ward
+
+// from office.json
+thw:lv
+thw:rb
+
+// from amenity-place_of_worship.json
+church:type
