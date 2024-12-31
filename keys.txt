@@ -480,6 +480,8 @@ local_food          // undocumented, 7 uses worldwide, seems to be used with clu
 monitoring:pedestrian       // seems to be used on club=sport + sport=running; if that club is gone, probably monitoring equipment will be gone too
 recording:automated         // seems to be used on club=sport + sport=running; if that club is gone, probably monitoring equipment will be gone too
 yacht               // seems related to club=yacht
+background_music    // undocumented, used on club=music
+url:spaceapi        // used on club=computer (and leisure=hackerspace); see https://wiki.openstreetmap.org/wiki/Key:url:spaceapi
 
 // misc specific attributes
 clothes
@@ -543,6 +545,7 @@ townhall:type
 parish              // https://wiki.openstreetmap.org/wiki/Key:parish e.g. office=parish
 police              // https://wiki.openstreetmap.org/wiki/Key:police e.g. office=government + police=offices
 government      	// related to office=goverment, which we now allow removing
+thw:(lv|rb|ltg)      // undocumented; import? used on office=government; seems to be related to Technisches Hilfswerk (German federal agency for technical relief / civil protection organization) https://www.wikidata.org/wiki/Q697698
 office	        	// https://wiki.openstreetmap.org/wiki/Key:office
 administration      // undocumented; details for office=administration
 administrative      // undocumented; details for office=government e.g. administrative=taxes
@@ -900,11 +903,3 @@ longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
 
-
-// from club.json
-url:spaceapi
-background_music
-
-// from office.json
-thw:lv
-thw:rb
