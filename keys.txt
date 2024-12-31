@@ -305,6 +305,7 @@ healthcare_.*       // like healthcare_therapist
 health
 health_.*	// health_service:examination, health_specialty:optometry, ... w/shop=optician
 medical_.*	// medical_system:western, medical_facility:type=office, ... w/shop=optician
+emergency_ward // undocumented; seems to be healthcare services
 facility(:.*)?
 activities      // undocumented; seems to be healthcare services
 healthcare_facility(:.*)?
@@ -391,6 +392,8 @@ guest_house
 // amenity=place_of_worship
 deanery
 subject:(wikidata|wikipedia|wikimedia_commons)
+church  // undocumented; seems related to amenity=place_of_worship ?
+church:type // church affiliation, used on amenity=place_of_worship  https://wiki.openstreetmap.org/wiki/Key:church:type
 
 // schools
 capacity:(pupils|teachers)
@@ -476,6 +479,7 @@ allotments          // mostly plot|gardening, see https://wiki.openstreetmap.org
 local_food          // undocumented, 7 uses worldwide, seems to be used with club=local_food
 monitoring:pedestrian       // seems to be used on club=sport + sport=running; if that club is gone, probably monitoring equipment will be gone too
 recording:automated         // seems to be used on club=sport + sport=running; if that club is gone, probably monitoring equipment will be gone too
+yacht               // seems related to club=yacht
 
 // misc specific attributes
 clothes
@@ -820,7 +824,7 @@ drinking_water	// likely to stay?
 lit		// likely to stay, or not? old 253 uses worldwide...
 foot		// 13 uses worldwide
 substation	// 11 uses worldwide; misuse of craft like building=yes+craft=pottery+substation=transmission+voltage=220000
-church  // undocumented; building related
+
 buildings:floor     // undocumented, only in Jakarta, likely misspelling of undocumented building:floor, likely building-related
 building_status     // undocumented, seems building-related
 elevation           // undocumented, likely duplicate of https://wiki.openstreetmap.org/wiki/Key:ele and thus building-related
@@ -866,6 +870,7 @@ backup_generator
 
 shelter_type
 disaster:shelter_type
+camp        // not really documented, probably related to refugee camps
 
 # _find_popular_subkeys.txt: there is 3012 "shop=no" and 189 "no=*", but although it passes the numbers, it is not really "popular subkey", so just ignore it
 no
@@ -895,20 +900,11 @@ longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
 
-// from _find_popular_subkeys.json
-camp
 
 // from club.json
 url:spaceapi
-yacht
 background_music
-
-// from healthcare.json
-emergency_ward
 
 // from office.json
 thw:lv
 thw:rb
-
-// from amenity-place_of_worship.json
-church:type
