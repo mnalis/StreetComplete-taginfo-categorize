@@ -1,7 +1,7 @@
 # when app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt changes from StreetComplete are merged 
 # in FETCH_KEYS.make and FETCH_TAGS.make files , update this value with last git commit that changed Place.kt, i.e. one returned by:
-# cd $STREETCOMPLETE_PATH && git log -n 1 --format='%h' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
-STREETCOMPLETE_LAST_GIT=fdb9a8741e
+# cd $STREETCOMPLETE_PATH && git log -n 1 --format='%H' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
+STREETCOMPLETE_LAST_GIT=fdb9a8741e16557578c863b3d5ff5cda43443f47
 
 # paths to id-tagging-schema and StreetComplete git working directories
 STREETCOMPLETE_PATH=../StreetComplete
@@ -85,7 +85,7 @@ update_id:
 
 update_sc:
 	cd $(STREETCOMPLETE_PATH) && git pull
-	@[ "`cd $(STREETCOMPLETE_PATH) && git log -n 1 --format='%h' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt`" = "$(STREETCOMPLETE_LAST_GIT)" ] || (echo "Place.kt in StreetComplete changed (no longer "$(STREETCOMPLETE_LAST_GIT)"), please see README.md for instruction how to fix this" ; exit 2)
+	@[ "`cd $(STREETCOMPLETE_PATH) && git log -n 1 --format='%H' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt`" = "$(STREETCOMPLETE_LAST_GIT)" ] || (echo "Place.kt in StreetComplete changed (no longer "$(STREETCOMPLETE_LAST_GIT)"), please see README.md for instruction how to fix this" ; exit 2)
 
 update: clean update_id update_sc all
 
