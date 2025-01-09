@@ -59,5 +59,7 @@ while (<$existing_fd>) {
 if ($kotlin_str =~ /    $/) { $kotlin_str = substr($kotlin_str, 0, -4); }
 print $kotlin_str;
 
-say ').map { it.toRegex() }';
+say ')
+    .flatMap { listOf(it, "source:$it", "check_date:$it") }
+    .map { it.toRegex() }';
 exit 0;
