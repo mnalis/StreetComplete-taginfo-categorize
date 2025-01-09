@@ -10,6 +10,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "vacant", "insurance(:.*)?", "caravan", "gift", "bicycle", "bicycle_rental", "insulation",
     "communication", "mall", "model", "empty", "wood", "hunting", "motorcycle", "trailer",
     "camera", "water", "fireplace", "outdoor", "blacksmith", "electronics", "fan", "piercing",
+    "stationery",
     // obsoleted information
     "abandoned(:.*)?", "disused(:.*)?", "was:.*", "not:.*", "damage", "created_by", "check_date",
     "opening_date", "last_checked", "checked_exists:date", "pharmacy_survey", "old_ref", "update",
@@ -42,7 +43,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "changing_table(:.*)?", "wheelchair(.*)?", "blind", "company(:.*)?", "stroller", "walk-in",
     "webshop", "operational_status.*", "status", "drive_through", "surveillance(:.*)?",
     "outdoor_seating", "indoor_seating", "colour", "access_simple", "floor", "product_category",
-    "source_url", "category", "kids_area", "kids_area:indoor", "resort", "since", "state",
+    "guide", "source_url", "category", "kids_area", "kids_area:indoor", "resort", "since", "state",
     "temporary", "self_checkout", "audio_loop",
     // food and drink details
     "bar", "cafe", "coffee", "microroasting", "microbrewery", "brewery", "real_ale", "taproom",
@@ -118,6 +119,9 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "cooperative",
     "camp_site", "camping", "emergency(:.*)?", "evacuation_cent(er|re)", "education",
     "engineering", "forestry", "foundation", "lawyer", "logistics", "military", "community_centre",
-    "bank", "operational", "users_(PLWD|boy|elderly|female|girl|men)",
+    "bank", "operational", "users_(PLWD|boy|elderly|female|girl|men)", "check_date:website",
+    "check_date:currency(:.*)?", "check_date:opening_hours", "check_date:smoking",
+    "check_date:service:.*", "source:damage", "source:opening_hours", "source:name", "source:shop",
+    "source:smoking",
     "Comments?", "comments?", "entrance:(width|step_count|kerb:height)", "fenced", "motor_vehicle",
 ).map { it.toRegex() }
