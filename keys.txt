@@ -610,8 +610,8 @@ bank
 operational // trolltag referring to current POI
 users_(PLWD|boy|elderly|female|girl|men) // yes, mapping it in OSM is highly dubious; see https://www.openstreetmap.org/changeset/158333852
 ## StreetComplete now automagically removes matching source:$key (and check_date:$key); see https://github.com/streetcomplete/StreetComplete/issues/6057
-## but other potential consumers of this data may be interested in those more popular source:$key and check_data:$key tags)
-## most of which were previously manually specified here (i.e. included in sc_to_remove.txt); but are no longer being updated
+## so our Makefile will invoke generate_kotlin.pl in such a way that those are no longer included in sc_to_remove.txt, even when they are listed here (where they need to remain to be detected by "make ## update")
+## Also they might be useful to other potential consumers of this data (who may be interested in those more popular source:$key and check_data:$key tags) who might want to invoke generate_kotlin.pl without skipping them.
 check_date:website      // some 1104 uses worldwide
 check_date:currency(:.*)?   // mostly bitcoin (XBT), some 6111+ uses worldwide
 check_date:opening_hours	// when shop and its opening hours go, so should their check_date
