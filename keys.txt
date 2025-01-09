@@ -612,16 +612,16 @@ users_(PLWD|boy|elderly|female|girl|men) // yes, mapping it in OSM is highly dub
 ## StreetComplete now automagically removes matching source:$key (and check_date:$key); see https://github.com/streetcomplete/StreetComplete/issues/6057
 ## but other potential consumers of this data may be interested in those more popular source:$key and check_data:$key tags)
 ## most of which were previously manually specified here (i.e. included in sc_to_remove.txt); but are no longer being updated
-#check_date:website      // some 1104 uses worldwide
-#check_date:currency(:.*)?   // mostly bitcoin (XBT), some 6111+ uses worldwide
-#check_date:opening_hours	// when shop and its opening hours go, so should their check_date
-#check_date:smoking  // some 323 uses worldwide
-#check_date:service:.*   // some ~600 uses worldwide, mostly about bicycles
-#source:damage   // some 16k+ uses worldwide, but not all are used on shop/amenity
-#source:opening_hours	// some 3931 uses worldwide
-#source:name     // some 1.5 million uses worldwide, but not all are used on shop/amenity
-#source:shop  // 629 combinations worldwide, mostly used with shop=*
-#source:smoking      // some 98 uses worldwide
+check_date:website      // some 1104 uses worldwide
+check_date:currency(:.*)?   // mostly bitcoin (XBT), some 6111+ uses worldwide
+check_date:opening_hours	// when shop and its opening hours go, so should their check_date
+check_date:smoking  // some 323 uses worldwide
+check_date:service:.*   // some ~600 uses worldwide, mostly about bicycles
+source:damage   // some 16k+ uses worldwide, but not all are used on shop/amenity
+source:opening_hours	// some 3931 uses worldwide
+source:name     // some 1.5 million uses worldwide, but not all are used on shop/amenity
+source:shop  // 629 combinations worldwide, mostly used with shop=*
+source:smoking      // some 98 uses worldwide
 
 ### KEYS TO PROBABLY REMOVE ###
 Comments?		// might be either, but probably more likely shop-related

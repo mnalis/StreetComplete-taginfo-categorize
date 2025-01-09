@@ -14,6 +14,7 @@ my $MAX_LINE_LEN = 100;		# wrap the line if more than this chars
 my $SECTION_START = shift @ARGV;
 my $SECTION_END = shift @ARGV;
 my $VAR_NAME = shift @ARGV;
+my $SKIP_KEYS = shift @ARGV;
 
 die "Usage: $0 <SECTION_START> <SECTION_END> <VAR_NAME>" if !defined $VAR_NAME;
 
@@ -30,6 +31,7 @@ while (<$existing_fd>) {
 
     if (m{^[a-z.]}i) {		# detect key; line could start with regex like ".*xxxx"
         s{\s*(#|//).*$}{};		# remove inline comments
+        next if $SKIP_KEYS && /${SKIP_KEYS}/;             # used to skip e.g. check_date:$key and source:$key which are automagically ignored by StreetComplete, see https://github.com/streetcomplete/StreetComplete/issues/6057
         s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already). NOTE: not perfect, but works for us!
         my $newstr = qq{"$_", };
         my $last_line_len = length($kotlin_str) - rindex ($kotlin_str, "\n") - 1;

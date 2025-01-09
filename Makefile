@@ -1,7 +1,7 @@
 # when app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt changes from StreetComplete are merged 
 # in FETCH_KEYS.make and FETCH_TAGS.make files , update this value with last git commit that changed Place.kt, i.e. one returned by:
 # cd $STREETCOMPLETE_PATH && git log -n 1 --format='%H' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
-STREETCOMPLETE_LAST_GIT=fdb9a8741e16557578c863b3d5ff5cda43443f47
+STREETCOMPLETE_LAST_GIT=65bba70b714a0273313c3051fe89c7f01fd5ec27
 
 # paths to id-tagging-schema and StreetComplete git working directories
 STREETCOMPLETE_PATH=../StreetComplete
@@ -41,7 +41,7 @@ endef
 all: sc_to_remove.txt sc_to_keep.txt stats
 
 sc_to_remove.txt: keys.txt Makefile generate_kotlin.pl
-	./generate_kotlin.pl '### KEYS TO REMOVE ###' '### KEYS TO KEEP ###' 'KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED' > $@
+	./generate_kotlin.pl '### KEYS TO REMOVE ###' '### KEYS TO KEEP ###' 'KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED' '^(check_date|source):' > $@
 
 sc_to_keep.txt: keys.txt Makefile generate_kotlin.pl
 	./generate_kotlin.pl '### KEYS TO KEEP ###' '### TODO' 'KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED' > $@

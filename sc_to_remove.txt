@@ -119,9 +119,6 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "cooperative",
     "camp_site", "camping", "emergency(:.*)?", "evacuation_cent(er|re)", "education",
     "engineering", "forestry", "foundation", "lawyer", "logistics", "military", "community_centre",
-    "bank", "operational", "users_(PLWD|boy|elderly|female|girl|men)", "check_date:website",
-    "check_date:currency(:.*)?", "check_date:opening_hours", "check_date:smoking",
-    "check_date:service:.*", "source:damage", "source:opening_hours", "source:name", "source:shop",
-    "source:smoking",
+    "bank", "operational", "users_(PLWD|boy|elderly|female|girl|men)",
     "Comments?", "comments?", "entrance:(width|step_count|kerb:height)", "fenced", "motor_vehicle",
 ).map { it.toRegex() }
