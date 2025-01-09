@@ -77,6 +77,7 @@ blacksmith
 electronics     // used on shop=electronics, see https://wiki.openstreetmap.org/wiki/Key:electronics
 fan             // e.g. fan=sport, used on shop=fan
 piercing        // https://wiki.openstreetmap.org/wiki/Key:piercing used on shop=piercing|tattoo
+stationery      // undocumented with some 91 uses worldwide; used with shop=kiosk|gift|books|tobacco|variety_store etc. likely to indicate if it carries stationaries (and whattypes)
 
 // obsoleted information
 abandoned(:.*)?
@@ -221,6 +222,7 @@ colour
 access_simple   // undocumented, unused, from _id_tagging_schema.json
 floor               // undocumented, seems to mishmash of surface=* and level=*
 product_category    // undocumented, seems office=company related, Taiwan-only
+guide       // https://wiki.openstreetmap.org/wiki/Key:guide; whether a feature provide a guide. Some 92 uses worldwide; mostly with office=guide
 source_url      // undocumented, mostly seems office/amenity-related
 category            // undocumented, seems to be type of office/amenity
 kids_area           // amenity-based, see https://wiki.openstreetmap.org/wiki/Key:kids_area
@@ -884,6 +886,7 @@ backup_generator
 shelter_type
 disaster:shelter_type
 camp        // not really documented, probably related to refugee camps
+end_date    // sometimes used with future end date of the club=*, but also on clubs in abandoned train stations etc. where it seems to refers to train station. So safer to keep.
 
 # _find_popular_subkeys.txt: there is 3012 "shop=no" and 189 "no=*", but although it passes the numbers, it is not really "popular subkey", so just ignore it
 no
