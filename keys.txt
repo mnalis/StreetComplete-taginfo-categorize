@@ -84,7 +84,6 @@ disused(:.*)?
 was:.*
 not:.*
 damage		// if new shop, damage is probably being repaired?
-source:damage
 created_by
 check_date	// we have just checked it!
 opening_date    // if it no longer exists, that opening_date is obsolete as well
@@ -118,7 +117,6 @@ official_ref
 // names and identifications
 name_?[1-9]?(:.*)?
 .*_name_?[1-9]?(:.*)?	// handles all of alt_name, old_name, short_name:en, etc. see https://github.com/streetcomplete/StreetComplete/issues/3244#issuecomment-915711994
-source:name     // some 1.5 million uses worldwide, but not all are used on shop/amenity
 noname
 branch(:.*)?
 brand(:.*)?
@@ -152,7 +150,6 @@ youtube
 telegram
 email
 website_?[1-9]?(:.*)?
-check_date:website      // some 1104 uses worldwide
 app:.*
 ownership   // changing shop probably changes ownership - https://wiki.openstreetmap.org/wiki/Key:ownership
 
@@ -164,8 +161,7 @@ owner
 // payments
 payment(:.*)?
 payment_multi_fee
-currency:.*
-check_date:currency:.*
+currency(:.*)?
 cash_withdrawal(:.*)?
 fee
 charge          // https://wiki.openstreetmap.org/wiki/Key:charge
@@ -174,11 +170,9 @@ money_transfer	// might be bank, but also shop=stationery+money_transfer=Western
 donation:compensation   // amenity related https://wiki.openstreetmap.org/wiki/Key:donation:compensation
 
 // generic shop/craft attributes
-source:shop  // 629 combinations worldwide, mostly used with shop=*
 seasonal	// 398 combinations worldwide, shop=travel_agency, shop=greengrocer...
 time		// 385 combinations worldwide; either mistaken opening_hours, or some unknown timestamp 
 opening_hours(:.*)?
-check_date:opening_hours	// when shop and its opening hours go, so should their check_date
 check_(in|out)      // undocumented, seems to be checkin/checkout times for tourism=*
 wifi
 internet
@@ -202,8 +196,6 @@ trade
 wholesale
 sale
 smoking(:outside)?
-check_date:smoking  // some 323 uses worldwide
-source:smoking      // some 98 uses worldwide
 zero_waste
 origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
 attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewery
@@ -287,7 +279,6 @@ confectionery
 
 // related to repair shops/crafts
 service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
-check_date:service:.*   // some ~600 uses worldwide, mostly about bicycles
 motorcycle:.*
 repair
 .*:repair	// eg. bicycle:repair computer:repair fabrik:repair furniture:repair mobile_phone:repair etc.
@@ -616,6 +607,19 @@ community_centre
 bank
 operational // trolltag referring to current POI
 users_(PLWD|boy|elderly|female|girl|men) // yes, mapping it in OSM is highly dubious; see https://www.openstreetmap.org/changeset/158333852
+## StreetComplete now automagically removes matching source:$key (and check_date:$key); see https://github.com/streetcomplete/StreetComplete/issues/6057
+## but other potential consumers of this data may be interested in those more popular source:$key and check_data:$key tags)
+## most of which were previously manually specified here (i.e. included in sc_to_remove.txt); but are no longer being updated
+#check_date:website      // some 1104 uses worldwide
+#check_date:currency(:.*)?   // mostly bitcoin (XBT), some 6111+ uses worldwide
+#check_date:opening_hours	// when shop and its opening hours go, so should their check_date
+#check_date:smoking  // some 323 uses worldwide
+#check_date:service:.*   // some ~600 uses worldwide, mostly about bicycles
+#source:damage   // some 16k+ uses worldwide, but not all are used on shop/amenity
+#source:opening_hours	// some 3931 uses worldwide
+#source:name     // some 1.5 million uses worldwide, but not all are used on shop/amenity
+#source:shop  // 629 combinations worldwide, mostly used with shop=*
+#source:smoking      // some 98 uses worldwide
 
 ### KEYS TO PROBABLY REMOVE ###
 Comments?		// might be either, but probably more likely shop-related
@@ -626,8 +630,7 @@ motor_vehicle       // access to club=sport|gardening..., may change with new ow
 
 ### KEYS TO KEEP ###
 // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED, which was used previously before StreetComplete v35.0
-source_?[1-9]?(:.*)?	// see https://github.com/streetcomplete/StreetComplete/issues/3244
-                        // and https://github.com/streetcomplete/StreetComplete/pull/6067
+source_?[1-9]?(:.*)?	// do not remove it generally, see https://github.com/streetcomplete/StreetComplete/issues/3244, but note that StreetComplete will also automagically remove matching source:$key (and check_date:$key): https://github.com/streetcomplete/StreetComplete/issues/6057
 source_ref	// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
 Source
 survey              // undocumented, mostly e.g. survey=GPS or survey=2022-05-07
@@ -807,7 +810,7 @@ dataset
 project:eurosha_2012	// undocumented, https://wiki.openstreetmap.org/wiki/Chad ?
 cosmha		// not documented, see https://wiki.openstreetmap.org/wiki/WikiProject_Haiti/Status/Hospitals
 lojic:bgnum	// building ID, https://wiki.openstreetmap.org/wiki/Louisville,_Kentucky/Building_Outlines_Import
-maaamet:ETAK	// undocumented, 474 uses worldwide, might be addess-related due to other tags like "source:addr=Maa-amet 2013"
+maaamet:ETAK	// undocumented, 474 uses worldwide, might be address-related due to other tags like "source:addr=Maa-amet 2013"
 osm_id		// undocumented, 244 uses worldwide
 project		// undocumented, 643 uses worldwide
 project:pdevii	// undocumented, 337 uses worldwide
