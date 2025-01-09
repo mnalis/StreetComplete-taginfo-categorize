@@ -118,6 +118,7 @@ official_ref
 // names and identifications
 name_?[1-9]?(:.*)?
 .*_name_?[1-9]?(:.*)?	// handles all of alt_name, old_name, short_name:en, etc. see https://github.com/streetcomplete/StreetComplete/issues/3244#issuecomment-915711994
+source:name     // some 1.5 million uses worldwide, but not all are used on shop/amenity
 noname
 branch(:.*)?
 brand(:.*)?
@@ -151,6 +152,7 @@ youtube
 telegram
 email
 website_?[1-9]?(:.*)?
+check_date:website      // some 1104 uses worldwide
 app:.*
 ownership   // changing shop probably changes ownership - https://wiki.openstreetmap.org/wiki/Key:ownership
 
@@ -172,6 +174,7 @@ money_transfer	// might be bank, but also shop=stationery+money_transfer=Western
 donation:compensation   // amenity related https://wiki.openstreetmap.org/wiki/Key:donation:compensation
 
 // generic shop/craft attributes
+source:shop  // 629 combinations worldwide, mostly used with shop=*
 seasonal	// 398 combinations worldwide, shop=travel_agency, shop=greengrocer...
 time		// 385 combinations worldwide; either mistaken opening_hours, or some unknown timestamp 
 opening_hours(:.*)?
@@ -199,6 +202,8 @@ trade
 wholesale
 sale
 smoking(:outside)?
+check_date:smoking  // some 323 uses worldwide
+source:smoking      // some 98 uses worldwide
 zero_waste
 origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
 attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewery
@@ -282,6 +287,7 @@ confectionery
 
 // related to repair shops/crafts
 service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
+check_date:service:.*   // some ~600 uses worldwide, mostly about bicycles
 motorcycle:.*
 repair
 .*:repair	// eg. bicycle:repair computer:repair fabrik:repair furniture:repair mobile_phone:repair etc.
@@ -621,7 +627,7 @@ motor_vehicle       // access to club=sport|gardening..., may change with new ow
 ### KEYS TO KEEP ###
 // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED, which was used previously before StreetComplete v35.0
 source_?[1-9]?(:.*)?	// see https://github.com/streetcomplete/StreetComplete/issues/3244
-                        // but also note that SC internally also removes source:XXX (and check_date:XXX) for all affected XXX keys (https://github.com/streetcomplete/StreetComplete/pull/6067)
+                        // and https://github.com/streetcomplete/StreetComplete/pull/6067
 source_ref	// geometry from photo, see https://wiki.openstreetmap.org/wiki/Photo_mapping#Tagging_and_storage
 Source
 survey              // undocumented, mostly e.g. survey=GPS or survey=2022-05-07
