@@ -916,3 +916,51 @@ longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
 
+
+// from _find_popular_subkeys.json
+bbq
+curtain
+winery
+
+// from club.json
+FID
+proposed:listed_status
+static_caravans
+demolished:building
+drinking_water:refill
+hackerspace
+openfire
+
+// from craft.json
+IBGE:COD_UNICO_ENDERECO
+related_law
+related_law:url
+
+// from healthcare.json
+hiv:test
+hiv:inpatient
+hiv:medicine
+network:short
+
+// from office.json
+cooperative:agricultural
+cooperative:network
+equipment
+local_authority:FR
+lawyer:speciality
+official_status:ru
+official_status:uk
+
+// from shop.json
+sensory_friendly:conditional
+sensory_friendly:accommodation
+paypoint
+old_ref:FR:prix-carburants
+street_vendor
+
+// from amenity-school.json
+population:pupils
+
+// from amenity-lavoir.json
+shelter
+shelter
