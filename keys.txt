@@ -964,4 +964,3 @@ population:pupils
 
 // from amenity-lavoir.json
 shelter
-shelter
