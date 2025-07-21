@@ -48,5 +48,5 @@ one would add `healthcare` to `FETCH_KEYS.make`, and `leisure=adult_gaming_centr
 When one has completed updating `FETCH_KEYS.make` and `FETCH_TAGS.make`, they need to edit `Makefile` and update
 `STREETCOMPLETE_LAST_GIT` at the top of it with git commit id that changed `Place.kt`, i.e. the one returned by:
 ```
-cd $STREETCOMPLETE_PATH && git log -n 1 --format='%h' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
+cd $STREETCOMPLETE_PATH && git log -n 1 --format='%H' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
 ```
