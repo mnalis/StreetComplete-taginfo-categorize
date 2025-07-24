@@ -6,7 +6,7 @@ amenity=toy_library amenity=training amenity=university amenity=boat_rental amen
 amenity=motorcycle_rental amenity=vehicle_inspection amenity=bank amenity=bureau_de_change amenity=mobile_money_agent
 amenity=money_transfer amenity=payment_centre
 amenity=clinic amenity=dentist amenity=doctors amenity=health_post amenity=hospital amenity=nursing_home amenity=pharmacy
-amenity=social_facility amenity=veterinary amenity=archive amenity=arts_centre amenity=brothel amenity=casino amenity=cinema
+amenity=social_facility amenity=veterinary amenity=veterinary_pharmacy amenity=archive amenity=arts_centre amenity=brothel amenity=casino amenity=cinema
 amenity=community_centre amenity=conference_centre amenity=events_venue amenity=exhibition_centre amenity=gambling
 amenity=hookah_lounge amenity=love_hotel amenity=music_venue amenity=nightclub amenity=planetarium amenity=ski_rental
 amenity=social_centre amenity=stripclub amenity=studio amenity=swingerclub amenity=theatre amenity=courthouse amenity=embassy

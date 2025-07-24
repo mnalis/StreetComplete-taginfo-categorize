@@ -10,7 +10,8 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "vacant", "insurance(:.*)?", "caravan", "gift", "bicycle", "bicycle_rental", "insulation",
     "communication", "mall", "model", "empty", "wood", "hunting", "motorcycle", "trailer",
     "camera", "water", "fireplace", "outdoor", "blacksmith", "electronics", "fan", "piercing",
-    "stationery",
+    "stationery", "sensory_friendly:conditional", "sensory_friendly:accommodation",
+    "street_vendor",
     // obsoleted information
     "abandoned(:.*)?", "disused(:.*)?", "was:.*", "not:.*", "damage", "created_by", "check_date",
     "opening_date", "last_checked", "checked_exists:date", "pharmacy_survey", "old_ref", "update",

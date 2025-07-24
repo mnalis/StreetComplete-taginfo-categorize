@@ -78,6 +78,9 @@ electronics     // used on shop=electronics, see https://wiki.openstreetmap.org/
 fan             // e.g. fan=sport, used on shop=fan
 piercing        // https://wiki.openstreetmap.org/wiki/Key:piercing used on shop=piercing|tattoo
 stationery      // undocumented with some 91 uses worldwide; used with shop=kiosk|gift|books|tobacco|variety_store etc. likely to indicate if it carries stationaries (and whattypes)
+sensory_friendly:conditional
+sensory_friendly:accommodation
+street_vendor
 
 // obsoleted information
 abandoned(:.*)?
@@ -650,6 +653,8 @@ nrhp:criteria
 nrhp:inscription_date
 
 building(:.*)?
+demolished:building
+abandoned:building
 building_type
 house               // refers to building itself, see https://wiki.openstreetmap.org/wiki/Key:house
 man_made
@@ -916,3 +921,46 @@ longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
 
+
+// from _find_popular_subkeys.json
+bbq
+curtain
+winery
+
+// from club.json
+FID
+proposed:listed_status
+static_caravans
+drinking_water:refill
+hackerspace
+openfire
+
+// from craft.json
+IBGE:COD_UNICO_ENDERECO
+related_law
+related_law:url
+
+// from healthcare.json
+hiv:test
+hiv:inpatient
+hiv:medicine
+network:short
+
+// from office.json
+cooperative:agricultural
+cooperative:network
+equipment
+local_authority:FR
+lawyer:speciality
+official_status:ru
+official_status:uk
+
+// from shop.json
+paypoint
+old_ref:FR:prix-carburants
+
+// from amenity-school.json
+population:pupils
+
+// from amenity-lavoir.json
+shelter

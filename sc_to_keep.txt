@@ -4,9 +4,10 @@ private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "import",
     "landuse", "residential", "historic(:.*)?", "heritage(:.*)?", "OnroerendErfgoed:criteria",
     "lda:criteria", "nrhp:criteria", "nrhp:inscription_date",
-    "building(:.*)?", "building_type", "house", "man_made", "roof:.*", "windows",
-    "architect(:.*)?", "engineer(:.*)?", "year_of_construction", "construction_date", "covered",
-    "design:code:SPb", "design:ref", "pmfsefin:idedif", "uuid:building", "IPP:(CodLote|CodQuadra)",
+    "building(:.*)?", "demolished:building", "abandoned:building", "building_type", "house",
+    "man_made", "roof:.*", "windows", "architect(:.*)?", "engineer(:.*)?", "year_of_construction",
+    "construction_date", "covered", "design:code:SPb", "design:ref", "pmfsefin:idedif",
+    "uuid:building", "IPP:(CodLote|CodQuadra)",
    
     "atmotorway",
     "addr[1-9]?:.*", "old_addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber", "noaddress",
