@@ -7,7 +7,7 @@ private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "building(:.*)?", "demolished:building", "abandoned:building", "building_type", "house",
     "man_made", "roof:.*", "windows", "architect(:.*)?", "engineer(:.*)?", "year_of_construction",
     "construction_date", "covered", "design:code:SPb", "design:ref", "pmfsefin:idedif",
-    "uuid:building", "IPP:(CodLote|CodQuadra)",
+    "uuid:building", "IPP:(CodLote|CodQuadra)", "(proposed:)?listed_status",
    
     "atmotorway",
     "addr[1-9]?:.*", "old_addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber", "noaddress",
