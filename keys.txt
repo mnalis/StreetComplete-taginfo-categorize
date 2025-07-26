@@ -82,8 +82,7 @@ sensory_friendly(:.*)?  // see https://wiki.openstreetmap.org/wiki/Proposal:Sens
 street_vendor   // see https://wiki.openstreetmap.org/wiki/Tag:street_vendor=yes
 
 // obsoleted information
-abandoned(:.*)?
-disused(:.*)?
+(demolished|abandoned:disused)(:[^b][^u][^i].*)?    // remove all abandoned/disused *except* buildings
 was:.*
 not:.*
 damage		// if new shop, damage is probably being repaired?
@@ -669,7 +668,7 @@ nrhp:criteria
 nrhp:inscription_date
 
 building(:.*)?
-(demolished|abandoned):building
+(demolished|abandoned):building(:.*)?
 building_type
 house               // refers to building itself, see https://wiki.openstreetmap.org/wiki/Key:house
 man_made
