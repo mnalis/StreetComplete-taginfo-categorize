@@ -29,7 +29,7 @@ while (<$existing_fd>) {
     if ($skip_it) { next; }
     chomp;
 
-    if (m{^[a-z.]}i) {		# detect key; line could start with regex like ".*xxxx"
+    if (m{^[a-z.(]}i) {		# detect key; line could start with regex like ".*xxxx"
         s{\s*(#|//).*$}{};		# remove inline comments
         next if $SKIP_KEYS && /${SKIP_KEYS}/;             # used to skip e.g. check_date:$key and source:$key which are automagically ignored by StreetComplete, see https://github.com/streetcomplete/StreetComplete/issues/6057
         s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already). NOTE: not perfect, but works for us!
