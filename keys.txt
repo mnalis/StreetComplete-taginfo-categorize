@@ -78,9 +78,8 @@ electronics     // used on shop=electronics, see https://wiki.openstreetmap.org/
 fan             // e.g. fan=sport, used on shop=fan
 piercing        // https://wiki.openstreetmap.org/wiki/Key:piercing used on shop=piercing|tattoo
 stationery      // undocumented with some 91 uses worldwide; used with shop=kiosk|gift|books|tobacco|variety_store etc. likely to indicate if it carries stationaries (and whattypes)
-sensory_friendly:conditional
-sensory_friendly:accommodation
-street_vendor
+sensory_friendly(:.*)?  // see https://wiki.openstreetmap.org/wiki/Proposal:Sensory#sensory_friendly=*
+street_vendor   // see https://wiki.openstreetmap.org/wiki/Tag:street_vendor=yes
 
 // obsoleted information
 abandoned(:.*)?
@@ -413,7 +412,7 @@ primary         // undocumented, sometimes used with amenity = school, perhaps w
 
 // clubs
 animal(_breeding|_training)?
-billiards
+billiards(:.*)?
 board_game
 sport_1
 sport:boating
@@ -670,8 +669,7 @@ nrhp:criteria
 nrhp:inscription_date
 
 building(:.*)?
-demolished:building
-abandoned:building
+(demolished|abandoned):building
 building_type
 house               // refers to building itself, see https://wiki.openstreetmap.org/wiki/Key:house
 man_made

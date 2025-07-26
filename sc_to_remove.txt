@@ -10,8 +10,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "vacant", "insurance(:.*)?", "caravan", "gift", "bicycle", "bicycle_rental", "insulation",
     "communication", "mall", "model", "empty", "wood", "hunting", "motorcycle", "trailer",
     "camera", "water", "fireplace", "outdoor", "blacksmith", "electronics", "fan", "piercing",
-    "stationery", "sensory_friendly:conditional", "sensory_friendly:accommodation",
-    "street_vendor",
+    "stationery", "sensory_friendly(:.*)?", "street_vendor",
     // obsoleted information
     "abandoned(:.*)?", "disused(:.*)?", "was:.*", "not:.*", "damage", "created_by", "check_date",
     "opening_date", "last_checked", "checked_exists:date", "pharmacy_survey", "old_ref", "update",
@@ -84,7 +83,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "capacity:(pupils|teachers)", "grades", "population:pupils(:.*)?",
     "school:(FR|gender|trust|type|type_idn)", "primary",
     // clubs
-    "animal(_breeding|_training)?", "billiards", "board_game", "sport_1", "sport:boating",
+    "animal(_breeding|_training)?", "billiards(:.*)?", "board_game", "sport_1", "sport:boating",
     "boat:type", "canoe(_rental|:service)?", "kayak(_rental|:service)?",
     "sailboat(_rental|:service)?", "horse_riding", "rugby", "boules", "callsign", "card_games",
     "car_service", "catastro:ref", "chess(:.*)?", "children", "climbing(:.*)?", "club(:.*)?",
