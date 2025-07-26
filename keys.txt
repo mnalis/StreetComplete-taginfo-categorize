@@ -125,7 +125,7 @@ noname
 branch(:.*)?
 brand(:.*)?
 not:brand(:.*)?
-network(:wikidata)?		// used like brand
+network(:.*)?		// used like brand, and network:short in healthcare
 operator(:.*)?
 operator_type	// misspelled https://wiki.openstreetmap.org/wiki/Key:operator:type ?
 ref		// without extra clasification like ref:xxx, it is most likely shop related
@@ -136,6 +136,8 @@ identifier      // undocumented, seems office=related
 ref:FR:SIRET    // organisation number given by INSEE in France https://wiki.openstreetmap.org/wiki/Key:ref:FR:SIRET
 ref:FR:SIREN    // company number given by INSEE in France https://wiki.openstreetmap.org/wiki/Key:ref:FR:SIREN
 ref:FR:NAF      // 5-digits code describing organization main activity in France https://wiki.openstreetmap.org/wiki/Key:ref:FR:NAF
+(old_)?ref:FR:prix-carburants  // reference for fuel stations, see https://wiki.openstreetmap.org/wiki/Key:ref:FR:prix-carburants
+
 
 // contacts
 contact_person
@@ -172,6 +174,8 @@ charge          // https://wiki.openstreetmap.org/wiki/Key:charge
 charge_fee
 money_transfer	// might be bank, but also shop=stationery+money_transfer=Western Union etc. https://wiki.openstreetmap.org/wiki/Key:money_transfer
 donation:compensation   // amenity related https://wiki.openstreetmap.org/wiki/Key:donation:compensation
+paypoint    // undocumented, seems to be related to payments of shop=*
+
 
 // generic shop/craft attributes
 seasonal	// 398 combinations worldwide, shop=travel_agency, shop=greengrocer...
@@ -236,6 +240,8 @@ state               // Operational state, used worldwide, see https://wiki.opens
 temporary           // used mostly with healthcase-related, see https://wiki.openstreetmap.org/wiki/Key:temporary
 self_checkout
 audio_loop          // documented at https://wiki.openstreetmap.org/wiki/Tag:audio_loop%3Dyes
+related_law(:.*)?     // https://wiki.openstreetmap.org/wiki/Key:related_law, used on craft=*
+official_status(:.*)?   // see https://wiki.openstreetmap.org/wiki/Proposal:Official_status; used on office=government/company/...
 
 // food and drink details
 bar
@@ -381,6 +387,7 @@ tactile_paving      // https://wiki.openstreetmap.org/wiki/Key:tactile_paving us
 HF_(ID|TYPE|N_EN)   // undocumented, seems to be imported hospital types/id/description in Myanmar
 RoadConn            // undocumented, seems to be used only on imported hospitals in Myanmar
 bin                 // https://wiki.openstreetmap.org/wiki/Key:bin, sometimes used on healthcare=*. When that is gone, likely the wastebakets are gone too
+hiv(:.*)?           // https://wiki.openstreetmap.org/wiki/Key:hiv
 
 // accommodation & layout
 rooms
@@ -400,13 +407,14 @@ church:type // church affiliation, used on amenity=place_of_worship  https://wik
 // schools
 capacity:(pupils|teachers)
 grades
-population:pupils:.*
+population:pupils(:.*)?
+
 school:(FR|gender|trust|type|type_idn)
 primary         // undocumented, sometimes used with amenity = school, perhaps with meaning of "primary school"?
 
 // clubs
 animal(_breeding|_training)?
-billiards(:.*)?
+billiards
 board_game
 sport_1
 sport:boating
@@ -596,6 +604,14 @@ theatre             // undocumented, used with amenity=theatre (theatre type/exi
 culture         // undocumented, used with e.g. amenity=library, amenity=threatre
 library             // undocumented, used with amenity=school / club=social
 cooperative     // see e.g. https://wiki.openstreetmap.org/wiki/Tag:cooperative=agricultural, mostly used with office=cooperative
+winery          // shops/resturatnrs related, see https://wiki.openstreetmap.org/wiki/Key:winery
+curtain     // undocumented, seems to be shop=fabric/interior_decoration/second_hand/... and amenity=shelter related
+bbq         // https://wiki.openstreetmap.org/wiki/Key:bbq, used on e.g. tourism=camp_site
+lawyer(:.*)?   // e.g. lawyer:speciality used on office=lawyer
+local_authority(:.*)?  // see e.g. https://wiki.openstreetmap.org/wiki/Key:local_authority:FR, used on office=government
+cooperative(:.*)?    // undocumented, e.g. cooperative:agricultural, cooperative:network; used on office=cooperative
+equipment       // undocumented, used on office=cooperative and related to id
+
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
@@ -632,6 +648,7 @@ comments?		// might be either, but probably more likely shop-related
 entrance:(width|step_count|kerb:height)     // tricky, but details of the entrance are possibly going to change with new owners
 fenced              // https://wiki.openstreetmap.org/wiki/Key:fenced used with club=sport usually; might change if sport is gone
 motor_vehicle       // access to club=sport|gardening..., may change with new owners
+shelter     // used on https://wiki.openstreetmap.org/wiki/Tag:amenity=lavoir to indicate whether it has shelter
 
 ### KEYS TO KEEP ###
 // let us start with KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED, which was used previously before StreetComplete v35.0
@@ -703,6 +720,7 @@ province    // undocumented, seems location based
 taluk       // undocumented, seems location-based
 LOCALIDAD   // undocumented, seems location based (also seems health-related)
 LGA         // undocumented, seems location based (also seems health-related)
+IBGE:COD_UNICO_ENDERECO // undocumented, seems to be Brasilian address-related
 
 location	// https://wiki.openstreetmap.org/wiki/Key:location
 location-Accuracy
@@ -922,11 +940,6 @@ longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 ### TODO ###
 
 
-// from _find_popular_subkeys.json
-bbq
-curtain
-winery
-
 // from club.json
 FID
 proposed:listed_status
@@ -934,33 +947,3 @@ static_caravans
 drinking_water:refill
 hackerspace
 openfire
-
-// from craft.json
-IBGE:COD_UNICO_ENDERECO
-related_law
-related_law:url
-
-// from healthcare.json
-hiv:test
-hiv:inpatient
-hiv:medicine
-network:short
-
-// from office.json
-cooperative:agricultural
-cooperative:network
-equipment
-local_authority:FR
-lawyer:speciality
-official_status:ru
-official_status:uk
-
-// from shop.json
-paypoint
-old_ref:FR:prix-carburants
-
-// from amenity-school.json
-population:pupils
-
-// from amenity-lavoir.json
-shelter
