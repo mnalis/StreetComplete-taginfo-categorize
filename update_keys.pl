@@ -19,12 +19,12 @@ my @existing = ();
 
 open my $existing_fd, '<', 'keys.txt';
 while (<$existing_fd>) {
-    next unless /^[a-z.]/i;	# line could start with regex like ".*xxxx"
+    next unless /^[a-z.(]/i;	# line could start with regex like ".*xxxx" or "(abandoned|disused):"
     chomp;
     s{\s*(#|//).*$}{};		# remove inline comments
     die "please use RegEx not wildcard" if s/([^\.])\*/$1.*/;		# make "*" wildcard into regex internally (if not regex already). NOTE: not perfect, but works for us!
     push @existing, $_;
-    #say STDERR "existing key: $_";
+    #say STDERR "add key to existing: $_";
 }
 
 # returns false if the specified key is already present in keys.txt
@@ -33,8 +33,13 @@ sub is_new($)
     my ($key) = @_;
     #say STDERR "checking if $key is existing...";
     foreach my $old (@existing) {
-        return 0 if $key =~ /^${old}$/;	# slow but simple and handle regexes
+        #say STDERR " checking on: $old";
+        if ($key =~ /^${old}$/) {   	# slow but simple and handle regexes
+            #say STDERR "  !!! Matched key $key on existing value $old";
+            return 0;
+        }
     }
+    #say STDERR "  no match on existing values for $key";
     return 1;
 }
 
