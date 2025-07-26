@@ -1,7 +1,7 @@
 # when app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt changes from StreetComplete are merged 
 # in FETCH_KEYS.make and FETCH_TAGS.make files , update this value with last git commit that changed Places.kt, i.e. one returned by:
 # cd $STREETCOMPLETE_PATH && git log -n 1 --format='%H' -- app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt
-STREETCOMPLETE_LAST_GIT=12f5d3167703a7305e5e1938729ed692aa45b1c4
+STREETCOMPLETE_LAST_GIT=57044dffe379f661352cb79f2ebe7080b92c0927
 
 # paths to id-tagging-schema and StreetComplete git working directories
 STREETCOMPLETE_PATH=../StreetComplete
