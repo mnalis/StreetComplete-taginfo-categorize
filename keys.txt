@@ -138,7 +138,6 @@ ref:FR:SIREN    // company number given by INSEE in France https://wiki.openstre
 ref:FR:NAF      // 5-digits code describing organization main activity in France https://wiki.openstreetmap.org/wiki/Key:ref:FR:NAF
 (old_)?ref:FR:prix-carburants  // reference for fuel stations, see https://wiki.openstreetmap.org/wiki/Key:ref:FR:prix-carburants
 
-
 // contacts
 contact_person
 contact(:.*)?
@@ -175,7 +174,6 @@ charge_fee
 money_transfer	// might be bank, but also shop=stationery+money_transfer=Western Union etc. https://wiki.openstreetmap.org/wiki/Key:money_transfer
 donation:compensation   // amenity related https://wiki.openstreetmap.org/wiki/Key:donation:compensation
 paypoint    // undocumented, seems to be related to payments of shop=*
-
 
 // generic shop/craft attributes
 seasonal	// 398 combinations worldwide, shop=travel_agency, shop=greengrocer...
@@ -605,15 +603,13 @@ public      // undocumented, often user with office=government
 theatre             // undocumented, used with amenity=theatre (theatre type/existence)
 culture         // undocumented, used with e.g. amenity=library, amenity=threatre
 library             // undocumented, used with amenity=school / club=social
-cooperative     // see e.g. https://wiki.openstreetmap.org/wiki/Tag:cooperative=agricultural, mostly used with office=cooperative
+cooperative(:.*)?     // see e.g. https://wiki.openstreetmap.org/wiki/Tag:cooperative=agricultural, mostly used with office=cooperative (also undocumented e.g. cooperative:agricultural, cooperative:network)
 winery          // shops/resturatnrs related, see https://wiki.openstreetmap.org/wiki/Key:winery
 curtain     // undocumented, seems to be shop=fabric/interior_decoration/second_hand/... and amenity=shelter related
 lawyer(:.*)?   // e.g. lawyer:speciality used on office=lawyer
 local_authority(:.*)?  // see e.g. https://wiki.openstreetmap.org/wiki/Key:local_authority:FR, used on office=government
-cooperative(:.*)?    // undocumented, e.g. cooperative:agricultural, cooperative:network; used on office=cooperative
 equipment       // undocumented, used on office=cooperative and related to id
 hackerspace         // undocumented, leisure=hackerspace related
-
 
 camp_site           // camp_site=reception &  office=camping
 camping             // e.g. amenity=cafe+camping=yes
