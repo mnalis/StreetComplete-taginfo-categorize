@@ -15,7 +15,7 @@ like `### KEYS TO REMOVE ###` or `### KEYS TO KEEP ###` sections of `keys.txt`.
 
 Running `make` again will then generate `sc_to_remove.txt` with kotlin code to copy/paste as new
 `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED` in
-https://github.com/streetcomplete/StreetComplete/blob/master/app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt#L247
+https://github.com/streetcomplete/StreetComplete/blob/master/app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt#L248
 It is generated only from data in `### KEYS TO REMOVE ###` section.
 
 If in doubt, `make distclean` will force next `make update` to refetch everything
