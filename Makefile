@@ -1,6 +1,6 @@
-# when app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt changes from StreetComplete are merged 
-# in FETCH_KEYS.make and FETCH_TAGS.make files , update this value with last git commit that changed Place.kt, i.e. one returned by:
-# cd $STREETCOMPLETE_PATH && git log -n 1 --format='%H' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
+# when app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt changes from StreetComplete are merged 
+# in FETCH_KEYS.make and FETCH_TAGS.make files , update this value with last git commit that changed Places.kt, i.e. one returned by:
+# cd $STREETCOMPLETE_PATH && git log -n 1 --format='%H' -- app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt
 STREETCOMPLETE_LAST_GIT=12f5d3167703a7305e5e1938729ed692aa45b1c4
 
 # paths to id-tagging-schema and StreetComplete git working directories
@@ -12,7 +12,7 @@ ID_DATA_PATH=../id-tagging-schema/data/presets
 #
 
 # what keys/tags to fetch, and how
-# content of FETCH_KEYS.make & FETCH_TAGS.make should match https://github.com/streetcomplete/StreetComplete/blob/master/app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt
+# content of FETCH_KEYS.make & FETCH_TAGS.make should match https://github.com/streetcomplete/StreetComplete/blob/master/app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt
 FETCH_KEYS := $(shell cat FETCH_KEYS.make)
 FETCH_TAGS := $(shell cat FETCH_TAGS.make)
 
@@ -85,7 +85,7 @@ update_id:
 
 update_sc:
 	cd $(STREETCOMPLETE_PATH) && git pull
-	@[ "`cd $(STREETCOMPLETE_PATH) && git log -n 1 --format='%H' -- app/src/main/java/de/westnordost/streetcomplete/osm/Place.kt`" = "$(STREETCOMPLETE_LAST_GIT)" ] || (echo "Place.kt in StreetComplete changed (no longer "$(STREETCOMPLETE_LAST_GIT)"), please see README.md for instruction how to fix this" ; exit 2)
+	@[ "`cd $(STREETCOMPLETE_PATH) && git log -n 1 --format='%H' -- app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt`" = "$(STREETCOMPLETE_LAST_GIT)" ] || (echo "Places.kt in StreetComplete changed (no longer "$(STREETCOMPLETE_LAST_GIT)"), please see README.md for instruction how to fix this" ; exit 2)
 
 update: clean update_id update_sc all
 
