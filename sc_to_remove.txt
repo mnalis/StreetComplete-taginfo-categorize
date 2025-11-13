@@ -10,7 +10,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "vacant", "insurance(:.*)?", "caravan", "gift", "bicycle", "bicycle_rental", "insulation",
     "communication", "mall", "model", "empty", "wood", "hunting", "motorcycle", "trailer",
     "camera", "water", "fireplace", "outdoor", "blacksmith", "electronics", "fan", "piercing",
-    "stationery", "sensory_friendly(:.*)?", "street_vendor",
+    "stationery", "sensory_friendly(:.*)?", "street_vendor", "sells(:.*)?", "safety_equipment",
     // obsoleted information
     "(demolished|abandoned|disused)(:(?!bui).+)?", "was:.*", "not:.*", "damage", "created_by",
     "check_date", "opening_date", "last_checked", "checked_exists:date", "pharmacy_survey",
@@ -27,7 +27,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     // contacts
     "contact_person", "contact(:.*)?", "phone(:.*)?", "phone_?[1-9]?", "emergency:phone",
     "emergency_telephone_code",
-    "mobile", "fax", "facebook", "instagram", "twitter", "youtube", "telegram", "email",
+    "mobile", "fax", "facebook", "instagram", "twitter", "youtube", "telegram", "tiktok", "email",
     "website_?[1-9]?(:.*)?", "app:.*", "ownership",
     "url", "url:official", "source_ref:url", "owner",
     // payments
@@ -60,15 +60,15 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "unisex", "male", "female", "gender", "gender_simple", "lgbtq(:.*)?", "gay", "female:signed",
     "male:signed",
     // healthcare
-    "healthcare(:.*)?", "healthcare_.*", "health", "health_.*", "medical_.*", "emergency_ward",
-    "facility(:.*)?", "activities", "healthcare_facility(:.*)?", "laboratory(:.*)?", "blood(:.*)?",
-    "blood_components", "infection(:.*)?", "disease(:.*)?", "covid19(:.*)?", "COVID_.*",
-    "CovidVaccineCenterId", "coronaquarantine", "hospital(:.*)?", "hospital_type_id",
-    "emergency_room", "sample_collection(:.*)?", "bed_count", "capacity:beds", "part_time_beds",
-    "personnel:count", "staff_count(:.*)?", "admin_staff", "doctors", "doctors_num", "nurses_num",
-    "counselling_type", "testing_centres", "toilets_number", "urgent_care", "vaccination",
-    "clinic", "hospital", "pharmacy", "alternative", "laboratory", "sample_collection",
-    "provided_for(:.*)?", "social_facility_for", "ambulance", "ward",
+    "healthcare(:.*)?", "healthcare_.*", "health", "health_.*", "speciality", "medical_.*",
+    "emergency_ward", "facility(:.*)?", "activities", "healthcare_facility(:.*)?",
+    "laboratory(:.*)?", "blood(:.*)?", "blood_components", "infection(:.*)?", "disease(:.*)?",
+    "covid19(:.*)?", "COVID_.*", "CovidVaccineCenterId", "coronaquarantine", "hospital(:.*)?",
+    "hospital_type_id", "emergency_room", "sample_collection(:.*)?", "bed_count", "capacity:beds",
+    "part_time_beds", "personnel:count", "staff_count(:.*)?", "admin_staff", "doctors",
+    "doctors_num", "nurses_num", "counselling_type", "testing_centres", "toilets_number",
+    "urgent_care", "vaccination", "clinic", "hospital", "pharmacy", "alternative", "laboratory",
+    "sample_collection", "provided_for(:.*)?", "social_facility_for", "ambulance", "ward",
     "HSE_(code|hgid|hgroup|region)", "collection_centre", "design", "AUTORIZATIE", "reg_id",
     "post_addr", "scope", "ESTADO", "NIVSOCIO", "NO", "EMP_EST", "COD_HAB", "CLA_PERS", "CLA_PRES",
     "snis_code:.*", "hfac_bed", "hfac_type", "nature", "moph_code", "IJSN:.*", "massgis:id",
@@ -81,7 +81,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "deanery", "subject:(wikidata|wikipedia|wikimedia_commons)", "church", "church:type",
     // schools
     "capacity:(pupils|teachers)", "grades", "population:pupils(:.*)?",
-    "school:(FR|gender|trust|type|type_idn)", "primary",
+    "school:(FR|gender|trust|type|type_idn|group:type)", "primary",
     // clubs
     "animal(_breeding|_training)?", "billiards(:.*)?", "board_game", "sport_1", "sport:boating",
     "boat:type", "canoe(_rental|:service)?", "kayak(_rental|:service)?",
@@ -97,7 +97,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "zoo", "shooting", "commons", "groomer", "group_only", "hazard", "identity", "interaction",
     "logo", "maxheight", "provides", "regional", "scale", "site", "plots", "allotments",
     "local_food", "monitoring:pedestrian", "recording:automated", "yacht", "background_music",
-    "url:spaceapi", "openfire",
+    "url:spaceapi", "openfire", "fraternity(:.*)?",
     // misc specific attributes
     "clothes", "shoes", "tailor", "beauty", "tobacco", "carpenter", "furniture", "lottery",
     "sport", "dispensing", "tailor:.*", "gambling", "material", "raw_material", "stonemason",

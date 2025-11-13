@@ -11,6 +11,7 @@ private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
    
     "atmotorway",
     "addr[1-9]?:.*", "old_addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber", "noaddress",
+    "addr",
     "not:addr:postcode", "postal_code", "place", "city", "country", "county", "district",
     "sub_district",
     "us.fo:[Aa]dressutal",
