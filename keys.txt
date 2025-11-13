@@ -80,6 +80,8 @@ piercing        // https://wiki.openstreetmap.org/wiki/Key:piercing used on shop
 stationery      // undocumented with some 91 uses worldwide; used with shop=kiosk|gift|books|tobacco|variety_store etc. likely to indicate if it carries stationaries (and whattypes)
 sensory_friendly(:.*)?  // see https://wiki.openstreetmap.org/wiki/Proposal:Sensory#sensory_friendly=*
 street_vendor   // see https://wiki.openstreetmap.org/wiki/Tag:street_vendor=yes
+sells(:.*)?     // what the shop sells
+safety_equipment    // what shop=safety_equipment sells
 
 // obsoleted information
 (demolished|abandoned|disused)(:(?!bui).+)?    // remove all abandoned/disused *except* buildings
@@ -151,6 +153,7 @@ instagram
 twitter
 youtube
 telegram
+tiktok
 email
 website_?[1-9]?(:.*)?
 app:.*
@@ -309,6 +312,7 @@ healthcare(:.*)?	// mostly stuff like healthcare=optometrist, shop=optician; but
 healthcare_.*       // like healthcare_therapist
 health
 health_.*	// health_service:examination, health_specialty:optometry, ... w/shop=optician
+speciality  // seems to be mistagging of healthcare:speciality
 medical_.*	// medical_system:western, medical_facility:type=office, ... w/shop=optician
 emergency_ward // undocumented; seems to be healthcare services
 facility(:.*)?
@@ -357,7 +361,7 @@ design              // e.g. healthcare=alternative + design=heilkundliche Psycho
 AUTORIZATIE     // undocumented, seems to be healthcare id or type from https://data.gov.ro/dataset/situatia-farmaciilor-din-romania ?
 reg_id          // undocumented, used only in Liberia, seem to be healt-related
 post_addr       // undocumented, used only in Liberia, seem to be healt-related
-scope     // undocumented, seems to healthcare related  
+scope     // undocumented, seems to healthcare related
 ESTADO              // undocumented, seems to be health-related ("status" grade?)
 NIVSOCIO            // undocumented, seems to be health-related
 NO                  // undocumented, seems to be health-related
@@ -406,7 +410,7 @@ capacity:(pupils|teachers)
 grades
 population:pupils(:.*)?
 
-school:(FR|gender|trust|type|type_idn)
+school:(FR|gender|trust|type|type_idn|group:type)
 primary         // undocumented, sometimes used with amenity = school, perhaps with meaning of "primary school"?
 
 // clubs
@@ -490,6 +494,7 @@ yacht               // seems related to club=yacht
 background_music    // undocumented, used on club=music
 url:spaceapi        // used on club=computer (and leisure=hackerspace); see https://wiki.openstreetmap.org/wiki/Key:url:spaceapi
 openfire            // used on some club=scout / tourism=camp_site https://wiki.openstreetmap.org/wiki/Key:openfire
+fraternity(:.*)?    // seems to be club related
 
 // misc specific attributes
 clothes
@@ -695,6 +700,7 @@ is_in(:.*)?
 address
 nohousenumber
 noaddress
+addr        // seems to be address related, but undocumented
 
 not:addr:postcode
 postal_code
@@ -937,21 +943,3 @@ lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
-
-// from _find_popular_subkeys.json
-safety_equipment
-
-// from club.json
-fraternity:fencing
-fraternity:network
-
-// from healthcare.json
-speciality
-
-// from shop.json
-sells:tobacco
-tiktok
-addr
-
-// from amenity-school.json
-school:group:type
