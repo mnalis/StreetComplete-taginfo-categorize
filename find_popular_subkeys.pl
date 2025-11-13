@@ -30,7 +30,9 @@ sub slurp_cmd($) {
 # parse one JSON file and return its main "data" array.
 sub get_json($) {
     my ($cmd) = @_;
+    #print STDERR "DEBUG: executing slurp_cmd($cmd)... ";
     my @json = decode_json (slurp_cmd($cmd));
+    #say STDERR "done.";
     return $json[0]->{'data'};;
 }
 
@@ -45,7 +47,7 @@ while (my $json_file = shift @ARGV) {
     foreach my $key (@values_many) {
         print STDERR "$key ";
         my $url = 'https://taginfo.openstreetmap.org/api/4/key/stats?key=' . uri_escape($key);
-        my $subjson_all = get_json "curl --silent '$url'";
+        my $subjson_all = get_json "curl --silent --max-time 120 --connect-timeout 20 --retry 5 '$url'";
         my $subkeys_count = (map { $_->{'count'} } grep { $_->{'type'} eq 'all' } @$subjson_all)[0];
 
         #say STDERR "subkeys_count=$subkeys_count";

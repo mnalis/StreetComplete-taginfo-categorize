@@ -1,7 +1,7 @@
 # when app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt changes from StreetComplete are merged 
 # in FETCH_KEYS.make and FETCH_TAGS.make files , update this value with last git commit that changed Places.kt, i.e. one returned by:
 # cd $STREETCOMPLETE_PATH && git log -n 1 --format='%H' -- app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt
-STREETCOMPLETE_LAST_GIT=57044dffe379f661352cb79f2ebe7080b92c0927
+STREETCOMPLETE_LAST_GIT=6ad79a940d0f5110e6d39fb9f2860cd9a5fc4a82
 
 # paths to id-tagging-schema and StreetComplete git working directories
 STREETCOMPLETE_PATH=../StreetComplete
@@ -20,7 +20,7 @@ MAX_TAGS := 999
 CURL_URL_TAG  := https://taginfo.openstreetmap.org/api/4/tag/combinations?filter=all&sortname=to_count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=other_tag&format=json_pretty
 CURL_URL_KEY  := https://taginfo.openstreetmap.org/api/4/key/combinations?filter=all&sortname=to_count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=other_key&format=json_pretty
 CURL_URL_KEY2 := https://taginfo.openstreetmap.org/api/4/key/values?filter=all&lang=en&sortname=count&sortorder=desc&page=1&rp=$(MAX_TAGS)&qtype=value&format=json_pretty
-CURL_FETCH = curl --silent --output $@
+CURL_FETCH = curl --silent --max-time 120 --connect-timeout 20 --retry 5 --output $@
 
 # those will be e.g. shop.json or amenity_cafe.json, respectively
 FILES_KEYS := $(patsubst %,%.json,$(FETCH_KEYS))
@@ -55,7 +55,7 @@ $(FILES_KEYS): FETCH_KEYS.make
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
 $(FILES_TAGS): FETCH_TAGS.make
-	@$(CURL_FETCH) '$(CURL_URL_TAG)&key=$(KEY_VALUE)'
+	$(CURL_FETCH) '$(CURL_URL_TAG)&key=$(KEY_VALUE)'
 	./update_keys.pl $@ $(MAX_TAGS) >> keys.txt
 
 stats:
