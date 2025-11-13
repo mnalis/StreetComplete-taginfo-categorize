@@ -937,3 +937,21 @@ lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
+
+// from _find_popular_subkeys.json
+safety_equipment
+
+// from club.json
+fraternity:fencing
+fraternity:network
+
+// from healthcare.json
+speciality
+
+// from shop.json
+sells:tobacco
+tiktok
+addr
+
+// from amenity-school.json
+school:group:type
