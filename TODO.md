@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2021,2025 Matija Nalis <mnalis-git@voyager.hr>
 SPDX-License-Identifier: Apache-2.0
 -->
 
-- [ ] also remove all main keys like "leisure, some office and one tourism"
+- [x] also remove all main keys like "leisure, some office and one tourism"
   see https://github.com/streetcomplete/StreetComplete/pull/3278#discussion_r708695175
   but see what if we have cobined unrelated tags? shop=convenience + office=goverments in same building? can function remove tag it was invoked on automatically? or can we at least specify per-value removals to remove only office=insurance and not office=* ?
 
