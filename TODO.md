@@ -16,3 +16,6 @@ SPDX-License-Identifier: Apache-2.0
     - 2021-09-06 09:54:57 +0200 smootheFiets <68379371+smootheFiets@users.noreply.github.com> 093d57e  Took care of most TODO's for shops.
   to add with e.g.:
     - reuse annotate --copyright "waterced <waterced1@gmail.com>" --license "CC0-1.0" --year 2024  --force-dot-license keys.txt
+
+- [ ] use REUSE.toml instead of *.txt.license files to consolidate authors in one place
+  see https://reuse.software/faq/#bulk-license
