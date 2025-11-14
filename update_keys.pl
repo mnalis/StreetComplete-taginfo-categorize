@@ -1,5 +1,10 @@
 #!/usr/bin/perl -T
-# by Matija Nalis <mnalis-git@voyager.hr> GPLv3+, started 20210905
+
+# SPDX-FileContributor: Matija Nalis
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# by Matija Nalis <mnalis-git@voyager.hr> started 20210905
 #
 # parse taginfo.openstreetmap.org output for a list of OSM keys like:
 # https://taginfo.openstreetmap.org/api/4/key/combinations?key=shop&filter=all&sortname=to_count&sortorder=desc&page=1&rp=501&qtype=other_key&format=json_pretty
