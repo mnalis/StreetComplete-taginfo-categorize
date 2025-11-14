@@ -1,5 +1,10 @@
 #!/usr/bin/perl -T
-# by Matija Nalis <mnalis-git@voyager.hr> GPLv3+, started 20210905
+
+# SPDX-FileCopyrightText: 2021,2024,2025 Matija Nalis <mnalis-git@voyager.hr>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# by Matija Nalis <mnalis-git@voyager.hr> started 20210905
 #
 # parses keys.txt and generates sc_to_remove.txt kotlin code in nicely commented blocks
 # see README.md for description of structure

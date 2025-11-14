@@ -1,5 +1,10 @@
 #!/usr/bin/perl -T
-# by Matija Nalis <mnalis-git@voyager.hr> GPLv3+, started 20210917
+
+# SPDX-FileCopyrightText: 2021,2024,2025 Matija Nalis <mnalis-git@voyager.hr>
+#
+# SPDX-License-Identifier: Apache-2.0
+
+# by Matija Nalis <mnalis-git@voyager.hr> started 20210917
 #
 # parse id-tagging-schema/data/presets/*
 
