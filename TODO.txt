@@ -3,3 +3,5 @@
   but see what if we have cobined unrelated tags? shop=convenience + office=goverments in same building? can function remove tag it was invoked on automatically? or can we at least specify per-value removals to remove only office=insurance and not office=* ?
 
 - script to detect and report duplicates in keys.txt (eg. note:* and note:en)? but there might in future be things we want that behaviour; like remove all "ref:*" except "ref:xxx". we currently can't handle that
+
+- fix unspecified licensing; see COPYING -- also use https://reuse.software/ ?
