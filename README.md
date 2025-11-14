@@ -1,3 +1,11 @@
+<!--
+SPDX-FileCopyrightText: 2021,2022,2024,2025 Matija Nalis <mnalis-git@voyager.hr>
+SPDX-FileCopyrightText: 2022 Flo Edelmann <florian-edelmann@online.de>
+SPDX-FileCopyrightText: 2024,2025 Mateusz Konieczny <matkoniecz@gmail.com>
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 ## Prerequisites
 - make, perl, JSON perl module, json_reformat (on Debian-based system: `apt-get install make perl libjson-perl yajl-tools`)
 - `https://github.com/openstreetmap/id-tagging-schema` repository in `../id-tagging-schema`

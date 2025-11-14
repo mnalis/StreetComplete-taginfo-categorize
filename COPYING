@@ -1,4 +1,4 @@
 WORK IN PROGRESS - FIXME - see https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/33 for required cleanups
 
-- All the data files (*.txt; *.json; *.json2) are released under CC0-1.0
-- The program and associated files (*.pl, Makefile, *.make) are released under Apache-2.0
+- All the tagging data files (*.txt) are released under CC0-1.0
+- The program and associated files (*.pl, Makefile, *.make, *.md) are released under Apache-2.0
