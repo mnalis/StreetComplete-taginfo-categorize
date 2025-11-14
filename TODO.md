@@ -17,5 +17,5 @@ SPDX-License-Identifier: Apache-2.0
   to add with e.g.:
     - reuse annotate --copyright "waterced <waterced1@gmail.com>" --license "CC0-1.0" --year 2024  --force-dot-license keys.txt
 
-- [ ] use REUSE.toml instead of *.txt.license files to consolidate authors in one place
+- [x] use REUSE.toml instead of *.txt.license files to consolidate authors in one place
   see https://reuse.software/faq/#bulk-license
