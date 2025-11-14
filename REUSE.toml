@@ -7,7 +7,7 @@ path = [
     "sc_to_remove.txt"
 ]
 
-# see TODO.md for missing authors
+# FIXME: see `TODO.md` and `COPYING` for missing authors
 SPDX-FileCopyrightText = [
     "2021,2022,2024,2025 Matija Nalis <mnalis-git@voyager.hr>",
     "2022 Tobias Zwick <newton@westnordost.de>",
