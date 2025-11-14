@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2021,2022,2024,2025 Matija Nalis <mnalis-git@voyager.hr>
+# SPDX-FileCopyrightText: 2024,2025 Mateusz Konieczny <matkoniecz@gmail.com>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # when app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt changes from StreetComplete are merged 
 # in FETCH_KEYS.make and FETCH_TAGS.make files , update this value with last git commit that changed Places.kt, i.e. one returned by:
 # cd $STREETCOMPLETE_PATH && git log -n 1 --format='%H' -- app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt

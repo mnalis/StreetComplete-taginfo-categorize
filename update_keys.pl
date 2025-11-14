@@ -1,6 +1,6 @@
 #!/usr/bin/perl -T
 
-# SPDX-FileContributor: Matija Nalis
+# SPDX-FileCopyrightText: 2021,2024,2025 Matija Nalis <mnalis-git@voyager.hr>
 #
 # SPDX-License-Identifier: Apache-2.0
 
