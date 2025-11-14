@@ -1,6 +1,6 @@
 <!--
 SPDX-FileCopyrightText: 2021,2022,2024,2025 Matija Nalis <mnalis-git@voyager.hr>
-SPDX-FileCopyrightText: 2022 Flo Edelmann <florian-edelmann@online.de>
+SPDX-FileCopyrightText: 2022 Flo Edelmann <git@flo-edelmann.de>
 SPDX-FileCopyrightText: 2024,2025 Mateusz Konieczny <matkoniecz@gmail.com>
 SPDX-FileContributor: rugk <rugk+git@posteo.de>
 
