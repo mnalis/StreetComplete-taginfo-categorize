@@ -1,5 +1,1 @@
-# SPDX-FileCopyrightText: 2024 Matija Nalis <mnalis-git@voyager.hr>
-#
-# SPDX-License-Identifier: Apache-2.0
-
 club craft healthcare office shop

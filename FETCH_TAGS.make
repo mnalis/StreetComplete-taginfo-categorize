@@ -1,8 +1,3 @@
-# SPDX-FileCopyrightText: 2024 Matija Nalis <mnalis-git@voyager.hr>
-# SPDX-FileCopyrightText: 2025 Mateusz Konieczny <matkoniecz@gmail.com>
-#
-# SPDX-License-Identifier: Apache-2.0
-
 information=office information=visitor_centre
 amenity=bar amenity=biergarten amenity=cafe amenity=fast_food amenity=food_court amenity=ice_cream amenity=pub amenity=restaurant
 amenity=childcare amenity=college amenity=dancing_school amenity=dive_centre amenity=dojo amenity=driving_school amenity=kindergarten
