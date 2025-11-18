@@ -15,7 +15,7 @@ SPDX-License-Identifier: Apache-2.0
 ## Usage instructions
 
 Those scripts were made to generate `KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED`
-for the [StreetComplete](https://github.com/streetcomplete/StreetComplete) app, but has since been adopted like
+for the [StreetComplete](https://github.com/streetcomplete/StreetComplete) app, but it has since been adopted by
 other apps too (like [CoMaps](https://codeberg.org/comaps/comaps/pulls/526)).
 
 `make update` should be run periodically, to find new keys with usage > 0.01%
