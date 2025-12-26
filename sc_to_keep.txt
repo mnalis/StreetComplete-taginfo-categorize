@@ -32,7 +32,7 @@ private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "castle_type", "nycdoitt:bin", "fid", "wikimedia_commons", "mapillary", "panoramax", "image",
     "image:.*", "size", "industrial", "project:opencities_abidjan", "highway", "utahagrc:parcelid",
     "WroclawGIS:building:ID", "mhs:.*", "sangis:.*", "listed_status", "divipola", "entrance:ramp",
-    "landcover", "massgis:.*",
+    "landcover", "massgis:.*", "ref:RS:(kucni_broj|ulica|naselje|grad|okrug|pokrajina)",
    
     "ref:.*",
     "maxspeed", "lanes", "oneway", "surface", "inscription", "construction",
