@@ -11,7 +11,7 @@ private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
    
     "atmotorway",
     "addr[1-9]?:.*", "old_addr[1-9]?:.*", "is_in(:.*)?", "address", "nohousenumber", "noaddress",
-    "addr",
+    "addr", "airside",
     "not:addr:postcode", "postal_code", "place", "city", "country", "county", "district",
     "sub_district",
     "us.fo:[Aa]dressutal",
@@ -22,7 +22,6 @@ private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "landmark", "layer", "ele", "height", "altitude", "author", "authorization", "area",
     "min_height", "floor:material",
     "FIXME", "fixme", "note(:.*)?", "fixme:type",
-    "ref:.*",
     "type",
     "caravans", "tents", "shower", "buildingpart", "door", "barrier", "wall", "fence_type",
     // fuel stations and craft=boatbuilder (which we do not target)
@@ -35,9 +34,7 @@ private val KEYS_THAT_SHOULD_NOT_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "WroclawGIS:building:ID", "mhs:.*", "sangis:.*", "listed_status", "divipola", "entrance:ramp",
     "landcover", "massgis:.*",
    
-   
-   
-   
+    "ref:.*",
     "maxspeed", "lanes", "oneway", "surface", "inscription", "construction",
    
     "year", "lastcheck", "last_check", "date", "start_date", "survey(:name|:date|_date)",

@@ -82,6 +82,9 @@ sensory_friendly(:.*)?  // see https://wiki.openstreetmap.org/wiki/Proposal:Sens
 street_vendor   // see https://wiki.openstreetmap.org/wiki/Tag:street_vendor=yes
 sells(:.*)?     // what the shop sells
 safety_equipment    // what shop=safety_equipment sells
+battery     // undocumented, seems mostly related to power=plant and similar, but also used on e.g. amenity=vending_machine + vending=electronics + electronics=battery
+frame       // undocumented, used mostly in Serbia on traffic signs; but also on shop=bicycle to indicate it sell bicycle frames?
+paint       // undocumented, used on shop=paint and shop=hardware sometimes
 
 // obsoleted information
 (demolished|abandoned|disused)(:(?!bui).+)?    // remove all abandoned/disused *except* buildings
@@ -124,6 +127,7 @@ name_?[1-9]?(:.*)?
 noname
 branch(:.*)?
 brand(:.*)?
+nobrand
 not:brand(:.*)?
 network(:.*)?		// used like brand, and network:short in healthcare
 operator(:.*)?
@@ -202,7 +206,7 @@ functional	// undocumented, 15 uses worldwide, seems to be like operational_stat
 trade
 wholesale
 sale
-smoking(:outside)?
+smoking(:.*)?
 zero_waste
 origin		// origin of goods sold; https://wiki.openstreetmap.org/wiki/Key:origin
 attraction	// shop=wine + attraction=winery or attraction=historic + craft=brewery
@@ -289,7 +293,7 @@ confectionery
 drinking_water:refill   // cafe/bar/club/resturant related: Indicates if an establishment participates in a water refill network; https://wiki.openstreetmap.org/wiki/Key:drinking_water:refill
 
 // related to repair shops/crafts
-service(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
+services?(:.*)?			// shop=car;car_repair, service=car_electrical_repairs;dealer;repair etc.; service:bicycle:retail, service:vehicle:car_parts, service:vehicle:glass, service:vehicle:batteries...
 motorcycle:.*
 repair
 .*:repair	// eg. bicycle:repair computer:repair fabrik:repair furniture:repair mobile_phone:repair etc.
@@ -410,7 +414,7 @@ capacity:(pupils|teachers)
 grades
 population:pupils(:.*)?
 
-school:(FR|gender|trust|type|type_idn|group:type)
+school:(FR|gender|trust|type|type_idn|group:type|selective)
 primary         // undocumented, sometimes used with amenity = school, perhaps with meaning of "primary school"?
 
 // clubs
@@ -701,6 +705,7 @@ address
 nohousenumber
 noaddress
 addr        // seems to be address related, but undocumented
+airside     // whether shop is inside airport.  Related to physical location, not specific shop
 
 not:addr:postcode
 postal_code
@@ -749,8 +754,6 @@ FIXME
 fixme
 note(:.*)?
 fixme:type
-
-ref:.*
 
 type 		// used in relations, e.g., type=multipolygon
 
@@ -804,11 +807,12 @@ entrance:ramp       // used a lot for pharmacies in Belgium. Probably more build
 
 landcover   // land data, not POI data
 massgis:.*  // https://wiki.openstreetmap.org/wiki/Key:massgis:ARTICLE97 and https://wiki.openstreetmap.org/wiki/MassGIS
+ref:RS:(kucni_broj|ulica|naselje|grad|okrug|pokrajina)   // address related, see https://wiki.openstreetmap.org/wiki/Key:ref:RS:kucni_broj & https://wiki.openstreetmap.org/wiki/Key:ref:RS:opstina
 
 
 ### KEYS TO PROBABLY KEEP ###
 
-
+ref:.*      // there are many... We fail-safe; by keeping all except ones known to be shop-related.
 
 maxspeed
 lanes
@@ -943,3 +947,4 @@ lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
+

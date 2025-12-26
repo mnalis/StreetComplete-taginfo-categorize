@@ -11,6 +11,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "communication", "mall", "model", "empty", "wood", "hunting", "motorcycle", "trailer",
     "camera", "water", "fireplace", "outdoor", "blacksmith", "electronics", "fan", "piercing",
     "stationery", "sensory_friendly(:.*)?", "street_vendor", "sells(:.*)?", "safety_equipment",
+    "battery", "frame", "paint",
     // obsoleted information
     "(demolished|abandoned|disused)(:(?!bui).+)?", "was:.*", "not:.*", "damage", "created_by",
     "check_date", "opening_date", "last_checked", "checked_exists:date", "pharmacy_survey",
@@ -21,9 +22,9 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "transiscope", "opendata:type", "local_ref", "official_ref",
     // names and identifications
     "name_?[1-9]?(:.*)?", ".*_name_?[1-9]?(:.*)?", "noname", "branch(:.*)?", "brand(:.*)?",
-    "not:brand(:.*)?", "network(:.*)?", "operator(:.*)?", "operator_type", "ref", "ref:vatin",
-    "designation", "SEP:CLAVEESC", "identifier", "ref:FR:SIRET", "ref:FR:SIREN", "ref:FR:NAF",
-    "(old_)?ref:FR:prix-carburants",
+    "nobrand", "not:brand(:.*)?", "network(:.*)?", "operator(:.*)?", "operator_type", "ref",
+    "ref:vatin", "designation", "SEP:CLAVEESC", "identifier", "ref:FR:SIRET", "ref:FR:SIREN",
+    "ref:FR:NAF", "(old_)?ref:FR:prix-carburants",
     // contacts
     "contact_person", "contact(:.*)?", "phone(:.*)?", "phone_?[1-9]?", "emergency:phone",
     "emergency_telephone_code",
@@ -38,7 +39,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "internet_access(:.*)?", "second_hand", "self_service", "automated", "license:.*",
     "bulk_purchase", ".*:covid19", "language:.*", "baby_feeding", "description(:.*)?",
     "description[0-9]", "min_age", "max_age", "supermarket(:.*)?", "social_facility(:.*)?",
-    "functional", "trade", "wholesale", "sale", "smoking(:outside)?", "zero_waste", "origin",
+    "functional", "trade", "wholesale", "sale", "smoking(:.*)?", "zero_waste", "origin",
     "attraction", "strapline", "dog", "showroom", "toilets?(:.*)?", "sanitary_dump_station",
     "changing_table(:.*)?", "wheelchair(.*)?", "blind", "company(:.*)?", "stroller", "walk-in",
     "webshop", "operational_status.*", "status", "drive_through", "surveillance(:.*)?",
@@ -54,7 +55,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "caterer", "real_fire", "flour_fortified", "highchair", "fast_food", "pub", "snack",
     "confectionery", "drinking_water:refill",
     // related to repair shops/crafts
-    "service(:.*)?", "motorcycle:.*", "repair", ".*:repair", "electronics_repair(:.*)?",
+    "services?(:.*)?", "motorcycle:.*", "repair", ".*:repair", "electronics_repair(:.*)?",
     "workshop",
     // shop=hairdresser, shop=clothes
     "unisex", "male", "female", "gender", "gender_simple", "lgbtq(:.*)?", "gay", "female:signed",
@@ -81,7 +82,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "deanery", "subject:(wikidata|wikipedia|wikimedia_commons)", "church", "church:type",
     // schools
     "capacity:(pupils|teachers)", "grades", "population:pupils(:.*)?",
-    "school:(FR|gender|trust|type|type_idn|group:type)", "primary",
+    "school:(FR|gender|trust|type|type_idn|group:type|selective)", "primary",
     // clubs
     "animal(_breeding|_training)?", "billiards(:.*)?", "board_game", "sport_1", "sport:boating",
     "boat:type", "canoe(_rental|:service)?", "kayak(_rental|:service)?",
