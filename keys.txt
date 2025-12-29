@@ -828,8 +828,6 @@ ref:bag     // buildings and addresses in the Netherlands, see https://wiki.open
 
 ### KEYS TO PROBABLY KEEP ###
 
-ref:.*      // there are many... We fail-safe; by keeping all except ones known to be shop-related.
-
 maxspeed
 lanes
 oneway		// misuse? eg. craft=metal_construction + highway=secondary_link + oneway=yes...
@@ -965,3 +963,99 @@ longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
 
+// from club.json
+ref:bygningsnr
+ref:caclr
+ref:charity
+ref:DSV
+ref:ES:catastro
+ref:FOS
+ref:FR:CRTA
+ref:FR:RNA
+ref:FR:RNB
+ref:FR:SDIS:GRPT
+ref:FR:sport_equip
+ref:GB:nhle
+ref:GB:uprn
+ref:gurs:hs_mid
+ref:gurs:sta_sid
+ref:HU:vatin
+ref:ico
+ref:lda
+ref:linz:(address_id|building_id|hydrographic_id|topo50_id) // https://wiki.openstreetmap.org/wiki/LINZ seems to be address/building/topo related
+ref:locallist
+ref:LV:addr
+ref:minvskaddress
+ref:nrhp
+ref:planningapp
+ref:ruian:addr
+ref:ruian:building
+ref:scoutingnl
+ref:UrbIS
+ref:vcgi:esiteid
+
+// from craft.json
+ref:athensclarkeaddress
+ref:bademiljø
+ref:comfort
+ref:HU:company
+ref:mhs
+ref:vb
+
+// from healthcare.json
+ref:apotek1
+ref:boots
+ref:BY:trade_register
+ref:category
+ref:CNES
+ref:csioz
+ref:cuie_codigo
+ref:doh
+ref:fps_health:campus
+ref:fps_health:recognition
+ref:FR:FINESS
+ref:FR:RPPS
+ref:GB:cqc_location
+ref:GB:nhs_ods
+ref:hvakostertannlegen
+ref:luebeck
+ref:microred
+ref:msal
+ref:nhn
+ref:nmd
+ref:ogdsteiermark
+ref:osakidetza
+ref:red
+ref:regon
+ref:rspo
+ref:sede
+ref:sisa_codigo
+ref:sisa_tipologia
+ref:SUKL
+ref:vatin:ve
+ref:walmart
+ref:ZonaSanitaria
+
+// from office.json
+ref:BLfD
+ref:bufa
+ref:GR:kepId
+ref:miabldg
+ref:nav
+ref:nid
+ref:thw
+
+// from amenity-kindergarten.json
+ref:cue
+
+
+// from amenity-place_of_worship.json
+ref:OnroerendErfgoed
+ref:inspire
+
+// from _id_tagging_schema.json
+ref:edubase-GB
+ref:FR:siret-FR
+
+// from _id_tagging_schema.json
+bath:sand_bath-JP
