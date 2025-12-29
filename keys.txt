@@ -563,6 +563,7 @@ openfire            // used on some club=scout / tourism=camp_site https://wiki.
 fraternity(:.*)?    // seems to be club related
 ref:DSV             // undocumented, used on club=sailing in Germany
 ref:FOS             // undocumented, used on club=scout in Belgium
+ref_fftt            // undocumented, seems to be used on club=*
 
 // misc specific attributes
 clothes
@@ -1037,4 +1038,3 @@ lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
-
