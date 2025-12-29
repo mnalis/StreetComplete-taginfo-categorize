@@ -142,16 +142,16 @@ ref:FR:SIREN    // company number given by INSEE in France https://wiki.openstre
 ref:FR:NAF      // 5-digits code describing organization main activity in France https://wiki.openstreetmap.org/wiki/Key:ref:FR:NAF
 (old_)?ref:FR:prix-carburants  // reference for fuel stations, see https://wiki.openstreetmap.org/wiki/Key:ref:FR:prix-carburants
 ref:HU:(vatin|company|om|ntak) // hungarian company-related IDs, see https://github.com/streetcomplete/StreetComplete/pull/6664
-ref:UAI               // French id of schools (also used on office=*), https://wiki.openstreetmap.org/wiki/Key%3Aref%3AUAI
-ref:edubase(:group)?  // UK amenity=school id, https://wiki.openstreetmap.org/wiki/Key%3Aref%3Aedubase
-ref:mise              // amenity=fuel identified in Italy, https://wiki.openstreetmap.org/wiki/Key%3Aref%3Amise
-ref:FR:LaPoste        // amenity=post_office related in France, https://wiki.openstreetmap.org/wiki/Key%3Aref%3AFR%3ALaPoste
+ref:UAI               // French id of schools (also used on office=*), https://wiki.openstreetmap.org/wiki/Key:ref:UAI
+ref:edubase(:group)?  // UK amenity=school id, https://wiki.openstreetmap.org/wiki/Key:ref:edubase
+ref:mise              // amenity=fuel identified in Italy, https://wiki.openstreetmap.org/wiki/Key:ref:mise
+ref:FR:LaPoste        // amenity=post_office related in France, https://wiki.openstreetmap.org/wiki/Key:ref:FR:LaPoste
 ref:Hermes            // undocumented, seems to be mostly post office related in Germany
 ref:pol_id            // undocumented, seems to be used mostly on amenity=post_office in UK
-ref:isil              // library reference; https://wiki.openstreetmap.org/wiki/Key%3Aref%3Aisil
-ref:INEP              // Brazilian school/kindergarden id, https://wiki.openstreetmap.org/wiki/Key%3Aref%3AINEP
-ref:coop              // Norway COOP shop id, https://wiki.openstreetmap.org/wiki/Key%3Aref%3Acoop
-ref:shop:num          // deprecated: Shop branch id number, https://wiki.openstreetmap.org/wiki/Key%3Aref%3Ashop%3Anum
+ref:isil              // library reference; https://wiki.openstreetmap.org/wiki/Key:ref:isil
+ref:INEP              // Brazilian school/kindergarden id, https://wiki.openstreetmap.org/wiki/Key:ref:INEP
+ref:coop              // Norway COOP shop id, https://wiki.openstreetmap.org/wiki/Key:ref:coop
+ref:shop:num          // deprecated: Shop branch id number, https://wiki.openstreetmap.org/wiki/Key:ref:shop:num
 ref:norgesgruppen     // undocumented, used basically only on shop=*
 ref:rema              // undocumented, used only on shop=* in Norway
 ref:tobacco           // undocumented, seems to be used mostly in Italy on shop=tobacco
@@ -874,7 +874,7 @@ IOM:project         // undocumented, used mostly in Republica Dominicana
 wb_pb:id            // undocumented, used in Kenya
 project:.*          // undocumented - maybe part of the mapping project? e.g. project:anr_cohesion_bouake, project:geoloc_unicef, project:geoloc_unicef:id, project:mappingforniger, project:oif-dfen_carteinnov
 FID                 // undocumented - few hundred uses on shop=* / club=*, but 87% are used in combination with building=*
-ref:at:bda      // Austrian monuments, amenity=place_of_worship related. https://wiki.openstreetmap.org/wiki/Key%3Aref%3Aat%3Abda - probably should stay even if church is no longer active?
+ref:at:bda      // Austrian monuments, amenity=place_of_worship related. https://wiki.openstreetmap.org/wiki/Key:ref:at:bda - probably should stay even if church is no longer active?
 
 entrance        // entrance itself is probably going to stay at the same place unless bigger renovations are being made
 
@@ -982,7 +982,6 @@ ref:gurs:sta_sid
 ref:HU:vatin
 ref:ico
 ref:lda
-ref:linz:(address_id|building_id|hydrographic_id|topo50_id) // https://wiki.openstreetmap.org/wiki/LINZ seems to be address/building/topo related
 ref:locallist
 ref:LV:addr
 ref:minvskaddress
@@ -1043,7 +1042,6 @@ ref:GR:kepId
 ref:miabldg
 ref:nav
 ref:nid
-ref:thw
 
 // from amenity-kindergarten.json
 ref:cue
@@ -1059,3 +1057,4 @@ ref:FR:siret-FR
 
 // from _id_tagging_schema.json
 bath:sand_bath-JP
+
