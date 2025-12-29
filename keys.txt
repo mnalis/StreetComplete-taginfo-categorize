@@ -131,11 +131,12 @@ ref:regon       // undocumented, seems healthcare-related, often used with ref:r
 ref:BY:trade_register   // trade registry in Belarus, https://wiki.openstreetmap.org/wiki/Key:ref:BY:trade_register
 ref:vb          // undocumented, seems to be craft=plumber related in Norway
 ref:comfort     // undocumented, seems to be craft=plumber related in Norway
-ref:bademiljø   // undocumented, seems to be craft=plumber related in Norway (FIXME check UTF-8 handling)
+ref:bademilj.   // undocumented, seems to be craft=plumber related in Norway -- actually "ref:bademiljø" (UTF-8 handling)
 ref:HU:vatin    // Hungarian national version of VATID, https://wiki.openstreetmap.org/wiki/Key:ref:HU:vatin
 ref:HU:company  // undocumented, seems to be Hungarian company-related id (amenity=fuel, shop=*, etc)
 ref:ico         // Slovak company registration id, https://wiki.openstreetmap.org/wiki/Key:ref:ico
 ref:scoutingnl  // undocumented, seems to be club=scout id in Netherlands
+ref:anlegg      // undocumented, seems like sport-facility id in Norway, (but very rarely hits club=* so is detected)
 ref:FR:sport_equip      // undocumented, seems sports related
 ref:FR:RNA      // associations id in France, https://wiki.openstreetmap.org/wiki/Key:ref:FR:RNA
 ref:FR:CRTA     // ref of a tourism feature in France, https://wiki.openstreetmap.org/wiki/Key:ref:FR:CRTA
@@ -203,6 +204,7 @@ url
 url:official
 source_ref:url
 owner
+ref:website     // undocumented, used mostly (91%) on shop=*
 
 // payments
 payment(:.*)?
@@ -559,6 +561,8 @@ background_music    // undocumented, used on club=music
 url:spaceapi        // used on club=computer (and leisure=hackerspace); see https://wiki.openstreetmap.org/wiki/Key:url:spaceapi
 openfire            // used on some club=scout / tourism=camp_site https://wiki.openstreetmap.org/wiki/Key:openfire
 fraternity(:.*)?    // seems to be club related
+ref:DSV             // undocumented, used on club=sailing in Germany
+ref:FOS             // undocumented, used on club=scout in Belgium
 
 // misc specific attributes
 clothes
@@ -1016,8 +1020,9 @@ sport:sport_pub     // this is about sport which we handle, see https://github.c
 sport_pub           // see above, fake key from _id_tagging_schema.json
 sport:sport_ice     // fake, used by leisure=ice_rink, piste=ice_skate
 drinking_water_available    // fake, used by highway=rest_area, tourism=wilderness_hut, tourism=camp_site
-ref:edubase-GB      // fake?
-ref:FR:siret-FR     // fake?
+ref:edubase-GB      // fake from id-tagging-schema
+ref:FR:siret-FR     // fake from id-tagging-schema
+bath:sand_bath-JP   // fake from id-tagging-schema/data/presets/amenity/public_bath.json
 
 # discardables; might actually be removable according to https://github.com/streetcomplete/StreetComplete/issues/4873#issuecomment-1467208064 but we need to fix encoding issues from https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/28 first (or remove them via mass-edit in https://community.openstreetmap.org/t/faroe-islands-address-metadata-cleanup-proposed-mass-edit/109790/3)
 LINZ2OSM:.*         // deprecated/useless discardable, from import, more likely to refer to buildings than POIs, see https://wiki.openstreetmap.org/wiki/LINZ/Invented_Tags
