@@ -110,7 +110,7 @@ private val KEYS_THAT_SHOULD_BE_REMOVED_WHEN_PLACE_IS_REPLACED = listOf(
     "zoo", "shooting", "commons", "groomer", "group_only", "hazard", "identity", "interaction",
     "logo", "maxheight", "provides", "regional", "scale", "site", "plots", "allotments",
     "local_food", "monitoring:pedestrian", "recording:automated", "yacht", "background_music",
-    "url:spaceapi", "openfire", "fraternity(:.*)?", "ref:DSV", "ref:FOS",
+    "url:spaceapi", "openfire", "fraternity(:.*)?", "ref:DSV", "ref:FOS", "ref_fftt",
     // misc specific attributes
     "clothes", "shoes", "tailor", "beauty", "tobacco", "carpenter", "furniture", "lottery",
     "sport", "dispensing", "tailor:.*", "gambling", "material", "raw_material", "stonemason",
