@@ -106,7 +106,7 @@ fixme:atp   // see https://github.com/mnalis/StreetComplete-taginfo-categorize/i
 // classifications / links to external databases
 fhrs:.*		// tied to restaurant: https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/2
 old_fhrs:.*
-fvst:.*		// tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr 
+fvst:.*		// tied to restaurant, but for DK: https://wiki.openstreetmap.org/wiki/Key:fvst:navnelbnr
 ncat		// seems to be to classification for hospitality industry in South Korea (?)
 nat_ref		// used on ton of amenity=bank in Taiwan
 gnis:.*		// on amenity=post_office in US; https://wiki.openstreetmap.org/wiki/USGS_GNIS says  "If you come across a feature that no longer exists in the real world, feel free to delete it. "
@@ -120,6 +120,26 @@ transiscope     // ecologic transition in progress, seems to be shop attribute. 
 opendata:type       // undocumented, seems to specify type of shop/amenity imported. Used in Toronto,Canada
 local_ref
 official_ref
+ref:thw         // undocumented, used mostly (90%) on emergency=disaster_response, also on some office=government in Germany
+ref:nav         // undocumented, basically only office = government in Norway
+ref:GR:kepId    // undocumented, used mostly only on office=government in Greece
+ref:bufa        // German tax office, https://wiki.openstreetmap.org/wiki/Key:ref:bufa
+ref:walmart     // undocumented, seems to be Walmart shop id
+ref:rspo        // reference number of a school in Poland,  https://wiki.openstreetmap.org/wiki/Key:ref:rspo
+ref:cue         // undocumented, seems to be school/kindergarten related id in Argentina
+ref:regon       // undocumented, seems healthcare-related, often used with ref:rspo
+ref:BY:trade_register   // trade registry in Belarus, https://wiki.openstreetmap.org/wiki/Key:ref:BY:trade_register
+ref:vb          // undocumented, seems to be craft=plumber related in Norway
+ref:comfort     // undocumented, seems to be craft=plumber related in Norway
+ref:bademiljÃ¸   // undocumented, seems to be craft=plumber related in Norway (FIXME check UTF-8 handling)
+ref:HU:vatin    // Hungarian national version of VATID, https://wiki.openstreetmap.org/wiki/Key:ref:HU:vatin
+ref:HU:company  // undocumented, seems to be Hungarian company-related id (amenity=fuel, shop=*, etc)
+ref:ico         // Slovak company registration id, https://wiki.openstreetmap.org/wiki/Key:ref:ico
+ref:scoutingnl  // undocumented, seems to be club=scout id in Netherlands
+ref:FR:sport_equip      // undocumented, seems sports related
+ref:FR:RNA      // associations id in France, https://wiki.openstreetmap.org/wiki/Key:ref:FR:RNA
+ref:FR:CRTA     // ref of a tourism feature in France, https://wiki.openstreetmap.org/wiki/Key:ref:FR:CRTA
+ref:charity     // undocumented, seems to be used on charity shops in UK
 
 // names and identifications
 name_?[1-9]?(:.*)?
@@ -133,7 +153,7 @@ network(:.*)?		// used like brand, and network:short in healthcare
 operator(:.*)?
 operator_type	// misspelled https://wiki.openstreetmap.org/wiki/Key:operator:type ?
 ref		// without extra clasification like ref:xxx, it is most likely shop related
-ref:vatin
+ref:vatin(:.*)? // VAT ID for shop
 designation	// used to record the legal classification of an object, quick check show mostly shop-type related.  https://wiki.openstreetmap.org/wiki/Key:designation
 SEP:CLAVEESC    // from amenity-kindergarten.json - undocumented, seems to be subtype of facility code?
 identifier      // undocumented, seems office=related
@@ -156,7 +176,7 @@ ref:norgesgruppen     // undocumented, used basically only on shop=*
 ref:rema              // undocumented, used only on shop=* in Norway
 ref:tobacco           // undocumented, seems to be used mostly in Italy on shop=tobacco
 ref:mekonomen         // undocumented, used only on shop=* in Norway
-ref:google            // undocumented, used on amenity=* and shop=*, perhaps Google Knowledge Graph  identifier of a shop? 
+ref:google            // undocumented, used on amenity=* and shop=*, perhaps Google Knowledge Graph  identifier of a shop?
 
 // contacts
 contact_person
@@ -198,7 +218,7 @@ paypoint    // undocumented, seems to be related to payments of shop=*
 
 // generic shop/craft attributes
 seasonal	// 398 combinations worldwide, shop=travel_agency, shop=greengrocer...
-time		// 385 combinations worldwide; either mistaken opening_hours, or some unknown timestamp 
+time		// 385 combinations worldwide; either mistaken opening_hours, or some unknown timestamp
 opening_hours(:.*)?
 check_(in|out)      // undocumented, seems to be checkin/checkout times for tourism=*
 wifi
@@ -409,6 +429,30 @@ HF_(ID|TYPE|N_EN)   // undocumented, seems to be imported hospital types/id/desc
 RoadConn            // undocumented, seems to be used only on imported hospitals in Myanmar
 bin                 // https://wiki.openstreetmap.org/wiki/Key:bin, sometimes used on healthcare=*. When that is gone, likely the wastebakets are gone too
 hiv(:.*)?           // https://wiki.openstreetmap.org/wiki/Key:hiv
+ref:ZonaSanitaria   // undocumented, seems healthcare-related in Uruguay
+ref:cuie_codigo     // undocumented, seems healthcare-related in Uruguay
+ref:sisa_(codigo|tipologia) // Health establishments in Argentina, https://wiki.openstreetmap.org/wiki/Key:ref:sisa_tipologia & https://wiki.openstreetmap.org/wiki/Key:ref:sisa_codigo
+ref:SUKL            // undocumented, seems to be healthcare=pharmacy id in Czechia
+ref:sede            // undocumented, seems healthcare-related in Italy
+ref:msal            // healthcare=pharmacy id  in Italy https://wiki.openstreetmap.org/wiki/Key:ref:msal
+ref:(micro)?red     // undocumented, seems healthcare-related in Peru
+ref:category        // undocumented, seems healthcare-related in Peru
+ref:osakidetza          // undocumented, seems healthcare-related in Spain
+ref:ogdsteiermark       // undocumented, seems healthcare and fire department / emergency services related in Austria. related to https://wiki.openstreetmap.org/wiki/AT/Steiermark/OGD ?
+ref:luebeck             // undocumented, seems healthcare=pharmacy related in part of Germany
+ref:nmd                 // undocumented, seems amenity=pharmacy related id in in Norway
+ref:nhn                 // undocumented, seems amenity=doctors related id in in Norway
+ref:hvakostertannlegen  // undocumented, seems amenity=dentist related in Norway
+ref:boots               // undocumented, seems healthcare=pharmacy related in Norway
+ref:apotek1             // undocumented, seems healthcare=pharmacy related in Norway
+ref:GB:nhs_ods          // UK healthcare NHS ODS Code https://wiki.openstreetmap.org/wiki/Key:ref:GB:nhs_ods
+ref:GB:cqc_location     // UK NHS classified healthcare locations - Care Quality Commission (England) location ID https://wiki.openstreetmap.org/wiki/Key:ref:GB:cqc_location
+ref:FR:FINESS           // id of health places or social care places in France - https://wiki.openstreetmap.org/wiki/Key:ref:FR:FINESS
+ref:FR:RPPS             // healthcare-related in France https://wiki.openstreetmap.org/wiki/Key:ref:FR:RPPS
+ref:fps_health(:.*)     // undocumented, seems healthcare-related in Belgium
+ref:doh                 // undocumented, seems healthcare-related in Philippines
+ref:csioz               // Poland pharmacies id https://wiki.openstreetmap.org/wiki/Key:ref:csioz
+ref:CNES                // Healthcare in Brazil id, https://wiki.openstreetmap.org/wiki/Key:ref:CNES
 
 // accommodation & layout
 rooms
@@ -502,11 +546,11 @@ interaction         // undocumented, e.g. interaction=buying_and_selling on club
 logo                // undocumented, seems to be link to graphical logo of the club=sport
 maxheight           // seems to be used with club=automobile
 provides            // undocumented, seems to be about what club=* provides; e.g. provides=culture;spaces;participation;community
-regional            // undocumented, seems to be about geographic locality for club=foodcoop 
+regional            // undocumented, seems to be about geographic locality for club=foodcoop
 scale               // undocumented, used on club=model_railway, likely model railway scale
 site                // https://wiki.openstreetmap.org/wiki/Key:site used on club=scout|youth relations sometimes e.g. with site=community_centre
 plots               // undocumented, seems to be number of plots for club=gardening
-allotments          // mostly plot|gardening, see https://wiki.openstreetmap.org/wiki/Tag:allotments=plot 
+allotments          // mostly plot|gardening, see https://wiki.openstreetmap.org/wiki/Tag:allotments=plot
 local_food          // undocumented, 7 uses worldwide, seems to be used with club=local_food
 monitoring:pedestrian       // seems to be used on club=sport + sport=running; if that club is gone, probably monitoring equipment will be gone too
 recording:automated         // seems to be used on club=sport + sport=running; if that club is gone, probably monitoring equipment will be gone too
@@ -602,7 +646,7 @@ department          // used with office=university, see https://wiki.openstreetm
 faculty             // used with office=university, see https://wiki.openstreetmap.org/wiki/Key:faculty
 aerospace:product   // used with office=company etc., see https://wiki.openstreetmap.org/wiki/Key:aerospace:product
 boundary            // used with office=governament / research / political_party
-population          // used with office=government, see https://wiki.openstreetmap.org/wiki/Key:population, 
+population          // used with office=government, see https://wiki.openstreetmap.org/wiki/Key:population,
 diocese             // used with office=parish / religion, see https://wiki.openstreetmap.org/wiki/Key:diocese
 depot               // undocumented, used with office=travel_agent/company
 cargo               // used with office=logistics, see https://wiki.openstreetmap.org/wiki/Key:cargo
@@ -811,7 +855,7 @@ image			// picture
 image:.*         // image subtags used by a single mapper
 size		// far more common (and less error-prone) to define width=*, height=* and length=* separately; https://wiki.openstreetmap.org/wiki/Key:size
 industrial	// used with landuse=industrial; https://wiki.openstreetmap.org/wiki/Key:industrial
-project:opencities_abidjan	// undocumented; seems to be import related 
+project:opencities_abidjan	// undocumented; seems to be import related
 highway		// craft misused; eg. craft=carpenter + highway=service + service=driveway + surface=asphalt; or craft=metal_construction + highway=secondary_link
 utahagrc:parcelid	// https://wiki.openstreetmap.org/wiki/Key:utahagrc:parcelid
 WroclawGIS:building:ID	// Poland buildings
@@ -820,11 +864,35 @@ sangis:.*	// address-related, https://wiki.openstreetmap.org/wiki/SanGIS
 listed_status	//  official listed status of a building or other structure, usually due to their historical significance, https://wiki.openstreetmap.org/wiki/Key:listed_status
 divipola    // The Administrative Political Division of Colombia - see https://wiki.openstreetmap.org/wiki/ES:Key:divipola
 entrance:ramp       // used a lot for pharmacies in Belgium. Probably more building than shop related. https://wiki.openstreetmap.org/wiki/Key:entrance:ramp
-
 landcover   // land data, not POI data
 massgis:.*  // https://wiki.openstreetmap.org/wiki/Key:massgis:ARTICLE97 and https://wiki.openstreetmap.org/wiki/MassGIS
 ref:RS:(kucni_broj|ulica|naselje|grad|okrug|pokrajina)   // address related, see https://wiki.openstreetmap.org/wiki/Key:ref:RS:kucni_broj & https://wiki.openstreetmap.org/wiki/Key:ref:RS:opstina
 ref:bag     // buildings and addresses in the Netherlands, see https://wiki.openstreetmap.org/wiki/Key:ref:bag
+ref:caclr       // undocumented import tag, possible address related https://wiki.openstreetmap.org/wiki/Key:ref:caclr
+ref:LV:addr     // addresses in Latvia id, https://wiki.openstreetmap.org/wiki/Key:ref:LV:addr
+ref:minvskaddress   //  address identifier in Slovakia, https://wiki.openstreetmap.org/wiki/Key:ref:minvskaddress
+ref:gurs:(sta_sid|hs_mid)        // building and address import in Slovenia, https://wiki.openstreetmap.org/wiki/Key:ref:gurs:sta_sid & https://wiki.openstreetmap.org/wiki/Key:ref:gurs:hs_mid
+ref:planningapp     // undocumented, seems to be building related in GB, comes often with ref:GB:uprn too
+ref:locallist       // undocumented, seems to be building related in GB, comes often with ref:GB:uprn too
+ref:ruian:(building|addr)  // building / address id in Czechia, https://wiki.openstreetmap.org/wiki/Key:ref:ruian:building & https://wiki.openstreetmap.org/wiki/Key:ref:ruian:addr
+ref:athensclarkeaddress     // undocumented, used in Georgia, USA - used on nodes with just addresses
+ref:UrbIS   // buildings and addresses in Brussels, Belgium - https://wiki.openstreetmap.org/wiki/Key:ref:UrbIS
+ref:vcgi:esiteid            // undocumented, used in Vermont, USA - used on nodes with just addresses; maybe related to https://wiki.openstreetmap.org/wiki/Vermont_Towns_Import
+ref:linz:(address_id|building_id|hydrographic_id|topo50_id) // https://wiki.openstreetmap.org/wiki/LINZ seems to be address/building/topo related
+ref:nid     // heritage in Poland, https://wiki.openstreetmap.org/wiki/Key:ref:nid
+ref:BLfD    // German monuments (but matches some office=government/religion/charity), https://wiki.openstreetmap.org/wiki/Key:ref:BLfD
+ref:miabldg     // building id, https://wiki.openstreetmap.org/wiki/Key:ref:miabldg
+ref:mhs         // French heritage https://wiki.openstreetmap.org/wiki/Key:ref:mhs, (but very rarely hits craft=* so is detected)
+ref:nrhp        // USA NRIS ID, for historic sites and structures.  https://wiki.openstreetmap.org/wiki/Key:ref:nrhp, (but very rarely hits club=* so is detected)
+ref:lda         // undocumented, seems to be heritage related in Germany , (but very rarely hits club=* so is detected)
+ref:OnroerendErfgoed    // undocumented, seems heritage-related in Belgium, translates to "Immovable Heritage", sometimes hits amenity=place_of_worship
+ref:GB:nhle     // heritage buildings in GB, https://wiki.openstreetmap.org/wiki/Key:ref:GB:nhle
+ref:GB:uprn     // Unique Property Reference Number in GB, https://wiki.openstreetmap.org/wiki/Key:ref:GB:uprn
+ref:FR:SDIS:GRPT    // undocumented, seems firestation related region or something in France, (but very rarely hits club=* so is detected)
+ref:FR:RNB      // building ref in France, https://wiki.openstreetmap.org/wiki/Key:ref:FR:RNB
+ref:ES:catastro // undocumented, seems to be cadastral  data in Spain
+ref:bygningsnr  // identifier for buildings in Norway, https://wiki.openstreetmap.org/wiki/Key:ref:bygningsnr
+ref:inspire     // undocumented, used on different heritage related tags, hits some amenity=place_of_worship
 
 ### KEYS TO PROBABLY KEEP ###
 
@@ -863,9 +931,9 @@ project		// undocumented, 643 uses worldwide
 project:pdevii	// undocumented, 337 uses worldwide
 usar_addr:edit_date	// undocumented, 279 uses worldwide
 bmo:type	// https://wiki.openstreetmap.org/wiki/BMO - Cadastre related for Brest, France?
-osm_type    // undocumented, mostly used in Nigeria (914 times); confusing but does not seem shop-related, but geometry-related 
+osm_type    // undocumented, mostly used in Nigeria (914 times); confusing but does not seem shop-related, but geometry-related
 previously  // reference old node it replaced for history tracking, see https://wiki.openstreetmap.org/wiki/Key:previously
-comoros-dgsc:code   // undocumented, Moroni island only, seems to be location-based 
+comoros-dgsc:code   // undocumented, Moroni island only, seems to be location-based
 full_id             // undocumented, used only in Pointe-Noire
 GNS:.*        // GNS import seems feature related, https://wiki.openstreetmap.org/wiki/Key:GNS:dsg_code
 HE_ref              // feature related import in UK, https://wiki.openstreetmap.org/wiki/Key:HE_ref
@@ -948,6 +1016,8 @@ sport:sport_pub     // this is about sport which we handle, see https://github.c
 sport_pub           // see above, fake key from _id_tagging_schema.json
 sport:sport_ice     // fake, used by leisure=ice_rink, piste=ice_skate
 drinking_water_available    // fake, used by highway=rest_area, tourism=wilderness_hut, tourism=camp_site
+ref:edubase-GB      // fake?
+ref:FR:siret-FR     // fake?
 
 # discardables; might actually be removable according to https://github.com/streetcomplete/StreetComplete/issues/4873#issuecomment-1467208064 but we need to fix encoding issues from https://github.com/mnalis/StreetComplete-taginfo-categorize/issues/28 first (or remove them via mass-edit in https://community.openstreetmap.org/t/faroe-islands-address-metadata-cleanup-proposed-mass-edit/109790/3)
 LINZ2OSM:.*         // deprecated/useless discardable, from import, more likely to refer to buildings than POIs, see https://wiki.openstreetmap.org/wiki/LINZ/Invented_Tags
@@ -962,99 +1032,4 @@ lon         // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 longitude   // discardable, see https://wiki.openstreetmap.org/wiki/Key:lon
 
 ### TODO ###
-
-// from club.json
-ref:bygningsnr
-ref:caclr
-ref:charity
-ref:DSV
-ref:ES:catastro
-ref:FOS
-ref:FR:CRTA
-ref:FR:RNA
-ref:FR:RNB
-ref:FR:SDIS:GRPT
-ref:FR:sport_equip
-ref:GB:nhle
-ref:GB:uprn
-ref:gurs:hs_mid
-ref:gurs:sta_sid
-ref:HU:vatin
-ref:ico
-ref:lda
-ref:locallist
-ref:LV:addr
-ref:minvskaddress
-ref:nrhp
-ref:planningapp
-ref:ruian:addr
-ref:ruian:building
-ref:scoutingnl
-ref:UrbIS
-ref:vcgi:esiteid
-
-// from craft.json
-ref:athensclarkeaddress
-ref:bademiljø
-ref:comfort
-ref:HU:company
-ref:mhs
-ref:vb
-
-// from healthcare.json
-ref:apotek1
-ref:boots
-ref:BY:trade_register
-ref:category
-ref:CNES
-ref:csioz
-ref:cuie_codigo
-ref:doh
-ref:fps_health:campus
-ref:fps_health:recognition
-ref:FR:FINESS
-ref:FR:RPPS
-ref:GB:cqc_location
-ref:GB:nhs_ods
-ref:hvakostertannlegen
-ref:luebeck
-ref:microred
-ref:msal
-ref:nhn
-ref:nmd
-ref:ogdsteiermark
-ref:osakidetza
-ref:red
-ref:regon
-ref:rspo
-ref:sede
-ref:sisa_codigo
-ref:sisa_tipologia
-ref:SUKL
-ref:vatin:ve
-ref:walmart
-ref:ZonaSanitaria
-
-// from office.json
-ref:BLfD
-ref:bufa
-ref:GR:kepId
-ref:miabldg
-ref:nav
-ref:nid
-
-// from amenity-kindergarten.json
-ref:cue
-
-
-// from amenity-place_of_worship.json
-ref:OnroerendErfgoed
-ref:inspire
-
-// from _id_tagging_schema.json
-ref:edubase-GB
-ref:FR:siret-FR
-
-// from _id_tagging_schema.json
-bath:sand_bath-JP
 
