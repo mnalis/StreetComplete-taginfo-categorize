@@ -131,7 +131,7 @@ ref:regon       // undocumented, seems healthcare-related, often used with ref:r
 ref:BY:trade_register   // trade registry in Belarus, https://wiki.openstreetmap.org/wiki/Key:ref:BY:trade_register
 ref:vb          // undocumented, seems to be craft=plumber related in Norway
 ref:comfort     // undocumented, seems to be craft=plumber related in Norway
-ref:bademilj.   // undocumented, seems to be craft=plumber related in Norway -- actually "ref:bademiljø" (UTF-8 handling)
+ref:bademilj.   // undocumented, seems to be craft=plumber related in Norway -- actually "ref:bademiljø" (using "." for failsafe a UTF-8 handling)
 ref:HU:vatin    // Hungarian national version of VATID, https://wiki.openstreetmap.org/wiki/Key:ref:HU:vatin
 ref:HU:company  // undocumented, seems to be Hungarian company-related id (amenity=fuel, shop=*, etc)
 ref:ico         // Slovak company registration id, https://wiki.openstreetmap.org/wiki/Key:ref:ico
