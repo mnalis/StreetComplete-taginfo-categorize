@@ -62,3 +62,8 @@ When one has completed updating `FETCH_KEYS.make` and `FETCH_TAGS.make`, they ne
 ```
 cd $STREETCOMPLETE_PATH && git log -n 1 --format='%H' -- app/src/commonMain/kotlin/de/westnordost/streetcomplete/osm/Places.kt
 ```
+
+## Usage
+
+* [StreetComplete](https://github.com/streetcomplete/StreetComplete/blob/master/CONTRIBUTING.md#streetcomplete-related-projects)
+* [CoMaps](https://codeberg.org/comaps/comaps/src/branch/main/libs/editor/keys_to_remove.hpp)
