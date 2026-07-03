@@ -1,5 +1,5 @@
 information=office information=visitor_centre
-amenity=bar amenity=biergarten amenity=cafe amenity=fast_food amenity=food_court amenity=ice_cream amenity=pub amenity=restaurant
+amenity=bar amenity=biergarten amenity=cafe amenity=fast_food amenity=food_court amenity=ice_cream amenity=kitchen amenity=pub amenity=restaurant
 amenity=childcare amenity=college amenity=dancing_school amenity=dive_centre amenity=dojo amenity=driving_school amenity=kindergarten
 amenity=language_school amenity=library amenity=music_school amenity=prep_school amenity=research_institute amenity=school
 amenity=toy_library amenity=training amenity=university amenity=boat_rental amenity=car_rental amenity=car_wash amenity=fuel
@@ -14,9 +14,12 @@ amenity=fire_station amenity=mailroom amenity=police amenity=post_depot amenity=
 amenity=townhall amenity=lavoir amenity=left_luggage amenity=animal_boarding amenity=animal_shelter amenity=animal_training
 amenity=coworking_space amenity=crematorium amenity=funeral_hall amenity=internet_cafe amenity=meditation_centre amenity=monastery
 amenity=mortuary amenity=place_of_mourning amenity=place_of_worship amenity=public_bath
+education=college education=dancing_school education=driving_school education=kindergarten education=language_school education=music_school
+education=prep_school education=school education=university
 emergency=air_rescue_service emergency=ambulance_station emergency=disaster_response emergency=mountain_rescue emergency=water_rescue
 leisure=adult_gaming_centre leisure=amusement_arcade leisure=bowling_alley leisure=dance leisure=escape_game leisure=fitness_centre
 leisure=hackerspace leisure=ice_rink leisure=indoor_play leisure=sauna leisure=sports_hall leisure=stadium leisure=tanning_salon leisure=trampoline_park
 military=office
 tourism=alpine_hut tourism=apartment tourism=aquarium tourism=chalet tourism=gallery tourism=guest_house tourism=hostel tourism=hotel
 tourism=hunting_lodge tourism=museum tourism=motel tourism=trail_riding_station tourism=wilderness_hut
+waterway=fuel
