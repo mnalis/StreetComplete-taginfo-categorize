@@ -872,6 +872,7 @@ entrance:ramp       // used a lot for pharmacies in Belgium. Probably more build
 landcover   // land data, not POI data
 massgis:.*  // https://wiki.openstreetmap.org/wiki/Key:massgis:ARTICLE97 and https://wiki.openstreetmap.org/wiki/MassGIS
 ref:RS:(kucni_broj|ulica|naselje|grad|okrug|pokrajina)   // address related, see https://wiki.openstreetmap.org/wiki/Key:ref:RS:kucni_broj & https://wiki.openstreetmap.org/wiki/Key:ref:RS:opstina
+ref:HR:kucni_broj // address related, see https://community.openstreetmap.org/t/upisivanje-dgu-adresa-u-hrvatsku/137215
 ref:bag     // buildings and addresses in the Netherlands, see https://wiki.openstreetmap.org/wiki/Key:ref:bag
 ref:caclr       // undocumented import tag, possible address related https://wiki.openstreetmap.org/wiki/Key:ref:caclr
 ref:LV:addr     // addresses in Latvia id, https://wiki.openstreetmap.org/wiki/Key:ref:LV:addr
